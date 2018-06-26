@@ -8,6 +8,11 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+.container-fluid, .row, .col, .col-md-12 {
+  margin:0 !important;
+  padding:0 !important;
+}
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
