@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 11);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -71,7 +71,7 @@
 
 
 var bind = __webpack_require__(5);
-var isBuffer = __webpack_require__(19);
+var isBuffer = __webpack_require__(20);
 
 /*global toString:true*/
 
@@ -408,7 +408,7 @@ module.exports = g;
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(21);
+var normalizeHeaderName = __webpack_require__(22);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -13620,12 +13620,12 @@ process.umask = function() { return 0; };
 
 
 var utils = __webpack_require__(0);
-var settle = __webpack_require__(22);
-var buildURL = __webpack_require__(24);
-var parseHeaders = __webpack_require__(25);
-var isURLSameOrigin = __webpack_require__(26);
+var settle = __webpack_require__(23);
+var buildURL = __webpack_require__(25);
+var parseHeaders = __webpack_require__(26);
+var isURLSameOrigin = __webpack_require__(27);
 var createError = __webpack_require__(8);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(27);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(28);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -13722,7 +13722,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(28);
+      var cookies = __webpack_require__(29);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -13806,7 +13806,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(23);
+var enhanceError = __webpack_require__(24);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -13864,14 +13864,123 @@ module.exports = Cancel;
 
 /***/ }),
 /* 11 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-__webpack_require__(12);
-module.exports = __webpack_require__(43);
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file.
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier /* server only */
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = injectStyles
+  }
+
+  if (hook) {
+    var functional = options.functional
+    var existing = functional
+      ? options.render
+      : options.beforeCreate
+
+    if (!functional) {
+      // inject component registration as beforeCreate hook
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    } else {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return existing(h, context)
+      }
+    }
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
 
 
 /***/ }),
 /* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(13);
+module.exports = __webpack_require__(46);
+
+
+/***/ }),
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -13881,9 +13990,9 @@ module.exports = __webpack_require__(43);
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(13);
+__webpack_require__(14);
 
-window.Vue = __webpack_require__(36);
+window.Vue = __webpack_require__(37);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -13891,18 +14000,19 @@ window.Vue = __webpack_require__(36);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(39));
+Vue.component('example-component', __webpack_require__(40));
+Vue.component('display-data', __webpack_require__(43));
 
 var app = new Vue({
   el: '#app'
 });
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-window._ = __webpack_require__(14);
+window._ = __webpack_require__(15);
 window.Popper = __webpack_require__(3).default;
 
 /**
@@ -13914,7 +14024,7 @@ window.Popper = __webpack_require__(3).default;
 try {
   window.$ = window.jQuery = __webpack_require__(4);
 
-  __webpack_require__(16);
+  __webpack_require__(17);
 } catch (e) {}
 
 /**
@@ -13923,7 +14033,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(17);
+window.axios = __webpack_require__(18);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -13959,7 +14069,7 @@ if (token) {
 // });
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -31069,10 +31179,10 @@ if (token) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(15)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(16)(module)))
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -31100,7 +31210,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -35033,13 +35143,13 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(18);
+module.exports = __webpack_require__(19);
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35047,7 +35157,7 @@ module.exports = __webpack_require__(18);
 
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(5);
-var Axios = __webpack_require__(20);
+var Axios = __webpack_require__(21);
 var defaults = __webpack_require__(2);
 
 /**
@@ -35082,14 +35192,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(10);
-axios.CancelToken = __webpack_require__(34);
+axios.CancelToken = __webpack_require__(35);
 axios.isCancel = __webpack_require__(9);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(35);
+axios.spread = __webpack_require__(36);
 
 module.exports = axios;
 
@@ -35098,7 +35208,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports) {
 
 /*!
@@ -35125,7 +35235,7 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35133,8 +35243,8 @@ function isSlowBuffer (obj) {
 
 var defaults = __webpack_require__(2);
 var utils = __webpack_require__(0);
-var InterceptorManager = __webpack_require__(29);
-var dispatchRequest = __webpack_require__(30);
+var InterceptorManager = __webpack_require__(30);
+var dispatchRequest = __webpack_require__(31);
 
 /**
  * Create a new instance of Axios
@@ -35211,7 +35321,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35230,7 +35340,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35263,7 +35373,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35291,7 +35401,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35364,7 +35474,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35424,7 +35534,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35499,7 +35609,7 @@ module.exports = (
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35542,7 +35652,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35602,7 +35712,7 @@ module.exports = (
 
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35661,18 +35771,18 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(0);
-var transformData = __webpack_require__(31);
+var transformData = __webpack_require__(32);
 var isCancel = __webpack_require__(9);
 var defaults = __webpack_require__(2);
-var isAbsoluteURL = __webpack_require__(32);
-var combineURLs = __webpack_require__(33);
+var isAbsoluteURL = __webpack_require__(33);
+var combineURLs = __webpack_require__(34);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -35754,7 +35864,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35781,7 +35891,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35802,7 +35912,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35823,7 +35933,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35887,7 +35997,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35921,7 +36031,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46884,10 +46994,10 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(37).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(38).setImmediate))
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -46943,7 +47053,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(38);
+__webpack_require__(39);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -46957,7 +47067,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -47150,11 +47260,11 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(6)))
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(40)
+var normalizeComponent = __webpack_require__(11)
 /* script */
 var __vue_script__ = __webpack_require__(41)
 /* template */
@@ -47194,115 +47304,6 @@ if (false) {(function () {
 })()}
 
 module.exports = Component.exports
-
-
-/***/ }),
-/* 40 */
-/***/ (function(module, exports) {
-
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file.
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-module.exports = function normalizeComponent (
-  rawScriptExports,
-  compiledTemplate,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier /* server only */
-) {
-  var esModule
-  var scriptExports = rawScriptExports = rawScriptExports || {}
-
-  // ES6 modules interop
-  var type = typeof rawScriptExports.default
-  if (type === 'object' || type === 'function') {
-    esModule = rawScriptExports
-    scriptExports = rawScriptExports.default
-  }
-
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (compiledTemplate) {
-    options.render = compiledTemplate.render
-    options.staticRenderFns = compiledTemplate.staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = injectStyles
-  }
-
-  if (hook) {
-    var functional = options.functional
-    var existing = functional
-      ? options.render
-      : options.beforeCreate
-
-    if (!functional) {
-      // inject component registration as beforeCreate hook
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    } else {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return existing(h, context)
-      }
-    }
-  }
-
-  return {
-    esModule: esModule,
-    exports: scriptExports,
-    options: options
-  }
-}
 
 
 /***/ }),
@@ -47379,9 +47380,1181 @@ if (false) {
 
 /***/ }),
 /* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(11)
+/* script */
+var __vue_script__ = __webpack_require__(44)
+/* template */
+var __vue_template__ = __webpack_require__(45)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\DisplayData.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-06af3836", Component.options)
+  } else {
+    hotAPI.reload("data-v-06af3836", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 44 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__json_data_json__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__json_data_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__json_data_json__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            jsonData: __WEBPACK_IMPORTED_MODULE_0__json_data_json___default.a,
+            viewMode: true,
+            isEditing: false
+        };
+    },
+
+
+    methods: {
+        toggleEdit: function toggleEdit() {
+            this.isEditing = true, this.viewMode = false;
+        },
+        toggleView: function toggleView() {
+            this.viewMode = true, this.isEditing = false;
+        }
+    }
+});
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "table-responsive" }, [
+    _c(
+      "table",
+      {
+        staticClass: "table table-light table-bordered table-striped table-sm"
+      },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.jsonData, function(data) {
+            return _c("tr", { key: data.index }, [
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(data.NO) +
+                        "\n                "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
+                      on: {
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          return _vm.toggleView($event)
+                        }
+                      }
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: data.NO,
+                            expression: "data.NO"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: { value: data.NO },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(data, "NO", $event.target.value)
+                          }
+                        }
+                      })
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(data.BULAN) +
+                        "\n                "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
+                      on: {
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          return _vm.toggleView($event)
+                        }
+                      }
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: data.BULAN,
+                            expression: "data.BULAN"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: { value: data.BULAN },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(data, "BULAN", $event.target.value)
+                          }
+                        }
+                      })
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(data.ESTIMASI_TANGGAL_OPENING) +
+                        "\n                "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
+                      on: {
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          return _vm.toggleView($event)
+                        }
+                      }
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: data.ESTIMASI_TANGGAL_OPENING,
+                            expression: "data.ESTIMASI_TANGGAL_OPENING"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: { value: data.ESTIMASI_TANGGAL_OPENING },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              data,
+                              "ESTIMASI_TANGGAL_OPENING",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(data.NAMA_ATAU_LOKASI_STORE) +
+                        "\n                "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
+                      on: {
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          return _vm.toggleView($event)
+                        }
+                      }
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: data.NAMA_ATAU_LOKASI_STORE,
+                            expression: "data.NAMA_ATAU_LOKASI_STORE"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: { value: data.NAMA_ATAU_LOKASI_STORE },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              data,
+                              "NAMA_ATAU_LOKASI_STORE",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(data.PEMILIK_STORE) +
+                        "\n                "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
+                      on: {
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          return _vm.toggleView($event)
+                        }
+                      }
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: data.PEMILIK_STORE,
+                            expression: "data.PEMILIK_STORE"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: { value: data.PEMILIK_STORE },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(data, "PEMILIK_STORE", $event.target.value)
+                          }
+                        }
+                      })
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(data.INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI) +
+                        "\n                "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
+                      on: {
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          return _vm.toggleView($event)
+                        }
+                      }
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: data.INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI,
+                            expression:
+                              "data.INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: {
+                          value: data.INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              data,
+                              "INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(
+                          data.LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI
+                        ) +
+                        "\n                "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
+                      on: {
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          return _vm.toggleView($event)
+                        }
+                      }
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value:
+                              data.LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI,
+                            expression:
+                              "data.LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: {
+                          value:
+                            data.LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              data,
+                              "LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(data.FIT_OUT) +
+                        "\n                "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
+                      on: {
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          return _vm.toggleView($event)
+                        }
+                      }
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: data.FIT_OUT,
+                            expression: "data.FIT_OUT"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: { value: data.FIT_OUT },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(data, "FIT_OUT", $event.target.value)
+                          }
+                        }
+                      })
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(data.TRAINING) +
+                        "\n                "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
+                      on: {
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          return _vm.toggleView($event)
+                        }
+                      }
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: data.TRAINING,
+                            expression: "data.TRAINING"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: { value: data.TRAINING },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(data, "TRAINING", $event.target.value)
+                          }
+                        }
+                      })
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(data.PREPARE_BARANG) +
+                        "\n                "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
+                      on: {
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          return _vm.toggleView($event)
+                        }
+                      }
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: data.PREPARE_BARANG,
+                            expression: "data.PREPARE_BARANG"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: { value: data.PREPARE_BARANG },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              data,
+                              "PREPARE_BARANG",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(data.EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE) +
+                        "\n                "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
+                      on: {
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          return _vm.toggleView($event)
+                        }
+                      }
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: data.EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE,
+                            expression:
+                              "data.EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: {
+                          value: data.EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              data,
+                              "EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(data.GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE) +
+                        "\n                "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
+                      on: {
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          return _vm.toggleView($event)
+                        }
+                      }
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value:
+                              data.GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE,
+                            expression:
+                              "data.GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: {
+                          value: data.GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              data,
+                              "GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(data.OPENING) +
+                        "\n                "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
+                      on: {
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          return _vm.toggleView($event)
+                        }
+                      }
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: data.OPENING,
+                            expression: "data.OPENING"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: { value: data.OPENING },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(data, "OPENING", $event.target.value)
+                          }
+                        }
+                      })
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(data.KETERANGAN_JIKA_ADA_PERUBAHAN) +
+                        "\n                "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
+                      on: {
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          return _vm.toggleView($event)
+                        }
+                      }
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: data.KETERANGAN_JIKA_ADA_PERUBAHAN,
+                            expression: "data.KETERANGAN_JIKA_ADA_PERUBAHAN"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: { value: data.KETERANGAN_JIKA_ADA_PERUBAHAN },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              data,
+                              "KETERANGAN_JIKA_ADA_PERUBAHAN",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]
+                  )
+                : _vm._e()
+            ])
+          })
+        )
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("NO")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("BULAN")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("ESTIMASI TANGGAL OPENING")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("NAMA / LOKASI STORE")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("PEMILIK STORE")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]),
+        _vm._v(" "),
+        _c("th", [
+          _vm._v("LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI")
+        ]),
+        _vm._v(" "),
+        _c("th", [_vm._v("FIT OUT")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("TRAINING")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("PREPARE BARANG")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("OPENING")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")])
+      ]),
+      _vm._v(" "),
+      _c("tr", [
+        _c("th", { attrs: { colspan: "5" } }, [_vm._v("DARI PROJECT")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("H-44")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("H-32")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("H-22")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("H-21")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("H-8")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("H-3")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("H-2")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("H")]),
+        _vm._v(" "),
+        _c("th")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-06af3836", module.exports)
+  }
+}
+
+/***/ }),
+/* 46 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */
+/***/ (function(module, exports) {
+
+module.exports = [{"NO":"1","BULAN":"MARET","ESTIMASI_TANGGAL_OPENING":"23-Mar","NAMA_ATAU_LOKASI_STORE":"Outlet Mall Kelapa Gading","PEMILIK_STORE":"Kerjasama (Pak Donny Pak Vito & Gisel)","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"7-Feb","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"19-Feb","FIT_OUT":"1-Mar","TRAINING":"2-Mar","PREPARE_BARANG":"15-Mar","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"20-Mar","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"21-Mar","OPENING":"23-Mar","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"2","BULAN":"","ESTIMASI_TANGGAL_OPENING":"27-Apr","NAMA_ATAU_LOKASI_STORE":"Outlet Pacific Place","PEMILIK_STORE":"milik PT TKI","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"14-Mar","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"26-Mar","FIT_OUT":"5-Apr","TRAINING":"6-Apr","PREPARE_BARANG":"19-Apr","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"24-Apr","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"25-Apr","OPENING":"27-Apr","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"3","BULAN":"","ESTIMASI_TANGGAL_OPENING":"8-May","NAMA_ATAU_LOKASI_STORE":"Booth Cibinong City Mall","PEMILIK_STORE":"Lisensi Satuan (Irvandi)","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"25-Mar","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"6-Apr","FIT_OUT":"16-Apr","TRAINING":"17-Apr","PREPARE_BARANG":"30-Apr","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"5-May","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"6-May","OPENING":"8-May","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"4","BULAN":"","ESTIMASI_TANGGAL_OPENING":"11-May","NAMA_ATAU_LOKASI_STORE":"Outlet Duren Sawit","PEMILIK_STORE":"Lisensi Paket 3 (Nurul)","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"28-Mar","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"9-Apr","FIT_OUT":"19-Apr","TRAINING":"20-Apr","PREPARE_BARANG":"3-May","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"8-May","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"9-May","OPENING":"11-May","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"5","BULAN":"","ESTIMASI_TANGGAL_OPENING":"14-May","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"31-Mar","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"12-Apr","FIT_OUT":"22-Apr","TRAINING":"23-Apr","PREPARE_BARANG":"6-May","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"11-May","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"12-May","OPENING":"14-May","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"6","BULAN":"","ESTIMASI_TANGGAL_OPENING":"17-May","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"3-Apr","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"15-Apr","FIT_OUT":"25-Apr","TRAINING":"26-Apr","PREPARE_BARANG":"9-May","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"14-May","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"15-May","OPENING":"17-May","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"7","BULAN":"","ESTIMASI_TANGGAL_OPENING":"20-May","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"6-Apr","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"18-Apr","FIT_OUT":"28-Apr","TRAINING":"29-Apr","PREPARE_BARANG":"12-May","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"17-May","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"18-May","OPENING":"20-May","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"8","BULAN":"","ESTIMASI_TANGGAL_OPENING":"25-May","NAMA_ATAU_LOKASI_STORE":"Outlet Gandaria City","PEMILIK_STORE":"Lisensi Satuan (Darwis)","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"11-Apr","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"23-Apr","FIT_OUT":"3-May","TRAINING":"4-May","PREPARE_BARANG":"17-May","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"22-May","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"23-May","OPENING":"25-May","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"9","BULAN":"","ESTIMASI_TANGGAL_OPENING":"26-May","NAMA_ATAU_LOKASI_STORE":"Booth Stasiun Tanah Abang","PEMILIK_STORE":"Lisensi Satuan","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"12-Apr","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"24-Apr","FIT_OUT":"4-May","TRAINING":"5-May","PREPARE_BARANG":"18-May","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"23-May","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"24-May","OPENING":"26-May","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"10","BULAN":"","ESTIMASI_TANGGAL_OPENING":"29-May","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"15-Apr","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"27-Apr","FIT_OUT":"7-May","TRAINING":"8-May","PREPARE_BARANG":"21-May","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"26-May","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"27-May","OPENING":"29-May","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"1","BULAN":"JUNI","ESTIMASI_TANGGAL_OPENING":"1-Jun","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"18-Apr","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"30-Apr","FIT_OUT":"10-May","TRAINING":"11-May","PREPARE_BARANG":"24-May","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"29-May","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"30-May","OPENING":"1-Jun","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"2","BULAN":"","ESTIMASI_TANGGAL_OPENING":"4-Jun","NAMA_ATAU_LOKASI_STORE":"Outlet Emporium Mall","PEMILIK_STORE":"milik PT TKI","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"21-Apr","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"3-May","FIT_OUT":"13-May","TRAINING":"14-May","PREPARE_BARANG":"27-May","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"1-Jun","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"2-Jun","OPENING":"4-Jun","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"3","BULAN":"","ESTIMASI_TANGGAL_OPENING":"7-Jun","NAMA_ATAU_LOKASI_STORE":"Booth Flavour Bliss","PEMILIK_STORE":"Lisensi Satuan","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"24-Apr","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"6-May","FIT_OUT":"16-May","TRAINING":"17-May","PREPARE_BARANG":"30-May","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"4-Jun","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"5-Jun","OPENING":"7-Jun","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"4","BULAN":"","ESTIMASI_TANGGAL_OPENING":"10-Jun","NAMA_ATAU_LOKASI_STORE":"Outlet Grand Indonesia","PEMILIK_STORE":"milik PT TKI","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"27-Apr","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"9-May","FIT_OUT":"19-May","TRAINING":"20-May","PREPARE_BARANG":"2-Jun","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"7-Jun","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"8-Jun","OPENING":"10-Jun","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"1","BULAN":"JULI","ESTIMASI_TANGGAL_OPENING":"3-Jul","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"20-May","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"1-Jun","FIT_OUT":"11-Jun","TRAINING":"12-Jun","PREPARE_BARANG":"25-Jun","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"30-Jun","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"1-Jul","OPENING":"3-Jul","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"2","BULAN":"","ESTIMASI_TANGGAL_OPENING":"6-Jul","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"23-May","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"4-Jun","FIT_OUT":"14-Jun","TRAINING":"15-Jun","PREPARE_BARANG":"28-Jun","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"3-Jul","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"4-Jul","OPENING":"6-Jul","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"3","BULAN":"","ESTIMASI_TANGGAL_OPENING":"9-Jul","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"26-May","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"7-Jun","FIT_OUT":"17-Jun","TRAINING":"18-Jun","PREPARE_BARANG":"1-Jul","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"6-Jul","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"7-Jul","OPENING":"9-Jul","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"4","BULAN":"","ESTIMASI_TANGGAL_OPENING":"12-Jul","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"29-May","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"10-Jun","FIT_OUT":"20-Jun","TRAINING":"21-Jun","PREPARE_BARANG":"4-Jul","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"9-Jul","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"10-Jul","OPENING":"12-Jul","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"5","BULAN":"","ESTIMASI_TANGGAL_OPENING":"15-Jul","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"1-Jun","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"13-Jun","FIT_OUT":"23-Jun","TRAINING":"24-Jun","PREPARE_BARANG":"7-Jul","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"12-Jul","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"13-Jul","OPENING":"15-Jul","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"6","BULAN":"","ESTIMASI_TANGGAL_OPENING":"18-Jul","NAMA_ATAU_LOKASI_STORE":"Booth Universitas Tarumanegara","PEMILIK_STORE":"Lisensi Satuan","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"4-Jun","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"16-Jun","FIT_OUT":"26-Jun","TRAINING":"27-Jun","PREPARE_BARANG":"10-Jul","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"15-Jul","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"16-Jul","OPENING":"18-Jul","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"7","BULAN":"","ESTIMASI_TANGGAL_OPENING":"21-Jul","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"7-Jun","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"19-Jun","FIT_OUT":"29-Jun","TRAINING":"30-Jun","PREPARE_BARANG":"13-Jul","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"18-Jul","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"19-Jul","OPENING":"21-Jul","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"8","BULAN":"","ESTIMASI_TANGGAL_OPENING":"24-Jul","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"10-Jun","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"22-Jun","FIT_OUT":"2-Jul","TRAINING":"3-Jul","PREPARE_BARANG":"16-Jul","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"21-Jul","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"22-Jul","OPENING":"24-Jul","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"9","BULAN":"","ESTIMASI_TANGGAL_OPENING":"27-Jul","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"13-Jun","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"25-Jun","FIT_OUT":"5-Jul","TRAINING":"6-Jul","PREPARE_BARANG":"19-Jul","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"24-Jul","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"25-Jul","OPENING":"27-Jul","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"10","BULAN":"","ESTIMASI_TANGGAL_OPENING":"30-Jul","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"16-Jun","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"28-Jun","FIT_OUT":"8-Jul","TRAINING":"9-Jul","PREPARE_BARANG":"22-Jul","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"27-Jul","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"28-Jul","OPENING":"30-Jul","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"1","BULAN":"AGUSTUS","ESTIMASI_TANGGAL_OPENING":"2-Aug","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"19-Jun","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"1-Jul","FIT_OUT":"11-Jul","TRAINING":"12-Jul","PREPARE_BARANG":"25-Jul","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"30-Jul","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"31-Jul","OPENING":"2-Aug","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"2","BULAN":"","ESTIMASI_TANGGAL_OPENING":"5-Aug","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"22-Jun","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"4-Jul","FIT_OUT":"14-Jul","TRAINING":"15-Jul","PREPARE_BARANG":"28-Jul","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"2-Aug","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"3-Aug","OPENING":"5-Aug","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"3","BULAN":"","ESTIMASI_TANGGAL_OPENING":"8-Aug","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"25-Jun","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"7-Jul","FIT_OUT":"17-Jul","TRAINING":"18-Jul","PREPARE_BARANG":"31-Jul","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"5-Aug","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"6-Aug","OPENING":"8-Aug","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"4","BULAN":"","ESTIMASI_TANGGAL_OPENING":"11-Aug","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"28-Jun","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"10-Jul","FIT_OUT":"20-Jul","TRAINING":"21-Jul","PREPARE_BARANG":"3-Aug","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"8-Aug","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"9-Aug","OPENING":"11-Aug","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"5","BULAN":"","ESTIMASI_TANGGAL_OPENING":"14-Aug","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"1-Jul","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"13-Jul","FIT_OUT":"23-Jul","TRAINING":"24-Jul","PREPARE_BARANG":"6-Aug","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"11-Aug","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"12-Aug","OPENING":"14-Aug","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"6","BULAN":"","ESTIMASI_TANGGAL_OPENING":"17-Aug","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"4-Jul","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"16-Jul","FIT_OUT":"26-Jul","TRAINING":"27-Jul","PREPARE_BARANG":"9-Aug","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"14-Aug","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"15-Aug","OPENING":"17-Aug","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"7","BULAN":"","ESTIMASI_TANGGAL_OPENING":"20-Aug","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"7-Jul","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"19-Jul","FIT_OUT":"29-Jul","TRAINING":"30-Jul","PREPARE_BARANG":"12-Aug","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"17-Aug","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"18-Aug","OPENING":"20-Aug","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"8","BULAN":"","ESTIMASI_TANGGAL_OPENING":"23-Aug","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"10-Jul","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"22-Jul","FIT_OUT":"1-Aug","TRAINING":"2-Aug","PREPARE_BARANG":"15-Aug","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"20-Aug","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"21-Aug","OPENING":"23-Aug","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"9","BULAN":"","ESTIMASI_TANGGAL_OPENING":"26-Aug","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"13-Jul","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"25-Jul","FIT_OUT":"4-Aug","TRAINING":"5-Aug","PREPARE_BARANG":"18-Aug","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"23-Aug","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"24-Aug","OPENING":"26-Aug","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"10","BULAN":"","ESTIMASI_TANGGAL_OPENING":"29-Aug","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"16-Jul","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"28-Jul","FIT_OUT":"7-Aug","TRAINING":"8-Aug","PREPARE_BARANG":"21-Aug","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"26-Aug","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"27-Aug","OPENING":"29-Aug","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"1","BULAN":"SEPTEMBER","ESTIMASI_TANGGAL_OPENING":"1-Sep","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"19-Jul","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"31-Jul","FIT_OUT":"10-Aug","TRAINING":"11-Aug","PREPARE_BARANG":"24-Aug","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"29-Aug","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"30-Aug","OPENING":"1-Sep","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"2","BULAN":"","ESTIMASI_TANGGAL_OPENING":"4-Sep","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"22-Jul","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"3-Aug","FIT_OUT":"13-Aug","TRAINING":"14-Aug","PREPARE_BARANG":"27-Aug","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"1-Sep","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"2-Sep","OPENING":"4-Sep","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"3","BULAN":"","ESTIMASI_TANGGAL_OPENING":"7-Sep","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"25-Jul","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"6-Aug","FIT_OUT":"16-Aug","TRAINING":"17-Aug","PREPARE_BARANG":"30-Aug","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"4-Sep","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"5-Sep","OPENING":"7-Sep","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"4","BULAN":"","ESTIMASI_TANGGAL_OPENING":"10-Sep","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"28-Jul","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"9-Aug","FIT_OUT":"19-Aug","TRAINING":"20-Aug","PREPARE_BARANG":"2-Sep","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"7-Sep","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"8-Sep","OPENING":"10-Sep","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"5","BULAN":"","ESTIMASI_TANGGAL_OPENING":"13-Sep","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"31-Jul","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"12-Aug","FIT_OUT":"22-Aug","TRAINING":"23-Aug","PREPARE_BARANG":"5-Sep","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"10-Sep","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"11-Sep","OPENING":"13-Sep","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"6","BULAN":"","ESTIMASI_TANGGAL_OPENING":"16-Sep","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"3-Aug","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"15-Aug","FIT_OUT":"25-Aug","TRAINING":"26-Aug","PREPARE_BARANG":"8-Sep","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"13-Sep","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"14-Sep","OPENING":"16-Sep","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"7","BULAN":"","ESTIMASI_TANGGAL_OPENING":"19-Sep","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"6-Aug","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"18-Aug","FIT_OUT":"28-Aug","TRAINING":"29-Aug","PREPARE_BARANG":"11-Sep","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"16-Sep","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"17-Sep","OPENING":"19-Sep","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"8","BULAN":"","ESTIMASI_TANGGAL_OPENING":"22-Sep","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"9-Aug","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"21-Aug","FIT_OUT":"31-Aug","TRAINING":"1-Sep","PREPARE_BARANG":"14-Sep","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"19-Sep","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"20-Sep","OPENING":"22-Sep","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"9","BULAN":"","ESTIMASI_TANGGAL_OPENING":"25-Sep","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"12-Aug","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"24-Aug","FIT_OUT":"3-Sep","TRAINING":"4-Sep","PREPARE_BARANG":"17-Sep","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"22-Sep","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"23-Sep","OPENING":"25-Sep","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"10","BULAN":"","ESTIMASI_TANGGAL_OPENING":"28-Sep","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"15-Aug","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"27-Aug","FIT_OUT":"6-Sep","TRAINING":"7-Sep","PREPARE_BARANG":"20-Sep","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"25-Sep","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"26-Sep","OPENING":"28-Sep","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"1","BULAN":"OKTOBER","ESTIMASI_TANGGAL_OPENING":"1-Oct","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"18-Aug","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"30-Aug","FIT_OUT":"9-Sep","TRAINING":"10-Sep","PREPARE_BARANG":"23-Sep","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"28-Sep","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"29-Sep","OPENING":"1-Oct","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"2","BULAN":"","ESTIMASI_TANGGAL_OPENING":"4-Oct","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"21-Aug","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"2-Sep","FIT_OUT":"12-Sep","TRAINING":"13-Sep","PREPARE_BARANG":"26-Sep","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"1-Oct","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"2-Oct","OPENING":"4-Oct","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"3","BULAN":"","ESTIMASI_TANGGAL_OPENING":"7-Oct","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"24-Aug","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"5-Sep","FIT_OUT":"15-Sep","TRAINING":"16-Sep","PREPARE_BARANG":"29-Sep","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"4-Oct","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"5-Oct","OPENING":"7-Oct","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"4","BULAN":"","ESTIMASI_TANGGAL_OPENING":"10-Oct","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"27-Aug","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"8-Sep","FIT_OUT":"18-Sep","TRAINING":"19-Sep","PREPARE_BARANG":"2-Oct","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"7-Oct","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"8-Oct","OPENING":"10-Oct","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"5","BULAN":"","ESTIMASI_TANGGAL_OPENING":"13-Oct","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"30-Aug","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"11-Sep","FIT_OUT":"21-Sep","TRAINING":"22-Sep","PREPARE_BARANG":"5-Oct","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"10-Oct","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"11-Oct","OPENING":"13-Oct","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"6","BULAN":"","ESTIMASI_TANGGAL_OPENING":"16-Oct","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"2-Sep","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"14-Sep","FIT_OUT":"24-Sep","TRAINING":"25-Sep","PREPARE_BARANG":"8-Oct","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"13-Oct","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"14-Oct","OPENING":"16-Oct","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"7","BULAN":"","ESTIMASI_TANGGAL_OPENING":"19-Oct","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"5-Sep","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"17-Sep","FIT_OUT":"27-Sep","TRAINING":"28-Sep","PREPARE_BARANG":"11-Oct","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"16-Oct","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"17-Oct","OPENING":"19-Oct","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"8","BULAN":"","ESTIMASI_TANGGAL_OPENING":"22-Oct","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"8-Sep","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"20-Sep","FIT_OUT":"30-Sep","TRAINING":"1-Oct","PREPARE_BARANG":"14-Oct","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"19-Oct","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"20-Oct","OPENING":"22-Oct","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"9","BULAN":"","ESTIMASI_TANGGAL_OPENING":"25-Oct","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"11-Sep","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"23-Sep","FIT_OUT":"3-Oct","TRAINING":"4-Oct","PREPARE_BARANG":"17-Oct","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"22-Oct","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"23-Oct","OPENING":"25-Oct","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"10","BULAN":"","ESTIMASI_TANGGAL_OPENING":"28-Oct","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"14-Sep","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"26-Sep","FIT_OUT":"6-Oct","TRAINING":"7-Oct","PREPARE_BARANG":"20-Oct","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"25-Oct","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"26-Oct","OPENING":"28-Oct","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"1","BULAN":"NOVEMBER","ESTIMASI_TANGGAL_OPENING":"1-Nov","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"18-Sep","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"30-Sep","FIT_OUT":"10-Oct","TRAINING":"11-Oct","PREPARE_BARANG":"24-Oct","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"29-Oct","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"30-Oct","OPENING":"1-Nov","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"2","BULAN":"","ESTIMASI_TANGGAL_OPENING":"4-Nov","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"21-Sep","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"3-Oct","FIT_OUT":"13-Oct","TRAINING":"14-Oct","PREPARE_BARANG":"27-Oct","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"1-Nov","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"2-Nov","OPENING":"4-Nov","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"3","BULAN":"","ESTIMASI_TANGGAL_OPENING":"7-Nov","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"24-Sep","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"6-Oct","FIT_OUT":"16-Oct","TRAINING":"17-Oct","PREPARE_BARANG":"30-Oct","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"4-Nov","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"5-Nov","OPENING":"7-Nov","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"4","BULAN":"","ESTIMASI_TANGGAL_OPENING":"10-Nov","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"27-Sep","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"9-Oct","FIT_OUT":"19-Oct","TRAINING":"20-Oct","PREPARE_BARANG":"2-Nov","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"7-Nov","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"8-Nov","OPENING":"10-Nov","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"5","BULAN":"","ESTIMASI_TANGGAL_OPENING":"13-Nov","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"30-Sep","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"12-Oct","FIT_OUT":"22-Oct","TRAINING":"23-Oct","PREPARE_BARANG":"5-Nov","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"10-Nov","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"11-Nov","OPENING":"13-Nov","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"6","BULAN":"","ESTIMASI_TANGGAL_OPENING":"16-Nov","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"3-Oct","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"15-Oct","FIT_OUT":"25-Oct","TRAINING":"26-Oct","PREPARE_BARANG":"8-Nov","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"13-Nov","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"14-Nov","OPENING":"16-Nov","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"7","BULAN":"","ESTIMASI_TANGGAL_OPENING":"19-Nov","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"6-Oct","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"18-Oct","FIT_OUT":"28-Oct","TRAINING":"29-Oct","PREPARE_BARANG":"11-Nov","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"16-Nov","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"17-Nov","OPENING":"19-Nov","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"8","BULAN":"","ESTIMASI_TANGGAL_OPENING":"22-Nov","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"9-Oct","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"21-Oct","FIT_OUT":"31-Oct","TRAINING":"1-Nov","PREPARE_BARANG":"14-Nov","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"19-Nov","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"20-Nov","OPENING":"22-Nov","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"9","BULAN":"","ESTIMASI_TANGGAL_OPENING":"25-Nov","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"12-Oct","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"24-Oct","FIT_OUT":"3-Nov","TRAINING":"4-Nov","PREPARE_BARANG":"17-Nov","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"22-Nov","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"23-Nov","OPENING":"25-Nov","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"10","BULAN":"","ESTIMASI_TANGGAL_OPENING":"28-Nov","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"15-Oct","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"27-Oct","FIT_OUT":"6-Nov","TRAINING":"7-Nov","PREPARE_BARANG":"20-Nov","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"25-Nov","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"26-Nov","OPENING":"28-Nov","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"1","BULAN":"DESEMBER","ESTIMASI_TANGGAL_OPENING":"1-Dec","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"18-Oct","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"30-Oct","FIT_OUT":"9-Nov","TRAINING":"10-Nov","PREPARE_BARANG":"23-Nov","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"28-Nov","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"29-Nov","OPENING":"1-Dec","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"2","BULAN":"","ESTIMASI_TANGGAL_OPENING":"4-Dec","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"21-Oct","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"2-Nov","FIT_OUT":"12-Nov","TRAINING":"13-Nov","PREPARE_BARANG":"26-Nov","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"1-Dec","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"2-Dec","OPENING":"4-Dec","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"3","BULAN":"","ESTIMASI_TANGGAL_OPENING":"7-Dec","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"24-Oct","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"5-Nov","FIT_OUT":"15-Nov","TRAINING":"16-Nov","PREPARE_BARANG":"29-Nov","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"4-Dec","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"5-Dec","OPENING":"7-Dec","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"4","BULAN":"","ESTIMASI_TANGGAL_OPENING":"10-Dec","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"27-Oct","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"8-Nov","FIT_OUT":"18-Nov","TRAINING":"19-Nov","PREPARE_BARANG":"2-Dec","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"7-Dec","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"8-Dec","OPENING":"10-Dec","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"5","BULAN":"","ESTIMASI_TANGGAL_OPENING":"13-Dec","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"30-Oct","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"11-Nov","FIT_OUT":"21-Nov","TRAINING":"22-Nov","PREPARE_BARANG":"5-Dec","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"10-Dec","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"11-Dec","OPENING":"13-Dec","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"6","BULAN":"","ESTIMASI_TANGGAL_OPENING":"16-Dec","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"2-Nov","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"14-Nov","FIT_OUT":"24-Nov","TRAINING":"25-Nov","PREPARE_BARANG":"8-Dec","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"13-Dec","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"14-Dec","OPENING":"16-Dec","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"7","BULAN":"","ESTIMASI_TANGGAL_OPENING":"19-Dec","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"5-Nov","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"17-Nov","FIT_OUT":"27-Nov","TRAINING":"28-Nov","PREPARE_BARANG":"11-Dec","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"16-Dec","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"17-Dec","OPENING":"19-Dec","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"8","BULAN":"","ESTIMASI_TANGGAL_OPENING":"22-Dec","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"8-Nov","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"20-Nov","FIT_OUT":"30-Nov","TRAINING":"1-Dec","PREPARE_BARANG":"14-Dec","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"19-Dec","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"20-Dec","OPENING":"22-Dec","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"9","BULAN":"","ESTIMASI_TANGGAL_OPENING":"28-Dec","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"14-Nov","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"26-Nov","FIT_OUT":"6-Dec","TRAINING":"7-Dec","PREPARE_BARANG":"20-Dec","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"25-Dec","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"26-Dec","OPENING":"28-Dec","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"10","BULAN":"","ESTIMASI_TANGGAL_OPENING":"31-Dec","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"17-Nov","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"29-Nov","FIT_OUT":"9-Dec","TRAINING":"10-Dec","PREPARE_BARANG":"23-Dec","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"28-Dec","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"29-Dec","OPENING":"31-Dec","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"","BULAN":"Kode :","ESTIMASI_TANGGAL_OPENING":"","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"","FIT_OUT":"","TRAINING":"","PREPARE_BARANG":"","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"","OPENING":"","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"","BULAN":"PUTIH","ESTIMASI_TANGGAL_OPENING":"BELUM DIKERJAKAN","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"","FIT_OUT":"","TRAINING":"","PREPARE_BARANG":"","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"","OPENING":"","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"","BULAN":"KUNING","ESTIMASI_TANGGAL_OPENING":"ON PROGRESS (ADA KENDALA)","NAMA_ATAU_LOKASI_STORE":"","PEMILIK_STORE":"","INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI":"","LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI":"","FIT_OUT":"","TRAINING":"","PREPARE_BARANG":"","EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE":"","GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE":"","OPENING":"","KETERANGAN_JIKA_ADA_PERUBAHAN":"","viewMode":true,"isEditing":false},{"NO":"","BULAN":"HIJAU","ESTIMASI_TANGGAL_OPENING":"SUDAH DIKERJAKAN"},{"NO":""}]
 
 /***/ })
 /******/ ]);
