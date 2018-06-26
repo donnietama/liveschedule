@@ -1,6 +1,6 @@
 <template>
     <div class="table-responsive">
-        <table class="table table-light table-bordered table-striped table-sm">
+        <table class="table table-light table-bordered table-striped">
             <thead>
                 <tr>
                     <th>NO</th>
@@ -31,7 +31,7 @@
                     <th></th>
                 </tr>          
             </thead>
-            <tbody>
+            <tbody class="table-sm">
                 <tr v-for="data in jsonData"
                     :key="data.index">
                     <td v-if="viewMode" @click="toggleEdit">
@@ -125,7 +125,7 @@
 </template>
 
 <script>
-import json from '../json/data.json'
+import json from '../../../../public/newfile.json'
 export default {
     data() {
         return {
@@ -143,6 +143,8 @@ export default {
         toggleView() {
             this.viewMode = true,
             this.isEditing = false
+
+            axios.post('http://localhost:8000', this.jsonData)
         }
     }
 }
