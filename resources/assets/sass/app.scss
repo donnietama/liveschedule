@@ -43,7 +43,7 @@ thead {
   top: 10em;
   position: relative;
   box-sizing: border-box;
-  animation: marquee 90s linear infinite;
+  animation: marquee 90s linear infinite; // default 90s
 }
 
 .marquee:hover {
@@ -53,6 +53,6 @@ thead {
 /* Make it move! */
 @keyframes marquee {
   0%   { top:   35% }
-  100% { top: -102% }
+  100% { top: -100% }
 }
 
