@@ -18,32 +18,18 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-table {
+tbody {
+  display:block;
+  height:90vh;
+  overflow:auto;
+}
+thead, tbody tr {
+  display:table;
+  width:100%;
+  table-layout:fixed;
+  vertical-align: middle;
   text-align: center;
-  thead {
-    th {
-      vertical-align: middle !important;
-      white-space: nowrap; width: 1%;
-    }
-  }
-  tbody {
-    text-transform: capitalize;
-    td {
-      white-space: nowrap; width: 1%;
-    }
-  }
 }
-
-.view {
-  display: block;
-}
-.hide-view-mode {
-  display: none;
-}
-
-.edit {
-  display: block;
-}
-.hide-edit-mode {
-  display: none;
+thead {
+  width: 100%;
 }

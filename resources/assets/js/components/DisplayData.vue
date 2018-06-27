@@ -1,7 +1,7 @@
 <template>
     <div class="table-responsive">
-        <table class="table table-light table-bordered table-striped">
-            <thead>
+        <table class="table table-light table-bordered">
+            <thead class="thead-light" @click="toggleView">
                 <tr>
                     <th>NO</th>
                     <th>BULAN</th>
