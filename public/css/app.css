@@ -10411,6 +10411,10 @@ a.text-dark:focus {
   }
 }
 
+* {
+  overflow: hidden !important;
+}
+
 .container-fluid,
 .row,
 .col,
@@ -10427,8 +10431,7 @@ a.text-dark:focus {
 
 tbody {
   display: block;
-  height: 90vh;
-  overflow: auto;
+  height: 250vh;
 }
 
 thead,
@@ -10442,5 +10445,42 @@ tbody tr {
 
 thead {
   width: 100%;
+  z-index: 9999 !important;
+}
+
+.marquee {
+  top: 10em;
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-animation: marquee 90s linear infinite;
+          animation: marquee 90s linear infinite;
+}
+
+.marquee:hover {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+/* Make it move! */
+
+@-webkit-keyframes marquee {
+  0% {
+    top: 35%;
+  }
+
+  100% {
+    top: -102%;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    top: 35%;
+  }
+
+  100% {
+    top: -102%;
+  }
 }
 

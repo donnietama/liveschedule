@@ -8,6 +8,10 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+* {
+  overflow:hidden !important;
+}
+
 .container-fluid, .row, .col, .col-md-12 {
   margin:0 !important;
   padding:0 !important;
@@ -20,8 +24,7 @@
 
 tbody {
   display:block;
-  height:90vh;
-  overflow:auto;
+  height: 250vh;
 }
 thead, tbody tr {
   display:table;
@@ -32,4 +35,24 @@ thead, tbody tr {
 }
 thead {
   width: 100%;
+  z-index: 9999 !important;
 }
+
+
+.marquee {
+  top: 10em;
+  position: relative;
+  box-sizing: border-box;
+  animation: marquee 90s linear infinite;
+}
+
+.marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Make it move! */
+@keyframes marquee {
+  0%   { top:   35% }
+  100% { top: -102% }
+}
+

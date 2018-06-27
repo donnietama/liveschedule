@@ -47559,6 +47559,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -47598,876 +47600,883 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "table-responsive" }, [
-    _c("table", { staticClass: "table table-light table-bordered" }, [
+    _c("table", { staticClass: "table table-light" }, [
       _c(
         "thead",
         { staticClass: "thead-light", on: { click: _vm.toggleView } },
         [_vm._m(0), _vm._v(" "), _vm._m(1)]
       ),
       _vm._v(" "),
-      _c(
-        "tbody",
-        { staticClass: "table-sm" },
-        _vm._l(_vm.jsonData, function(data) {
-          return _c("tr", { key: data.index }, [
-            _vm.viewMode
-              ? _c("td", { on: { click: _vm.toggleEdit } }, [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(data.NO) +
-                      "\n                "
-                  )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.isEditing
-              ? _c(
-                  "td",
-                  {
-                    on: {
-                      keyup: function($event) {
-                        if (
-                          !("button" in $event) &&
-                          _vm._k(
-                            $event.keyCode,
-                            "enter",
-                            13,
-                            $event.key,
-                            "Enter"
-                          )
-                        ) {
-                          return null
-                        }
-                        return _vm.toggleView($event)
-                      }
-                    }
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: data.NO,
-                          expression: "data.NO"
-                        }
-                      ],
-                      staticClass: "form-control form-control-sm",
-                      attrs: { type: "text" },
-                      domProps: { value: data.NO },
+      _c("tbody", { staticClass: "table-sm" }, [
+        _c(
+          "div",
+          { staticClass: "marquee" },
+          _vm._l(_vm.jsonData, function(data) {
+            return _c("tr", { key: data.index }, [
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(data.NO) +
+                        "\n                    "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
                       on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
                           }
-                          _vm.$set(data, "NO", $event.target.value)
+                          return _vm.toggleView($event)
                         }
                       }
-                    })
-                  ]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.viewMode
-              ? _c("td", { on: { click: _vm.toggleEdit } }, [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(data.BULAN) +
-                      "\n                "
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: data.NO,
+                            expression: "data.NO"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: { value: data.NO },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(data, "NO", $event.target.value)
+                          }
+                        }
+                      })
+                    ]
                   )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.isEditing
-              ? _c(
-                  "td",
-                  {
-                    on: {
-                      keyup: function($event) {
-                        if (
-                          !("button" in $event) &&
-                          _vm._k(
-                            $event.keyCode,
-                            "enter",
-                            13,
-                            $event.key,
-                            "Enter"
-                          )
-                        ) {
-                          return null
-                        }
-                        return _vm.toggleView($event)
-                      }
-                    }
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: data.BULAN,
-                          expression: "data.BULAN"
-                        }
-                      ],
-                      staticClass: "form-control form-control-sm",
-                      attrs: { type: "text" },
-                      domProps: { value: data.BULAN },
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(data.BULAN) +
+                        "\n                    "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
                       on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
                           }
-                          _vm.$set(data, "BULAN", $event.target.value)
+                          return _vm.toggleView($event)
                         }
                       }
-                    })
-                  ]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.viewMode
-              ? _c("td", { on: { click: _vm.toggleEdit } }, [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(data.ESTIMASI_TANGGAL_OPENING) +
-                      "\n                "
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: data.BULAN,
+                            expression: "data.BULAN"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: { value: data.BULAN },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(data, "BULAN", $event.target.value)
+                          }
+                        }
+                      })
+                    ]
                   )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.isEditing
-              ? _c(
-                  "td",
-                  {
-                    on: {
-                      keyup: function($event) {
-                        if (
-                          !("button" in $event) &&
-                          _vm._k(
-                            $event.keyCode,
-                            "enter",
-                            13,
-                            $event.key,
-                            "Enter"
-                          )
-                        ) {
-                          return null
-                        }
-                        return _vm.toggleView($event)
-                      }
-                    }
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: data.ESTIMASI_TANGGAL_OPENING,
-                          expression: "data.ESTIMASI_TANGGAL_OPENING"
-                        }
-                      ],
-                      staticClass: "form-control form-control-sm",
-                      attrs: { type: "text" },
-                      domProps: { value: data.ESTIMASI_TANGGAL_OPENING },
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(data.ESTIMASI_TANGGAL_OPENING) +
+                        "\n                    "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
                       on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
                           }
-                          _vm.$set(
-                            data,
-                            "ESTIMASI_TANGGAL_OPENING",
-                            $event.target.value
-                          )
+                          return _vm.toggleView($event)
                         }
                       }
-                    })
-                  ]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.viewMode
-              ? _c("td", { on: { click: _vm.toggleEdit } }, [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(data.NAMA_ATAU_LOKASI_STORE) +
-                      "\n                "
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: data.ESTIMASI_TANGGAL_OPENING,
+                            expression: "data.ESTIMASI_TANGGAL_OPENING"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: { value: data.ESTIMASI_TANGGAL_OPENING },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              data,
+                              "ESTIMASI_TANGGAL_OPENING",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]
                   )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.isEditing
-              ? _c(
-                  "td",
-                  {
-                    on: {
-                      keyup: function($event) {
-                        if (
-                          !("button" in $event) &&
-                          _vm._k(
-                            $event.keyCode,
-                            "enter",
-                            13,
-                            $event.key,
-                            "Enter"
-                          )
-                        ) {
-                          return null
-                        }
-                        return _vm.toggleView($event)
-                      }
-                    }
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: data.NAMA_ATAU_LOKASI_STORE,
-                          expression: "data.NAMA_ATAU_LOKASI_STORE"
-                        }
-                      ],
-                      staticClass: "form-control form-control-sm",
-                      attrs: { type: "text" },
-                      domProps: { value: data.NAMA_ATAU_LOKASI_STORE },
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(data.NAMA_ATAU_LOKASI_STORE) +
+                        "\n                    "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
                       on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
                           }
-                          _vm.$set(
-                            data,
-                            "NAMA_ATAU_LOKASI_STORE",
-                            $event.target.value
-                          )
+                          return _vm.toggleView($event)
                         }
                       }
-                    })
-                  ]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.viewMode
-              ? _c("td", { on: { click: _vm.toggleEdit } }, [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(data.PEMILIK_STORE) +
-                      "\n                "
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: data.NAMA_ATAU_LOKASI_STORE,
+                            expression: "data.NAMA_ATAU_LOKASI_STORE"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: { value: data.NAMA_ATAU_LOKASI_STORE },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              data,
+                              "NAMA_ATAU_LOKASI_STORE",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]
                   )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.isEditing
-              ? _c(
-                  "td",
-                  {
-                    on: {
-                      keyup: function($event) {
-                        if (
-                          !("button" in $event) &&
-                          _vm._k(
-                            $event.keyCode,
-                            "enter",
-                            13,
-                            $event.key,
-                            "Enter"
-                          )
-                        ) {
-                          return null
-                        }
-                        return _vm.toggleView($event)
-                      }
-                    }
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: data.PEMILIK_STORE,
-                          expression: "data.PEMILIK_STORE"
-                        }
-                      ],
-                      staticClass: "form-control form-control-sm",
-                      attrs: { type: "text" },
-                      domProps: { value: data.PEMILIK_STORE },
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(data.PEMILIK_STORE) +
+                        "\n                    "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
                       on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
                           }
-                          _vm.$set(data, "PEMILIK_STORE", $event.target.value)
+                          return _vm.toggleView($event)
                         }
                       }
-                    })
-                  ]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.viewMode
-              ? _c("td", { on: { click: _vm.toggleEdit } }, [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(data.INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI) +
-                      "\n                "
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: data.PEMILIK_STORE,
+                            expression: "data.PEMILIK_STORE"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: { value: data.PEMILIK_STORE },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(data, "PEMILIK_STORE", $event.target.value)
+                          }
+                        }
+                      })
+                    ]
                   )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.isEditing
-              ? _c(
-                  "td",
-                  {
-                    on: {
-                      keyup: function($event) {
-                        if (
-                          !("button" in $event) &&
-                          _vm._k(
-                            $event.keyCode,
-                            "enter",
-                            13,
-                            $event.key,
-                            "Enter"
-                          )
-                        ) {
-                          return null
-                        }
-                        return _vm.toggleView($event)
-                      }
-                    }
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: data.INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI,
-                          expression:
-                            "data.INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI"
-                        }
-                      ],
-                      staticClass: "form-control form-control-sm",
-                      attrs: { type: "text" },
-                      domProps: {
-                        value: data.INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI
-                      },
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(data.INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI) +
+                        "\n                    "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
                       on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
                           }
-                          _vm.$set(
-                            data,
-                            "INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI",
-                            $event.target.value
-                          )
+                          return _vm.toggleView($event)
                         }
                       }
-                    })
-                  ]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.viewMode
-              ? _c("td", { on: { click: _vm.toggleEdit } }, [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(
-                        data.LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI
-                      ) +
-                      "\n                "
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: data.INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI,
+                            expression:
+                              "data.INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: {
+                          value: data.INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              data,
+                              "INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]
                   )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.isEditing
-              ? _c(
-                  "td",
-                  {
-                    on: {
-                      keyup: function($event) {
-                        if (
-                          !("button" in $event) &&
-                          _vm._k(
-                            $event.keyCode,
-                            "enter",
-                            13,
-                            $event.key,
-                            "Enter"
-                          )
-                        ) {
-                          return null
-                        }
-                        return _vm.toggleView($event)
-                      }
-                    }
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value:
-                            data.LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI,
-                          expression:
-                            "data.LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI"
-                        }
-                      ],
-                      staticClass: "form-control form-control-sm",
-                      attrs: { type: "text" },
-                      domProps: {
-                        value:
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(
                           data.LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI
-                      },
+                        ) +
+                        "\n                    "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
                       on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
                           }
-                          _vm.$set(
-                            data,
-                            "LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI",
-                            $event.target.value
-                          )
+                          return _vm.toggleView($event)
                         }
                       }
-                    })
-                  ]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.viewMode
-              ? _c("td", { on: { click: _vm.toggleEdit } }, [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(data.FIT_OUT) +
-                      "\n                "
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value:
+                              data.LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI,
+                            expression:
+                              "data.LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: {
+                          value:
+                            data.LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              data,
+                              "LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]
                   )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.isEditing
-              ? _c(
-                  "td",
-                  {
-                    on: {
-                      keyup: function($event) {
-                        if (
-                          !("button" in $event) &&
-                          _vm._k(
-                            $event.keyCode,
-                            "enter",
-                            13,
-                            $event.key,
-                            "Enter"
-                          )
-                        ) {
-                          return null
-                        }
-                        return _vm.toggleView($event)
-                      }
-                    }
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: data.FIT_OUT,
-                          expression: "data.FIT_OUT"
-                        }
-                      ],
-                      staticClass: "form-control form-control-sm",
-                      attrs: { type: "text" },
-                      domProps: { value: data.FIT_OUT },
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(data.FIT_OUT) +
+                        "\n                    "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
                       on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
                           }
-                          _vm.$set(data, "FIT_OUT", $event.target.value)
+                          return _vm.toggleView($event)
                         }
                       }
-                    })
-                  ]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.viewMode
-              ? _c("td", { on: { click: _vm.toggleEdit } }, [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(data.TRAINING) +
-                      "\n                "
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: data.FIT_OUT,
+                            expression: "data.FIT_OUT"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: { value: data.FIT_OUT },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(data, "FIT_OUT", $event.target.value)
+                          }
+                        }
+                      })
+                    ]
                   )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.isEditing
-              ? _c(
-                  "td",
-                  {
-                    on: {
-                      keyup: function($event) {
-                        if (
-                          !("button" in $event) &&
-                          _vm._k(
-                            $event.keyCode,
-                            "enter",
-                            13,
-                            $event.key,
-                            "Enter"
-                          )
-                        ) {
-                          return null
-                        }
-                        return _vm.toggleView($event)
-                      }
-                    }
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: data.TRAINING,
-                          expression: "data.TRAINING"
-                        }
-                      ],
-                      staticClass: "form-control form-control-sm",
-                      attrs: { type: "text" },
-                      domProps: { value: data.TRAINING },
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(data.TRAINING) +
+                        "\n                    "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
                       on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
                           }
-                          _vm.$set(data, "TRAINING", $event.target.value)
+                          return _vm.toggleView($event)
                         }
                       }
-                    })
-                  ]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.viewMode
-              ? _c("td", { on: { click: _vm.toggleEdit } }, [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(data.PREPARE_BARANG) +
-                      "\n                "
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: data.TRAINING,
+                            expression: "data.TRAINING"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: { value: data.TRAINING },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(data, "TRAINING", $event.target.value)
+                          }
+                        }
+                      })
+                    ]
                   )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.isEditing
-              ? _c(
-                  "td",
-                  {
-                    on: {
-                      keyup: function($event) {
-                        if (
-                          !("button" in $event) &&
-                          _vm._k(
-                            $event.keyCode,
-                            "enter",
-                            13,
-                            $event.key,
-                            "Enter"
-                          )
-                        ) {
-                          return null
-                        }
-                        return _vm.toggleView($event)
-                      }
-                    }
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: data.PREPARE_BARANG,
-                          expression: "data.PREPARE_BARANG"
-                        }
-                      ],
-                      staticClass: "form-control form-control-sm",
-                      attrs: { type: "text" },
-                      domProps: { value: data.PREPARE_BARANG },
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(data.PREPARE_BARANG) +
+                        "\n                    "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
                       on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
                           }
-                          _vm.$set(data, "PREPARE_BARANG", $event.target.value)
+                          return _vm.toggleView($event)
                         }
                       }
-                    })
-                  ]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.viewMode
-              ? _c("td", { on: { click: _vm.toggleEdit } }, [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(data.EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE) +
-                      "\n                "
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: data.PREPARE_BARANG,
+                            expression: "data.PREPARE_BARANG"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: { value: data.PREPARE_BARANG },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              data,
+                              "PREPARE_BARANG",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]
                   )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.isEditing
-              ? _c(
-                  "td",
-                  {
-                    on: {
-                      keyup: function($event) {
-                        if (
-                          !("button" in $event) &&
-                          _vm._k(
-                            $event.keyCode,
-                            "enter",
-                            13,
-                            $event.key,
-                            "Enter"
-                          )
-                        ) {
-                          return null
-                        }
-                        return _vm.toggleView($event)
-                      }
-                    }
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: data.EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE,
-                          expression:
-                            "data.EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE"
-                        }
-                      ],
-                      staticClass: "form-control form-control-sm",
-                      attrs: { type: "text" },
-                      domProps: {
-                        value: data.EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE
-                      },
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(data.EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE) +
+                        "\n                    "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
                       on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
                           }
-                          _vm.$set(
-                            data,
-                            "EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE",
-                            $event.target.value
-                          )
+                          return _vm.toggleView($event)
                         }
                       }
-                    })
-                  ]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.viewMode
-              ? _c("td", { on: { click: _vm.toggleEdit } }, [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(data.GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE) +
-                      "\n                "
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: data.EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE,
+                            expression:
+                              "data.EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: {
+                          value: data.EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              data,
+                              "EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]
                   )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.isEditing
-              ? _c(
-                  "td",
-                  {
-                    on: {
-                      keyup: function($event) {
-                        if (
-                          !("button" in $event) &&
-                          _vm._k(
-                            $event.keyCode,
-                            "enter",
-                            13,
-                            $event.key,
-                            "Enter"
-                          )
-                        ) {
-                          return null
-                        }
-                        return _vm.toggleView($event)
-                      }
-                    }
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: data.GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE,
-                          expression:
-                            "data.GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE"
-                        }
-                      ],
-                      staticClass: "form-control form-control-sm",
-                      attrs: { type: "text" },
-                      domProps: {
-                        value: data.GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE
-                      },
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(data.GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE) +
+                        "\n                    "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
                       on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
                           }
-                          _vm.$set(
-                            data,
-                            "GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE",
-                            $event.target.value
-                          )
+                          return _vm.toggleView($event)
                         }
                       }
-                    })
-                  ]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.viewMode
-              ? _c("td", { on: { click: _vm.toggleEdit } }, [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(data.OPENING) +
-                      "\n                "
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value:
+                              data.GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE,
+                            expression:
+                              "data.GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: {
+                          value: data.GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE
+                        },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              data,
+                              "GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]
                   )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.isEditing
-              ? _c(
-                  "td",
-                  {
-                    on: {
-                      keyup: function($event) {
-                        if (
-                          !("button" in $event) &&
-                          _vm._k(
-                            $event.keyCode,
-                            "enter",
-                            13,
-                            $event.key,
-                            "Enter"
-                          )
-                        ) {
-                          return null
-                        }
-                        return _vm.toggleView($event)
-                      }
-                    }
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: data.OPENING,
-                          expression: "data.OPENING"
-                        }
-                      ],
-                      staticClass: "form-control form-control-sm",
-                      attrs: { type: "text" },
-                      domProps: { value: data.OPENING },
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(data.OPENING) +
+                        "\n                    "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
                       on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
                           }
-                          _vm.$set(data, "OPENING", $event.target.value)
+                          return _vm.toggleView($event)
                         }
                       }
-                    })
-                  ]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.viewMode
-              ? _c("td", { on: { click: _vm.toggleEdit } }, [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(data.KETERANGAN_JIKA_ADA_PERUBAHAN) +
-                      "\n                "
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: data.OPENING,
+                            expression: "data.OPENING"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: { value: data.OPENING },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(data, "OPENING", $event.target.value)
+                          }
+                        }
+                      })
+                    ]
                   )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.isEditing
-              ? _c(
-                  "td",
-                  {
-                    on: {
-                      keyup: function($event) {
-                        if (
-                          !("button" in $event) &&
-                          _vm._k(
-                            $event.keyCode,
-                            "enter",
-                            13,
-                            $event.key,
-                            "Enter"
-                          )
-                        ) {
-                          return null
-                        }
-                        return _vm.toggleView($event)
-                      }
-                    }
-                  },
-                  [
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: data.KETERANGAN_JIKA_ADA_PERUBAHAN,
-                          expression: "data.KETERANGAN_JIKA_ADA_PERUBAHAN"
-                        }
-                      ],
-                      staticClass: "form-control form-control-sm",
-                      attrs: { type: "text" },
-                      domProps: { value: data.KETERANGAN_JIKA_ADA_PERUBAHAN },
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.viewMode
+                ? _c("td", { on: { click: _vm.toggleEdit } }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(data.KETERANGAN_JIKA_ADA_PERUBAHAN) +
+                        "\n                    "
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.isEditing
+                ? _c(
+                    "td",
+                    {
                       on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
+                        keyup: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
                           }
-                          _vm.$set(
-                            data,
-                            "KETERANGAN_JIKA_ADA_PERUBAHAN",
-                            $event.target.value
-                          )
+                          return _vm.toggleView($event)
                         }
                       }
-                    })
-                  ]
-                )
-              : _vm._e()
-          ])
-        })
-      )
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: data.KETERANGAN_JIKA_ADA_PERUBAHAN,
+                            expression: "data.KETERANGAN_JIKA_ADA_PERUBAHAN"
+                          }
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "text" },
+                        domProps: { value: data.KETERANGAN_JIKA_ADA_PERUBAHAN },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              data,
+                              "KETERANGAN_JIKA_ADA_PERUBAHAN",
+                              $event.target.value
+                            )
+                          }
+                        }
+                      })
+                    ]
+                  )
+                : _vm._e()
+            ])
+          })
+        )
+      ])
     ])
   ])
 }
