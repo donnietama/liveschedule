@@ -15,6 +15,7 @@ class CreateContentsTable extends Migration
     {
         Schema::create('contents', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('month');
             $table->string('opening_estimation');
             $table->string('store_location');
             $table->string('store_owner');
@@ -26,7 +27,8 @@ class CreateContentsTable extends Migration
             $table->string('h_3');
             $table->string('h_2');
             $table->string('h');
-            $table->string('additional_info');
+            $table->string('additional_info')->nullable();
+            $table->string('accountability');
             $table->timestamps();
         });
     }

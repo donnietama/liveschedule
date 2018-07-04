@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use DB;
 
 use Illuminate\Http\Request;
 
+use Carbon\Carbon;
 use App\Content;
 
 class TableManagementController extends Controller
@@ -46,7 +48,6 @@ class TableManagementController extends Controller
             'h_3' => 'string|nullable',
             'h_2' => 'string|nullable',
             'h' => 'string|nullable',
-            'additional_info' => 'string|nullable',
         ]);
 
         // If validation does not passed, send error messages.
@@ -54,7 +55,7 @@ class TableManagementController extends Controller
 
         // If validation passed, break each values apart into array.
         $contents = [];
-        foreach ($request->content as $partition) {
+        foreach ($request->inputs as $partition) {
             $contents[] = [
                 'month' => $partition['month'],
                 'opening_estimation' => $partition['opening_estimation'],
@@ -68,7 +69,6 @@ class TableManagementController extends Controller
                 'h_3' => $partition['h_3'],
                 'h_2' => $partition['h_2'],
                 'h' => $partition['h'],
-                'additional_info' => $partition['additional_info'],
                 'accountability' => Auth::user()->name,
                 'created_at' => Carbon::now()->toDateTimeString(),
                 'updated_at' => Carbon::now()->toDateTimeString()
