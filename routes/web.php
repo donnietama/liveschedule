@@ -10,5 +10,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Management routes
-Route::get('/create', 'TableManagementController@showContentForm')->name('show-content-form');
+Route::get('/create', 'TableManagementController@showContentForm')->middleware('auth')->name('show-content-form');
 Route::post('/create', 'TableManagementController@AddNewContent')->name('add-content-form');
