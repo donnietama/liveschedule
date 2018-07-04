@@ -58,14 +58,14 @@
                 </div>
                 <div class="row">
                     <div class="col-md-2 offset-5">
-                        <button class="btn btn-block btn-danger" @click="deleteRow(index)">Hapus data</button>
+                        <button type="button" class="btn btn-block btn-danger" @click="deleteRow(index)">Hapus data</button>
                     </div>
                 </div>
             <hr>
             </div>
             <div class="row">
                 <div class="col-md-3 offset-3">
-                    <button class="btn btn-block btn-outline-success" @click="addRow">Tambah data</button>
+                    <button type="button" class="btn btn-block btn-outline-success" @click="addRow">Tambah data</button>
                 </div>
                 <div class="col-md-3">
                     <button class="btn btn-block btn-primary">Submit</button>

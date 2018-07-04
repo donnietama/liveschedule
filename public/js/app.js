@@ -49004,6 +49004,7 @@ var render = function() {
                       "button",
                       {
                         staticClass: "btn btn-block btn-danger",
+                        attrs: { type: "button" },
                         on: {
                           click: function($event) {
                             _vm.deleteRow(index)
@@ -49026,6 +49027,7 @@ var render = function() {
                 "button",
                 {
                   staticClass: "btn btn-block btn-outline-success",
+                  attrs: { type: "button" },
                   on: { click: _vm.addRow }
                 },
                 [_vm._v("Tambah data")]
