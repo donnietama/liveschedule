@@ -49202,7 +49202,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 });
             }) // throw response if success
             .catch(function (error) {
-                console.log(error);
                 _this.$snotify.async('Data sedang diproses.', 'Mohon Tunggu', function () {
                     return new Promise(function (resolve, reject) {
                         setTimeout(function () {

@@ -122,7 +122,6 @@ export default {
                 }))
             }) // throw response if success
             .catch(error => {
-                console.log(error)
                 this.$snotify.async('Data sedang diproses.', 'Mohon Tunggu', () => new Promise((resolve, reject) => {
                     setTimeout(() => reject({
                         title: 'Error!',
