@@ -5,10 +5,11 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+require('./bootstrap')
 
-window.Vue = require('vue');
+window.Vue = require('vue')
 
+// Vue Snotify
 import Snotify, { SnotifyPosition } from 'vue-snotify'
 const options = {
     toast: {
@@ -24,10 +25,10 @@ Vue.use(Snotify, options)
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
-Vue.component('display-data', require('./components/DisplayData.vue'));
-Vue.component('content-form', require('./components/management/ContentForm.vue'));
+Vue.component('example-component', require('./components/ExampleComponent.vue'))
+Vue.component('display-data', require('./components/DisplayData.vue'))
+Vue.component('content-form', require('./components/management/ContentForm.vue'))
 
 const app = new Vue({
     el: '#app'
-});
+})

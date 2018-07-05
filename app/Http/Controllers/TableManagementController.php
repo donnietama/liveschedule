@@ -22,6 +22,7 @@ class TableManagementController extends Controller
     public function fetchContent()
     {
         $data = Content::all();
+
         return $data;
     }
 

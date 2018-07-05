@@ -7,7 +7,11 @@
                 <div class="row">
                     <div class="form-group col-md-3">
                         <label>Bulan</label>
-                        <input type="text" v-model="content.month" class="form-control">
+                        <select class="form-control" v-model="content.month">
+                            <option v-for="content in months" :key="content.index" :value="content">
+                                {{ content }}
+                            </option>
+                        </select>
                     </div>
                     <div class="form-group col-md-3">
                         <label>Estimasi opening</label>
@@ -79,7 +83,21 @@
 export default {
     data() {
         return {
-            inputs: [{}]
+            inputs: [{}],
+            months: [
+                'Januari',
+                'Februari',
+                'Maret',
+                'April',
+                'Mei',
+                'Juni',
+                'Juli',
+                'Agustus',
+                'September',
+                'Oktober',
+                'November',
+                'Desember'
+            ]
         }
     },
     methods: {

@@ -13,9 +13,9 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
     <body>
-        <div class="container-fluid" id="app">
-            <div class="row">
-                <div class="col-md-12 py-4">
+        <div class="container-fluid" style="padding:0 !important; margin: 0 !important;" id="app">
+            <div class="row" style="padding:0 !important; margin: 0 !important;">
+                <div class="col-md-12" style="padding:0 !important; margin: 0 !important;">
                     <display-data></display-data>
                 </div>
             </div>

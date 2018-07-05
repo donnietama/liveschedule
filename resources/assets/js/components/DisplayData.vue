@@ -1,153 +1,753 @@
 <template>
-    <div class="table-responsive">
-        <table class="table table-light">
-            <thead class="thead-light" @click="toggleView">
-                <tr>
-                    <th>NO</th>
-                    <th>BULAN</th>
-                    <th>ESTIMASI TANGGAL OPENING</th>
-                    <th>NAMA / LOKASI STORE</th>
-                    <th>PEMILIK STORE</th>
-                    <th>INVOICE TOTAL INVESTASI SUDAH DILUNASI</th>
-                    <th>LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI</th>
-                    <th>FIT OUT</th>
-                    <th>TRAINING</th>
-                    <th>PREPARE BARANG</th>
-                    <th>EQUIPMENT DARI SUPPLIER DATANG KE STORE</th>
-                    <th>GUDANG / LISENSI KIRIM BARANG KE STORE</th>
-                    <th>OPENING</th>
-                    <th>KETERANGAN (JIKA ADA PERUBAHAN)</th>
-                </tr>
-                <tr>
-                    <th colspan="5">DARI PROJECT</th>
-                    <th>H-44</th>
-                    <th>H-32</th>
-                    <th>H-22</th>
-                    <th>H-21</th>
-                    <th>H-8</th>
-                    <th>H-3</th>
-                    <th>H-2</th>
-                    <th>H</th>
-                    <th></th>
-                </tr>          
-            </thead>
-            <tbody class="table-sm">
-                <div class="marquee">
-                    <tr v-for="data in jsonData"
-                    :key="data.index">
-                        <td v-if="viewMode" @click="toggleEdit">
-                            {{ data.NO }}
-                        </td>
-                        <td v-if="isEditing" @keyup.enter="toggleView">
-                            <input type="text" class="form-control form-control-sm" v-model="data.NO">
-                        </td>
-                        <td v-if="viewMode" @click="toggleEdit">
-                            {{ data.BULAN }}
-                        </td>
-                        <td v-if="isEditing" @keyup.enter="toggleView">
-                            <input type="text" class="form-control form-control-sm" v-model="data.BULAN">
-                        </td>
-                        <td v-if="viewMode" @click="toggleEdit">
-                            {{ data.ESTIMASI_TANGGAL_OPENING }}
-                        </td>
-                        <td v-if="isEditing" @keyup.enter="toggleView">
-                            <input type="text" class="form-control form-control-sm" v-model="data.ESTIMASI_TANGGAL_OPENING">
-                        </td>
-                        <td v-if="viewMode" @click="toggleEdit">
-                            {{ data.NAMA_ATAU_LOKASI_STORE }}
-                        </td>
-                        <td v-if="isEditing" @keyup.enter="toggleView">
-                            <input type="text" class="form-control form-control-sm" v-model="data.NAMA_ATAU_LOKASI_STORE">
-                        </td>
-                        <td v-if="viewMode" @click="toggleEdit">
-                            {{ data.PEMILIK_STORE }}
-                        </td>
-                        <td v-if="isEditing" @keyup.enter="toggleView">
-                            <input type="text" class="form-control form-control-sm" v-model="data.PEMILIK_STORE">
-                        </td>
-                        <td v-if="viewMode" @click="toggleEdit">
-                            {{ data.INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI }}
-                        </td>
-                        <td v-if="isEditing" @keyup.enter="toggleView">
-                            <input type="text" class="form-control form-control-sm" v-model="data.INVOICE_TOTAL_INVESTASI_SUDAH_DILUNASI">
-                        </td>
-                        <td v-if="viewMode" @click="toggleEdit">
-                            {{ data.LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI }}
-                        </td>
-                        <td v-if="isEditing" @keyup.enter="toggleView">
-                            <input type="text" class="form-control form-control-sm" v-model="data.LICENSE_AGREEMENT_SUDAH_DITANDATANGANI_OLEH_LISENSI">
-                        </td>
-                        <td v-if="viewMode" @click="toggleEdit">
-                            {{ data.FIT_OUT }}
-                        </td>
-                        <td v-if="isEditing" @keyup.enter="toggleView">
-                            <input type="text" class="form-control form-control-sm" v-model="data.FIT_OUT">
-                        </td>
-                        <td v-if="viewMode" @click="toggleEdit">
-                            {{ data.TRAINING }}
-                        </td>
-                        <td v-if="isEditing" @keyup.enter="toggleView">
-                            <input type="text" class="form-control form-control-sm" v-model="data.TRAINING">
-                        </td>
-                        <td v-if="viewMode" @click="toggleEdit">
-                            {{ data.PREPARE_BARANG }}
-                        </td>
-                        <td v-if="isEditing" @keyup.enter="toggleView">
-                            <input type="text" class="form-control form-control-sm" v-model="data.PREPARE_BARANG">
-                        </td>
-                        <td v-if="viewMode" @click="toggleEdit">
-                            {{ data.EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE }}
-                        </td>
-                        <td v-if="isEditing" @keyup.enter="toggleView">
-                            <input type="text" class="form-control form-control-sm" v-model="data.EQUIPMENT_DARI_SUPPLIER_DARANG_KE_STORE">
-                        </td>
-                        <td v-if="viewMode" @click="toggleEdit">
-                            {{ data.GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE }}
-                        </td>
-                        <td v-if="isEditing" @keyup.enter="toggleView">
-                            <input type="text" class="form-control form-control-sm" v-model="data.GUDANG_ATAU_LISENSI_KIRIM_BARANG_KE_STORE">
-                        </td>
-                        <td v-if="viewMode" @click="toggleEdit">
-                            {{ data.OPENING }}
-                        </td>
-                        <td v-if="isEditing" @keyup.enter="toggleView">
-                            <input type="text" class="form-control form-control-sm" v-model="data.OPENING">
-                        </td>
-                        <td v-if="viewMode" @click="toggleEdit">
-                            {{ data.KETERANGAN_JIKA_ADA_PERUBAHAN }}
-                        </td>
-                        <td v-if="isEditing" @keyup.enter="toggleView">
-                            <input type="text" class="form-control form-control-sm" v-model="data.KETERANGAN_JIKA_ADA_PERUBAHAN">
-                        </td>
-                    </tr>
-                </div>
-            </tbody>
-        </table>
-    </div>
+    <carousel :autoplay="true" :perPage="1" :autoplayTimeout="10000" :paginationEnabled="false" :loop="true">
+        <slide>
+            <div class="table-responsive">
+                <table class="table table-sm table-light table-bordered table-striped">
+                    <thead class="thead-dark text-center">
+                        <tr>
+                            <th rowspan="2" style="vertical-align: middle;">NO</th>
+                            <th rowspan="2" style="vertical-align: middle;">BULAN</th>
+                            <th style="vertical-align: middle;">ESTIMASI TANGGAL OPENING</th>
+                            <th style="vertical-align: middle;">NAMA / LOKASI STORE</th>
+                            <th style="vertical-align: middle;">PEMILIK STORE</th>
+                            <th style="vertical-align: middle;">INVOICE TOTAL INVESTASI SUDAH DILUNASI</th>
+                            <th style="vertical-align: middle;">LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI</th>
+                            <th style="vertical-align: middle;">FIT OUT</th>
+                            <th style="vertical-align: middle;">TRAINING</th>
+                            <th style="vertical-align: middle;">PREPARE BARANG</th>
+                            <th style="vertical-align: middle;">EQUIPMENT DARI SUPPLIER DATANG KE STORE</th>
+                            <th style="vertical-align: middle;">GUDANG / LISENSI KIRIM BARANG KE STORE</th>
+                            <th style="vertical-align: middle;">OPENING</th>
+                            <th style="vertical-align: middle;">KETERANGAN (JIKA ADA PERUBAHAN)</th>
+                        </tr>
+                        <tr class="text-center" style="white-space: nowrap; width:1%;">
+                            <th colspan="3" class="text-center">DARI PROJECT</th>
+                            <th>H-44</th>
+                            <th>H-32</th>
+                            <th>H-22</th>
+                            <th>H-21</th>
+                            <th>H-8</th>
+                            <th>H-3</th>
+                            <th>H-2</th>
+                            <th>H</th>
+                            <th></th>
+                        </tr>          
+                    </thead>
+                    <tbody>
+                        <tr v-for="(data, index) in january"
+                        :key="data.index" style="white-space: nowrap; width:1%; text-align: center;">
+                            <td>{{ index + 1 }}</td>
+                            <td>{{ data.month }}</td>
+                            <td>{{ data.opening_estimation }}</td>
+                            <td>{{ data.store_location }}</td>
+                            <td>{{ data.store_owner }}</td>
+                            <td>{{ data.h_44 }}</td>
+                            <td>{{ data.h_32 }}</td>
+                            <td>{{ data.h_22 }}</td>
+                            <td>{{ data.h_21 }}</td>
+                            <td>{{ data.h_8 }}</td>
+                            <td>{{ data.h_3 }}</td>
+                            <td>{{ data.h_2 }}</td>
+                            <td>{{ data.h }}</td>
+                            <td>{{ data.additional_info }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </slide>
+        <slide>
+            <div class="table-responsive">
+                <table class="table table-sm table-light table-bordered table-striped">
+                    <thead class="thead-dark text-center">
+                        <tr>
+                            <th rowspan="2" style="vertical-align: middle;">NO</th>
+                            <th rowspan="2" style="vertical-align: middle;">BULAN</th>
+                            <th style="vertical-align: middle;">ESTIMASI TANGGAL OPENING</th>
+                            <th style="vertical-align: middle;">NAMA / LOKASI STORE</th>
+                            <th style="vertical-align: middle;">PEMILIK STORE</th>
+                            <th style="vertical-align: middle;">INVOICE TOTAL INVESTASI SUDAH DILUNASI</th>
+                            <th style="vertical-align: middle;">LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI</th>
+                            <th style="vertical-align: middle;">FIT OUT</th>
+                            <th style="vertical-align: middle;">TRAINING</th>
+                            <th style="vertical-align: middle;">PREPARE BARANG</th>
+                            <th style="vertical-align: middle;">EQUIPMENT DARI SUPPLIER DATANG KE STORE</th>
+                            <th style="vertical-align: middle;">GUDANG / LISENSI KIRIM BARANG KE STORE</th>
+                            <th style="vertical-align: middle;">OPENING</th>
+                            <th style="vertical-align: middle;">KETERANGAN (JIKA ADA PERUBAHAN)</th>
+                        </tr>
+                        <tr class="text-center" style="white-space: nowrap; width:1%;">
+                            <th colspan="3" class="text-center">DARI PROJECT</th>
+                            <th>H-44</th>
+                            <th>H-32</th>
+                            <th>H-22</th>
+                            <th>H-21</th>
+                            <th>H-8</th>
+                            <th>H-3</th>
+                            <th>H-2</th>
+                            <th>H</th>
+                            <th></th>
+                        </tr>          
+                    </thead>
+                    <tbody>
+                        <tr v-for="(data, index) in february"
+                        :key="data.index" style="white-space: nowrap; width:1%; text-align: center;">
+                            <td>{{ index + 1 }}</td>
+                            <td>{{ data.month }}</td>
+                            <td>{{ data.opening_estimation }}</td>
+                            <td>{{ data.store_location }}</td>
+                            <td>{{ data.store_owner }}</td>
+                            <td>{{ data.h_44 }}</td>
+                            <td>{{ data.h_32 }}</td>
+                            <td>{{ data.h_22 }}</td>
+                            <td>{{ data.h_21 }}</td>
+                            <td>{{ data.h_8 }}</td>
+                            <td>{{ data.h_3 }}</td>
+                            <td>{{ data.h_2 }}</td>
+                            <td>{{ data.h }}</td>
+                            <td>{{ data.additional_info }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </slide>
+        <slide>
+            <div class="table-responsive">
+                <table class="table table-sm table-light table-bordered table-striped">
+                    <thead class="thead-dark text-center">
+                        <tr>
+                            <th rowspan="2" style="vertical-align: middle;">NO</th>
+                            <th rowspan="2" style="vertical-align: middle;">BULAN</th>
+                            <th style="vertical-align: middle;">ESTIMASI TANGGAL OPENING</th>
+                            <th style="vertical-align: middle;">NAMA / LOKASI STORE</th>
+                            <th style="vertical-align: middle;">PEMILIK STORE</th>
+                            <th style="vertical-align: middle;">INVOICE TOTAL INVESTASI SUDAH DILUNASI</th>
+                            <th style="vertical-align: middle;">LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI</th>
+                            <th style="vertical-align: middle;">FIT OUT</th>
+                            <th style="vertical-align: middle;">TRAINING</th>
+                            <th style="vertical-align: middle;">PREPARE BARANG</th>
+                            <th style="vertical-align: middle;">EQUIPMENT DARI SUPPLIER DATANG KE STORE</th>
+                            <th style="vertical-align: middle;">GUDANG / LISENSI KIRIM BARANG KE STORE</th>
+                            <th style="vertical-align: middle;">OPENING</th>
+                            <th style="vertical-align: middle;">KETERANGAN (JIKA ADA PERUBAHAN)</th>
+                        </tr>
+                        <tr class="text-center" style="white-space: nowrap; width:1%;">
+                            <th colspan="3" class="text-center">DARI PROJECT</th>
+                            <th>H-44</th>
+                            <th>H-32</th>
+                            <th>H-22</th>
+                            <th>H-21</th>
+                            <th>H-8</th>
+                            <th>H-3</th>
+                            <th>H-2</th>
+                            <th>H</th>
+                            <th></th>
+                        </tr>          
+                    </thead>
+                    <tbody>
+                        <tr v-for="(data, index) in march"
+                        :key="data.index" style="white-space: nowrap; width:1%; text-align: center;">
+                            <td>{{ index + 1 }}</td>
+                            <td>{{ data.month }}</td>
+                            <td>{{ data.opening_estimation }}</td>
+                            <td>{{ data.store_location }}</td>
+                            <td>{{ data.store_owner }}</td>
+                            <td>{{ data.h_44 }}</td>
+                            <td>{{ data.h_32 }}</td>
+                            <td>{{ data.h_22 }}</td>
+                            <td>{{ data.h_21 }}</td>
+                            <td>{{ data.h_8 }}</td>
+                            <td>{{ data.h_3 }}</td>
+                            <td>{{ data.h_2 }}</td>
+                            <td>{{ data.h }}</td>
+                            <td>{{ data.additional_info }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </slide>
+        <slide>
+            <div class="table-responsive">
+                <table class="table table-sm table-light table-bordered table-striped">
+                    <thead class="thead-dark text-center">
+                        <tr>
+                            <th rowspan="2" style="vertical-align: middle;">NO</th>
+                            <th rowspan="2" style="vertical-align: middle;">BULAN</th>
+                            <th style="vertical-align: middle;">ESTIMASI TANGGAL OPENING</th>
+                            <th style="vertical-align: middle;">NAMA / LOKASI STORE</th>
+                            <th style="vertical-align: middle;">PEMILIK STORE</th>
+                            <th style="vertical-align: middle;">INVOICE TOTAL INVESTASI SUDAH DILUNASI</th>
+                            <th style="vertical-align: middle;">LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI</th>
+                            <th style="vertical-align: middle;">FIT OUT</th>
+                            <th style="vertical-align: middle;">TRAINING</th>
+                            <th style="vertical-align: middle;">PREPARE BARANG</th>
+                            <th style="vertical-align: middle;">EQUIPMENT DARI SUPPLIER DATANG KE STORE</th>
+                            <th style="vertical-align: middle;">GUDANG / LISENSI KIRIM BARANG KE STORE</th>
+                            <th style="vertical-align: middle;">OPENING</th>
+                            <th style="vertical-align: middle;">KETERANGAN (JIKA ADA PERUBAHAN)</th>
+                        </tr>
+                        <tr class="text-center" style="white-space: nowrap; width:1%;">
+                            <th colspan="3" class="text-center">DARI PROJECT</th>
+                            <th>H-44</th>
+                            <th>H-32</th>
+                            <th>H-22</th>
+                            <th>H-21</th>
+                            <th>H-8</th>
+                            <th>H-3</th>
+                            <th>H-2</th>
+                            <th>H</th>
+                            <th></th>
+                        </tr>          
+                    </thead>
+                    <tbody>
+                        <tr v-for="(data, index) in april"
+                        :key="data.index" style="white-space: nowrap; width:1%; text-align: center;">
+                            <td>{{ index + 1 }}</td>
+                            <td>{{ data.month }}</td>
+                            <td>{{ data.opening_estimation }}</td>
+                            <td>{{ data.store_location }}</td>
+                            <td>{{ data.store_owner }}</td>
+                            <td>{{ data.h_44 }}</td>
+                            <td>{{ data.h_32 }}</td>
+                            <td>{{ data.h_22 }}</td>
+                            <td>{{ data.h_21 }}</td>
+                            <td>{{ data.h_8 }}</td>
+                            <td>{{ data.h_3 }}</td>
+                            <td>{{ data.h_2 }}</td>
+                            <td>{{ data.h }}</td>
+                            <td>{{ data.additional_info }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </slide>
+        <slide>
+            <div class="table-responsive">
+                <table class="table table-sm table-light table-bordered table-striped">
+                    <thead class="thead-dark text-center">
+                        <tr>
+                            <th rowspan="2" style="vertical-align: middle;">NO</th>
+                            <th rowspan="2" style="vertical-align: middle;">BULAN</th>
+                            <th style="vertical-align: middle;">ESTIMASI TANGGAL OPENING</th>
+                            <th style="vertical-align: middle;">NAMA / LOKASI STORE</th>
+                            <th style="vertical-align: middle;">PEMILIK STORE</th>
+                            <th style="vertical-align: middle;">INVOICE TOTAL INVESTASI SUDAH DILUNASI</th>
+                            <th style="vertical-align: middle;">LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI</th>
+                            <th style="vertical-align: middle;">FIT OUT</th>
+                            <th style="vertical-align: middle;">TRAINING</th>
+                            <th style="vertical-align: middle;">PREPARE BARANG</th>
+                            <th style="vertical-align: middle;">EQUIPMENT DARI SUPPLIER DATANG KE STORE</th>
+                            <th style="vertical-align: middle;">GUDANG / LISENSI KIRIM BARANG KE STORE</th>
+                            <th style="vertical-align: middle;">OPENING</th>
+                            <th style="vertical-align: middle;">KETERANGAN (JIKA ADA PERUBAHAN)</th>
+                        </tr>
+                        <tr class="text-center" style="white-space: nowrap; width:1%;">
+                            <th colspan="3" class="text-center">DARI PROJECT</th>
+                            <th>H-44</th>
+                            <th>H-32</th>
+                            <th>H-22</th>
+                            <th>H-21</th>
+                            <th>H-8</th>
+                            <th>H-3</th>
+                            <th>H-2</th>
+                            <th>H</th>
+                            <th></th>
+                        </tr>          
+                    </thead>
+                    <tbody>
+                        <tr v-for="(data, index) in may"
+                        :key="data.index" style="white-space: nowrap; width:1%; text-align: center;">
+                            <td>{{ index + 1 }}</td>
+                            <td>{{ data.month }}</td>
+                            <td>{{ data.opening_estimation }}</td>
+                            <td>{{ data.store_location }}</td>
+                            <td>{{ data.store_owner }}</td>
+                            <td>{{ data.h_44 }}</td>
+                            <td>{{ data.h_32 }}</td>
+                            <td>{{ data.h_22 }}</td>
+                            <td>{{ data.h_21 }}</td>
+                            <td>{{ data.h_8 }}</td>
+                            <td>{{ data.h_3 }}</td>
+                            <td>{{ data.h_2 }}</td>
+                            <td>{{ data.h }}</td>
+                            <td>{{ data.additional_info }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </slide>
+        <slide>
+            <div class="table-responsive">
+                <table class="table table-sm table-light table-bordered table-striped">
+                    <thead class="thead-dark text-center">
+                        <tr>
+                            <th rowspan="2" style="vertical-align: middle;">NO</th>
+                            <th rowspan="2" style="vertical-align: middle;">BULAN</th>
+                            <th style="vertical-align: middle;">ESTIMASI TANGGAL OPENING</th>
+                            <th style="vertical-align: middle;">NAMA / LOKASI STORE</th>
+                            <th style="vertical-align: middle;">PEMILIK STORE</th>
+                            <th style="vertical-align: middle;">INVOICE TOTAL INVESTASI SUDAH DILUNASI</th>
+                            <th style="vertical-align: middle;">LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI</th>
+                            <th style="vertical-align: middle;">FIT OUT</th>
+                            <th style="vertical-align: middle;">TRAINING</th>
+                            <th style="vertical-align: middle;">PREPARE BARANG</th>
+                            <th style="vertical-align: middle;">EQUIPMENT DARI SUPPLIER DATANG KE STORE</th>
+                            <th style="vertical-align: middle;">GUDANG / LISENSI KIRIM BARANG KE STORE</th>
+                            <th style="vertical-align: middle;">OPENING</th>
+                            <th style="vertical-align: middle;">KETERANGAN (JIKA ADA PERUBAHAN)</th>
+                        </tr>
+                        <tr class="text-center" style="white-space: nowrap; width:1%;">
+                            <th colspan="3" class="text-center">DARI PROJECT</th>
+                            <th>H-44</th>
+                            <th>H-32</th>
+                            <th>H-22</th>
+                            <th>H-21</th>
+                            <th>H-8</th>
+                            <th>H-3</th>
+                            <th>H-2</th>
+                            <th>H</th>
+                            <th></th>
+                        </tr>          
+                    </thead>
+                    <tbody>
+                        <tr v-for="(data, index) in june"
+                        :key="data.index" style="white-space: nowrap; width:1%; text-align: center;">
+                            <td>{{ index + 1 }}</td>
+                            <td>{{ data.month }}</td>
+                            <td>{{ data.opening_estimation }}</td>
+                            <td>{{ data.store_location }}</td>
+                            <td>{{ data.store_owner }}</td>
+                            <td>{{ data.h_44 }}</td>
+                            <td>{{ data.h_32 }}</td>
+                            <td>{{ data.h_22 }}</td>
+                            <td>{{ data.h_21 }}</td>
+                            <td>{{ data.h_8 }}</td>
+                            <td>{{ data.h_3 }}</td>
+                            <td>{{ data.h_2 }}</td>
+                            <td>{{ data.h }}</td>
+                            <td>{{ data.additional_info }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </slide>
+        <slide>
+            <div class="table-responsive">
+                <table class="table table-sm table-light table-bordered table-striped">
+                    <thead class="thead-dark text-center">
+                        <tr>
+                            <th rowspan="2" style="vertical-align: middle;">NO</th>
+                            <th rowspan="2" style="vertical-align: middle;">BULAN</th>
+                            <th style="vertical-align: middle;">ESTIMASI TANGGAL OPENING</th>
+                            <th style="vertical-align: middle;">NAMA / LOKASI STORE</th>
+                            <th style="vertical-align: middle;">PEMILIK STORE</th>
+                            <th style="vertical-align: middle;">INVOICE TOTAL INVESTASI SUDAH DILUNASI</th>
+                            <th style="vertical-align: middle;">LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI</th>
+                            <th style="vertical-align: middle;">FIT OUT</th>
+                            <th style="vertical-align: middle;">TRAINING</th>
+                            <th style="vertical-align: middle;">PREPARE BARANG</th>
+                            <th style="vertical-align: middle;">EQUIPMENT DARI SUPPLIER DATANG KE STORE</th>
+                            <th style="vertical-align: middle;">GUDANG / LISENSI KIRIM BARANG KE STORE</th>
+                            <th style="vertical-align: middle;">OPENING</th>
+                            <th style="vertical-align: middle;">KETERANGAN (JIKA ADA PERUBAHAN)</th>
+                        </tr>
+                        <tr class="text-center" style="white-space: nowrap; width:1%;">
+                            <th colspan="3" class="text-center">DARI PROJECT</th>
+                            <th>H-44</th>
+                            <th>H-32</th>
+                            <th>H-22</th>
+                            <th>H-21</th>
+                            <th>H-8</th>
+                            <th>H-3</th>
+                            <th>H-2</th>
+                            <th>H</th>
+                            <th></th>
+                        </tr>          
+                    </thead>
+                    <tbody>
+                        <tr v-for="(data, index) in july"
+                        :key="data.index" style="white-space: nowrap; width:1%; text-align: center;">
+                            <td>{{ index + 1 }}</td>
+                            <td>{{ data.month }}</td>
+                            <td>{{ data.opening_estimation }}</td>
+                            <td>{{ data.store_location }}</td>
+                            <td>{{ data.store_owner }}</td>
+                            <td>{{ data.h_44 }}</td>
+                            <td>{{ data.h_32 }}</td>
+                            <td>{{ data.h_22 }}</td>
+                            <td>{{ data.h_21 }}</td>
+                            <td>{{ data.h_8 }}</td>
+                            <td>{{ data.h_3 }}</td>
+                            <td>{{ data.h_2 }}</td>
+                            <td>{{ data.h }}</td>
+                            <td>{{ data.additional_info }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </slide>
+        <slide>
+            <div class="table-responsive">
+                <table class="table table-sm table-light table-bordered table-striped">
+                    <thead class="thead-dark text-center">
+                        <tr>
+                            <th rowspan="2" style="vertical-align: middle;">NO</th>
+                            <th rowspan="2" style="vertical-align: middle;">BULAN</th>
+                            <th style="vertical-align: middle;">ESTIMASI TANGGAL OPENING</th>
+                            <th style="vertical-align: middle;">NAMA / LOKASI STORE</th>
+                            <th style="vertical-align: middle;">PEMILIK STORE</th>
+                            <th style="vertical-align: middle;">INVOICE TOTAL INVESTASI SUDAH DILUNASI</th>
+                            <th style="vertical-align: middle;">LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI</th>
+                            <th style="vertical-align: middle;">FIT OUT</th>
+                            <th style="vertical-align: middle;">TRAINING</th>
+                            <th style="vertical-align: middle;">PREPARE BARANG</th>
+                            <th style="vertical-align: middle;">EQUIPMENT DARI SUPPLIER DATANG KE STORE</th>
+                            <th style="vertical-align: middle;">GUDANG / LISENSI KIRIM BARANG KE STORE</th>
+                            <th style="vertical-align: middle;">OPENING</th>
+                            <th style="vertical-align: middle;">KETERANGAN (JIKA ADA PERUBAHAN)</th>
+                        </tr>
+                        <tr class="text-center" style="white-space: nowrap; width:1%;">
+                            <th colspan="3" class="text-center">DARI PROJECT</th>
+                            <th>H-44</th>
+                            <th>H-32</th>
+                            <th>H-22</th>
+                            <th>H-21</th>
+                            <th>H-8</th>
+                            <th>H-3</th>
+                            <th>H-2</th>
+                            <th>H</th>
+                            <th></th>
+                        </tr>          
+                    </thead>
+                    <tbody>
+                        <tr v-for="(data, index) in august"
+                        :key="data.index" style="white-space: nowrap; width:1%; text-align: center;">
+                            <td>{{ index + 1 }}</td>
+                            <td>{{ data.month }}</td>
+                            <td>{{ data.opening_estimation }}</td>
+                            <td>{{ data.store_location }}</td>
+                            <td>{{ data.store_owner }}</td>
+                            <td>{{ data.h_44 }}</td>
+                            <td>{{ data.h_32 }}</td>
+                            <td>{{ data.h_22 }}</td>
+                            <td>{{ data.h_21 }}</td>
+                            <td>{{ data.h_8 }}</td>
+                            <td>{{ data.h_3 }}</td>
+                            <td>{{ data.h_2 }}</td>
+                            <td>{{ data.h }}</td>
+                            <td>{{ data.additional_info }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </slide>
+        <slide>
+            <div class="table-responsive">
+                <table class="table table-sm table-light table-bordered table-striped">
+                    <thead class="thead-dark text-center">
+                        <tr>
+                            <th rowspan="2" style="vertical-align: middle;">NO</th>
+                            <th rowspan="2" style="vertical-align: middle;">BULAN</th>
+                            <th style="vertical-align: middle;">ESTIMASI TANGGAL OPENING</th>
+                            <th style="vertical-align: middle;">NAMA / LOKASI STORE</th>
+                            <th style="vertical-align: middle;">PEMILIK STORE</th>
+                            <th style="vertical-align: middle;">INVOICE TOTAL INVESTASI SUDAH DILUNASI</th>
+                            <th style="vertical-align: middle;">LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI</th>
+                            <th style="vertical-align: middle;">FIT OUT</th>
+                            <th style="vertical-align: middle;">TRAINING</th>
+                            <th style="vertical-align: middle;">PREPARE BARANG</th>
+                            <th style="vertical-align: middle;">EQUIPMENT DARI SUPPLIER DATANG KE STORE</th>
+                            <th style="vertical-align: middle;">GUDANG / LISENSI KIRIM BARANG KE STORE</th>
+                            <th style="vertical-align: middle;">OPENING</th>
+                            <th style="vertical-align: middle;">KETERANGAN (JIKA ADA PERUBAHAN)</th>
+                        </tr>
+                        <tr class="text-center" style="white-space: nowrap; width:1%;">
+                            <th colspan="3" class="text-center">DARI PROJECT</th>
+                            <th>H-44</th>
+                            <th>H-32</th>
+                            <th>H-22</th>
+                            <th>H-21</th>
+                            <th>H-8</th>
+                            <th>H-3</th>
+                            <th>H-2</th>
+                            <th>H</th>
+                            <th></th>
+                        </tr>          
+                    </thead>
+                    <tbody>
+                        <tr v-for="(data, index) in september"
+                        :key="data.index" style="white-space: nowrap; width:1%; text-align: center;">
+                            <td>{{ index + 1 }}</td>
+                            <td>{{ data.month }}</td>
+                            <td>{{ data.opening_estimation }}</td>
+                            <td>{{ data.store_location }}</td>
+                            <td>{{ data.store_owner }}</td>
+                            <td>{{ data.h_44 }}</td>
+                            <td>{{ data.h_32 }}</td>
+                            <td>{{ data.h_22 }}</td>
+                            <td>{{ data.h_21 }}</td>
+                            <td>{{ data.h_8 }}</td>
+                            <td>{{ data.h_3 }}</td>
+                            <td>{{ data.h_2 }}</td>
+                            <td>{{ data.h }}</td>
+                            <td>{{ data.additional_info }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </slide>
+        <slide>
+            <div class="table-responsive">
+                <table class="table table-sm table-light table-bordered table-striped">
+                    <thead class="thead-dark text-center">
+                        <tr>
+                            <th rowspan="2" style="vertical-align: middle;">NO</th>
+                            <th rowspan="2" style="vertical-align: middle;">BULAN</th>
+                            <th style="vertical-align: middle;">ESTIMASI TANGGAL OPENING</th>
+                            <th style="vertical-align: middle;">NAMA / LOKASI STORE</th>
+                            <th style="vertical-align: middle;">PEMILIK STORE</th>
+                            <th style="vertical-align: middle;">INVOICE TOTAL INVESTASI SUDAH DILUNASI</th>
+                            <th style="vertical-align: middle;">LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI</th>
+                            <th style="vertical-align: middle;">FIT OUT</th>
+                            <th style="vertical-align: middle;">TRAINING</th>
+                            <th style="vertical-align: middle;">PREPARE BARANG</th>
+                            <th style="vertical-align: middle;">EQUIPMENT DARI SUPPLIER DATANG KE STORE</th>
+                            <th style="vertical-align: middle;">GUDANG / LISENSI KIRIM BARANG KE STORE</th>
+                            <th style="vertical-align: middle;">OPENING</th>
+                            <th style="vertical-align: middle;">KETERANGAN (JIKA ADA PERUBAHAN)</th>
+                        </tr>
+                        <tr class="text-center" style="white-space: nowrap; width:1%;">
+                            <th colspan="3" class="text-center">DARI PROJECT</th>
+                            <th>H-44</th>
+                            <th>H-32</th>
+                            <th>H-22</th>
+                            <th>H-21</th>
+                            <th>H-8</th>
+                            <th>H-3</th>
+                            <th>H-2</th>
+                            <th>H</th>
+                            <th></th>
+                        </tr>          
+                    </thead>
+                    <tbody>
+                        <tr v-for="(data, index) in october"
+                        :key="data.index" style="white-space: nowrap; width:1%; text-align: center;">
+                            <td>{{ index + 1 }}</td>
+                            <td>{{ data.month }}</td>
+                            <td>{{ data.opening_estimation }}</td>
+                            <td>{{ data.store_location }}</td>
+                            <td>{{ data.store_owner }}</td>
+                            <td>{{ data.h_44 }}</td>
+                            <td>{{ data.h_32 }}</td>
+                            <td>{{ data.h_22 }}</td>
+                            <td>{{ data.h_21 }}</td>
+                            <td>{{ data.h_8 }}</td>
+                            <td>{{ data.h_3 }}</td>
+                            <td>{{ data.h_2 }}</td>
+                            <td>{{ data.h }}</td>
+                            <td>{{ data.additional_info }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </slide>
+        <slide>
+            <div class="table-responsive">
+                <table class="table table-sm table-light table-bordered table-striped">
+                    <thead class="thead-dark text-center">
+                        <tr>
+                            <th rowspan="2" style="vertical-align: middle;">NO</th>
+                            <th rowspan="2" style="vertical-align: middle;">BULAN</th>
+                            <th style="vertical-align: middle;">ESTIMASI TANGGAL OPENING</th>
+                            <th style="vertical-align: middle;">NAMA / LOKASI STORE</th>
+                            <th style="vertical-align: middle;">PEMILIK STORE</th>
+                            <th style="vertical-align: middle;">INVOICE TOTAL INVESTASI SUDAH DILUNASI</th>
+                            <th style="vertical-align: middle;">LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI</th>
+                            <th style="vertical-align: middle;">FIT OUT</th>
+                            <th style="vertical-align: middle;">TRAINING</th>
+                            <th style="vertical-align: middle;">PREPARE BARANG</th>
+                            <th style="vertical-align: middle;">EQUIPMENT DARI SUPPLIER DATANG KE STORE</th>
+                            <th style="vertical-align: middle;">GUDANG / LISENSI KIRIM BARANG KE STORE</th>
+                            <th style="vertical-align: middle;">OPENING</th>
+                            <th style="vertical-align: middle;">KETERANGAN (JIKA ADA PERUBAHAN)</th>
+                        </tr>
+                        <tr class="text-center" style="white-space: nowrap; width:1%;">
+                            <th colspan="3" class="text-center">DARI PROJECT</th>
+                            <th>H-44</th>
+                            <th>H-32</th>
+                            <th>H-22</th>
+                            <th>H-21</th>
+                            <th>H-8</th>
+                            <th>H-3</th>
+                            <th>H-2</th>
+                            <th>H</th>
+                            <th></th>
+                        </tr>          
+                    </thead>
+                    <tbody>
+                        <tr v-for="(data, index) in november"
+                        :key="data.index" style="white-space: nowrap; width:1%; text-align: center;">
+                            <td>{{ index + 1 }}</td>
+                            <td>{{ data.month }}</td>
+                            <td>{{ data.opening_estimation }}</td>
+                            <td>{{ data.store_location }}</td>
+                            <td>{{ data.store_owner }}</td>
+                            <td>{{ data.h_44 }}</td>
+                            <td>{{ data.h_32 }}</td>
+                            <td>{{ data.h_22 }}</td>
+                            <td>{{ data.h_21 }}</td>
+                            <td>{{ data.h_8 }}</td>
+                            <td>{{ data.h_3 }}</td>
+                            <td>{{ data.h_2 }}</td>
+                            <td>{{ data.h }}</td>
+                            <td>{{ data.additional_info }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </slide>
+        <slide>
+            <div class="table-responsive">
+                <table class="table table-sm table-light table-bordered table-striped">
+                    <thead class="thead-dark text-center">
+                        <tr>
+                            <th rowspan="2" style="vertical-align: middle;">NO</th>
+                            <th rowspan="2" style="vertical-align: middle;">BULAN</th>
+                            <th style="vertical-align: middle;">ESTIMASI TANGGAL OPENING</th>
+                            <th style="vertical-align: middle;">NAMA / LOKASI STORE</th>
+                            <th style="vertical-align: middle;">PEMILIK STORE</th>
+                            <th style="vertical-align: middle;">INVOICE TOTAL INVESTASI SUDAH DILUNASI</th>
+                            <th style="vertical-align: middle;">LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI</th>
+                            <th style="vertical-align: middle;">FIT OUT</th>
+                            <th style="vertical-align: middle;">TRAINING</th>
+                            <th style="vertical-align: middle;">PREPARE BARANG</th>
+                            <th style="vertical-align: middle;">EQUIPMENT DARI SUPPLIER DATANG KE STORE</th>
+                            <th style="vertical-align: middle;">GUDANG / LISENSI KIRIM BARANG KE STORE</th>
+                            <th style="vertical-align: middle;">OPENING</th>
+                            <th style="vertical-align: middle;">KETERANGAN (JIKA ADA PERUBAHAN)</th>
+                        </tr>
+                        <tr class="text-center" style="white-space: nowrap; width:1%;">
+                            <th colspan="3" class="text-center">DARI PROJECT</th>
+                            <th>H-44</th>
+                            <th>H-32</th>
+                            <th>H-22</th>
+                            <th>H-21</th>
+                            <th>H-8</th>
+                            <th>H-3</th>
+                            <th>H-2</th>
+                            <th>H</th>
+                            <th></th>
+                        </tr>          
+                    </thead>
+                    <tbody>
+                        <tr v-for="(data, index) in desember"
+                        :key="data.index" style="white-space: nowrap; width:1%; text-align: center;">
+                            <td>{{ index + 1 }}</td>
+                            <td>{{ data.month }}</td>
+                            <td>{{ data.opening_estimation }}</td>
+                            <td>{{ data.store_location }}</td>
+                            <td>{{ data.store_owner }}</td>
+                            <td>{{ data.h_44 }}</td>
+                            <td>{{ data.h_32 }}</td>
+                            <td>{{ data.h_22 }}</td>
+                            <td>{{ data.h_21 }}</td>
+                            <td>{{ data.h_8 }}</td>
+                            <td>{{ data.h_3 }}</td>
+                            <td>{{ data.h_2 }}</td>
+                            <td>{{ data.h }}</td>
+                            <td>{{ data.additional_info }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </slide>
+    </carousel>
 </template>
 
 <script>
-import json from '../../../../public/newfile.json'
+import { Carousel, Slide } from 'vue-carousel'
+
 export default {
     data() {
         return {
-            jsonData: json,
-            viewMode: true,
-            isEditing: false
+            api: [],
         }
     },
 
-    methods: {
-        toggleEdit() {
-            this.isEditing = true,
-            this.viewMode = false
-        },
-        toggleView() {
-            this.viewMode = true,
-            this.isEditing = false
+    components: {
+        Carousel,
+        Slide
+    },
 
-            axios.post('http://localhost:8000', this.jsonData)
-        }
+    mounted() {
+        setInterval(() => {
+            axios.get('/api/content')
+            .then(response => {
+                this.api = response.data
+            })
+        }, 5000)
+    },
+
+    computed: {
+        january: function () {
+            return this.api.filter(u => {
+                return u.month === 'JANUARI' || u.month === 'Januari'
+            })
+        },
+        february: function () {
+            return this.api.filter(u => {
+                return u.month === 'FEBRUARI' || u.month === 'Februari'
+            })
+        },
+        march: function () {
+            return this.api.filter(u => {
+                return u.month === 'MARET' || u.month === 'Maret'
+            })
+        },
+        april: function () {
+            return this.api.filter(u => {
+                return u.month === 'APRIL' || u.month === 'April'
+            })
+        },
+        may: function () {
+            return this.api.filter(u => {
+                return u.month === 'MEI' || u.month === 'Mei'
+            })
+        },
+        june: function () {
+            return this.api.filter(u => {
+                return u.month === 'JUNI' || u.month === 'Juni'
+            })
+        },
+        july: function () {
+            return this.api.filter(u => {
+                return u.month === 'JULI' || u.month === 'Juli'
+            })
+        },
+        august: function () {
+            return this.api.filter(u => {
+                return u.month === 'AGUSTUS' || u.month === 'Agustus'
+            })
+        },
+        september: function () {
+            return this.api.filter(u => {
+                return u.month === 'SEPTEMBER' || u.month === 'September'
+            })
+        },
+        october: function () {
+            return this.api.filter(u => {
+                return u.month === 'OKTOBER' || u.month === 'Oktober'
+            })
+        },
+        november: function () {
+            return this.api.filter(u => {
+                return u.month === 'NOVEMBER' || u.month === 'November'
+            })
+        },
+        desember: function () {
+            return this.api.filter(u => {
+                return u.month === 'DESEMBER' || u.month === 'Desember'
+            })
+        },
     }
 }
 </script>
