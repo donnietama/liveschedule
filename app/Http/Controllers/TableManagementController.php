@@ -82,4 +82,49 @@ class TableManagementController extends Controller
         // If contents has been stored, send success message. If no, send error message.
         $store_contents ? 'Header telah ditambahkan!' : 'Oops.. Ada yang salah...';
     }
+
+    // Show Update form.
+    public function showEditForm($id)
+    {
+        $data = Content::findOrFail($id);
+        return view('management.update', compact('data', 'id'));
+    }
+
+    // Post Updated data.
+    public function editContent(Request $request, $id)
+    {
+        $resource = Content::find($id);
+        $resource->month = $request->month;
+        $resource->opening_estimation = $request->opening_estimation;
+        $resource->store_location = $request->store_location;
+        $resource->store_owner = $request->store_owner;
+        $resource->h_44 = $request->h_44;
+        $resource->h_32 = $request->h_32;
+        $resource->h_22 = $request->h_22;
+        $resource->h_21 = $request->h_21;
+        $resource->h_8 = $request->h_8;
+        $resource->h_3 = $request->h_3;
+        $resource->h_2 = $request->h_2;
+        $resource->h = $request->h;
+        $resource->additional_info = $request->additional_info;
+        $resource->updater = Auth::user()->name;
+        if ($resource->save()) {
+            return 'Data berhasil di edit!';
+        }
+        else {
+            return 'Edit data gagal!';
+        }
+    }
+
+    // Delete data permanently.
+    public function destroy($id)
+    {
+        $data = Content::find($id);
+        if ($data->delete()) {
+            return 'Data berhasil dihapus!';
+        }
+        else {
+            return 'Proses hapus data gagal!';
+        }
+    }
 }
