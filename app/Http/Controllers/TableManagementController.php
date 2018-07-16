@@ -87,13 +87,13 @@ class TableManagementController extends Controller
     public function showEditForm($id)
     {
         $data = Content::findOrFail($id);
-        return view('management.update', compact('data', 'id'));
+        return view('management.update', compact('data'));
     }
 
     // Post Updated data.
-    public function editContent(Request $request)
+    public function editContent(Request $request, $id)
     {
-        $resource = Content::find($request->id);
+        $resource = Content::find($id);
         $resource->month = $request->month;
         $resource->opening_estimation = $request->opening_estimation;
         $resource->store_location = $request->store_location;
@@ -107,7 +107,6 @@ class TableManagementController extends Controller
         $resource->h_2 = $request->h_2;
         $resource->h = $request->h;
         $resource->additional_info = $request->additional_info;
-        $resource->updater = Auth::user()->name;
         if ($resource->save()) {
             return 'Data berhasil di edit!';
         }
