@@ -91,9 +91,9 @@ class TableManagementController extends Controller
     }
 
     // Post Updated data.
-    public function editContent(Request $request, $id)
+    public function editContent(Request $request)
     {
-        $resource = Content::find($id);
+        $resource = Content::find($request->id);
         $resource->month = $request->month;
         $resource->opening_estimation = $request->opening_estimation;
         $resource->store_location = $request->store_location;
