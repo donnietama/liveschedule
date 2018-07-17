@@ -690,62 +690,62 @@ export default {
     computed: {
         january: function () {
             return this.api.filter(u => {
-                return u.month === 'JANUARI' || u.month === 'Januari'
+                return u.month === 'JANUARI' || u.month === 'Januari' || u.month === 'January'
             })
         },
         february: function () {
             return this.api.filter(u => {
-                return u.month === 'FEBRUARI' || u.month === 'Februari'
+                return u.month === 'FEBRUARI' || u.month === 'Februari' || u.month === 'February'
             })
         },
         march: function () {
             return this.api.filter(u => {
-                return u.month === 'MARET' || u.month === 'Maret'
+                return u.month === 'MARET' || u.month === 'Maret' || u.month === 'March'
             })
         },
         april: function () {
             return this.api.filter(u => {
-                return u.month === 'APRIL' || u.month === 'April'
+                return u.month === 'APRIL' || u.month === 'April' || u.month === 'April'
             })
         },
         may: function () {
             return this.api.filter(u => {
-                return u.month === 'MEI' || u.month === 'Mei'
+                return u.month === 'MEI' || u.month === 'Mei' || u.month === 'May'
             })
         },
         june: function () {
             return this.api.filter(u => {
-                return u.month === 'JUNI' || u.month === 'Juni'
+                return u.month === 'JUNI' || u.month === 'Juni' || u.month === 'June'
             })
         },
         july: function () {
             return this.api.filter(u => {
-                return u.month === 'JULI' || u.month === 'Juli'
+                return u.month === 'JULI' || u.month === 'Juli' || u.month === 'July'
             })
         },
         august: function () {
             return this.api.filter(u => {
-                return u.month === 'AGUSTUS' || u.month === 'Agustus'
+                return u.month === 'AGUSTUS' || u.month === 'Agustus' || u.month === 'August'
             })
         },
         september: function () {
             return this.api.filter(u => {
-                return u.month === 'SEPTEMBER' || u.month === 'September'
+                return u.month === 'SEPTEMBER' || u.month === 'September' || u.month === 'September'
             })
         },
         october: function () {
             return this.api.filter(u => {
-                return u.month === 'OKTOBER' || u.month === 'Oktober'
+                return u.month === 'OKTOBER' || u.month === 'Oktober' || u.month === 'October'
             })
         },
         november: function () {
             return this.api.filter(u => {
-                return u.month === 'NOVEMBER' || u.month === 'November'
+                return u.month === 'NOVEMBER' || u.month === 'November' || u.month === 'November'
             })
         },
         desember: function () {
             return this.api.filter(u => {
-                return u.month === 'DESEMBER' || u.month === 'Desember'
+                return u.month === 'DESEMBER' || u.month === 'Desember' || u.month === 'December'
             })
         },
     }

@@ -49577,62 +49577,62 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     computed: {
         january: function january() {
             return this.api.filter(function (u) {
-                return u.month === 'JANUARI' || u.month === 'Januari';
+                return u.month === 'JANUARI' || u.month === 'Januari' || u.month === 'January';
             });
         },
         february: function february() {
             return this.api.filter(function (u) {
-                return u.month === 'FEBRUARI' || u.month === 'Februari';
+                return u.month === 'FEBRUARI' || u.month === 'Februari' || u.month === 'February';
             });
         },
         march: function march() {
             return this.api.filter(function (u) {
-                return u.month === 'MARET' || u.month === 'Maret';
+                return u.month === 'MARET' || u.month === 'Maret' || u.month === 'March';
             });
         },
         april: function april() {
             return this.api.filter(function (u) {
-                return u.month === 'APRIL' || u.month === 'April';
+                return u.month === 'APRIL' || u.month === 'April' || u.month === 'April';
             });
         },
         may: function may() {
             return this.api.filter(function (u) {
-                return u.month === 'MEI' || u.month === 'Mei';
+                return u.month === 'MEI' || u.month === 'Mei' || u.month === 'May';
             });
         },
         june: function june() {
             return this.api.filter(function (u) {
-                return u.month === 'JUNI' || u.month === 'Juni';
+                return u.month === 'JUNI' || u.month === 'Juni' || u.month === 'June';
             });
         },
         july: function july() {
             return this.api.filter(function (u) {
-                return u.month === 'JULI' || u.month === 'Juli';
+                return u.month === 'JULI' || u.month === 'Juli' || u.month === 'July';
             });
         },
         august: function august() {
             return this.api.filter(function (u) {
-                return u.month === 'AGUSTUS' || u.month === 'Agustus';
+                return u.month === 'AGUSTUS' || u.month === 'Agustus' || u.month === 'August';
             });
         },
         september: function september() {
             return this.api.filter(function (u) {
-                return u.month === 'SEPTEMBER' || u.month === 'September';
+                return u.month === 'SEPTEMBER' || u.month === 'September' || u.month === 'September';
             });
         },
         october: function october() {
             return this.api.filter(function (u) {
-                return u.month === 'OKTOBER' || u.month === 'Oktober';
+                return u.month === 'OKTOBER' || u.month === 'Oktober' || u.month === 'October';
             });
         },
         november: function november() {
             return this.api.filter(function (u) {
-                return u.month === 'NOVEMBER' || u.month === 'November';
+                return u.month === 'NOVEMBER' || u.month === 'November' || u.month === 'November';
             });
         },
         desember: function desember() {
             return this.api.filter(function (u) {
-                return u.month === 'DESEMBER' || u.month === 'Desember';
+                return u.month === 'DESEMBER' || u.month === 'Desember' || u.month === 'December';
             });
         }
     }
