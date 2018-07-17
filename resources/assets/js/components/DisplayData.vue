@@ -1,6 +1,6 @@
 <template>
     <carousel :autoplay="true" :perPage="1" :autoplayTimeout="10000" :paginationEnabled="false" :loop="true">
-        <slide>
+        <slide v-if="january.length != 0">
             <div class="table-responsive">
                 <table class="table table-sm table-light table-bordered table-striped">
                     <thead class="thead-dark text-center">
@@ -55,7 +55,7 @@
                 </table>
             </div>
         </slide>
-        <slide>
+        <slide v-if="february.length != 0">
             <div class="table-responsive">
                 <table class="table table-sm table-light table-bordered table-striped">
                     <thead class="thead-dark text-center">
@@ -110,7 +110,7 @@
                 </table>
             </div>
         </slide>
-        <slide>
+        <slide v-if="march.length != 0">
             <div class="table-responsive">
                 <table class="table table-sm table-light table-bordered table-striped">
                     <thead class="thead-dark text-center">
@@ -165,7 +165,7 @@
                 </table>
             </div>
         </slide>
-        <slide>
+        <slide v-if="april.length != 0">
             <div class="table-responsive">
                 <table class="table table-sm table-light table-bordered table-striped">
                     <thead class="thead-dark text-center">
@@ -220,7 +220,7 @@
                 </table>
             </div>
         </slide>
-        <slide>
+        <slide v-if="may.length != 0">
             <div class="table-responsive">
                 <table class="table table-sm table-light table-bordered table-striped">
                     <thead class="thead-dark text-center">
@@ -275,7 +275,7 @@
                 </table>
             </div>
         </slide>
-        <slide>
+        <slide v-if="june.length != 0">
             <div class="table-responsive">
                 <table class="table table-sm table-light table-bordered table-striped">
                     <thead class="thead-dark text-center">
@@ -330,7 +330,7 @@
                 </table>
             </div>
         </slide>
-        <slide>
+        <slide v-if="july.length != 0">
             <div class="table-responsive">
                 <table class="table table-sm table-light table-bordered table-striped">
                     <thead class="thead-dark text-center">
@@ -385,7 +385,7 @@
                 </table>
             </div>
         </slide>
-        <slide>
+        <slide v-if="august.length != 0">
             <div class="table-responsive">
                 <table class="table table-sm table-light table-bordered table-striped">
                     <thead class="thead-dark text-center">
@@ -440,7 +440,7 @@
                 </table>
             </div>
         </slide>
-        <slide>
+        <slide v-if="september.length != 0">
             <div class="table-responsive">
                 <table class="table table-sm table-light table-bordered table-striped">
                     <thead class="thead-dark text-center">
@@ -495,7 +495,7 @@
                 </table>
             </div>
         </slide>
-        <slide>
+        <slide v-if="october.length != 0">
             <div class="table-responsive">
                 <table class="table table-sm table-light table-bordered table-striped">
                     <thead class="thead-dark text-center">
@@ -550,7 +550,7 @@
                 </table>
             </div>
         </slide>
-        <slide>
+        <slide v-if="november.length != 0">
             <div class="table-responsive">
                 <table class="table table-sm table-light table-bordered table-striped">
                     <thead class="thead-dark text-center">
@@ -605,7 +605,7 @@
                 </table>
             </div>
         </slide>
-        <slide>
+        <slide v-if="desember.length != 0">
             <div class="table-responsive">
                 <table class="table table-sm table-light table-bordered table-striped">
                     <thead class="thead-dark text-center">

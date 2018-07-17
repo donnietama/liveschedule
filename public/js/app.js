@@ -402,6 +402,110 @@ module.exports = g;
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+var utils = __webpack_require__(0);
+var normalizeHeaderName = __webpack_require__(23);
+
+var DEFAULT_CONTENT_TYPE = {
+  'Content-Type': 'application/x-www-form-urlencoded'
+};
+
+function setContentTypeIfUnset(headers, value) {
+  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
+    headers['Content-Type'] = value;
+  }
+}
+
+function getDefaultAdapter() {
+  var adapter;
+  if (typeof XMLHttpRequest !== 'undefined') {
+    // For browsers use XHR adapter
+    adapter = __webpack_require__(8);
+  } else if (typeof process !== 'undefined') {
+    // For node use HTTP adapter
+    adapter = __webpack_require__(8);
+  }
+  return adapter;
+}
+
+var defaults = {
+  adapter: getDefaultAdapter(),
+
+  transformRequest: [function transformRequest(data, headers) {
+    normalizeHeaderName(headers, 'Content-Type');
+    if (utils.isFormData(data) ||
+      utils.isArrayBuffer(data) ||
+      utils.isBuffer(data) ||
+      utils.isStream(data) ||
+      utils.isFile(data) ||
+      utils.isBlob(data)
+    ) {
+      return data;
+    }
+    if (utils.isArrayBufferView(data)) {
+      return data.buffer;
+    }
+    if (utils.isURLSearchParams(data)) {
+      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
+      return data.toString();
+    }
+    if (utils.isObject(data)) {
+      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
+      return JSON.stringify(data);
+    }
+    return data;
+  }],
+
+  transformResponse: [function transformResponse(data) {
+    /*eslint no-param-reassign:0*/
+    if (typeof data === 'string') {
+      try {
+        data = JSON.parse(data);
+      } catch (e) { /* Ignore */ }
+    }
+    return data;
+  }],
+
+  /**
+   * A timeout in milliseconds to abort a request. If set to 0 (default) a
+   * timeout is not created.
+   */
+  timeout: 0,
+
+  xsrfCookieName: 'XSRF-TOKEN',
+  xsrfHeaderName: 'X-XSRF-TOKEN',
+
+  maxContentLength: -1,
+
+  validateStatus: function validateStatus(status) {
+    return status >= 200 && status < 300;
+  }
+};
+
+defaults.headers = {
+  common: {
+    'Accept': 'application/json, text/plain, */*'
+  }
+};
+
+utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
+  defaults.headers[method] = {};
+});
+
+utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
+});
+
+module.exports = defaults;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -508,110 +612,6 @@ module.exports = function normalizeComponent (
   }
 }
 
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(23);
-
-var DEFAULT_CONTENT_TYPE = {
-  'Content-Type': 'application/x-www-form-urlencoded'
-};
-
-function setContentTypeIfUnset(headers, value) {
-  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
-    headers['Content-Type'] = value;
-  }
-}
-
-function getDefaultAdapter() {
-  var adapter;
-  if (typeof XMLHttpRequest !== 'undefined') {
-    // For browsers use XHR adapter
-    adapter = __webpack_require__(8);
-  } else if (typeof process !== 'undefined') {
-    // For node use HTTP adapter
-    adapter = __webpack_require__(8);
-  }
-  return adapter;
-}
-
-var defaults = {
-  adapter: getDefaultAdapter(),
-
-  transformRequest: [function transformRequest(data, headers) {
-    normalizeHeaderName(headers, 'Content-Type');
-    if (utils.isFormData(data) ||
-      utils.isArrayBuffer(data) ||
-      utils.isBuffer(data) ||
-      utils.isStream(data) ||
-      utils.isFile(data) ||
-      utils.isBlob(data)
-    ) {
-      return data;
-    }
-    if (utils.isArrayBufferView(data)) {
-      return data.buffer;
-    }
-    if (utils.isURLSearchParams(data)) {
-      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
-      return data.toString();
-    }
-    if (utils.isObject(data)) {
-      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
-      return JSON.stringify(data);
-    }
-    return data;
-  }],
-
-  transformResponse: [function transformResponse(data) {
-    /*eslint no-param-reassign:0*/
-    if (typeof data === 'string') {
-      try {
-        data = JSON.parse(data);
-      } catch (e) { /* Ignore */ }
-    }
-    return data;
-  }],
-
-  /**
-   * A timeout in milliseconds to abort a request. If set to 0 (default) a
-   * timeout is not created.
-   */
-  timeout: 0,
-
-  xsrfCookieName: 'XSRF-TOKEN',
-  xsrfHeaderName: 'X-XSRF-TOKEN',
-
-  maxContentLength: -1,
-
-  validateStatus: function validateStatus(status) {
-    return status >= 200 && status < 300;
-  }
-};
-
-defaults.headers = {
-  common: {
-    'Accept': 'application/json, text/plain, */*'
-  }
-};
-
-utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
-  defaults.headers[method] = {};
-});
-
-utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
-  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
-});
-
-module.exports = defaults;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
 /* 4 */
@@ -24942,7 +24942,7 @@ module.exports = Vue;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(14);
-module.exports = __webpack_require__(54);
+module.exports = __webpack_require__(51);
 
 
 /***/ }),
@@ -24982,7 +24982,6 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_snotify__["b" /* default */], options);
 Vue.component('example-component', __webpack_require__(41));
 Vue.component('display-data', __webpack_require__(44));
 Vue.component('content-form', __webpack_require__(48));
-Vue.component('update-form', __webpack_require__(51));
 
 var app = new Vue({
     el: '#app'
@@ -46139,7 +46138,7 @@ module.exports = __webpack_require__(20);
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(6);
 var Axios = __webpack_require__(22);
-var defaults = __webpack_require__(3);
+var defaults = __webpack_require__(2);
 
 /**
  * Create an instance of Axios
@@ -46222,7 +46221,7 @@ function isSlowBuffer (obj) {
 "use strict";
 
 
-var defaults = __webpack_require__(3);
+var defaults = __webpack_require__(2);
 var utils = __webpack_require__(0);
 var InterceptorManager = __webpack_require__(31);
 var dispatchRequest = __webpack_require__(32);
@@ -46761,7 +46760,7 @@ module.exports = InterceptorManager;
 var utils = __webpack_require__(0);
 var transformData = __webpack_require__(33);
 var isCancel = __webpack_require__(10);
-var defaults = __webpack_require__(3);
+var defaults = __webpack_require__(2);
 var isAbsoluteURL = __webpack_require__(34);
 var combineURLs = __webpack_require__(35);
 
@@ -48714,7 +48713,7 @@ if (typeof window !== 'undefined' && window.hasOwnProperty('Vue')) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(42)
 /* template */
@@ -48833,7 +48832,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(45)
 /* template */
@@ -49670,1973 +49669,2345 @@ var render = function() {
       }
     },
     [
-      _c("slide", [
-        _c("div", { staticClass: "table-responsive" }, [
-          _c(
-            "table",
-            {
-              staticClass:
-                "table table-sm table-light table-bordered table-striped"
-            },
-            [
-              _c("thead", { staticClass: "thead-dark text-center" }, [
-                _c("tr", [
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "vertical-align": "middle" },
-                      attrs: { rowspan: "2" }
-                    },
-                    [_vm._v("NO")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "vertical-align": "middle" },
-                      attrs: { rowspan: "2" }
-                    },
-                    [_vm._v("BULAN")]
-                  ),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("ESTIMASI TANGGAL OPENING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("NAMA / LOKASI STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("PEMILIK STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v(
-                      "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+      _vm.january.length != 0
+        ? _c("slide", [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-sm table-light table-bordered table-striped"
+                },
+                [
+                  _c("thead", { staticClass: "thead-dark text-center" }, [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("NO")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("BULAN")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("ESTIMASI TANGGAL OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("NAMA / LOKASI STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PEMILIK STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [
+                          _vm._v(
+                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("FIT OUT")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("TRAINING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PREPARE BARANG")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tr",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "text-center",
+                            attrs: { colspan: "3" }
+                          },
+                          [_vm._v("DARI PROJECT")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("th")
+                      ]
                     )
                   ]),
                   _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("FIT OUT")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("TRAINING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("PREPARE BARANG")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("OPENING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "tr",
-                  {
-                    staticClass: "text-center",
-                    staticStyle: { "white-space": "nowrap", width: "1%" }
-                  },
-                  [
-                    _c(
-                      "th",
-                      { staticClass: "text-center", attrs: { colspan: "3" } },
-                      [_vm._v("DARI PROJECT")]
-                    ),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-44")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-32")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-22")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-21")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-8")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-3")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-2")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H")]),
-                    _vm._v(" "),
-                    _c("th")
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.january, function(data, index) {
-                  return _c(
-                    "tr",
-                    {
-                      key: data.index,
-                      staticStyle: {
-                        "white-space": "nowrap",
-                        width: "1%",
-                        "text-align": "center"
-                      }
-                    },
-                    [
-                      _c("td", [_vm._v(_vm._s(index + 1))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.month))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.store_location))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_44))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_32))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_22))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_21))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_8))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_3))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_2))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.additional_info))])
-                    ]
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.january, function(data, index) {
+                      return _c(
+                        "tr",
+                        {
+                          key: data.index,
+                          staticStyle: {
+                            "white-space": "nowrap",
+                            width: "1%",
+                            "text-align": "center"
+                          }
+                        },
+                        [
+                          _c("td", [_vm._v(_vm._s(index + 1))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.month))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.store_location))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_44))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_32))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_22))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_21))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_8))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_3))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_2))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.additional_info))])
+                        ]
+                      )
+                    })
                   )
-                })
+                ]
               )
-            ]
-          )
-        ])
-      ]),
+            ])
+          ])
+        : _vm._e(),
       _vm._v(" "),
-      _c("slide", [
-        _c("div", { staticClass: "table-responsive" }, [
-          _c(
-            "table",
-            {
-              staticClass:
-                "table table-sm table-light table-bordered table-striped"
-            },
-            [
-              _c("thead", { staticClass: "thead-dark text-center" }, [
-                _c("tr", [
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "vertical-align": "middle" },
-                      attrs: { rowspan: "2" }
-                    },
-                    [_vm._v("NO")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "vertical-align": "middle" },
-                      attrs: { rowspan: "2" }
-                    },
-                    [_vm._v("BULAN")]
-                  ),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("ESTIMASI TANGGAL OPENING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("NAMA / LOKASI STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("PEMILIK STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v(
-                      "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+      _vm.february.length != 0
+        ? _c("slide", [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-sm table-light table-bordered table-striped"
+                },
+                [
+                  _c("thead", { staticClass: "thead-dark text-center" }, [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("NO")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("BULAN")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("ESTIMASI TANGGAL OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("NAMA / LOKASI STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PEMILIK STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [
+                          _vm._v(
+                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("FIT OUT")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("TRAINING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PREPARE BARANG")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tr",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "text-center",
+                            attrs: { colspan: "3" }
+                          },
+                          [_vm._v("DARI PROJECT")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("th")
+                      ]
                     )
                   ]),
                   _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("FIT OUT")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("TRAINING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("PREPARE BARANG")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("OPENING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "tr",
-                  {
-                    staticClass: "text-center",
-                    staticStyle: { "white-space": "nowrap", width: "1%" }
-                  },
-                  [
-                    _c(
-                      "th",
-                      { staticClass: "text-center", attrs: { colspan: "3" } },
-                      [_vm._v("DARI PROJECT")]
-                    ),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-44")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-32")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-22")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-21")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-8")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-3")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-2")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H")]),
-                    _vm._v(" "),
-                    _c("th")
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.february, function(data, index) {
-                  return _c(
-                    "tr",
-                    {
-                      key: data.index,
-                      staticStyle: {
-                        "white-space": "nowrap",
-                        width: "1%",
-                        "text-align": "center"
-                      }
-                    },
-                    [
-                      _c("td", [_vm._v(_vm._s(index + 1))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.month))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.store_location))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_44))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_32))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_22))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_21))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_8))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_3))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_2))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.additional_info))])
-                    ]
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.february, function(data, index) {
+                      return _c(
+                        "tr",
+                        {
+                          key: data.index,
+                          staticStyle: {
+                            "white-space": "nowrap",
+                            width: "1%",
+                            "text-align": "center"
+                          }
+                        },
+                        [
+                          _c("td", [_vm._v(_vm._s(index + 1))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.month))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.store_location))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_44))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_32))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_22))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_21))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_8))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_3))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_2))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.additional_info))])
+                        ]
+                      )
+                    })
                   )
-                })
+                ]
               )
-            ]
-          )
-        ])
-      ]),
+            ])
+          ])
+        : _vm._e(),
       _vm._v(" "),
-      _c("slide", [
-        _c("div", { staticClass: "table-responsive" }, [
-          _c(
-            "table",
-            {
-              staticClass:
-                "table table-sm table-light table-bordered table-striped"
-            },
-            [
-              _c("thead", { staticClass: "thead-dark text-center" }, [
-                _c("tr", [
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "vertical-align": "middle" },
-                      attrs: { rowspan: "2" }
-                    },
-                    [_vm._v("NO")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "vertical-align": "middle" },
-                      attrs: { rowspan: "2" }
-                    },
-                    [_vm._v("BULAN")]
-                  ),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("ESTIMASI TANGGAL OPENING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("NAMA / LOKASI STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("PEMILIK STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v(
-                      "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+      _vm.march.length != 0
+        ? _c("slide", [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-sm table-light table-bordered table-striped"
+                },
+                [
+                  _c("thead", { staticClass: "thead-dark text-center" }, [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("NO")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("BULAN")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("ESTIMASI TANGGAL OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("NAMA / LOKASI STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PEMILIK STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [
+                          _vm._v(
+                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("FIT OUT")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("TRAINING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PREPARE BARANG")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tr",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "text-center",
+                            attrs: { colspan: "3" }
+                          },
+                          [_vm._v("DARI PROJECT")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("th")
+                      ]
                     )
                   ]),
                   _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("FIT OUT")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("TRAINING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("PREPARE BARANG")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("OPENING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "tr",
-                  {
-                    staticClass: "text-center",
-                    staticStyle: { "white-space": "nowrap", width: "1%" }
-                  },
-                  [
-                    _c(
-                      "th",
-                      { staticClass: "text-center", attrs: { colspan: "3" } },
-                      [_vm._v("DARI PROJECT")]
-                    ),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-44")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-32")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-22")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-21")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-8")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-3")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-2")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H")]),
-                    _vm._v(" "),
-                    _c("th")
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.march, function(data, index) {
-                  return _c(
-                    "tr",
-                    {
-                      key: data.index,
-                      staticStyle: {
-                        "white-space": "nowrap",
-                        width: "1%",
-                        "text-align": "center"
-                      }
-                    },
-                    [
-                      _c("td", [_vm._v(_vm._s(index + 1))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.month))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.store_location))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_44))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_32))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_22))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_21))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_8))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_3))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_2))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.additional_info))])
-                    ]
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.march, function(data, index) {
+                      return _c(
+                        "tr",
+                        {
+                          key: data.index,
+                          staticStyle: {
+                            "white-space": "nowrap",
+                            width: "1%",
+                            "text-align": "center"
+                          }
+                        },
+                        [
+                          _c("td", [_vm._v(_vm._s(index + 1))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.month))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.store_location))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_44))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_32))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_22))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_21))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_8))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_3))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_2))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.additional_info))])
+                        ]
+                      )
+                    })
                   )
-                })
+                ]
               )
-            ]
-          )
-        ])
-      ]),
+            ])
+          ])
+        : _vm._e(),
       _vm._v(" "),
-      _c("slide", [
-        _c("div", { staticClass: "table-responsive" }, [
-          _c(
-            "table",
-            {
-              staticClass:
-                "table table-sm table-light table-bordered table-striped"
-            },
-            [
-              _c("thead", { staticClass: "thead-dark text-center" }, [
-                _c("tr", [
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "vertical-align": "middle" },
-                      attrs: { rowspan: "2" }
-                    },
-                    [_vm._v("NO")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "vertical-align": "middle" },
-                      attrs: { rowspan: "2" }
-                    },
-                    [_vm._v("BULAN")]
-                  ),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("ESTIMASI TANGGAL OPENING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("NAMA / LOKASI STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("PEMILIK STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v(
-                      "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+      _vm.april.length != 0
+        ? _c("slide", [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-sm table-light table-bordered table-striped"
+                },
+                [
+                  _c("thead", { staticClass: "thead-dark text-center" }, [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("NO")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("BULAN")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("ESTIMASI TANGGAL OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("NAMA / LOKASI STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PEMILIK STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [
+                          _vm._v(
+                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("FIT OUT")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("TRAINING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PREPARE BARANG")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tr",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "text-center",
+                            attrs: { colspan: "3" }
+                          },
+                          [_vm._v("DARI PROJECT")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("th")
+                      ]
                     )
                   ]),
                   _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("FIT OUT")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("TRAINING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("PREPARE BARANG")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("OPENING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "tr",
-                  {
-                    staticClass: "text-center",
-                    staticStyle: { "white-space": "nowrap", width: "1%" }
-                  },
-                  [
-                    _c(
-                      "th",
-                      { staticClass: "text-center", attrs: { colspan: "3" } },
-                      [_vm._v("DARI PROJECT")]
-                    ),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-44")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-32")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-22")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-21")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-8")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-3")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-2")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H")]),
-                    _vm._v(" "),
-                    _c("th")
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.april, function(data, index) {
-                  return _c(
-                    "tr",
-                    {
-                      key: data.index,
-                      staticStyle: {
-                        "white-space": "nowrap",
-                        width: "1%",
-                        "text-align": "center"
-                      }
-                    },
-                    [
-                      _c("td", [_vm._v(_vm._s(index + 1))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.month))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.store_location))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_44))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_32))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_22))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_21))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_8))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_3))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_2))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.additional_info))])
-                    ]
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.april, function(data, index) {
+                      return _c(
+                        "tr",
+                        {
+                          key: data.index,
+                          staticStyle: {
+                            "white-space": "nowrap",
+                            width: "1%",
+                            "text-align": "center"
+                          }
+                        },
+                        [
+                          _c("td", [_vm._v(_vm._s(index + 1))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.month))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.store_location))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_44))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_32))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_22))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_21))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_8))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_3))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_2))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.additional_info))])
+                        ]
+                      )
+                    })
                   )
-                })
+                ]
               )
-            ]
-          )
-        ])
-      ]),
+            ])
+          ])
+        : _vm._e(),
       _vm._v(" "),
-      _c("slide", [
-        _c("div", { staticClass: "table-responsive" }, [
-          _c(
-            "table",
-            {
-              staticClass:
-                "table table-sm table-light table-bordered table-striped"
-            },
-            [
-              _c("thead", { staticClass: "thead-dark text-center" }, [
-                _c("tr", [
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "vertical-align": "middle" },
-                      attrs: { rowspan: "2" }
-                    },
-                    [_vm._v("NO")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "vertical-align": "middle" },
-                      attrs: { rowspan: "2" }
-                    },
-                    [_vm._v("BULAN")]
-                  ),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("ESTIMASI TANGGAL OPENING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("NAMA / LOKASI STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("PEMILIK STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v(
-                      "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+      _vm.may.length != 0
+        ? _c("slide", [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-sm table-light table-bordered table-striped"
+                },
+                [
+                  _c("thead", { staticClass: "thead-dark text-center" }, [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("NO")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("BULAN")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("ESTIMASI TANGGAL OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("NAMA / LOKASI STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PEMILIK STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [
+                          _vm._v(
+                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("FIT OUT")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("TRAINING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PREPARE BARANG")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tr",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "text-center",
+                            attrs: { colspan: "3" }
+                          },
+                          [_vm._v("DARI PROJECT")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("th")
+                      ]
                     )
                   ]),
                   _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("FIT OUT")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("TRAINING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("PREPARE BARANG")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("OPENING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "tr",
-                  {
-                    staticClass: "text-center",
-                    staticStyle: { "white-space": "nowrap", width: "1%" }
-                  },
-                  [
-                    _c(
-                      "th",
-                      { staticClass: "text-center", attrs: { colspan: "3" } },
-                      [_vm._v("DARI PROJECT")]
-                    ),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-44")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-32")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-22")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-21")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-8")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-3")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-2")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H")]),
-                    _vm._v(" "),
-                    _c("th")
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.may, function(data, index) {
-                  return _c(
-                    "tr",
-                    {
-                      key: data.index,
-                      staticStyle: {
-                        "white-space": "nowrap",
-                        width: "1%",
-                        "text-align": "center"
-                      }
-                    },
-                    [
-                      _c("td", [_vm._v(_vm._s(index + 1))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.month))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.store_location))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_44))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_32))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_22))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_21))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_8))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_3))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_2))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.additional_info))])
-                    ]
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.may, function(data, index) {
+                      return _c(
+                        "tr",
+                        {
+                          key: data.index,
+                          staticStyle: {
+                            "white-space": "nowrap",
+                            width: "1%",
+                            "text-align": "center"
+                          }
+                        },
+                        [
+                          _c("td", [_vm._v(_vm._s(index + 1))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.month))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.store_location))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_44))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_32))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_22))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_21))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_8))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_3))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_2))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.additional_info))])
+                        ]
+                      )
+                    })
                   )
-                })
+                ]
               )
-            ]
-          )
-        ])
-      ]),
+            ])
+          ])
+        : _vm._e(),
       _vm._v(" "),
-      _c("slide", [
-        _c("div", { staticClass: "table-responsive" }, [
-          _c(
-            "table",
-            {
-              staticClass:
-                "table table-sm table-light table-bordered table-striped"
-            },
-            [
-              _c("thead", { staticClass: "thead-dark text-center" }, [
-                _c("tr", [
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "vertical-align": "middle" },
-                      attrs: { rowspan: "2" }
-                    },
-                    [_vm._v("NO")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "vertical-align": "middle" },
-                      attrs: { rowspan: "2" }
-                    },
-                    [_vm._v("BULAN")]
-                  ),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("ESTIMASI TANGGAL OPENING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("NAMA / LOKASI STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("PEMILIK STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v(
-                      "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+      _vm.june.length != 0
+        ? _c("slide", [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-sm table-light table-bordered table-striped"
+                },
+                [
+                  _c("thead", { staticClass: "thead-dark text-center" }, [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("NO")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("BULAN")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("ESTIMASI TANGGAL OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("NAMA / LOKASI STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PEMILIK STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [
+                          _vm._v(
+                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("FIT OUT")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("TRAINING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PREPARE BARANG")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tr",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "text-center",
+                            attrs: { colspan: "3" }
+                          },
+                          [_vm._v("DARI PROJECT")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("th")
+                      ]
                     )
                   ]),
                   _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("FIT OUT")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("TRAINING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("PREPARE BARANG")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("OPENING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "tr",
-                  {
-                    staticClass: "text-center",
-                    staticStyle: { "white-space": "nowrap", width: "1%" }
-                  },
-                  [
-                    _c(
-                      "th",
-                      { staticClass: "text-center", attrs: { colspan: "3" } },
-                      [_vm._v("DARI PROJECT")]
-                    ),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-44")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-32")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-22")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-21")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-8")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-3")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-2")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H")]),
-                    _vm._v(" "),
-                    _c("th")
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.june, function(data, index) {
-                  return _c(
-                    "tr",
-                    {
-                      key: data.index,
-                      staticStyle: {
-                        "white-space": "nowrap",
-                        width: "1%",
-                        "text-align": "center"
-                      }
-                    },
-                    [
-                      _c("td", [_vm._v(_vm._s(index + 1))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.month))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.store_location))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_44))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_32))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_22))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_21))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_8))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_3))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_2))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.additional_info))])
-                    ]
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.june, function(data, index) {
+                      return _c(
+                        "tr",
+                        {
+                          key: data.index,
+                          staticStyle: {
+                            "white-space": "nowrap",
+                            width: "1%",
+                            "text-align": "center"
+                          }
+                        },
+                        [
+                          _c("td", [_vm._v(_vm._s(index + 1))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.month))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.store_location))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_44))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_32))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_22))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_21))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_8))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_3))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_2))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.additional_info))])
+                        ]
+                      )
+                    })
                   )
-                })
+                ]
               )
-            ]
-          )
-        ])
-      ]),
+            ])
+          ])
+        : _vm._e(),
       _vm._v(" "),
-      _c("slide", [
-        _c("div", { staticClass: "table-responsive" }, [
-          _c(
-            "table",
-            {
-              staticClass:
-                "table table-sm table-light table-bordered table-striped"
-            },
-            [
-              _c("thead", { staticClass: "thead-dark text-center" }, [
-                _c("tr", [
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "vertical-align": "middle" },
-                      attrs: { rowspan: "2" }
-                    },
-                    [_vm._v("NO")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "vertical-align": "middle" },
-                      attrs: { rowspan: "2" }
-                    },
-                    [_vm._v("BULAN")]
-                  ),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("ESTIMASI TANGGAL OPENING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("NAMA / LOKASI STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("PEMILIK STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v(
-                      "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+      _vm.july.length != 0
+        ? _c("slide", [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-sm table-light table-bordered table-striped"
+                },
+                [
+                  _c("thead", { staticClass: "thead-dark text-center" }, [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("NO")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("BULAN")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("ESTIMASI TANGGAL OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("NAMA / LOKASI STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PEMILIK STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [
+                          _vm._v(
+                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("FIT OUT")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("TRAINING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PREPARE BARANG")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tr",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "text-center",
+                            attrs: { colspan: "3" }
+                          },
+                          [_vm._v("DARI PROJECT")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("th")
+                      ]
                     )
                   ]),
                   _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("FIT OUT")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("TRAINING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("PREPARE BARANG")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("OPENING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "tr",
-                  {
-                    staticClass: "text-center",
-                    staticStyle: { "white-space": "nowrap", width: "1%" }
-                  },
-                  [
-                    _c(
-                      "th",
-                      { staticClass: "text-center", attrs: { colspan: "3" } },
-                      [_vm._v("DARI PROJECT")]
-                    ),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-44")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-32")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-22")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-21")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-8")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-3")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-2")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H")]),
-                    _vm._v(" "),
-                    _c("th")
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.july, function(data, index) {
-                  return _c(
-                    "tr",
-                    {
-                      key: data.index,
-                      staticStyle: {
-                        "white-space": "nowrap",
-                        width: "1%",
-                        "text-align": "center"
-                      }
-                    },
-                    [
-                      _c("td", [_vm._v(_vm._s(index + 1))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.month))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.store_location))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_44))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_32))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_22))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_21))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_8))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_3))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_2))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.additional_info))])
-                    ]
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.july, function(data, index) {
+                      return _c(
+                        "tr",
+                        {
+                          key: data.index,
+                          staticStyle: {
+                            "white-space": "nowrap",
+                            width: "1%",
+                            "text-align": "center"
+                          }
+                        },
+                        [
+                          _c("td", [_vm._v(_vm._s(index + 1))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.month))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.store_location))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_44))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_32))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_22))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_21))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_8))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_3))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_2))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.additional_info))])
+                        ]
+                      )
+                    })
                   )
-                })
+                ]
               )
-            ]
-          )
-        ])
-      ]),
+            ])
+          ])
+        : _vm._e(),
       _vm._v(" "),
-      _c("slide", [
-        _c("div", { staticClass: "table-responsive" }, [
-          _c(
-            "table",
-            {
-              staticClass:
-                "table table-sm table-light table-bordered table-striped"
-            },
-            [
-              _c("thead", { staticClass: "thead-dark text-center" }, [
-                _c("tr", [
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "vertical-align": "middle" },
-                      attrs: { rowspan: "2" }
-                    },
-                    [_vm._v("NO")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "vertical-align": "middle" },
-                      attrs: { rowspan: "2" }
-                    },
-                    [_vm._v("BULAN")]
-                  ),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("ESTIMASI TANGGAL OPENING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("NAMA / LOKASI STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("PEMILIK STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v(
-                      "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+      _vm.august.length != 0
+        ? _c("slide", [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-sm table-light table-bordered table-striped"
+                },
+                [
+                  _c("thead", { staticClass: "thead-dark text-center" }, [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("NO")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("BULAN")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("ESTIMASI TANGGAL OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("NAMA / LOKASI STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PEMILIK STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [
+                          _vm._v(
+                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("FIT OUT")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("TRAINING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PREPARE BARANG")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tr",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "text-center",
+                            attrs: { colspan: "3" }
+                          },
+                          [_vm._v("DARI PROJECT")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("th")
+                      ]
                     )
                   ]),
                   _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("FIT OUT")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("TRAINING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("PREPARE BARANG")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("OPENING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "tr",
-                  {
-                    staticClass: "text-center",
-                    staticStyle: { "white-space": "nowrap", width: "1%" }
-                  },
-                  [
-                    _c(
-                      "th",
-                      { staticClass: "text-center", attrs: { colspan: "3" } },
-                      [_vm._v("DARI PROJECT")]
-                    ),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-44")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-32")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-22")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-21")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-8")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-3")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-2")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H")]),
-                    _vm._v(" "),
-                    _c("th")
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.august, function(data, index) {
-                  return _c(
-                    "tr",
-                    {
-                      key: data.index,
-                      staticStyle: {
-                        "white-space": "nowrap",
-                        width: "1%",
-                        "text-align": "center"
-                      }
-                    },
-                    [
-                      _c("td", [_vm._v(_vm._s(index + 1))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.month))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.store_location))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_44))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_32))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_22))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_21))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_8))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_3))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_2))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.additional_info))])
-                    ]
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.august, function(data, index) {
+                      return _c(
+                        "tr",
+                        {
+                          key: data.index,
+                          staticStyle: {
+                            "white-space": "nowrap",
+                            width: "1%",
+                            "text-align": "center"
+                          }
+                        },
+                        [
+                          _c("td", [_vm._v(_vm._s(index + 1))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.month))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.store_location))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_44))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_32))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_22))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_21))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_8))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_3))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_2))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.additional_info))])
+                        ]
+                      )
+                    })
                   )
-                })
+                ]
               )
-            ]
-          )
-        ])
-      ]),
+            ])
+          ])
+        : _vm._e(),
       _vm._v(" "),
-      _c("slide", [
-        _c("div", { staticClass: "table-responsive" }, [
-          _c(
-            "table",
-            {
-              staticClass:
-                "table table-sm table-light table-bordered table-striped"
-            },
-            [
-              _c("thead", { staticClass: "thead-dark text-center" }, [
-                _c("tr", [
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "vertical-align": "middle" },
-                      attrs: { rowspan: "2" }
-                    },
-                    [_vm._v("NO")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "vertical-align": "middle" },
-                      attrs: { rowspan: "2" }
-                    },
-                    [_vm._v("BULAN")]
-                  ),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("ESTIMASI TANGGAL OPENING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("NAMA / LOKASI STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("PEMILIK STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v(
-                      "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+      _vm.september.length != 0
+        ? _c("slide", [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-sm table-light table-bordered table-striped"
+                },
+                [
+                  _c("thead", { staticClass: "thead-dark text-center" }, [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("NO")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("BULAN")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("ESTIMASI TANGGAL OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("NAMA / LOKASI STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PEMILIK STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [
+                          _vm._v(
+                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("FIT OUT")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("TRAINING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PREPARE BARANG")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tr",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "text-center",
+                            attrs: { colspan: "3" }
+                          },
+                          [_vm._v("DARI PROJECT")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("th")
+                      ]
                     )
                   ]),
                   _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("FIT OUT")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("TRAINING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("PREPARE BARANG")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("OPENING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "tr",
-                  {
-                    staticClass: "text-center",
-                    staticStyle: { "white-space": "nowrap", width: "1%" }
-                  },
-                  [
-                    _c(
-                      "th",
-                      { staticClass: "text-center", attrs: { colspan: "3" } },
-                      [_vm._v("DARI PROJECT")]
-                    ),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-44")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-32")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-22")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-21")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-8")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-3")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-2")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H")]),
-                    _vm._v(" "),
-                    _c("th")
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.september, function(data, index) {
-                  return _c(
-                    "tr",
-                    {
-                      key: data.index,
-                      staticStyle: {
-                        "white-space": "nowrap",
-                        width: "1%",
-                        "text-align": "center"
-                      }
-                    },
-                    [
-                      _c("td", [_vm._v(_vm._s(index + 1))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.month))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.store_location))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_44))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_32))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_22))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_21))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_8))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_3))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_2))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.additional_info))])
-                    ]
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.september, function(data, index) {
+                      return _c(
+                        "tr",
+                        {
+                          key: data.index,
+                          staticStyle: {
+                            "white-space": "nowrap",
+                            width: "1%",
+                            "text-align": "center"
+                          }
+                        },
+                        [
+                          _c("td", [_vm._v(_vm._s(index + 1))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.month))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.store_location))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_44))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_32))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_22))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_21))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_8))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_3))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_2))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.additional_info))])
+                        ]
+                      )
+                    })
                   )
-                })
+                ]
               )
-            ]
-          )
-        ])
-      ]),
+            ])
+          ])
+        : _vm._e(),
       _vm._v(" "),
-      _c("slide", [
-        _c("div", { staticClass: "table-responsive" }, [
-          _c(
-            "table",
-            {
-              staticClass:
-                "table table-sm table-light table-bordered table-striped"
-            },
-            [
-              _c("thead", { staticClass: "thead-dark text-center" }, [
-                _c("tr", [
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "vertical-align": "middle" },
-                      attrs: { rowspan: "2" }
-                    },
-                    [_vm._v("NO")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "vertical-align": "middle" },
-                      attrs: { rowspan: "2" }
-                    },
-                    [_vm._v("BULAN")]
-                  ),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("ESTIMASI TANGGAL OPENING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("NAMA / LOKASI STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("PEMILIK STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v(
-                      "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+      _vm.october.length != 0
+        ? _c("slide", [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-sm table-light table-bordered table-striped"
+                },
+                [
+                  _c("thead", { staticClass: "thead-dark text-center" }, [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("NO")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("BULAN")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("ESTIMASI TANGGAL OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("NAMA / LOKASI STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PEMILIK STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [
+                          _vm._v(
+                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("FIT OUT")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("TRAINING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PREPARE BARANG")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tr",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "text-center",
+                            attrs: { colspan: "3" }
+                          },
+                          [_vm._v("DARI PROJECT")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("th")
+                      ]
                     )
                   ]),
                   _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("FIT OUT")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("TRAINING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("PREPARE BARANG")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("OPENING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "tr",
-                  {
-                    staticClass: "text-center",
-                    staticStyle: { "white-space": "nowrap", width: "1%" }
-                  },
-                  [
-                    _c(
-                      "th",
-                      { staticClass: "text-center", attrs: { colspan: "3" } },
-                      [_vm._v("DARI PROJECT")]
-                    ),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-44")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-32")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-22")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-21")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-8")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-3")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-2")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H")]),
-                    _vm._v(" "),
-                    _c("th")
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.october, function(data, index) {
-                  return _c(
-                    "tr",
-                    {
-                      key: data.index,
-                      staticStyle: {
-                        "white-space": "nowrap",
-                        width: "1%",
-                        "text-align": "center"
-                      }
-                    },
-                    [
-                      _c("td", [_vm._v(_vm._s(index + 1))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.month))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.store_location))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_44))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_32))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_22))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_21))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_8))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_3))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_2))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.additional_info))])
-                    ]
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.october, function(data, index) {
+                      return _c(
+                        "tr",
+                        {
+                          key: data.index,
+                          staticStyle: {
+                            "white-space": "nowrap",
+                            width: "1%",
+                            "text-align": "center"
+                          }
+                        },
+                        [
+                          _c("td", [_vm._v(_vm._s(index + 1))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.month))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.store_location))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_44))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_32))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_22))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_21))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_8))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_3))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_2))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.additional_info))])
+                        ]
+                      )
+                    })
                   )
-                })
+                ]
               )
-            ]
-          )
-        ])
-      ]),
+            ])
+          ])
+        : _vm._e(),
       _vm._v(" "),
-      _c("slide", [
-        _c("div", { staticClass: "table-responsive" }, [
-          _c(
-            "table",
-            {
-              staticClass:
-                "table table-sm table-light table-bordered table-striped"
-            },
-            [
-              _c("thead", { staticClass: "thead-dark text-center" }, [
-                _c("tr", [
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "vertical-align": "middle" },
-                      attrs: { rowspan: "2" }
-                    },
-                    [_vm._v("NO")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "vertical-align": "middle" },
-                      attrs: { rowspan: "2" }
-                    },
-                    [_vm._v("BULAN")]
-                  ),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("ESTIMASI TANGGAL OPENING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("NAMA / LOKASI STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("PEMILIK STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v(
-                      "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+      _vm.november.length != 0
+        ? _c("slide", [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-sm table-light table-bordered table-striped"
+                },
+                [
+                  _c("thead", { staticClass: "thead-dark text-center" }, [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("NO")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("BULAN")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("ESTIMASI TANGGAL OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("NAMA / LOKASI STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PEMILIK STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [
+                          _vm._v(
+                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("FIT OUT")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("TRAINING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PREPARE BARANG")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tr",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "text-center",
+                            attrs: { colspan: "3" }
+                          },
+                          [_vm._v("DARI PROJECT")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("th")
+                      ]
                     )
                   ]),
                   _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("FIT OUT")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("TRAINING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("PREPARE BARANG")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("OPENING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "tr",
-                  {
-                    staticClass: "text-center",
-                    staticStyle: { "white-space": "nowrap", width: "1%" }
-                  },
-                  [
-                    _c(
-                      "th",
-                      { staticClass: "text-center", attrs: { colspan: "3" } },
-                      [_vm._v("DARI PROJECT")]
-                    ),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-44")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-32")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-22")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-21")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-8")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-3")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-2")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H")]),
-                    _vm._v(" "),
-                    _c("th")
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.november, function(data, index) {
-                  return _c(
-                    "tr",
-                    {
-                      key: data.index,
-                      staticStyle: {
-                        "white-space": "nowrap",
-                        width: "1%",
-                        "text-align": "center"
-                      }
-                    },
-                    [
-                      _c("td", [_vm._v(_vm._s(index + 1))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.month))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.store_location))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_44))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_32))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_22))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_21))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_8))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_3))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_2))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.additional_info))])
-                    ]
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.november, function(data, index) {
+                      return _c(
+                        "tr",
+                        {
+                          key: data.index,
+                          staticStyle: {
+                            "white-space": "nowrap",
+                            width: "1%",
+                            "text-align": "center"
+                          }
+                        },
+                        [
+                          _c("td", [_vm._v(_vm._s(index + 1))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.month))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.store_location))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_44))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_32))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_22))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_21))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_8))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_3))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_2))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.additional_info))])
+                        ]
+                      )
+                    })
                   )
-                })
+                ]
               )
-            ]
-          )
-        ])
-      ]),
+            ])
+          ])
+        : _vm._e(),
       _vm._v(" "),
-      _c("slide", [
-        _c("div", { staticClass: "table-responsive" }, [
-          _c(
-            "table",
-            {
-              staticClass:
-                "table table-sm table-light table-bordered table-striped"
-            },
-            [
-              _c("thead", { staticClass: "thead-dark text-center" }, [
-                _c("tr", [
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "vertical-align": "middle" },
-                      attrs: { rowspan: "2" }
-                    },
-                    [_vm._v("NO")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "th",
-                    {
-                      staticStyle: { "vertical-align": "middle" },
-                      attrs: { rowspan: "2" }
-                    },
-                    [_vm._v("BULAN")]
-                  ),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("ESTIMASI TANGGAL OPENING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("NAMA / LOKASI STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("PEMILIK STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v(
-                      "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+      _vm.desember.length != 0
+        ? _c("slide", [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-sm table-light table-bordered table-striped"
+                },
+                [
+                  _c("thead", { staticClass: "thead-dark text-center" }, [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("NO")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("BULAN")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("ESTIMASI TANGGAL OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("NAMA / LOKASI STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PEMILIK STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [
+                          _vm._v(
+                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("FIT OUT")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("TRAINING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PREPARE BARANG")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tr",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "text-center",
+                            attrs: { colspan: "3" }
+                          },
+                          [_vm._v("DARI PROJECT")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("th")
+                      ]
                     )
                   ]),
                   _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("FIT OUT")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("TRAINING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("PREPARE BARANG")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("OPENING")
-                  ]),
-                  _vm._v(" "),
-                  _c("th", { staticStyle: { "vertical-align": "middle" } }, [
-                    _vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "tr",
-                  {
-                    staticClass: "text-center",
-                    staticStyle: { "white-space": "nowrap", width: "1%" }
-                  },
-                  [
-                    _c(
-                      "th",
-                      { staticClass: "text-center", attrs: { colspan: "3" } },
-                      [_vm._v("DARI PROJECT")]
-                    ),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-44")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-32")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-22")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-21")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-8")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-3")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H-2")]),
-                    _vm._v(" "),
-                    _c("th", [_vm._v("H")]),
-                    _vm._v(" "),
-                    _c("th")
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.desember, function(data, index) {
-                  return _c(
-                    "tr",
-                    {
-                      key: data.index,
-                      staticStyle: {
-                        "white-space": "nowrap",
-                        width: "1%",
-                        "text-align": "center"
-                      }
-                    },
-                    [
-                      _c("td", [_vm._v(_vm._s(index + 1))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.month))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.store_location))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_44))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_32))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_22))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_21))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_8))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_3))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h_2))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.h))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(data.additional_info))])
-                    ]
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.desember, function(data, index) {
+                      return _c(
+                        "tr",
+                        {
+                          key: data.index,
+                          staticStyle: {
+                            "white-space": "nowrap",
+                            width: "1%",
+                            "text-align": "center"
+                          }
+                        },
+                        [
+                          _c("td", [_vm._v(_vm._s(index + 1))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.month))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.store_location))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_44))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_32))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_22))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_21))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_8))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_3))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h_2))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.h))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(data.additional_info))])
+                        ]
+                      )
+                    })
                   )
-                })
+                ]
               )
-            ]
-          )
-        ])
-      ])
+            ])
+          ])
+        : _vm._e()
     ],
     1
   )
@@ -51656,7 +52027,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(2)
+var normalizeComponent = __webpack_require__(3)
 /* script */
 var __vue_script__ = __webpack_require__(49)
 /* template */
@@ -52333,393 +52704,6 @@ if (false) {
 
 /***/ }),
 /* 51 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(2)
-/* script */
-var __vue_script__ = __webpack_require__(52)
-/* template */
-var __vue_template__ = __webpack_require__(53)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\management\\UpdateForm.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-ced27682", Component.options)
-  } else {
-    hotAPI.reload("data-v-ced27682", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 52 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            contents: [],
-            months: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
-        };
-    },
-    created: function created() {
-        var _this = this;
-
-        axios.get('/create/:id').then(function (response) {
-            _this.contents = response.data;
-        });
-    },
-
-    methods: {
-        update: function update() {
-            var _this2 = this;
-
-            axios.post('/edit').then(function (response) {
-                _this2.$snotify.async('Data sedang diproses.', 'Mohon Tunggu', function () {
-                    return new Promise(function (resolve, reject) {
-                        setTimeout(function () {
-                            return resolve({
-                                title: 'Berhasil!',
-                                body: 'Data telah diupdate!',
-                                config: {
-                                    closeOnClick: true,
-                                    timeout: 2000,
-                                    showProgressBar: true
-                                }
-                            });
-                        }, 2000);
-                    });
-                });
-            }) // throw success message if success.
-            .catch(function (error) {
-                _this2.$snotify.async('Data sedang diproses.', 'Mohon Tunggu', function () {
-                    return new Promise(function (resolve, reject) {
-                        setTimeout(function () {
-                            return reject({
-                                title: 'Error!',
-                                body: error.message,
-                                config: {
-                                    closeOnClick: true,
-                                    timeout: 5000,
-                                    showProgressBar: true
-                                }
-                            });
-                        }, 2000);
-                    });
-                });
-            }); // throw error if error.
-        }
-    }
-});
-
-/***/ }),
-/* 53 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "wrapper" },
-    [
-      _c("vue-snotify"),
-      _vm._v(" "),
-      _c("form", { attrs: { method: "post" } }, [
-        _c("div", { staticClass: "form-wrapper" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "form-group col-md-3" }, [
-              _c("label", [_vm._v("Bulan")]),
-              _vm._v(" "),
-              _c(
-                "select",
-                { staticClass: "form-control" },
-                _vm._l(_vm.months, function(month) {
-                  return _c("option", { key: month }, [_vm._v(_vm._s(month))])
-                })
-              )
-            ]),
-            _vm._v(" "),
-            _vm._m(1),
-            _vm._v(" "),
-            _vm._m(2),
-            _vm._v(" "),
-            _vm._m(3)
-          ]),
-          _vm._v(" "),
-          _vm._m(4),
-          _vm._v(" "),
-          _vm._m(5),
-          _vm._v(" "),
-          _vm._m(6)
-        ])
-      ])
-    ],
-    1
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row pb-4" }, [
-      _c("div", { staticClass: "col-md-4 offset-4 text-center" }, [
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", [_vm._v("Data ID")]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { type: "text", readonly: "", disabled: "" }
-          })
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group col-md-3" }, [
-      _c("label", [_vm._v("Estimasi opening")]),
-      _vm._v(" "),
-      _c("input", { staticClass: "form-control", attrs: { type: "text" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group col-md-3" }, [
-      _c("label", [_vm._v("Lokasi store")]),
-      _vm._v(" "),
-      _c("input", { staticClass: "form-control", attrs: { type: "text" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group col-md-3" }, [
-      _c("label", [_vm._v("Pemilik store")]),
-      _vm._v(" "),
-      _c("input", { staticClass: "form-control", attrs: { type: "text" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row py-4" }, [
-      _c("div", { staticClass: "form-group col-md-1 text-center offset-2" }, [
-        _c("label", [_vm._v("H-44")]),
-        _vm._v(" "),
-        _c("input", { staticClass: "form-control", attrs: { type: "text" } })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group col-md-1 text-center" }, [
-        _c("label", [_vm._v("H-32")]),
-        _vm._v(" "),
-        _c("input", { staticClass: "form-control", attrs: { type: "text" } })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group col-md-1 text-center" }, [
-        _c("label", [_vm._v("H-22")]),
-        _vm._v(" "),
-        _c("input", { staticClass: "form-control", attrs: { type: "text" } })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group col-md-1 text-center" }, [
-        _c("label", [_vm._v("H-21")]),
-        _vm._v(" "),
-        _c("input", { staticClass: "form-control", attrs: { type: "text" } })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group col-md-1 text-center" }, [
-        _c("label", [_vm._v("H-8")]),
-        _vm._v(" "),
-        _c("input", { staticClass: "form-control", attrs: { type: "text" } })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group col-md-1 text-center" }, [
-        _c("label", [_vm._v("H-3")]),
-        _vm._v(" "),
-        _c("input", { staticClass: "form-control", attrs: { type: "text" } })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group col-md-1 text-center" }, [
-        _c("label", [_vm._v("H-2")]),
-        _vm._v(" "),
-        _c("input", { staticClass: "form-control", attrs: { type: "text" } })
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group col-md-1 text-center" }, [
-        _c("label", [_vm._v("H")]),
-        _vm._v(" "),
-        _c("input", { staticClass: "form-control", attrs: { type: "text" } })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", [_vm._v("Informasi tambahan (jika ada perubahan)")]),
-          _vm._v(" "),
-          _c("textarea", {
-            staticClass: "form-control",
-            attrs: { cols: "30", rows: "5" }
-          })
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("button", { staticClass: "btn btn-primary float-right" }, [
-          _vm._v("Update data")
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-ced27682", module.exports)
-  }
-}
-
-/***/ }),
-/* 54 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

@@ -28,6 +28,7 @@ class CreateContentsTable extends Migration
             $table->string('h_2')->nullable();
             $table->string('h')->nullable();
             $table->string('additional_info')->nullable();
+            $table->boolean('finished');
             $table->string('accountability');
             $table->timestamps();
         });
