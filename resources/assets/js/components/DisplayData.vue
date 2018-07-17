@@ -2,8 +2,8 @@
     <carousel :autoplay="true" :perPage="1" :autoplayTimeout="10000" :paginationEnabled="false" :loop="true">
         <slide v-if="january.length != 0">
             <div class="table-responsive">
-                <table class="table table-sm table-light table-bordered table-striped">
-                    <thead class="thead-dark text-center">
+                <table class="table table-light table-sm">
+                    <thead class="thead-dark table-bordered text-center">
                         <tr>
                             <th rowspan="2" style="vertical-align: middle;">NO</th>
                             <th rowspan="2" style="vertical-align: middle;">BULAN</th>
@@ -35,20 +35,20 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in january"
-                        :key="data.index" style="white-space: nowrap; width:1%; text-align: center;">
-                            <td>{{ index + 1 }}</td>
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                            <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
-                            <td>{{ data.h_44 }}</td>
-                            <td>{{ data.h_32 }}</td>
-                            <td>{{ data.h_22 }}</td>
-                            <td>{{ data.h_21 }}</td>
-                            <td>{{ data.h_8 }}</td>
-                            <td>{{ data.h_3 }}</td>
-                            <td>{{ data.h_2 }}</td>
-                            <td>{{ data.h }}</td>
+                            <td class="text-center">{{ data.h_44 }}</td>
+                            <td class="text-center">{{ data.h_32 }}</td>
+                            <td class="text-center">{{ data.h_22 }}</td>
+                            <td class="text-center">{{ data.h_21 }}</td>
+                            <td class="text-center">{{ data.h_8 }}</td>
+                            <td class="text-center">{{ data.h_3 }}</td>
+                            <td class="text-center">{{ data.h_2 }}</td>
+                            <td class="text-center">{{ data.h }}</td>
                             <td>{{ data.additional_info }}</td>
                         </tr>
                     </tbody>
@@ -57,8 +57,8 @@
         </slide>
         <slide v-if="february.length != 0">
             <div class="table-responsive">
-                <table class="table table-sm table-light table-bordered table-striped">
-                    <thead class="thead-dark text-center">
+                <table class="table table-light table-sm">
+                    <thead class="thead-dark table-bordered text-center">
                         <tr>
                             <th rowspan="2" style="vertical-align: middle;">NO</th>
                             <th rowspan="2" style="vertical-align: middle;">BULAN</th>
@@ -90,20 +90,20 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in february"
-                        :key="data.index" style="white-space: nowrap; width:1%; text-align: center;">
-                            <td>{{ index + 1 }}</td>
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                            <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
-                            <td>{{ data.h_44 }}</td>
-                            <td>{{ data.h_32 }}</td>
-                            <td>{{ data.h_22 }}</td>
-                            <td>{{ data.h_21 }}</td>
-                            <td>{{ data.h_8 }}</td>
-                            <td>{{ data.h_3 }}</td>
-                            <td>{{ data.h_2 }}</td>
-                            <td>{{ data.h }}</td>
+                            <td class="text-center">{{ data.h_44 }}</td>
+                            <td class="text-center">{{ data.h_32 }}</td>
+                            <td class="text-center">{{ data.h_22 }}</td>
+                            <td class="text-center">{{ data.h_21 }}</td>
+                            <td class="text-center">{{ data.h_8 }}</td>
+                            <td class="text-center">{{ data.h_3 }}</td>
+                            <td class="text-center">{{ data.h_2 }}</td>
+                            <td class="text-center">{{ data.h }}</td>
                             <td>{{ data.additional_info }}</td>
                         </tr>
                     </tbody>
@@ -112,8 +112,8 @@
         </slide>
         <slide v-if="march.length != 0">
             <div class="table-responsive">
-                <table class="table table-sm table-light table-bordered table-striped">
-                    <thead class="thead-dark text-center">
+                <table class="table table-light table-sm">
+                    <thead class="thead-dark table-bordered text-center">
                         <tr>
                             <th rowspan="2" style="vertical-align: middle;">NO</th>
                             <th rowspan="2" style="vertical-align: middle;">BULAN</th>
@@ -145,20 +145,20 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in march"
-                        :key="data.index" style="white-space: nowrap; width:1%; text-align: center;">
-                            <td>{{ index + 1 }}</td>
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                            <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
-                            <td>{{ data.h_44 }}</td>
-                            <td>{{ data.h_32 }}</td>
-                            <td>{{ data.h_22 }}</td>
-                            <td>{{ data.h_21 }}</td>
-                            <td>{{ data.h_8 }}</td>
-                            <td>{{ data.h_3 }}</td>
-                            <td>{{ data.h_2 }}</td>
-                            <td>{{ data.h }}</td>
+                            <td class="text-center">{{ data.h_44 }}</td>
+                            <td class="text-center">{{ data.h_32 }}</td>
+                            <td class="text-center">{{ data.h_22 }}</td>
+                            <td class="text-center">{{ data.h_21 }}</td>
+                            <td class="text-center">{{ data.h_8 }}</td>
+                            <td class="text-center">{{ data.h_3 }}</td>
+                            <td class="text-center">{{ data.h_2 }}</td>
+                            <td class="text-center">{{ data.h }}</td>
                             <td>{{ data.additional_info }}</td>
                         </tr>
                     </tbody>
@@ -167,8 +167,8 @@
         </slide>
         <slide v-if="april.length != 0">
             <div class="table-responsive">
-                <table class="table table-sm table-light table-bordered table-striped">
-                    <thead class="thead-dark text-center">
+                <table class="table table-light table-sm">
+                    <thead class="thead-dark table-bordered text-center">
                         <tr>
                             <th rowspan="2" style="vertical-align: middle;">NO</th>
                             <th rowspan="2" style="vertical-align: middle;">BULAN</th>
@@ -200,20 +200,20 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in april"
-                        :key="data.index" style="white-space: nowrap; width:1%; text-align: center;">
-                            <td>{{ index + 1 }}</td>
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                            <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
-                            <td>{{ data.h_44 }}</td>
-                            <td>{{ data.h_32 }}</td>
-                            <td>{{ data.h_22 }}</td>
-                            <td>{{ data.h_21 }}</td>
-                            <td>{{ data.h_8 }}</td>
-                            <td>{{ data.h_3 }}</td>
-                            <td>{{ data.h_2 }}</td>
-                            <td>{{ data.h }}</td>
+                            <td class="text-center">{{ data.h_44 }}</td>
+                            <td class="text-center">{{ data.h_32 }}</td>
+                            <td class="text-center">{{ data.h_22 }}</td>
+                            <td class="text-center">{{ data.h_21 }}</td>
+                            <td class="text-center">{{ data.h_8 }}</td>
+                            <td class="text-center">{{ data.h_3 }}</td>
+                            <td class="text-center">{{ data.h_2 }}</td>
+                            <td class="text-center">{{ data.h }}</td>
                             <td>{{ data.additional_info }}</td>
                         </tr>
                     </tbody>
@@ -222,8 +222,8 @@
         </slide>
         <slide v-if="may.length != 0">
             <div class="table-responsive">
-                <table class="table table-sm table-light table-bordered table-striped">
-                    <thead class="thead-dark text-center">
+                <table class="table table-light table-sm">
+                    <thead class="thead-dark table-bordered text-center">
                         <tr>
                             <th rowspan="2" style="vertical-align: middle;">NO</th>
                             <th rowspan="2" style="vertical-align: middle;">BULAN</th>
@@ -255,20 +255,20 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in may"
-                        :key="data.index" style="white-space: nowrap; width:1%; text-align: center;">
-                            <td>{{ index + 1 }}</td>
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                            <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
-                            <td>{{ data.h_44 }}</td>
-                            <td>{{ data.h_32 }}</td>
-                            <td>{{ data.h_22 }}</td>
-                            <td>{{ data.h_21 }}</td>
-                            <td>{{ data.h_8 }}</td>
-                            <td>{{ data.h_3 }}</td>
-                            <td>{{ data.h_2 }}</td>
-                            <td>{{ data.h }}</td>
+                            <td class="text-center">{{ data.h_44 }}</td>
+                            <td class="text-center">{{ data.h_32 }}</td>
+                            <td class="text-center">{{ data.h_22 }}</td>
+                            <td class="text-center">{{ data.h_21 }}</td>
+                            <td class="text-center">{{ data.h_8 }}</td>
+                            <td class="text-center">{{ data.h_3 }}</td>
+                            <td class="text-center">{{ data.h_2 }}</td>
+                            <td class="text-center">{{ data.h }}</td>
                             <td>{{ data.additional_info }}</td>
                         </tr>
                     </tbody>
@@ -277,8 +277,8 @@
         </slide>
         <slide v-if="june.length != 0">
             <div class="table-responsive">
-                <table class="table table-sm table-light table-bordered table-striped">
-                    <thead class="thead-dark text-center">
+                <table class="table table-light table-sm">
+                    <thead class="thead-dark table-bordered text-center">
                         <tr>
                             <th rowspan="2" style="vertical-align: middle;">NO</th>
                             <th rowspan="2" style="vertical-align: middle;">BULAN</th>
@@ -310,20 +310,20 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in june"
-                        :key="data.index" style="white-space: nowrap; width:1%; text-align: center;">
-                            <td>{{ index + 1 }}</td>
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                            <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
-                            <td>{{ data.h_44 }}</td>
-                            <td>{{ data.h_32 }}</td>
-                            <td>{{ data.h_22 }}</td>
-                            <td>{{ data.h_21 }}</td>
-                            <td>{{ data.h_8 }}</td>
-                            <td>{{ data.h_3 }}</td>
-                            <td>{{ data.h_2 }}</td>
-                            <td>{{ data.h }}</td>
+                            <td class="text-center">{{ data.h_44 }}</td>
+                            <td class="text-center">{{ data.h_32 }}</td>
+                            <td class="text-center">{{ data.h_22 }}</td>
+                            <td class="text-center">{{ data.h_21 }}</td>
+                            <td class="text-center">{{ data.h_8 }}</td>
+                            <td class="text-center">{{ data.h_3 }}</td>
+                            <td class="text-center">{{ data.h_2 }}</td>
+                            <td class="text-center">{{ data.h }}</td>
                             <td>{{ data.additional_info }}</td>
                         </tr>
                     </tbody>
@@ -332,8 +332,8 @@
         </slide>
         <slide v-if="july.length != 0">
             <div class="table-responsive">
-                <table class="table table-sm table-light table-bordered table-striped">
-                    <thead class="thead-dark text-center">
+                <table class="table table-light table-sm">
+                    <thead class="thead-dark table-bordered text-center">
                         <tr>
                             <th rowspan="2" style="vertical-align: middle;">NO</th>
                             <th rowspan="2" style="vertical-align: middle;">BULAN</th>
@@ -365,20 +365,20 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in july"
-                        :key="data.index" style="white-space: nowrap; width:1%; text-align: center;">
-                            <td>{{ index + 1 }}</td>
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                            <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
-                            <td>{{ data.h_44 }}</td>
-                            <td>{{ data.h_32 }}</td>
-                            <td>{{ data.h_22 }}</td>
-                            <td>{{ data.h_21 }}</td>
-                            <td>{{ data.h_8 }}</td>
-                            <td>{{ data.h_3 }}</td>
-                            <td>{{ data.h_2 }}</td>
-                            <td>{{ data.h }}</td>
+                            <td class="text-center">{{ data.h_44 }}</td>
+                            <td class="text-center">{{ data.h_32 }}</td>
+                            <td class="text-center">{{ data.h_22 }}</td>
+                            <td class="text-center">{{ data.h_21 }}</td>
+                            <td class="text-center">{{ data.h_8 }}</td>
+                            <td class="text-center">{{ data.h_3 }}</td>
+                            <td class="text-center">{{ data.h_2 }}</td>
+                            <td class="text-center">{{ data.h }}</td>
                             <td>{{ data.additional_info }}</td>
                         </tr>
                     </tbody>
@@ -387,8 +387,8 @@
         </slide>
         <slide v-if="august.length != 0">
             <div class="table-responsive">
-                <table class="table table-sm table-light table-bordered table-striped">
-                    <thead class="thead-dark text-center">
+                <table class="table table-light table-sm">
+                    <thead class="thead-dark table-bordered text-center">
                         <tr>
                             <th rowspan="2" style="vertical-align: middle;">NO</th>
                             <th rowspan="2" style="vertical-align: middle;">BULAN</th>
@@ -420,20 +420,20 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in august"
-                        :key="data.index" style="white-space: nowrap; width:1%; text-align: center;">
-                            <td>{{ index + 1 }}</td>
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                            <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
-                            <td>{{ data.h_44 }}</td>
-                            <td>{{ data.h_32 }}</td>
-                            <td>{{ data.h_22 }}</td>
-                            <td>{{ data.h_21 }}</td>
-                            <td>{{ data.h_8 }}</td>
-                            <td>{{ data.h_3 }}</td>
-                            <td>{{ data.h_2 }}</td>
-                            <td>{{ data.h }}</td>
+                            <td class="text-center">{{ data.h_44 }}</td>
+                            <td class="text-center">{{ data.h_32 }}</td>
+                            <td class="text-center">{{ data.h_22 }}</td>
+                            <td class="text-center">{{ data.h_21 }}</td>
+                            <td class="text-center">{{ data.h_8 }}</td>
+                            <td class="text-center">{{ data.h_3 }}</td>
+                            <td class="text-center">{{ data.h_2 }}</td>
+                            <td class="text-center">{{ data.h }}</td>
                             <td>{{ data.additional_info }}</td>
                         </tr>
                     </tbody>
@@ -442,8 +442,8 @@
         </slide>
         <slide v-if="september.length != 0">
             <div class="table-responsive">
-                <table class="table table-sm table-light table-bordered table-striped">
-                    <thead class="thead-dark text-center">
+                <table class="table table-light table-sm">
+                    <thead class="thead-dark table-bordered text-center">
                         <tr>
                             <th rowspan="2" style="vertical-align: middle;">NO</th>
                             <th rowspan="2" style="vertical-align: middle;">BULAN</th>
@@ -475,20 +475,20 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in september"
-                        :key="data.index" style="white-space: nowrap; width:1%; text-align: center;">
-                            <td>{{ index + 1 }}</td>
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                            <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
-                            <td>{{ data.h_44 }}</td>
-                            <td>{{ data.h_32 }}</td>
-                            <td>{{ data.h_22 }}</td>
-                            <td>{{ data.h_21 }}</td>
-                            <td>{{ data.h_8 }}</td>
-                            <td>{{ data.h_3 }}</td>
-                            <td>{{ data.h_2 }}</td>
-                            <td>{{ data.h }}</td>
+                            <td class="text-center">{{ data.h_44 }}</td>
+                            <td class="text-center">{{ data.h_32 }}</td>
+                            <td class="text-center">{{ data.h_22 }}</td>
+                            <td class="text-center">{{ data.h_21 }}</td>
+                            <td class="text-center">{{ data.h_8 }}</td>
+                            <td class="text-center">{{ data.h_3 }}</td>
+                            <td class="text-center">{{ data.h_2 }}</td>
+                            <td class="text-center">{{ data.h }}</td>
                             <td>{{ data.additional_info }}</td>
                         </tr>
                     </tbody>
@@ -497,8 +497,8 @@
         </slide>
         <slide v-if="october.length != 0">
             <div class="table-responsive">
-                <table class="table table-sm table-light table-bordered table-striped">
-                    <thead class="thead-dark text-center">
+                <table class="table table-light table-sm">
+                    <thead class="thead-dark table-bordered text-center">
                         <tr>
                             <th rowspan="2" style="vertical-align: middle;">NO</th>
                             <th rowspan="2" style="vertical-align: middle;">BULAN</th>
@@ -530,20 +530,20 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in october"
-                        :key="data.index" style="white-space: nowrap; width:1%; text-align: center;">
-                            <td>{{ index + 1 }}</td>
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                            <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
-                            <td>{{ data.h_44 }}</td>
-                            <td>{{ data.h_32 }}</td>
-                            <td>{{ data.h_22 }}</td>
-                            <td>{{ data.h_21 }}</td>
-                            <td>{{ data.h_8 }}</td>
-                            <td>{{ data.h_3 }}</td>
-                            <td>{{ data.h_2 }}</td>
-                            <td>{{ data.h }}</td>
+                            <td class="text-center">{{ data.h_44 }}</td>
+                            <td class="text-center">{{ data.h_32 }}</td>
+                            <td class="text-center">{{ data.h_22 }}</td>
+                            <td class="text-center">{{ data.h_21 }}</td>
+                            <td class="text-center">{{ data.h_8 }}</td>
+                            <td class="text-center">{{ data.h_3 }}</td>
+                            <td class="text-center">{{ data.h_2 }}</td>
+                            <td class="text-center">{{ data.h }}</td>
                             <td>{{ data.additional_info }}</td>
                         </tr>
                     </tbody>
@@ -552,8 +552,8 @@
         </slide>
         <slide v-if="november.length != 0">
             <div class="table-responsive">
-                <table class="table table-sm table-light table-bordered table-striped">
-                    <thead class="thead-dark text-center">
+                <table class="table table-light table-sm">
+                    <thead class="thead-dark table-bordered text-center">
                         <tr>
                             <th rowspan="2" style="vertical-align: middle;">NO</th>
                             <th rowspan="2" style="vertical-align: middle;">BULAN</th>
@@ -585,20 +585,20 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in november"
-                        :key="data.index" style="white-space: nowrap; width:1%; text-align: center;">
-                            <td>{{ index + 1 }}</td>
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                            <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
-                            <td>{{ data.h_44 }}</td>
-                            <td>{{ data.h_32 }}</td>
-                            <td>{{ data.h_22 }}</td>
-                            <td>{{ data.h_21 }}</td>
-                            <td>{{ data.h_8 }}</td>
-                            <td>{{ data.h_3 }}</td>
-                            <td>{{ data.h_2 }}</td>
-                            <td>{{ data.h }}</td>
+                            <td class="text-center">{{ data.h_44 }}</td>
+                            <td class="text-center">{{ data.h_32 }}</td>
+                            <td class="text-center">{{ data.h_22 }}</td>
+                            <td class="text-center">{{ data.h_21 }}</td>
+                            <td class="text-center">{{ data.h_8 }}</td>
+                            <td class="text-center">{{ data.h_3 }}</td>
+                            <td class="text-center">{{ data.h_2 }}</td>
+                            <td class="text-center">{{ data.h }}</td>
                             <td>{{ data.additional_info }}</td>
                         </tr>
                     </tbody>
@@ -607,8 +607,8 @@
         </slide>
         <slide v-if="desember.length != 0">
             <div class="table-responsive">
-                <table class="table table-sm table-light table-bordered table-striped">
-                    <thead class="thead-dark text-center">
+                <table class="table table-light table-sm">
+                    <thead class="thead-dark table-bordered text-center">
                         <tr>
                             <th rowspan="2" style="vertical-align: middle;">NO</th>
                             <th rowspan="2" style="vertical-align: middle;">BULAN</th>
@@ -640,20 +640,20 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in desember"
-                        :key="data.index" style="white-space: nowrap; width:1%; text-align: center;">
-                            <td>{{ index + 1 }}</td>
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                            <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
-                            <td>{{ data.h_44 }}</td>
-                            <td>{{ data.h_32 }}</td>
-                            <td>{{ data.h_22 }}</td>
-                            <td>{{ data.h_21 }}</td>
-                            <td>{{ data.h_8 }}</td>
-                            <td>{{ data.h_3 }}</td>
-                            <td>{{ data.h_2 }}</td>
-                            <td>{{ data.h }}</td>
+                            <td class="text-center">{{ data.h_44 }}</td>
+                            <td class="text-center">{{ data.h_32 }}</td>
+                            <td class="text-center">{{ data.h_22 }}</td>
+                            <td class="text-center">{{ data.h_21 }}</td>
+                            <td class="text-center">{{ data.h_8 }}</td>
+                            <td class="text-center">{{ data.h_3 }}</td>
+                            <td class="text-center">{{ data.h_2 }}</td>
+                            <td class="text-center">{{ data.h }}</td>
                             <td>{{ data.additional_info }}</td>
                         </tr>
                     </tbody>

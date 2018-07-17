@@ -49672,14 +49672,11 @@ var render = function() {
       _vm.january.length != 0
         ? _c("slide", [
             _c("div", { staticClass: "table-responsive" }, [
-              _c(
-                "table",
-                {
-                  staticClass:
-                    "table table-sm table-light table-bordered table-striped"
-                },
-                [
-                  _c("thead", { staticClass: "thead-dark text-center" }, [
+              _c("table", { staticClass: "table table-light table-sm" }, [
+                _c(
+                  "thead",
+                  { staticClass: "thead-dark table-bordered text-center" },
+                  [
                     _c("tr", [
                       _c(
                         "th",
@@ -49811,55 +49808,73 @@ var render = function() {
                         _c("th")
                       ]
                     )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.january, function(data, index) {
-                      return _c(
-                        "tr",
-                        {
-                          key: data.index,
-                          staticStyle: {
-                            "white-space": "nowrap",
-                            width: "1%",
-                            "text-align": "center"
-                          }
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.january, function(data, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: data.index,
+                        class: {
+                          "bg-success": data.finished,
+                          "bg-warning": !data.finished
                         },
-                        [
-                          _c("td", [_vm._v(_vm._s(index + 1))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.month))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.store_location))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_44))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_32))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_22))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_21))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_8))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_3))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_2))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.additional_info))])
-                        ]
-                      )
-                    })
-                  )
-                ]
-              )
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_location))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_44))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_32))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_22))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_21))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_8))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_3))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_2))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.additional_info))])
+                      ]
+                    )
+                  })
+                )
+              ])
             ])
           ])
         : _vm._e(),
@@ -49867,14 +49882,11 @@ var render = function() {
       _vm.february.length != 0
         ? _c("slide", [
             _c("div", { staticClass: "table-responsive" }, [
-              _c(
-                "table",
-                {
-                  staticClass:
-                    "table table-sm table-light table-bordered table-striped"
-                },
-                [
-                  _c("thead", { staticClass: "thead-dark text-center" }, [
+              _c("table", { staticClass: "table table-light table-sm" }, [
+                _c(
+                  "thead",
+                  { staticClass: "thead-dark table-bordered text-center" },
+                  [
                     _c("tr", [
                       _c(
                         "th",
@@ -50006,55 +50018,73 @@ var render = function() {
                         _c("th")
                       ]
                     )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.february, function(data, index) {
-                      return _c(
-                        "tr",
-                        {
-                          key: data.index,
-                          staticStyle: {
-                            "white-space": "nowrap",
-                            width: "1%",
-                            "text-align": "center"
-                          }
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.february, function(data, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: data.index,
+                        class: {
+                          "bg-success": data.finished,
+                          "bg-warning": !data.finished
                         },
-                        [
-                          _c("td", [_vm._v(_vm._s(index + 1))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.month))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.store_location))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_44))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_32))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_22))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_21))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_8))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_3))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_2))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.additional_info))])
-                        ]
-                      )
-                    })
-                  )
-                ]
-              )
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_location))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_44))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_32))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_22))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_21))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_8))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_3))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_2))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.additional_info))])
+                      ]
+                    )
+                  })
+                )
+              ])
             ])
           ])
         : _vm._e(),
@@ -50062,14 +50092,11 @@ var render = function() {
       _vm.march.length != 0
         ? _c("slide", [
             _c("div", { staticClass: "table-responsive" }, [
-              _c(
-                "table",
-                {
-                  staticClass:
-                    "table table-sm table-light table-bordered table-striped"
-                },
-                [
-                  _c("thead", { staticClass: "thead-dark text-center" }, [
+              _c("table", { staticClass: "table table-light table-sm" }, [
+                _c(
+                  "thead",
+                  { staticClass: "thead-dark table-bordered text-center" },
+                  [
                     _c("tr", [
                       _c(
                         "th",
@@ -50201,55 +50228,73 @@ var render = function() {
                         _c("th")
                       ]
                     )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.march, function(data, index) {
-                      return _c(
-                        "tr",
-                        {
-                          key: data.index,
-                          staticStyle: {
-                            "white-space": "nowrap",
-                            width: "1%",
-                            "text-align": "center"
-                          }
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.march, function(data, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: data.index,
+                        class: {
+                          "bg-success": data.finished,
+                          "bg-warning": !data.finished
                         },
-                        [
-                          _c("td", [_vm._v(_vm._s(index + 1))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.month))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.store_location))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_44))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_32))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_22))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_21))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_8))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_3))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_2))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.additional_info))])
-                        ]
-                      )
-                    })
-                  )
-                ]
-              )
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_location))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_44))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_32))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_22))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_21))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_8))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_3))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_2))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.additional_info))])
+                      ]
+                    )
+                  })
+                )
+              ])
             ])
           ])
         : _vm._e(),
@@ -50257,14 +50302,11 @@ var render = function() {
       _vm.april.length != 0
         ? _c("slide", [
             _c("div", { staticClass: "table-responsive" }, [
-              _c(
-                "table",
-                {
-                  staticClass:
-                    "table table-sm table-light table-bordered table-striped"
-                },
-                [
-                  _c("thead", { staticClass: "thead-dark text-center" }, [
+              _c("table", { staticClass: "table table-light table-sm" }, [
+                _c(
+                  "thead",
+                  { staticClass: "thead-dark table-bordered text-center" },
+                  [
                     _c("tr", [
                       _c(
                         "th",
@@ -50396,55 +50438,73 @@ var render = function() {
                         _c("th")
                       ]
                     )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.april, function(data, index) {
-                      return _c(
-                        "tr",
-                        {
-                          key: data.index,
-                          staticStyle: {
-                            "white-space": "nowrap",
-                            width: "1%",
-                            "text-align": "center"
-                          }
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.april, function(data, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: data.index,
+                        class: {
+                          "bg-success": data.finished,
+                          "bg-warning": !data.finished
                         },
-                        [
-                          _c("td", [_vm._v(_vm._s(index + 1))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.month))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.store_location))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_44))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_32))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_22))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_21))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_8))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_3))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_2))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.additional_info))])
-                        ]
-                      )
-                    })
-                  )
-                ]
-              )
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_location))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_44))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_32))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_22))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_21))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_8))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_3))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_2))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.additional_info))])
+                      ]
+                    )
+                  })
+                )
+              ])
             ])
           ])
         : _vm._e(),
@@ -50452,14 +50512,11 @@ var render = function() {
       _vm.may.length != 0
         ? _c("slide", [
             _c("div", { staticClass: "table-responsive" }, [
-              _c(
-                "table",
-                {
-                  staticClass:
-                    "table table-sm table-light table-bordered table-striped"
-                },
-                [
-                  _c("thead", { staticClass: "thead-dark text-center" }, [
+              _c("table", { staticClass: "table table-light table-sm" }, [
+                _c(
+                  "thead",
+                  { staticClass: "thead-dark table-bordered text-center" },
+                  [
                     _c("tr", [
                       _c(
                         "th",
@@ -50591,55 +50648,73 @@ var render = function() {
                         _c("th")
                       ]
                     )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.may, function(data, index) {
-                      return _c(
-                        "tr",
-                        {
-                          key: data.index,
-                          staticStyle: {
-                            "white-space": "nowrap",
-                            width: "1%",
-                            "text-align": "center"
-                          }
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.may, function(data, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: data.index,
+                        class: {
+                          "bg-success": data.finished,
+                          "bg-warning": !data.finished
                         },
-                        [
-                          _c("td", [_vm._v(_vm._s(index + 1))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.month))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.store_location))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_44))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_32))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_22))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_21))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_8))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_3))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_2))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.additional_info))])
-                        ]
-                      )
-                    })
-                  )
-                ]
-              )
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_location))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_44))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_32))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_22))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_21))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_8))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_3))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_2))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.additional_info))])
+                      ]
+                    )
+                  })
+                )
+              ])
             ])
           ])
         : _vm._e(),
@@ -50647,14 +50722,11 @@ var render = function() {
       _vm.june.length != 0
         ? _c("slide", [
             _c("div", { staticClass: "table-responsive" }, [
-              _c(
-                "table",
-                {
-                  staticClass:
-                    "table table-sm table-light table-bordered table-striped"
-                },
-                [
-                  _c("thead", { staticClass: "thead-dark text-center" }, [
+              _c("table", { staticClass: "table table-light table-sm" }, [
+                _c(
+                  "thead",
+                  { staticClass: "thead-dark table-bordered text-center" },
+                  [
                     _c("tr", [
                       _c(
                         "th",
@@ -50786,55 +50858,73 @@ var render = function() {
                         _c("th")
                       ]
                     )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.june, function(data, index) {
-                      return _c(
-                        "tr",
-                        {
-                          key: data.index,
-                          staticStyle: {
-                            "white-space": "nowrap",
-                            width: "1%",
-                            "text-align": "center"
-                          }
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.june, function(data, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: data.index,
+                        class: {
+                          "bg-success": data.finished,
+                          "bg-warning": !data.finished
                         },
-                        [
-                          _c("td", [_vm._v(_vm._s(index + 1))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.month))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.store_location))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_44))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_32))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_22))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_21))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_8))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_3))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_2))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.additional_info))])
-                        ]
-                      )
-                    })
-                  )
-                ]
-              )
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_location))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_44))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_32))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_22))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_21))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_8))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_3))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_2))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.additional_info))])
+                      ]
+                    )
+                  })
+                )
+              ])
             ])
           ])
         : _vm._e(),
@@ -50842,14 +50932,11 @@ var render = function() {
       _vm.july.length != 0
         ? _c("slide", [
             _c("div", { staticClass: "table-responsive" }, [
-              _c(
-                "table",
-                {
-                  staticClass:
-                    "table table-sm table-light table-bordered table-striped"
-                },
-                [
-                  _c("thead", { staticClass: "thead-dark text-center" }, [
+              _c("table", { staticClass: "table table-light table-sm" }, [
+                _c(
+                  "thead",
+                  { staticClass: "thead-dark table-bordered text-center" },
+                  [
                     _c("tr", [
                       _c(
                         "th",
@@ -50981,55 +51068,73 @@ var render = function() {
                         _c("th")
                       ]
                     )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.july, function(data, index) {
-                      return _c(
-                        "tr",
-                        {
-                          key: data.index,
-                          staticStyle: {
-                            "white-space": "nowrap",
-                            width: "1%",
-                            "text-align": "center"
-                          }
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.july, function(data, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: data.index,
+                        class: {
+                          "bg-success": data.finished,
+                          "bg-warning": !data.finished
                         },
-                        [
-                          _c("td", [_vm._v(_vm._s(index + 1))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.month))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.store_location))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_44))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_32))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_22))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_21))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_8))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_3))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_2))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.additional_info))])
-                        ]
-                      )
-                    })
-                  )
-                ]
-              )
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_location))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_44))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_32))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_22))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_21))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_8))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_3))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_2))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.additional_info))])
+                      ]
+                    )
+                  })
+                )
+              ])
             ])
           ])
         : _vm._e(),
@@ -51037,14 +51142,11 @@ var render = function() {
       _vm.august.length != 0
         ? _c("slide", [
             _c("div", { staticClass: "table-responsive" }, [
-              _c(
-                "table",
-                {
-                  staticClass:
-                    "table table-sm table-light table-bordered table-striped"
-                },
-                [
-                  _c("thead", { staticClass: "thead-dark text-center" }, [
+              _c("table", { staticClass: "table table-light table-sm" }, [
+                _c(
+                  "thead",
+                  { staticClass: "thead-dark table-bordered text-center" },
+                  [
                     _c("tr", [
                       _c(
                         "th",
@@ -51176,55 +51278,73 @@ var render = function() {
                         _c("th")
                       ]
                     )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.august, function(data, index) {
-                      return _c(
-                        "tr",
-                        {
-                          key: data.index,
-                          staticStyle: {
-                            "white-space": "nowrap",
-                            width: "1%",
-                            "text-align": "center"
-                          }
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.august, function(data, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: data.index,
+                        class: {
+                          "bg-success": data.finished,
+                          "bg-warning": !data.finished
                         },
-                        [
-                          _c("td", [_vm._v(_vm._s(index + 1))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.month))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.store_location))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_44))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_32))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_22))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_21))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_8))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_3))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_2))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.additional_info))])
-                        ]
-                      )
-                    })
-                  )
-                ]
-              )
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_location))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_44))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_32))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_22))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_21))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_8))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_3))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_2))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.additional_info))])
+                      ]
+                    )
+                  })
+                )
+              ])
             ])
           ])
         : _vm._e(),
@@ -51232,14 +51352,11 @@ var render = function() {
       _vm.september.length != 0
         ? _c("slide", [
             _c("div", { staticClass: "table-responsive" }, [
-              _c(
-                "table",
-                {
-                  staticClass:
-                    "table table-sm table-light table-bordered table-striped"
-                },
-                [
-                  _c("thead", { staticClass: "thead-dark text-center" }, [
+              _c("table", { staticClass: "table table-light table-sm" }, [
+                _c(
+                  "thead",
+                  { staticClass: "thead-dark table-bordered text-center" },
+                  [
                     _c("tr", [
                       _c(
                         "th",
@@ -51371,55 +51488,73 @@ var render = function() {
                         _c("th")
                       ]
                     )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.september, function(data, index) {
-                      return _c(
-                        "tr",
-                        {
-                          key: data.index,
-                          staticStyle: {
-                            "white-space": "nowrap",
-                            width: "1%",
-                            "text-align": "center"
-                          }
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.september, function(data, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: data.index,
+                        class: {
+                          "bg-success": data.finished,
+                          "bg-warning": !data.finished
                         },
-                        [
-                          _c("td", [_vm._v(_vm._s(index + 1))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.month))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.store_location))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_44))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_32))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_22))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_21))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_8))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_3))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_2))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.additional_info))])
-                        ]
-                      )
-                    })
-                  )
-                ]
-              )
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_location))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_44))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_32))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_22))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_21))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_8))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_3))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_2))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.additional_info))])
+                      ]
+                    )
+                  })
+                )
+              ])
             ])
           ])
         : _vm._e(),
@@ -51427,14 +51562,11 @@ var render = function() {
       _vm.october.length != 0
         ? _c("slide", [
             _c("div", { staticClass: "table-responsive" }, [
-              _c(
-                "table",
-                {
-                  staticClass:
-                    "table table-sm table-light table-bordered table-striped"
-                },
-                [
-                  _c("thead", { staticClass: "thead-dark text-center" }, [
+              _c("table", { staticClass: "table table-light table-sm" }, [
+                _c(
+                  "thead",
+                  { staticClass: "thead-dark table-bordered text-center" },
+                  [
                     _c("tr", [
                       _c(
                         "th",
@@ -51566,55 +51698,73 @@ var render = function() {
                         _c("th")
                       ]
                     )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.october, function(data, index) {
-                      return _c(
-                        "tr",
-                        {
-                          key: data.index,
-                          staticStyle: {
-                            "white-space": "nowrap",
-                            width: "1%",
-                            "text-align": "center"
-                          }
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.october, function(data, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: data.index,
+                        class: {
+                          "bg-success": data.finished,
+                          "bg-warning": !data.finished
                         },
-                        [
-                          _c("td", [_vm._v(_vm._s(index + 1))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.month))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.store_location))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_44))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_32))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_22))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_21))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_8))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_3))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_2))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.additional_info))])
-                        ]
-                      )
-                    })
-                  )
-                ]
-              )
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_location))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_44))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_32))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_22))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_21))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_8))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_3))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_2))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.additional_info))])
+                      ]
+                    )
+                  })
+                )
+              ])
             ])
           ])
         : _vm._e(),
@@ -51622,14 +51772,11 @@ var render = function() {
       _vm.november.length != 0
         ? _c("slide", [
             _c("div", { staticClass: "table-responsive" }, [
-              _c(
-                "table",
-                {
-                  staticClass:
-                    "table table-sm table-light table-bordered table-striped"
-                },
-                [
-                  _c("thead", { staticClass: "thead-dark text-center" }, [
+              _c("table", { staticClass: "table table-light table-sm" }, [
+                _c(
+                  "thead",
+                  { staticClass: "thead-dark table-bordered text-center" },
+                  [
                     _c("tr", [
                       _c(
                         "th",
@@ -51761,55 +51908,73 @@ var render = function() {
                         _c("th")
                       ]
                     )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.november, function(data, index) {
-                      return _c(
-                        "tr",
-                        {
-                          key: data.index,
-                          staticStyle: {
-                            "white-space": "nowrap",
-                            width: "1%",
-                            "text-align": "center"
-                          }
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.november, function(data, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: data.index,
+                        class: {
+                          "bg-success": data.finished,
+                          "bg-warning": !data.finished
                         },
-                        [
-                          _c("td", [_vm._v(_vm._s(index + 1))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.month))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.store_location))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_44))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_32))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_22))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_21))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_8))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_3))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_2))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.additional_info))])
-                        ]
-                      )
-                    })
-                  )
-                ]
-              )
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_location))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_44))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_32))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_22))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_21))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_8))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_3))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_2))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.additional_info))])
+                      ]
+                    )
+                  })
+                )
+              ])
             ])
           ])
         : _vm._e(),
@@ -51817,14 +51982,11 @@ var render = function() {
       _vm.desember.length != 0
         ? _c("slide", [
             _c("div", { staticClass: "table-responsive" }, [
-              _c(
-                "table",
-                {
-                  staticClass:
-                    "table table-sm table-light table-bordered table-striped"
-                },
-                [
-                  _c("thead", { staticClass: "thead-dark text-center" }, [
+              _c("table", { staticClass: "table table-light table-sm" }, [
+                _c(
+                  "thead",
+                  { staticClass: "thead-dark table-bordered text-center" },
+                  [
                     _c("tr", [
                       _c(
                         "th",
@@ -51956,55 +52118,73 @@ var render = function() {
                         _c("th")
                       ]
                     )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.desember, function(data, index) {
-                      return _c(
-                        "tr",
-                        {
-                          key: data.index,
-                          staticStyle: {
-                            "white-space": "nowrap",
-                            width: "1%",
-                            "text-align": "center"
-                          }
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.desember, function(data, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: data.index,
+                        class: {
+                          "bg-success": data.finished,
+                          "bg-warning": !data.finished
                         },
-                        [
-                          _c("td", [_vm._v(_vm._s(index + 1))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.month))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.store_location))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_44))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_32))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_22))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_21))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_8))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_3))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h_2))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.h))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(data.additional_info))])
-                        ]
-                      )
-                    })
-                  )
-                ]
-              )
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_location))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_44))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_32))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_22))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_21))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_8))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_3))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_2))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.additional_info))])
+                      ]
+                    )
+                  })
+                )
+              ])
             ])
           ])
         : _vm._e()
