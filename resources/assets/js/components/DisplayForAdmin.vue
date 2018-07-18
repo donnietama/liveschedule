@@ -5,6 +5,7 @@
                 <table class="table table-light table-sm">
                     <thead class="bg-dark text-light table-bordered text-center">
                         <tr>
+                            <th rowspan="2" style="vertical-align: middle;">EDIT / HAPUS</th>
                             <th rowspan="2" style="vertical-align: middle;">NO</th>
                             <th rowspan="2" style="vertical-align: middle;">BULAN</th>
                             <th style="vertical-align: middle;">ESTIMASI TANGGAL OPENING</th>
@@ -36,6 +37,10 @@
                     <tbody>
                         <tr v-for="(data, index) in january"
                         :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                            <td class="text-center text-capitalize">
+                                <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">edit</a>
+                                <a :href="'delete/' + data.id" class="btn btn-sm btn-danger">hapus</a>
+                            </td>
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
                             <td>{{ data.opening_estimation }}</td>
@@ -60,6 +65,7 @@
                 <table class="table table-light table-sm">
                     <thead class="bg-dark text-light table-bordered text-center">
                         <tr>
+                            <th rowspan="2" style="vertical-align: middle;">EDIT / HAPUS</th>
                             <th rowspan="2" style="vertical-align: middle;">NO</th>
                             <th rowspan="2" style="vertical-align: middle;">BULAN</th>
                             <th style="vertical-align: middle;">ESTIMASI TANGGAL OPENING</th>
@@ -91,6 +97,10 @@
                     <tbody>
                         <tr v-for="(data, index) in february"
                         :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                            <td class="text-center text-capitalize">
+                                <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">edit</a>
+                                <a :href="'delete/' + data.id" class="btn btn-sm btn-danger">hapus</a>
+                            </td>
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
                             <td>{{ data.opening_estimation }}</td>
@@ -115,6 +125,7 @@
                 <table class="table table-light table-sm">
                     <thead class="bg-dark text-light table-bordered text-center">
                         <tr>
+                            <th rowspan="2" style="vertical-align: middle;">EDIT / HAPUS</th>
                             <th rowspan="2" style="vertical-align: middle;">NO</th>
                             <th rowspan="2" style="vertical-align: middle;">BULAN</th>
                             <th style="vertical-align: middle;">ESTIMASI TANGGAL OPENING</th>
@@ -146,6 +157,10 @@
                     <tbody>
                         <tr v-for="(data, index) in march"
                         :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                            <td class="text-center text-capitalize">
+                                <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">edit</a>
+                                <a :href="'delete/' + data.id" class="btn btn-sm btn-danger">hapus</a>
+                            </td>
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
                             <td>{{ data.opening_estimation }}</td>
@@ -170,6 +185,7 @@
                 <table class="table table-light table-sm">
                     <thead class="bg-dark text-light table-bordered text-center">
                         <tr>
+                            <th rowspan="2" style="vertical-align: middle;">EDIT / HAPUS</th>
                             <th rowspan="2" style="vertical-align: middle;">NO</th>
                             <th rowspan="2" style="vertical-align: middle;">BULAN</th>
                             <th style="vertical-align: middle;">ESTIMASI TANGGAL OPENING</th>
@@ -201,6 +217,10 @@
                     <tbody>
                         <tr v-for="(data, index) in april"
                         :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                            <td class="text-center text-capitalize">
+                                <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">edit</a>
+                                <a :href="'delete/' + data.id" class="btn btn-sm btn-danger">hapus</a>
+                            </td>
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
                             <td>{{ data.opening_estimation }}</td>
@@ -225,6 +245,7 @@
                 <table class="table table-light table-sm">
                     <thead class="bg-dark text-light table-bordered text-center">
                         <tr>
+                            <th rowspan="2" style="vertical-align: middle;">EDIT / HAPUS</th>
                             <th rowspan="2" style="vertical-align: middle;">NO</th>
                             <th rowspan="2" style="vertical-align: middle;">BULAN</th>
                             <th style="vertical-align: middle;">ESTIMASI TANGGAL OPENING</th>
@@ -256,6 +277,10 @@
                     <tbody>
                         <tr v-for="(data, index) in may"
                         :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                            <td class="text-center text-capitalize">
+                                <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">edit</a>
+                                <a :href="'delete/' + data.id" class="btn btn-sm btn-danger">hapus</a>
+                            </td>
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
                             <td>{{ data.opening_estimation }}</td>
@@ -280,6 +305,7 @@
                 <table class="table table-light table-sm">
                     <thead class="bg-dark text-light table-bordered text-center">
                         <tr>
+                            <th rowspan="2" style="vertical-align: middle;">EDIT / HAPUS</th>
                             <th rowspan="2" style="vertical-align: middle;">NO</th>
                             <th rowspan="2" style="vertical-align: middle;">BULAN</th>
                             <th style="vertical-align: middle;">ESTIMASI TANGGAL OPENING</th>
@@ -311,6 +337,10 @@
                     <tbody>
                         <tr v-for="(data, index) in june"
                         :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                            <td class="text-center text-capitalize">
+                                <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">edit</a>
+                                <a :href="'delete/' + data.id" class="btn btn-sm btn-danger">hapus</a>
+                            </td>
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
                             <td>{{ data.opening_estimation }}</td>
@@ -335,6 +365,7 @@
                 <table class="table table-light table-sm">
                     <thead class="bg-dark text-light table-bordered text-center">
                         <tr>
+                            <th rowspan="2" style="vertical-align: middle;">EDIT / HAPUS</th>
                             <th rowspan="2" style="vertical-align: middle;">NO</th>
                             <th rowspan="2" style="vertical-align: middle;">BULAN</th>
                             <th style="vertical-align: middle;">ESTIMASI TANGGAL OPENING</th>
@@ -366,6 +397,10 @@
                     <tbody>
                         <tr v-for="(data, index) in july"
                         :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                            <td class="text-center text-capitalize">
+                                <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">edit</a>
+                                <a :href="'delete/' + data.id" class="btn btn-sm btn-danger">hapus</a>
+                            </td>
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
                             <td>{{ data.opening_estimation }}</td>
@@ -390,6 +425,7 @@
                 <table class="table table-light table-sm">
                     <thead class="bg-dark text-light table-bordered text-center">
                         <tr>
+                            <th rowspan="2" style="vertical-align: middle;">EDIT / HAPUS</th>
                             <th rowspan="2" style="vertical-align: middle;">NO</th>
                             <th rowspan="2" style="vertical-align: middle;">BULAN</th>
                             <th style="vertical-align: middle;">ESTIMASI TANGGAL OPENING</th>
@@ -421,6 +457,10 @@
                     <tbody>
                         <tr v-for="(data, index) in august"
                         :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                            <td class="text-center text-capitalize">
+                                <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">edit</a>
+                                <a :href="'delete/' + data.id" class="btn btn-sm btn-danger">hapus</a>
+                            </td>
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
                             <td>{{ data.opening_estimation }}</td>
@@ -445,6 +485,7 @@
                 <table class="table table-light table-sm">
                     <thead class="bg-dark text-light table-bordered text-center">
                         <tr>
+                            <th rowspan="2" style="vertical-align: middle;">EDIT / HAPUS</th>
                             <th rowspan="2" style="vertical-align: middle;">NO</th>
                             <th rowspan="2" style="vertical-align: middle;">BULAN</th>
                             <th style="vertical-align: middle;">ESTIMASI TANGGAL OPENING</th>
@@ -476,6 +517,10 @@
                     <tbody>
                         <tr v-for="(data, index) in september"
                         :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                            <td class="text-center text-capitalize">
+                                <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">edit</a>
+                                <a :href="'delete/' + data.id" class="btn btn-sm btn-danger">hapus</a>
+                            </td>
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
                             <td>{{ data.opening_estimation }}</td>
@@ -500,6 +545,7 @@
                 <table class="table table-light table-sm">
                     <thead class="bg-dark text-light table-bordered text-center">
                         <tr>
+                            <th rowspan="2" style="vertical-align: middle;">EDIT / HAPUS</th>
                             <th rowspan="2" style="vertical-align: middle;">NO</th>
                             <th rowspan="2" style="vertical-align: middle;">BULAN</th>
                             <th style="vertical-align: middle;">ESTIMASI TANGGAL OPENING</th>
@@ -531,6 +577,10 @@
                     <tbody>
                         <tr v-for="(data, index) in october"
                         :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                            <td class="text-center text-capitalize">
+                                <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">edit</a>
+                                <a :href="'delete/' + data.id" class="btn btn-sm btn-danger">hapus</a>
+                            </td>
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
                             <td>{{ data.opening_estimation }}</td>
@@ -555,6 +605,7 @@
                 <table class="table table-light table-sm">
                     <thead class="bg-dark text-light table-bordered text-center">
                         <tr>
+                            <th rowspan="2" style="vertical-align: middle;">EDIT / HAPUS</th>
                             <th rowspan="2" style="vertical-align: middle;">NO</th>
                             <th rowspan="2" style="vertical-align: middle;">BULAN</th>
                             <th style="vertical-align: middle;">ESTIMASI TANGGAL OPENING</th>
@@ -586,6 +637,10 @@
                     <tbody>
                         <tr v-for="(data, index) in november"
                         :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                            <td class="text-center text-capitalize">
+                                <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">edit</a>
+                                <a :href="'delete/' + data.id" class="btn btn-sm btn-danger">hapus</a>
+                            </td>
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
                             <td>{{ data.opening_estimation }}</td>
@@ -610,6 +665,7 @@
                 <table class="table table-light table-sm">
                     <thead class="bg-dark text-light table-bordered text-center">
                         <tr>
+                            <th rowspan="2" style="vertical-align: middle;">EDIT / HAPUS</th>
                             <th rowspan="2" style="vertical-align: middle;">NO</th>
                             <th rowspan="2" style="vertical-align: middle;">BULAN</th>
                             <th style="vertical-align: middle;">ESTIMASI TANGGAL OPENING</th>
@@ -641,6 +697,10 @@
                     <tbody>
                         <tr v-for="(data, index) in desember"
                         :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                            <td class="text-center text-capitalize">
+                                <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">edit</a>
+                                <a :href="'delete/' + data.id" class="btn btn-sm btn-danger">hapus</a>
+                            </td>
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
                             <td>{{ data.opening_estimation }}</td>
@@ -679,12 +739,10 @@ export default {
     },
 
     mounted() {
-        setInterval(() => {
-            axios.get('/api/content')
-            .then(response => {
-                this.api = response.data
-            })
-        }, 5000)
+        axios.get('/api/content')
+        .then(response => {
+            this.api = response.data
+        })
     },
 
     computed: {

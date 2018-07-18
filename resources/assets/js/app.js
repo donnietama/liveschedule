@@ -27,6 +27,7 @@ Vue.use(Snotify, options)
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'))
 Vue.component('display-data', require('./components/DisplayData.vue'))
+Vue.component('display-for-admin', require('./components/DisplayForAdmin.vue'))
 Vue.component('content-form', require('./components/management/ContentForm.vue'))
 
 const app = new Vue({

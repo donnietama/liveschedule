@@ -24981,6 +24981,7 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_snotify__["b" /* default */], options);
 
 Vue.component('example-component', __webpack_require__(41));
 Vue.component('display-data', __webpack_require__(44));
+Vue.component('display-for-admin', __webpack_require__(56));
 Vue.component('content-form', __webpack_require__(48));
 
 var app = new Vue({
@@ -49675,7 +49676,9 @@ var render = function() {
               _c("table", { staticClass: "table table-light table-sm" }, [
                 _c(
                   "thead",
-                  { staticClass: "thead-dark table-bordered text-center" },
+                  {
+                    staticClass: "bg-dark text-light table-bordered text-center"
+                  },
                   [
                     _c("tr", [
                       _c(
@@ -49885,7 +49888,9 @@ var render = function() {
               _c("table", { staticClass: "table table-light table-sm" }, [
                 _c(
                   "thead",
-                  { staticClass: "thead-dark table-bordered text-center" },
+                  {
+                    staticClass: "bg-dark text-light table-bordered text-center"
+                  },
                   [
                     _c("tr", [
                       _c(
@@ -50095,7 +50100,9 @@ var render = function() {
               _c("table", { staticClass: "table table-light table-sm" }, [
                 _c(
                   "thead",
-                  { staticClass: "thead-dark table-bordered text-center" },
+                  {
+                    staticClass: "bg-dark text-light table-bordered text-center"
+                  },
                   [
                     _c("tr", [
                       _c(
@@ -50305,7 +50312,9 @@ var render = function() {
               _c("table", { staticClass: "table table-light table-sm" }, [
                 _c(
                   "thead",
-                  { staticClass: "thead-dark table-bordered text-center" },
+                  {
+                    staticClass: "bg-dark text-light table-bordered text-center"
+                  },
                   [
                     _c("tr", [
                       _c(
@@ -50515,7 +50524,9 @@ var render = function() {
               _c("table", { staticClass: "table table-light table-sm" }, [
                 _c(
                   "thead",
-                  { staticClass: "thead-dark table-bordered text-center" },
+                  {
+                    staticClass: "bg-dark text-light table-bordered text-center"
+                  },
                   [
                     _c("tr", [
                       _c(
@@ -50725,7 +50736,9 @@ var render = function() {
               _c("table", { staticClass: "table table-light table-sm" }, [
                 _c(
                   "thead",
-                  { staticClass: "thead-dark table-bordered text-center" },
+                  {
+                    staticClass: "bg-dark text-light table-bordered text-center"
+                  },
                   [
                     _c("tr", [
                       _c(
@@ -50935,7 +50948,9 @@ var render = function() {
               _c("table", { staticClass: "table table-light table-sm" }, [
                 _c(
                   "thead",
-                  { staticClass: "thead-dark table-bordered text-center" },
+                  {
+                    staticClass: "bg-dark text-light table-bordered text-center"
+                  },
                   [
                     _c("tr", [
                       _c(
@@ -51145,7 +51160,9 @@ var render = function() {
               _c("table", { staticClass: "table table-light table-sm" }, [
                 _c(
                   "thead",
-                  { staticClass: "thead-dark table-bordered text-center" },
+                  {
+                    staticClass: "bg-dark text-light table-bordered text-center"
+                  },
                   [
                     _c("tr", [
                       _c(
@@ -51355,7 +51372,9 @@ var render = function() {
               _c("table", { staticClass: "table table-light table-sm" }, [
                 _c(
                   "thead",
-                  { staticClass: "thead-dark table-bordered text-center" },
+                  {
+                    staticClass: "bg-dark text-light table-bordered text-center"
+                  },
                   [
                     _c("tr", [
                       _c(
@@ -51565,7 +51584,9 @@ var render = function() {
               _c("table", { staticClass: "table table-light table-sm" }, [
                 _c(
                   "thead",
-                  { staticClass: "thead-dark table-bordered text-center" },
+                  {
+                    staticClass: "bg-dark text-light table-bordered text-center"
+                  },
                   [
                     _c("tr", [
                       _c(
@@ -51775,7 +51796,9 @@ var render = function() {
               _c("table", { staticClass: "table table-light table-sm" }, [
                 _c(
                   "thead",
-                  { staticClass: "thead-dark table-bordered text-center" },
+                  {
+                    staticClass: "bg-dark text-light table-bordered text-center"
+                  },
                   [
                     _c("tr", [
                       _c(
@@ -51985,7 +52008,9 @@ var render = function() {
               _c("table", { staticClass: "table table-light table-sm" }, [
                 _c(
                   "thead",
-                  { staticClass: "thead-dark table-bordered text-center" },
+                  {
+                    staticClass: "bg-dark text-light table-bordered text-center"
+                  },
                   [
                     _c("tr", [
                       _c(
@@ -52414,7 +52439,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "wrapper" },
+    { staticClass: "wrapper p-4" },
     [
       _c("vue-snotify"),
       _vm._v(" "),
@@ -52844,7 +52869,7 @@ var render = function() {
               _c(
                 "button",
                 {
-                  staticClass: "btn btn-block btn-outline-success",
+                  staticClass: "btn btn-block btn-warning text-white",
                   attrs: { type: "button" },
                   on: { click: _vm.addRow }
                 },
@@ -52867,7 +52892,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-3" }, [
-      _c("button", { staticClass: "btn btn-block btn-primary" }, [
+      _c("button", { staticClass: "btn btn-block btn-success" }, [
         _vm._v("Submit")
       ])
     ])
@@ -52887,6 +52912,3852 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(57)
+/* template */
+var __vue_template__ = __webpack_require__(58)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\DisplayForAdmin.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-b6be0e7e", Component.options)
+  } else {
+    hotAPI.reload("data-v-b6be0e7e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 57 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_carousel__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_carousel__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            api: []
+        };
+    },
+
+
+    components: {
+        Carousel: __WEBPACK_IMPORTED_MODULE_0_vue_carousel__["Carousel"],
+        Slide: __WEBPACK_IMPORTED_MODULE_0_vue_carousel__["Slide"]
+    },
+
+    mounted: function mounted() {
+        var _this = this;
+
+        axios.get('/api/content').then(function (response) {
+            _this.api = response.data;
+        });
+    },
+
+
+    computed: {
+        january: function january() {
+            return this.api.filter(function (u) {
+                return u.month === 'JANUARI' || u.month === 'Januari' || u.month === 'January';
+            });
+        },
+        february: function february() {
+            return this.api.filter(function (u) {
+                return u.month === 'FEBRUARI' || u.month === 'Februari' || u.month === 'February';
+            });
+        },
+        march: function march() {
+            return this.api.filter(function (u) {
+                return u.month === 'MARET' || u.month === 'Maret' || u.month === 'March';
+            });
+        },
+        april: function april() {
+            return this.api.filter(function (u) {
+                return u.month === 'APRIL' || u.month === 'April' || u.month === 'April';
+            });
+        },
+        may: function may() {
+            return this.api.filter(function (u) {
+                return u.month === 'MEI' || u.month === 'Mei' || u.month === 'May';
+            });
+        },
+        june: function june() {
+            return this.api.filter(function (u) {
+                return u.month === 'JUNI' || u.month === 'Juni' || u.month === 'June';
+            });
+        },
+        july: function july() {
+            return this.api.filter(function (u) {
+                return u.month === 'JULI' || u.month === 'Juli' || u.month === 'July';
+            });
+        },
+        august: function august() {
+            return this.api.filter(function (u) {
+                return u.month === 'AGUSTUS' || u.month === 'Agustus' || u.month === 'August';
+            });
+        },
+        september: function september() {
+            return this.api.filter(function (u) {
+                return u.month === 'SEPTEMBER' || u.month === 'September' || u.month === 'September';
+            });
+        },
+        october: function october() {
+            return this.api.filter(function (u) {
+                return u.month === 'OKTOBER' || u.month === 'Oktober' || u.month === 'October';
+            });
+        },
+        november: function november() {
+            return this.api.filter(function (u) {
+                return u.month === 'NOVEMBER' || u.month === 'November' || u.month === 'November';
+            });
+        },
+        desember: function desember() {
+            return this.api.filter(function (u) {
+                return u.month === 'DESEMBER' || u.month === 'Desember' || u.month === 'December';
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "carousel",
+    {
+      attrs: {
+        autoplay: true,
+        perPage: 1,
+        autoplayTimeout: 10000,
+        paginationEnabled: false,
+        loop: true
+      }
+    },
+    [
+      _vm.january.length != 0
+        ? _c("slide", [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c("table", { staticClass: "table table-light table-sm" }, [
+                _c(
+                  "thead",
+                  {
+                    staticClass: "bg-dark text-light table-bordered text-center"
+                  },
+                  [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("EDIT / HAPUS")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("NO")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("BULAN")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("ESTIMASI TANGGAL OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("NAMA / LOKASI STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PEMILIK STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [
+                          _vm._v(
+                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("FIT OUT")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("TRAINING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PREPARE BARANG")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tr",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "text-center",
+                            attrs: { colspan: "3" }
+                          },
+                          [_vm._v("DARI PROJECT")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("th")
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.january, function(data, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: data.index,
+                        class: {
+                          "bg-success": data.finished,
+                          "bg-warning": !data.finished
+                        },
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "td",
+                          { staticClass: "text-center text-capitalize" },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-primary",
+                                attrs: { href: "edit/" + data.id }
+                              },
+                              [_vm._v("edit")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-danger",
+                                attrs: { href: "delete/" + data.id }
+                              },
+                              [_vm._v("hapus")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_location))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_44))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_32))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_22))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_21))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_8))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_3))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_2))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.additional_info))])
+                      ]
+                    )
+                  })
+                )
+              ])
+            ])
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.february.length != 0
+        ? _c("slide", [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c("table", { staticClass: "table table-light table-sm" }, [
+                _c(
+                  "thead",
+                  {
+                    staticClass: "bg-dark text-light table-bordered text-center"
+                  },
+                  [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("EDIT / HAPUS")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("NO")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("BULAN")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("ESTIMASI TANGGAL OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("NAMA / LOKASI STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PEMILIK STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [
+                          _vm._v(
+                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("FIT OUT")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("TRAINING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PREPARE BARANG")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tr",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "text-center",
+                            attrs: { colspan: "3" }
+                          },
+                          [_vm._v("DARI PROJECT")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("th")
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.february, function(data, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: data.index,
+                        class: {
+                          "bg-success": data.finished,
+                          "bg-warning": !data.finished
+                        },
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "td",
+                          { staticClass: "text-center text-capitalize" },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-primary",
+                                attrs: { href: "edit/" + data.id }
+                              },
+                              [_vm._v("edit")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-danger",
+                                attrs: { href: "delete/" + data.id }
+                              },
+                              [_vm._v("hapus")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_location))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_44))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_32))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_22))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_21))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_8))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_3))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_2))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.additional_info))])
+                      ]
+                    )
+                  })
+                )
+              ])
+            ])
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.march.length != 0
+        ? _c("slide", [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c("table", { staticClass: "table table-light table-sm" }, [
+                _c(
+                  "thead",
+                  {
+                    staticClass: "bg-dark text-light table-bordered text-center"
+                  },
+                  [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("EDIT / HAPUS")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("NO")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("BULAN")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("ESTIMASI TANGGAL OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("NAMA / LOKASI STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PEMILIK STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [
+                          _vm._v(
+                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("FIT OUT")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("TRAINING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PREPARE BARANG")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tr",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "text-center",
+                            attrs: { colspan: "3" }
+                          },
+                          [_vm._v("DARI PROJECT")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("th")
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.march, function(data, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: data.index,
+                        class: {
+                          "bg-success": data.finished,
+                          "bg-warning": !data.finished
+                        },
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "td",
+                          { staticClass: "text-center text-capitalize" },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-primary",
+                                attrs: { href: "edit/" + data.id }
+                              },
+                              [_vm._v("edit")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-danger",
+                                attrs: { href: "delete/" + data.id }
+                              },
+                              [_vm._v("hapus")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_location))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_44))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_32))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_22))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_21))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_8))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_3))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_2))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.additional_info))])
+                      ]
+                    )
+                  })
+                )
+              ])
+            ])
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.april.length != 0
+        ? _c("slide", [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c("table", { staticClass: "table table-light table-sm" }, [
+                _c(
+                  "thead",
+                  {
+                    staticClass: "bg-dark text-light table-bordered text-center"
+                  },
+                  [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("EDIT / HAPUS")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("NO")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("BULAN")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("ESTIMASI TANGGAL OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("NAMA / LOKASI STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PEMILIK STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [
+                          _vm._v(
+                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("FIT OUT")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("TRAINING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PREPARE BARANG")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tr",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "text-center",
+                            attrs: { colspan: "3" }
+                          },
+                          [_vm._v("DARI PROJECT")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("th")
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.april, function(data, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: data.index,
+                        class: {
+                          "bg-success": data.finished,
+                          "bg-warning": !data.finished
+                        },
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "td",
+                          { staticClass: "text-center text-capitalize" },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-primary",
+                                attrs: { href: "edit/" + data.id }
+                              },
+                              [_vm._v("edit")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-danger",
+                                attrs: { href: "delete/" + data.id }
+                              },
+                              [_vm._v("hapus")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_location))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_44))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_32))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_22))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_21))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_8))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_3))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_2))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.additional_info))])
+                      ]
+                    )
+                  })
+                )
+              ])
+            ])
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.may.length != 0
+        ? _c("slide", [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c("table", { staticClass: "table table-light table-sm" }, [
+                _c(
+                  "thead",
+                  {
+                    staticClass: "bg-dark text-light table-bordered text-center"
+                  },
+                  [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("EDIT / HAPUS")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("NO")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("BULAN")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("ESTIMASI TANGGAL OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("NAMA / LOKASI STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PEMILIK STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [
+                          _vm._v(
+                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("FIT OUT")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("TRAINING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PREPARE BARANG")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tr",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "text-center",
+                            attrs: { colspan: "3" }
+                          },
+                          [_vm._v("DARI PROJECT")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("th")
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.may, function(data, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: data.index,
+                        class: {
+                          "bg-success": data.finished,
+                          "bg-warning": !data.finished
+                        },
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "td",
+                          { staticClass: "text-center text-capitalize" },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-primary",
+                                attrs: { href: "edit/" + data.id }
+                              },
+                              [_vm._v("edit")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-danger",
+                                attrs: { href: "delete/" + data.id }
+                              },
+                              [_vm._v("hapus")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_location))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_44))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_32))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_22))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_21))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_8))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_3))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_2))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.additional_info))])
+                      ]
+                    )
+                  })
+                )
+              ])
+            ])
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.june.length != 0
+        ? _c("slide", [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c("table", { staticClass: "table table-light table-sm" }, [
+                _c(
+                  "thead",
+                  {
+                    staticClass: "bg-dark text-light table-bordered text-center"
+                  },
+                  [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("EDIT / HAPUS")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("NO")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("BULAN")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("ESTIMASI TANGGAL OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("NAMA / LOKASI STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PEMILIK STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [
+                          _vm._v(
+                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("FIT OUT")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("TRAINING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PREPARE BARANG")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tr",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "text-center",
+                            attrs: { colspan: "3" }
+                          },
+                          [_vm._v("DARI PROJECT")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("th")
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.june, function(data, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: data.index,
+                        class: {
+                          "bg-success": data.finished,
+                          "bg-warning": !data.finished
+                        },
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "td",
+                          { staticClass: "text-center text-capitalize" },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-primary",
+                                attrs: { href: "edit/" + data.id }
+                              },
+                              [_vm._v("edit")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-danger",
+                                attrs: { href: "delete/" + data.id }
+                              },
+                              [_vm._v("hapus")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_location))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_44))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_32))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_22))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_21))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_8))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_3))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_2))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.additional_info))])
+                      ]
+                    )
+                  })
+                )
+              ])
+            ])
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.july.length != 0
+        ? _c("slide", [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c("table", { staticClass: "table table-light table-sm" }, [
+                _c(
+                  "thead",
+                  {
+                    staticClass: "bg-dark text-light table-bordered text-center"
+                  },
+                  [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("EDIT / HAPUS")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("NO")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("BULAN")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("ESTIMASI TANGGAL OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("NAMA / LOKASI STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PEMILIK STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [
+                          _vm._v(
+                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("FIT OUT")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("TRAINING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PREPARE BARANG")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tr",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "text-center",
+                            attrs: { colspan: "3" }
+                          },
+                          [_vm._v("DARI PROJECT")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("th")
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.july, function(data, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: data.index,
+                        class: {
+                          "bg-success": data.finished,
+                          "bg-warning": !data.finished
+                        },
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "td",
+                          { staticClass: "text-center text-capitalize" },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-primary",
+                                attrs: { href: "edit/" + data.id }
+                              },
+                              [_vm._v("edit")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-danger",
+                                attrs: { href: "delete/" + data.id }
+                              },
+                              [_vm._v("hapus")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_location))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_44))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_32))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_22))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_21))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_8))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_3))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_2))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.additional_info))])
+                      ]
+                    )
+                  })
+                )
+              ])
+            ])
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.august.length != 0
+        ? _c("slide", [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c("table", { staticClass: "table table-light table-sm" }, [
+                _c(
+                  "thead",
+                  {
+                    staticClass: "bg-dark text-light table-bordered text-center"
+                  },
+                  [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("EDIT / HAPUS")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("NO")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("BULAN")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("ESTIMASI TANGGAL OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("NAMA / LOKASI STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PEMILIK STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [
+                          _vm._v(
+                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("FIT OUT")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("TRAINING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PREPARE BARANG")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tr",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "text-center",
+                            attrs: { colspan: "3" }
+                          },
+                          [_vm._v("DARI PROJECT")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("th")
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.august, function(data, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: data.index,
+                        class: {
+                          "bg-success": data.finished,
+                          "bg-warning": !data.finished
+                        },
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "td",
+                          { staticClass: "text-center text-capitalize" },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-primary",
+                                attrs: { href: "edit/" + data.id }
+                              },
+                              [_vm._v("edit")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-danger",
+                                attrs: { href: "delete/" + data.id }
+                              },
+                              [_vm._v("hapus")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_location))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_44))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_32))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_22))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_21))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_8))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_3))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_2))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.additional_info))])
+                      ]
+                    )
+                  })
+                )
+              ])
+            ])
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.september.length != 0
+        ? _c("slide", [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c("table", { staticClass: "table table-light table-sm" }, [
+                _c(
+                  "thead",
+                  {
+                    staticClass: "bg-dark text-light table-bordered text-center"
+                  },
+                  [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("EDIT / HAPUS")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("NO")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("BULAN")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("ESTIMASI TANGGAL OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("NAMA / LOKASI STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PEMILIK STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [
+                          _vm._v(
+                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("FIT OUT")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("TRAINING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PREPARE BARANG")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tr",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "text-center",
+                            attrs: { colspan: "3" }
+                          },
+                          [_vm._v("DARI PROJECT")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("th")
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.september, function(data, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: data.index,
+                        class: {
+                          "bg-success": data.finished,
+                          "bg-warning": !data.finished
+                        },
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "td",
+                          { staticClass: "text-center text-capitalize" },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-primary",
+                                attrs: { href: "edit/" + data.id }
+                              },
+                              [_vm._v("edit")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-danger",
+                                attrs: { href: "delete/" + data.id }
+                              },
+                              [_vm._v("hapus")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_location))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_44))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_32))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_22))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_21))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_8))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_3))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_2))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.additional_info))])
+                      ]
+                    )
+                  })
+                )
+              ])
+            ])
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.october.length != 0
+        ? _c("slide", [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c("table", { staticClass: "table table-light table-sm" }, [
+                _c(
+                  "thead",
+                  {
+                    staticClass: "bg-dark text-light table-bordered text-center"
+                  },
+                  [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("EDIT / HAPUS")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("NO")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("BULAN")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("ESTIMASI TANGGAL OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("NAMA / LOKASI STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PEMILIK STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [
+                          _vm._v(
+                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("FIT OUT")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("TRAINING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PREPARE BARANG")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tr",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "text-center",
+                            attrs: { colspan: "3" }
+                          },
+                          [_vm._v("DARI PROJECT")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("th")
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.october, function(data, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: data.index,
+                        class: {
+                          "bg-success": data.finished,
+                          "bg-warning": !data.finished
+                        },
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "td",
+                          { staticClass: "text-center text-capitalize" },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-primary",
+                                attrs: { href: "edit/" + data.id }
+                              },
+                              [_vm._v("edit")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-danger",
+                                attrs: { href: "delete/" + data.id }
+                              },
+                              [_vm._v("hapus")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_location))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_44))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_32))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_22))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_21))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_8))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_3))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_2))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.additional_info))])
+                      ]
+                    )
+                  })
+                )
+              ])
+            ])
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.november.length != 0
+        ? _c("slide", [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c("table", { staticClass: "table table-light table-sm" }, [
+                _c(
+                  "thead",
+                  {
+                    staticClass: "bg-dark text-light table-bordered text-center"
+                  },
+                  [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("EDIT / HAPUS")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("NO")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("BULAN")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("ESTIMASI TANGGAL OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("NAMA / LOKASI STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PEMILIK STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [
+                          _vm._v(
+                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("FIT OUT")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("TRAINING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PREPARE BARANG")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tr",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "text-center",
+                            attrs: { colspan: "3" }
+                          },
+                          [_vm._v("DARI PROJECT")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("th")
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.november, function(data, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: data.index,
+                        class: {
+                          "bg-success": data.finished,
+                          "bg-warning": !data.finished
+                        },
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "td",
+                          { staticClass: "text-center text-capitalize" },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-primary",
+                                attrs: { href: "edit/" + data.id }
+                              },
+                              [_vm._v("edit")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-danger",
+                                attrs: { href: "delete/" + data.id }
+                              },
+                              [_vm._v("hapus")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_location))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_44))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_32))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_22))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_21))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_8))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_3))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_2))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.additional_info))])
+                      ]
+                    )
+                  })
+                )
+              ])
+            ])
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.desember.length != 0
+        ? _c("slide", [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c("table", { staticClass: "table table-light table-sm" }, [
+                _c(
+                  "thead",
+                  {
+                    staticClass: "bg-dark text-light table-bordered text-center"
+                  },
+                  [
+                    _c("tr", [
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("EDIT / HAPUS")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("NO")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        {
+                          staticStyle: { "vertical-align": "middle" },
+                          attrs: { rowspan: "2" }
+                        },
+                        [_vm._v("BULAN")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("ESTIMASI TANGGAL OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("NAMA / LOKASI STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PEMILIK STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [
+                          _vm._v(
+                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("FIT OUT")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("TRAINING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("PREPARE BARANG")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("OPENING")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "th",
+                        { staticStyle: { "vertical-align": "middle" } },
+                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "tr",
+                      {
+                        staticClass: "text-center",
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "th",
+                          {
+                            staticClass: "text-center",
+                            attrs: { colspan: "3" }
+                          },
+                          [_vm._v("DARI PROJECT")]
+                        ),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("th", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("th")
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.desember, function(data, index) {
+                    return _c(
+                      "tr",
+                      {
+                        key: data.index,
+                        class: {
+                          "bg-success": data.finished,
+                          "bg-warning": !data.finished
+                        },
+                        staticStyle: { "white-space": "nowrap", width: "1%" }
+                      },
+                      [
+                        _c(
+                          "td",
+                          { staticClass: "text-center text-capitalize" },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-primary",
+                                attrs: { href: "edit/" + data.id }
+                              },
+                              [_vm._v("edit")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-danger",
+                                attrs: { href: "delete/" + data.id }
+                              },
+                              [_vm._v("hapus")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(index + 1))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.month))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_location))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_44))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_32))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_22))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_21))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_8))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_3))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h_2))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", { staticClass: "text-center" }, [
+                          _vm._v(_vm._s(data.h))
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(data.additional_info))])
+                      ]
+                    )
+                  })
+                )
+              ])
+            ])
+          ])
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-b6be0e7e", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

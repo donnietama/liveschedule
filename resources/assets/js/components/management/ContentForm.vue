@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper">
+    <div class="wrapper p-4">
         <vue-snotify></vue-snotify>
         <form @submit.prevent="handleSubmit" method="post">
             <div class="form-wrapper" v-for="(content, index) in inputs"
@@ -69,10 +69,10 @@
             </div>
             <div class="row">
                 <div class="col-md-3 offset-3">
-                    <button type="button" class="btn btn-block btn-outline-success" @click="addRow">Tambah data</button>
+                    <button type="button" class="btn btn-block btn-warning text-white" @click="addRow">Tambah data</button>
                 </div>
                 <div class="col-md-3">
-                    <button class="btn btn-block btn-primary">Submit</button>
+                    <button class="btn btn-block btn-success">Submit</button>
                 </div>
             </div>
         </form>
