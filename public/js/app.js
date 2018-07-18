@@ -56288,6 +56288,7 @@ var render = function() {
       _c(
         "form",
         {
+          staticClass: "bg-white p-4",
           attrs: { method: "post" },
           on: {
             submit: function($event) {

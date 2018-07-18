@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper p-4">
         <vue-snotify></vue-snotify>
-        <form @submit.prevent="handleSubmit" method="post">
+        <form @submit.prevent="handleSubmit" method="post" class="bg-white p-4">
             <div class="form-wrapper" v-for="(content, index) in inputs"
             :key="content.index">
                 <div class="row">
