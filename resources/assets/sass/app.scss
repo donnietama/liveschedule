@@ -15,6 +15,25 @@ $fa-font-path:"~font-awesome/fonts";
 .icon-register {
   @extend .fa;
   @extend .fa-user-plus;
+
+}
+.icon-add-data {
+  @extend .fa;
+  @extend .fa-plus;
+  @extend .mr-2;
+}
+.icon-back-button {
+  @extend .fa;
+  @extend .fa-angle-left;
+  @extend .mr-2;
+}
+.icon-edit {
+  @extend .fa;
+  @extend .fa-edit;
+}
+.icon-delete {
+  @extend .fa;
+  @extend .fa-minus-square;
 }
 
 // Variables

@@ -978,7 +978,11 @@
 
 .fa,
 .icon-sign-in,
-.icon-register {
+.icon-register,
+.icon-add-data,
+.icon-back-button,
+.icon-edit,
+.icon-delete {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -1054,13 +1058,21 @@
 
 .fa.fa-pull-left,
 .fa-pull-left.icon-sign-in,
-.fa-pull-left.icon-register {
+.fa-pull-left.icon-register,
+.fa-pull-left.icon-add-data,
+.fa-pull-left.icon-back-button,
+.fa-pull-left.icon-edit,
+.fa-pull-left.icon-delete {
   margin-right: .3em;
 }
 
 .fa.fa-pull-right,
 .fa-pull-right.icon-sign-in,
-.fa-pull-right.icon-register {
+.fa-pull-right.icon-register,
+.fa-pull-right.icon-add-data,
+.fa-pull-right.icon-back-button,
+.fa-pull-right.icon-edit,
+.fa-pull-right.icon-delete {
   margin-left: .3em;
 }
 
@@ -1076,13 +1088,21 @@
 
 .fa.pull-left,
 .pull-left.icon-sign-in,
-.pull-left.icon-register {
+.pull-left.icon-register,
+.pull-left.icon-add-data,
+.pull-left.icon-back-button,
+.pull-left.icon-edit,
+.pull-left.icon-delete {
   margin-right: .3em;
 }
 
 .fa.pull-right,
 .pull-right.icon-sign-in,
-.pull-right.icon-register {
+.pull-right.icon-register,
+.pull-right.icon-add-data,
+.pull-right.icon-back-button,
+.pull-right.icon-edit,
+.pull-right.icon-delete {
   margin-left: .3em;
 }
 
@@ -1455,6 +1475,7 @@
 }
 
 .fa-edit:before,
+.icon-edit:before,
 .fa-pencil-square-o:before {
   content: "\F044";
 }
@@ -1588,7 +1609,8 @@
   content: "\F066";
 }
 
-.fa-plus:before {
+.fa-plus:before,
+.icon-add-data:before {
   content: "\F067";
 }
 
@@ -2149,7 +2171,8 @@
   content: "\F103";
 }
 
-.fa-angle-left:before {
+.fa-angle-left:before,
+.icon-back-button:before {
   content: "\F104";
 }
 
@@ -2395,7 +2418,8 @@
   content: "\F145";
 }
 
-.fa-minus-square:before {
+.fa-minus-square:before,
+.icon-delete:before {
   content: "\F146";
 }
 
@@ -12607,6 +12631,8 @@ button.bg-dark:focus {
 }
 
 .mr-2,
+.icon-add-data,
+.icon-back-button,
 .mx-2 {
   margin-right: 0.5rem !important;
 }
