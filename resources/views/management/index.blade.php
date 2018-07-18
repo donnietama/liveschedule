@@ -33,8 +33,14 @@
                             <div class="nav-link bg-warning text-dark text-capitalize">belum selesai</div>
                         </li>
                     </ul>
-                    <a href="{{ route('login') }}" class="btn btn-primary text-white text-capitalize mr-1">login</a>
-                    <a href="{{ route('register') }}" class="btn btn-warning text-capitalize">register</a>
+                    <a href="{{ route('login') }}" class="btn btn-primary text-white text-capitalize mr-1">
+                        <span class="icon-sign-in"></span>
+                        login
+                    </a>
+                    <a href="{{ route('register') }}" class="btn btn-warning text-capitalize">
+                        <span class="icon-register"></span>
+                        register
+                    </a>
                 </div>
           </nav>
         <script src="{{ asset('js/app.js') }}"></script>

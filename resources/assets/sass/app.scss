@@ -5,6 +5,18 @@
 // Snotify Notifier
 @import "~vue-snotify/styles/material";
 
+// Font Awesome Icons
+$fa-font-path:"~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
+.icon-sign-in {
+  @extend .fa;
+  @extend .fa-sign-in;
+}
+.icon-register {
+  @extend .fa;
+  @extend .fa-user-plus;
+}
+
 // Variables
 @import "variables";
 
