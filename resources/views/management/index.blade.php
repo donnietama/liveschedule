@@ -23,17 +23,19 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-bottom">
             <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                 aria-expanded="false" aria-label="Toggle navigation"></button>
-            <div class="collapse navbar-collapse" id="collapsibleNavId">
-              <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                  <span class="text-white mt-2">Keterangan:</span>
-                <li class="nav-item ml-2">
-                    <div class="nav-link bg-success text-white text-capitalize">selesai</div>
-                </li>
-                <li class="nav-item">
-                    <div class="nav-link bg-warning text-dark text-capitalize">belum selesai</div>
-                </li>
-              </ul>
-            </div>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <span class="text-white mt-2">Keterangan:</span>
+                        <li class="nav-item ml-2">
+                            <div class="nav-link bg-success text-white text-capitalize">selesai</div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="nav-link bg-warning text-dark text-capitalize">belum selesai</div>
+                        </li>
+                    </ul>
+                    <a href="{{ route('login') }}" class="btn btn-primary text-white text-capitalize mr-1">login</a>
+                    <a href="{{ route('register') }}" class="btn btn-warning text-capitalize">register</a>
+                </div>
           </nav>
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
