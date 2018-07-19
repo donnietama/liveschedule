@@ -899,7 +899,6 @@ export default {
                     title: 'Oops...',
                     text: 'Ada yang salah dengan data ini, mohon pastikan sekali lagi.',
                 })
-                console.log(err)
             })
         }
     }
