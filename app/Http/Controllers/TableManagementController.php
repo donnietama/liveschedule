@@ -32,6 +32,14 @@ class TableManagementController extends Controller
         return view('management.create');
     }
 
+    // Get specified data by id for deletions
+    public function getSpecifiedData($id)
+    {
+        $data = Content::findOrFail($id);
+
+        return response()->json($data);
+    }
+
     // Add Table new Table Content.
     public function addNewContent(Request $request)
     {
@@ -118,7 +126,7 @@ class TableManagementController extends Controller
     // Delete data permanently.
     public function destroy($id)
     {
-        $data = Content::find($id);
+        $data = Content::findOrFail($id);
         if ($data->delete()) {
             return 'Data berhasil dihapus!';
         }

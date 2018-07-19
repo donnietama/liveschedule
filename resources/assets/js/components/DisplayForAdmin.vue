@@ -42,10 +42,10 @@
                                     <span class="icon-edit"></span>
                                     edit
                                 </a>
-                                <a :href="'delete/' + data.id" class="btn btn-sm btn-danger">
+                                <button class="btn btn-sm btn-danger" @click="showDeleteConfirmation(data)">
                                     <span class="icon-delete"></span>
                                     hapus
-                                </a>
+                                </button>
                             </td>
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
@@ -108,10 +108,10 @@
                                     <span class="icon-edit"></span>
                                     edit
                                 </a>
-                                <a :href="'delete/' + data.id" class="btn btn-sm btn-danger">
+                                <button class="btn btn-sm btn-danger" @click="showDeleteConfirmation(data)">
                                     <span class="icon-delete"></span>
                                     hapus
-                                </a>
+                                </button>
                             </td>
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
@@ -174,10 +174,10 @@
                                     <span class="icon-edit"></span>
                                     edit
                                 </a>
-                                <a :href="'delete/' + data.id" class="btn btn-sm btn-danger">
+                                <button class="btn btn-sm btn-danger" @click="showDeleteConfirmation(data)">
                                     <span class="icon-delete"></span>
                                     hapus
-                                </a>
+                                </button>
                             </td>
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
@@ -240,10 +240,10 @@
                                     <span class="icon-edit"></span>
                                     edit
                                 </a>
-                                <a :href="'delete/' + data.id" class="btn btn-sm btn-danger">
+                                <button class="btn btn-sm btn-danger" @click="showDeleteConfirmation(data)">
                                     <span class="icon-delete"></span>
                                     hapus
-                                </a>
+                                </button>
                             </td>
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
@@ -306,10 +306,10 @@
                                     <span class="icon-edit"></span>
                                     edit
                                 </a>
-                                <a :href="'delete/' + data.id" class="btn btn-sm btn-danger">
+                                <button class="btn btn-sm btn-danger" @click="showDeleteConfirmation(data)">
                                     <span class="icon-delete"></span>
                                     hapus
-                                </a>
+                                </button>
                             </td>
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
@@ -372,10 +372,10 @@
                                     <span class="icon-edit"></span>
                                     edit
                                 </a>
-                                <a :href="'delete/' + data.id" class="btn btn-sm btn-danger">
+                                <button class="btn btn-sm btn-danger" @click="showDeleteConfirmation(data)">
                                     <span class="icon-delete"></span>
                                     hapus
-                                </a>
+                                </button>
                             </td>
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
@@ -438,10 +438,10 @@
                                     <span class="icon-edit"></span>
                                     edit
                                 </a>
-                                <a :href="'delete/' + data.id" class="btn btn-sm btn-danger">
+                                <button class="btn btn-sm btn-danger" @click="showDeleteConfirmation(data)">
                                     <span class="icon-delete"></span>
                                     hapus
-                                </a>
+                                </button>
                             </td>
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
@@ -504,10 +504,10 @@
                                     <span class="icon-edit"></span>
                                     edit
                                 </a>
-                                <a :href="'delete/' + data.id" class="btn btn-sm btn-danger">
+                                <button class="btn btn-sm btn-danger" @click="showDeleteConfirmation(data)">
                                     <span class="icon-delete"></span>
                                     hapus
-                                </a>
+                                </button>
                             </td>
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
@@ -570,10 +570,10 @@
                                     <span class="icon-edit"></span>
                                     edit
                                 </a>
-                                <a :href="'delete/' + data.id" class="btn btn-sm btn-danger">
+                                <button class="btn btn-sm btn-danger" @click="showDeleteConfirmation(data)">
                                     <span class="icon-delete"></span>
                                     hapus
-                                </a>
+                                </button>
                             </td>
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
@@ -636,10 +636,10 @@
                                     <span class="icon-edit"></span>
                                     edit
                                 </a>
-                                <a :href="'delete/' + data.id" class="btn btn-sm btn-danger">
+                                <button class="btn btn-sm btn-danger" @click="showDeleteConfirmation(data)">
                                     <span class="icon-delete"></span>
                                     hapus
-                                </a>
+                                </button>
                             </td>
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
@@ -702,10 +702,10 @@
                                     <span class="icon-edit"></span>
                                     edit
                                 </a>
-                                <a :href="'delete/' + data.id" class="btn btn-sm btn-danger">
+                                <button class="btn btn-sm btn-danger" @click="showDeleteConfirmation(data)">
                                     <span class="icon-delete"></span>
                                     hapus
-                                </a>
+                                </button>
                             </td>
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
@@ -768,10 +768,10 @@
                                     <span class="icon-edit"></span>
                                     edit
                                 </a>
-                                <a :href="'delete/' + data.id" class="btn btn-sm btn-danger">
+                                <button class="btn btn-sm btn-danger" @click="showDeleteConfirmation(data)">
                                     <span class="icon-delete"></span>
                                     hapus
-                                </a>
+                                </button>
                             </td>
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month }}</td>
@@ -797,6 +797,7 @@
 
 <script>
 import { Carousel, Slide } from 'vue-carousel'
+import swal from 'sweetalert'
 
 export default {
     data() {
@@ -811,10 +812,12 @@ export default {
     },
 
     mounted() {
-        axios.get('/api/content')
-        .then(response => {
-            this.api = response.data
-        })
+        setInterval(() => {
+            axios.get('/api/content')
+            .then(response => {
+                this.api = response.data
+            })
+        }, 1000)
     },
 
     computed: {
@@ -878,6 +881,27 @@ export default {
                 return u.month === 'DESEMBER' || u.month === 'Desember' || u.month === 'December'
             })
         },
+    },
+    methods: {
+        showDeleteConfirmation(data) {
+            axios.delete('/delete/' + data.id)
+            .then((res, data) => {
+                console.log(data)
+                swal({
+                    icon: 'success',
+                    title: 'Berhasil!',
+                    text: 'Data berhasil dihapus!',
+                })
+            })
+            .catch(err => {
+                swal({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Ada yang salah dengan data ini, mohon pastikan sekali lagi.',
+                })
+                console.log(err)
+            })
+        }
     }
 }
 </script>

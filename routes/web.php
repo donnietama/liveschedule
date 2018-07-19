@@ -15,3 +15,5 @@ Route::get('/create', 'TableManagementController@showContentForm')->middleware('
 Route::post('/create', 'TableManagementController@AddNewContent');
 Route::get('/edit/{id}', 'TableManagementController@showEditForm')->middleware('auth')->name('show-edit-form');
 Route::post('/edit/{id}', 'TableManagementController@editContent');
+Route::get('/api/content/{id}', 'TableManagementController@getSpecifiedData');
+Route::delete('/delete/{id}', 'TableManagementController@destroy');
