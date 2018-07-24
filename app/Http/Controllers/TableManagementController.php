@@ -21,8 +21,13 @@ class TableManagementController extends Controller
     // Fetch table content from database as API.
     public function fetchContent()
     {
-        $data = Content::all();
-
+        $from = date('m', strtotime('-1 months'));
+        $to = date('m', strtotime('+2 months'));
+        
+        $data = Content::where('finished', '=', false)
+                        ->whereBetween('month', [$from, $to])
+                        ->get();
+    
         return $data;
     }
 
@@ -95,13 +100,25 @@ class TableManagementController extends Controller
     public function showEditForm($id)
     {
         $data = Content::findOrFail($id);
+        
+        if ($data->updating === false)
+        {
+            $data->updating = true;
+            $data->save();
+        }
+        else
+        {
+            $data->updating = false;
+            $data->save();
+        }
+        
         return view('management.update', compact('data'));
     }
 
     // Post Updated data.
     public function editContent(Request $request, $id)
     {
-        $resource = Content::find($id);
+        $resource = Content::findOrFail($id);
         $resource->month = $request->month;
         $resource->opening_estimation = $request->opening_estimation;
         $resource->store_location = $request->store_location;
@@ -115,11 +132,13 @@ class TableManagementController extends Controller
         $resource->h_2 = $request->h_2;
         $resource->h = $request->h;
         $resource->additional_info = $request->additional_info;
+        $resource->finished = $request->finished ?: false;
+        $resource->updating = false;
         if ($resource->save()) {
-            return 'Data berhasil di edit!';
+            return redirect('/home');
         }
         else {
-            return 'Edit data gagal!';
+            return redirect()->back()->withError('data tidak dapat diproses');
         }
     }
 

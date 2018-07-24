@@ -36,7 +36,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in january"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating }">
                             <td class="text-center text-capitalize">
                                 <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">
                                     <span class="icon-edit"></span>
@@ -48,7 +48,7 @@
                                 </button>
                             </td>
                             <td class="text-center">{{ index + 1 }}</td>
-                            <td>{{ data.month }}</td>
+                            <td>{{ data.month | formatDate }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
@@ -102,7 +102,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in february"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating }">
                             <td class="text-center text-capitalize">
                                 <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">
                                     <span class="icon-edit"></span>
@@ -114,7 +114,7 @@
                                 </button>
                             </td>
                             <td class="text-center">{{ index + 1 }}</td>
-                            <td>{{ data.month }}</td>
+                            <td>{{ data.month | formatDate }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
@@ -168,7 +168,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in march"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating }">
                             <td class="text-center text-capitalize">
                                 <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">
                                     <span class="icon-edit"></span>
@@ -180,7 +180,7 @@
                                 </button>
                             </td>
                             <td class="text-center">{{ index + 1 }}</td>
-                            <td>{{ data.month }}</td>
+                            <td>{{ data.month | formatDate }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
@@ -234,7 +234,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in april"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating }">
                             <td class="text-center text-capitalize">
                                 <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">
                                     <span class="icon-edit"></span>
@@ -246,7 +246,7 @@
                                 </button>
                             </td>
                             <td class="text-center">{{ index + 1 }}</td>
-                            <td>{{ data.month }}</td>
+                            <td>{{ data.month | formatDate }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
@@ -300,7 +300,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in may"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating }">
                             <td class="text-center text-capitalize">
                                 <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">
                                     <span class="icon-edit"></span>
@@ -312,7 +312,7 @@
                                 </button>
                             </td>
                             <td class="text-center">{{ index + 1 }}</td>
-                            <td>{{ data.month }}</td>
+                            <td>{{ data.month | formatDate }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
@@ -366,7 +366,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in june"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating }">
                             <td class="text-center text-capitalize">
                                 <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">
                                     <span class="icon-edit"></span>
@@ -378,7 +378,7 @@
                                 </button>
                             </td>
                             <td class="text-center">{{ index + 1 }}</td>
-                            <td>{{ data.month }}</td>
+                            <td>{{ data.month | formatDate }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
@@ -432,7 +432,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in july"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating }">
                             <td class="text-center text-capitalize">
                                 <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">
                                     <span class="icon-edit"></span>
@@ -444,7 +444,7 @@
                                 </button>
                             </td>
                             <td class="text-center">{{ index + 1 }}</td>
-                            <td>{{ data.month }}</td>
+                            <td>{{ data.month | formatDate }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
@@ -498,7 +498,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in august"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating }">
                             <td class="text-center text-capitalize">
                                 <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">
                                     <span class="icon-edit"></span>
@@ -510,7 +510,7 @@
                                 </button>
                             </td>
                             <td class="text-center">{{ index + 1 }}</td>
-                            <td>{{ data.month }}</td>
+                            <td>{{ data.month | formatDate }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
@@ -564,7 +564,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in september"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating }">
                             <td class="text-center text-capitalize">
                                 <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">
                                     <span class="icon-edit"></span>
@@ -576,7 +576,7 @@
                                 </button>
                             </td>
                             <td class="text-center">{{ index + 1 }}</td>
-                            <td>{{ data.month }}</td>
+                            <td>{{ data.month | formatDate }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
@@ -630,7 +630,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in october"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating }">
                             <td class="text-center text-capitalize">
                                 <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">
                                     <span class="icon-edit"></span>
@@ -642,7 +642,7 @@
                                 </button>
                             </td>
                             <td class="text-center">{{ index + 1 }}</td>
-                            <td>{{ data.month }}</td>
+                            <td>{{ data.month | formatDate }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
@@ -696,7 +696,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in november"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating }">
                             <td class="text-center text-capitalize">
                                 <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">
                                     <span class="icon-edit"></span>
@@ -708,7 +708,7 @@
                                 </button>
                             </td>
                             <td class="text-center">{{ index + 1 }}</td>
-                            <td>{{ data.month }}</td>
+                            <td>{{ data.month | formatDate }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
@@ -762,7 +762,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in desember"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-success': data.finished, 'bg-warning': !data.finished }">
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating }">
                             <td class="text-center text-capitalize">
                                 <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">
                                     <span class="icon-edit"></span>
@@ -774,7 +774,7 @@
                                 </button>
                             </td>
                             <td class="text-center">{{ index + 1 }}</td>
-                            <td>{{ data.month }}</td>
+                            <td>{{ data.month | formatDate }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
@@ -798,6 +798,13 @@
 <script>
 import { Carousel, Slide } from 'vue-carousel'
 import swal from 'sweetalert'
+import moment from 'moment'
+
+Vue.filter('formatDate', function(value) {
+    if (value) {
+        return moment(String(value)).locale('id').format('MMMM');
+    }
+})
 
 export default {
     data() {
@@ -823,62 +830,62 @@ export default {
     computed: {
         january: function () {
             return this.api.filter(u => {
-                return u.month === 'JANUARI' || u.month === 'Januari' || u.month === 'January'
+                return u.month === 1
             })
         },
         february: function () {
             return this.api.filter(u => {
-                return u.month === 'FEBRUARI' || u.month === 'Februari' || u.month === 'February'
+                return u.month === 2
             })
         },
         march: function () {
             return this.api.filter(u => {
-                return u.month === 'MARET' || u.month === 'Maret' || u.month === 'March'
+                return u.month === 3
             })
         },
         april: function () {
             return this.api.filter(u => {
-                return u.month === 'APRIL' || u.month === 'April' || u.month === 'April'
+                return u.month === 4
             })
         },
         may: function () {
             return this.api.filter(u => {
-                return u.month === 'MEI' || u.month === 'Mei' || u.month === 'May'
+                return u.month === 5
             })
         },
         june: function () {
             return this.api.filter(u => {
-                return u.month === 'JUNI' || u.month === 'Juni' || u.month === 'June'
+                return u.month === 6
             })
         },
         july: function () {
             return this.api.filter(u => {
-                return u.month === 'JULI' || u.month === 'Juli' || u.month === 'July'
+                return u.month === 7
             })
         },
         august: function () {
             return this.api.filter(u => {
-                return u.month === 'AGUSTUS' || u.month === 'Agustus' || u.month === 'August'
+                return u.month === 8
             })
         },
         september: function () {
             return this.api.filter(u => {
-                return u.month === 'SEPTEMBER' || u.month === 'September' || u.month === 'September'
+                return u.month === 9
             })
         },
         october: function () {
             return this.api.filter(u => {
-                return u.month === 'OKTOBER' || u.month === 'Oktober' || u.month === 'October'
+                return u.month === 10
             })
         },
         november: function () {
             return this.api.filter(u => {
-                return u.month === 'NOVEMBER' || u.month === 'November' || u.month === 'November'
+                return u.month === 11
             })
         },
         desember: function () {
             return this.api.filter(u => {
-                return u.month === 'DESEMBER' || u.month === 'Desember' || u.month === 'December'
+                return u.month === 12
             })
         },
     },

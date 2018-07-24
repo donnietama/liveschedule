@@ -27,10 +27,7 @@
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <span class="text-white mt-2">Keterangan:</span>
                         <li class="nav-item ml-2">
-                            <div class="nav-link bg-success text-white text-capitalize">selesai</div>
-                        </li>
-                        <li class="nav-item">
-                            <div class="nav-link bg-warning text-dark text-capitalize">belum selesai</div>
+                            <div class="nav-link bg-warning text-dark text-capitalize">sedang diupdate</div>
                         </li>
                     </ul>
                     <a href="{{ route('login') }}" class="btn btn-primary text-white text-capitalize mr-1">

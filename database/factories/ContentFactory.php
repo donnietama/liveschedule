@@ -4,7 +4,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Content::class, function (Faker $faker) {
     return [
-        'month' => $faker->date($format = 'F', $max = 'now'),
+        'month' => $faker->date($format = 'm', $max = 'now'),
         'opening_estimation' => $faker->date($format = 'Y-M-d'),
         'store_location' => $faker->address,
         'store_owner' => $faker->name,
@@ -18,6 +18,7 @@ $factory->define(App\Content::class, function (Faker $faker) {
         'h' => $faker->date($format = 'd-M'),
         'additional_info' => $faker->sentence,
         'finished' => $faker->boolean,
+        'updating' => '0',
         'accountability' => $faker->name
     ];
 });

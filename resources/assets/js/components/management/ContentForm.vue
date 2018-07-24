@@ -9,7 +9,7 @@
                         <label>Bulan</label>
                         <select class="form-control" v-model="content.month">
                             <option v-for="content in months" :key="content.index" :value="content">
-                                {{ content }}
+                                {{ content | formatDate }}
                             </option>
                         </select>
                     </div>
@@ -61,6 +61,16 @@
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-md-6 offset-3">
+                        <div class="form-group">
+                            <select v-model="content.finished" class="form-control">
+                                <option value="false">Belum Selesai</option>
+                                <option value="true">Selesai</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-md-2 offset-5">
                         <button type="button" class="btn btn-block btn-danger" @click="deleteRow(index)">Hapus data</button>
                     </div>
@@ -80,24 +90,19 @@
 </template>
 
 <script>
+import moment from 'moment'
+
+Vue.filter('formatDate', function(value) {
+    if (value) {
+        return moment(String(value)).locale('id').format('MMMM');
+    }
+})
+
 export default {
     data() {
         return {
             inputs: [{}],
-            months: [
-                'Januari',
-                'Februari',
-                'Maret',
-                'April',
-                'Mei',
-                'Juni',
-                'Juli',
-                'Agustus',
-                'September',
-                'Oktober',
-                'November',
-                'Desember'
-            ]
+            months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
         }
     },
     methods: {
@@ -116,6 +121,7 @@ export default {
                 h_3: '',
                 h_2: '',
                 h: '',
+                finished: ''
             })
         },
 

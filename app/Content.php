@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Content extends Model
 {
     protected $casts = [
-        'finished' => 'boolean'
+        'finished' => 'boolean',
+        'updating' => 'boolean',
     ];
 }
