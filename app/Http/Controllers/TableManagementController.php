@@ -21,7 +21,7 @@ class TableManagementController extends Controller
     // Fetch table content from database as API.
     public function fetchContent()
     {
-        $from = date('m', strtotime('-1 months'));
+        $from = date('m');
         $to = date('m', strtotime('+2 months'));
         
         $data = Content::where('finished', '=', false)
