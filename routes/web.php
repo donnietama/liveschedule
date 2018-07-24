@@ -8,6 +8,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // API Management
 Route::get('/api/content', 'TableManagementController@fetchContent');
+Route::get('/api/content/all', 'TableManagementController@fetchAllContent');
 
 // Management routes
 Route::get('/', 'TableManagementController@index');

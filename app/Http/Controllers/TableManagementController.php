@@ -31,6 +31,17 @@ class TableManagementController extends Controller
         return $data;
     }
 
+    public function fetchAllContent()
+    {
+        $from = date('m');
+        $to = date('m', strtotime('+2 months'));
+        
+        $data = Content::whereBetween('month', [$from, $to])
+                        ->get();
+    
+        return $data;
+    }
+
     // Show Content form.
     public function showContentForm()
     {

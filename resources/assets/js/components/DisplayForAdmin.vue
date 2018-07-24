@@ -36,7 +36,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in january"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating }">
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating, 'bg-success': data.finished }">
                             <td class="text-center text-capitalize">
                                 <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">
                                     <span class="icon-edit"></span>
@@ -102,7 +102,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in february"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating }">
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating, 'bg-success': data.finished }">
                             <td class="text-center text-capitalize">
                                 <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">
                                     <span class="icon-edit"></span>
@@ -168,7 +168,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in march"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating }">
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating, 'bg-success': data.finished }">
                             <td class="text-center text-capitalize">
                                 <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">
                                     <span class="icon-edit"></span>
@@ -234,7 +234,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in april"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating }">
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating, 'bg-success': data.finished }">
                             <td class="text-center text-capitalize">
                                 <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">
                                     <span class="icon-edit"></span>
@@ -300,7 +300,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in may"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating }">
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating, 'bg-success': data.finished }">
                             <td class="text-center text-capitalize">
                                 <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">
                                     <span class="icon-edit"></span>
@@ -366,7 +366,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in june"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating }">
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating, 'bg-success': data.finished }">
                             <td class="text-center text-capitalize">
                                 <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">
                                     <span class="icon-edit"></span>
@@ -432,7 +432,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in july"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating }">
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating, 'bg-success': data.finished }">
                             <td class="text-center text-capitalize">
                                 <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">
                                     <span class="icon-edit"></span>
@@ -498,7 +498,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in august"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating }">
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating, 'bg-success': data.finished }">
                             <td class="text-center text-capitalize">
                                 <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">
                                     <span class="icon-edit"></span>
@@ -564,7 +564,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in september"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating }">
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating, 'bg-success': data.finished }">
                             <td class="text-center text-capitalize">
                                 <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">
                                     <span class="icon-edit"></span>
@@ -630,7 +630,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in october"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating }">
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating, 'bg-success': data.finished }">
                             <td class="text-center text-capitalize">
                                 <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">
                                     <span class="icon-edit"></span>
@@ -696,7 +696,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in november"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating }">
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating, 'bg-success': data.finished }">
                             <td class="text-center text-capitalize">
                                 <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">
                                     <span class="icon-edit"></span>
@@ -762,7 +762,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in desember"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating }">
+                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': data.updating, 'bg-success': data.finished }">
                             <td class="text-center text-capitalize">
                                 <a :href="'edit/' + data.id" class="btn btn-sm btn-primary">
                                     <span class="icon-edit"></span>
@@ -820,7 +820,7 @@ export default {
 
     mounted() {
         setInterval(() => {
-            axios.get('/api/content')
+            axios.get('/api/content/all')
             .then(response => {
                 this.api = response.data
             })

@@ -69740,7 +69740,7 @@ Vue.filter('formatDate', function (value) {
         var _this = this;
 
         setInterval(function () {
-            axios.get('/api/content').then(function (response) {
+            axios.get('/api/content/all').then(function (response) {
                 _this.api = response.data;
             });
         }, 1000);
@@ -70016,7 +70016,10 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: { "bg-warning": data.updating },
+                        class: {
+                          "bg-warning": data.updating,
+                          "bg-success": data.finished
+                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -70274,7 +70277,10 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: { "bg-warning": data.updating },
+                        class: {
+                          "bg-warning": data.updating,
+                          "bg-success": data.finished
+                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -70532,7 +70538,10 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: { "bg-warning": data.updating },
+                        class: {
+                          "bg-warning": data.updating,
+                          "bg-success": data.finished
+                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -70790,7 +70799,10 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: { "bg-warning": data.updating },
+                        class: {
+                          "bg-warning": data.updating,
+                          "bg-success": data.finished
+                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -71048,7 +71060,10 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: { "bg-warning": data.updating },
+                        class: {
+                          "bg-warning": data.updating,
+                          "bg-success": data.finished
+                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -71306,7 +71321,10 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: { "bg-warning": data.updating },
+                        class: {
+                          "bg-warning": data.updating,
+                          "bg-success": data.finished
+                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -71564,7 +71582,10 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: { "bg-warning": data.updating },
+                        class: {
+                          "bg-warning": data.updating,
+                          "bg-success": data.finished
+                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -71822,7 +71843,10 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: { "bg-warning": data.updating },
+                        class: {
+                          "bg-warning": data.updating,
+                          "bg-success": data.finished
+                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -72080,7 +72104,10 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: { "bg-warning": data.updating },
+                        class: {
+                          "bg-warning": data.updating,
+                          "bg-success": data.finished
+                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -72338,7 +72365,10 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: { "bg-warning": data.updating },
+                        class: {
+                          "bg-warning": data.updating,
+                          "bg-success": data.finished
+                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -72596,7 +72626,10 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: { "bg-warning": data.updating },
+                        class: {
+                          "bg-warning": data.updating,
+                          "bg-success": data.finished
+                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -72854,7 +72887,10 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: { "bg-warning": data.updating },
+                        class: {
+                          "bg-warning": data.updating,
+                          "bg-success": data.finished
+                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
