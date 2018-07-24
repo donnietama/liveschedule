@@ -82,8 +82,8 @@
                                 @else
                                     <option value="{{ $data->finished }}" selected hidden>Belum Selesai</option>
                                 @endif
-                                <option value="false">Belum selesai</option>
-                                <option value="true">Selesai</option>
+                                <option value="0">Belum selesai</option>
+                                <option value="1">Selesai</option>
                             </select>
                         </div>
                     </div>

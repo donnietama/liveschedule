@@ -1,5 +1,10 @@
 <template>
-    <carousel :autoplay="true" :perPage="1" :autoplayTimeout="10000" :paginationEnabled="false" :loop="true">
+    <carousel   :autoplay="true"
+                :perPage="1"
+                :autoplayTimeout="10000"
+                :paginationEnabled="false"
+                :loop="true"
+                :autoplayHoverPause="false">
         <slide v-if="january.length != 0">
             <div class="table-responsive">
                 <table class="table table-light table-sm">

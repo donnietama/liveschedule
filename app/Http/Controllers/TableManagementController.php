@@ -62,10 +62,11 @@ class TableManagementController extends Controller
             'h_3' => 'string|nullable',
             'h_2' => 'string|nullable',
             'h' => 'string|nullable',
+            'finished' => 'string|nullable',
         ]);
 
         // If validation does not passed, send error messages.
-        $validation ?: redirect()->back()->withErrors($validation);
+        $validation ?: 'data tidak valid';
 
         // If validation passed, break each values apart into array.
         $contents = [];
@@ -83,6 +84,7 @@ class TableManagementController extends Controller
                 'h_3' => $partition['h_3'],
                 'h_2' => $partition['h_2'],
                 'h' => $partition['h'],
+                'finished' => $partition['finished'],
                 'accountability' => Auth::user()->name,
                 'created_at' => Carbon::now()->toDateTimeString(),
                 'updated_at' => Carbon::now()->toDateTimeString()

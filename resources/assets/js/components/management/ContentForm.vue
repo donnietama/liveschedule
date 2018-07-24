@@ -64,8 +64,8 @@
                     <div class="col-md-6 offset-3">
                         <div class="form-group">
                             <select v-model="content.finished" class="form-control">
-                                <option value="false">Belum Selesai</option>
-                                <option value="true">Selesai</option>
+                                <option value="0">Belum Selesai</option>
+                                <option value="1">Selesai</option>
                             </select>
                         </div>
                     </div>
