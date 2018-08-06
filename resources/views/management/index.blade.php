@@ -25,9 +25,12 @@
                 aria-expanded="false" aria-label="Toggle navigation"></button>
                 <div class="collapse navbar-collapse" id="collapsibleNavId">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <span class="text-white mt-2">Keterangan:</span>
+                        <span class="text-white mt-2">Status:</span>
                         <li class="nav-item ml-2">
-                            <div class="nav-link bg-warning text-dark text-capitalize">sedang diupdate</div>
+                            <div class="nav-link bg-warning text-dark text-capitalize">belum selesai</div>
+                        </li>
+                        <li class="nav-item ml-2">
+                            <div class="nav-link bg-success text-white text-capitalize">selesai</div>
                         </li>
                     </ul>
                     <a href="{{ route('login') }}" class="btn btn-primary text-white text-capitalize mr-1">

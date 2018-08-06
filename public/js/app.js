@@ -66462,7 +66462,10 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: { "bg-warning": data.updating },
+                        class: {
+                          "bg-warning": !data.finished,
+                          "bg-success": data.finished
+                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -66673,7 +66676,10 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: { "bg-warning": data.updating },
+                        class: {
+                          "bg-warning": !data.finished,
+                          "bg-success": data.finished
+                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -66884,7 +66890,10 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: { "bg-warning": data.updating },
+                        class: {
+                          "bg-warning": !data.finished,
+                          "bg-success": data.finished
+                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -67095,7 +67104,10 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: { "bg-warning": data.updating },
+                        class: {
+                          "bg-warning": !data.finished,
+                          "bg-success": data.finished
+                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -67306,7 +67318,10 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: { "bg-warning": data.updating },
+                        class: {
+                          "bg-warning": !data.finished,
+                          "bg-success": data.finished
+                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -67517,7 +67532,10 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: { "bg-warning": data.updating },
+                        class: {
+                          "bg-warning": !data.finished,
+                          "bg-success": data.finished
+                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -67728,7 +67746,10 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: { "bg-warning": data.updating },
+                        class: {
+                          "bg-warning": !data.finished,
+                          "bg-success": data.finished
+                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -67939,7 +67960,10 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: { "bg-warning": data.updating },
+                        class: {
+                          "bg-warning": !data.finished,
+                          "bg-success": data.finished
+                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -68150,7 +68174,10 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: { "bg-warning": data.updating },
+                        class: {
+                          "bg-warning": !data.finished,
+                          "bg-success": data.finished
+                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -68361,7 +68388,10 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: { "bg-warning": data.updating },
+                        class: {
+                          "bg-warning": !data.finished,
+                          "bg-success": data.finished
+                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -68572,7 +68602,10 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: { "bg-warning": data.updating },
+                        class: {
+                          "bg-warning": !data.finished,
+                          "bg-success": data.finished
+                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -68783,7 +68816,10 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: { "bg-warning": data.updating },
+                        class: {
+                          "bg-warning": !data.finished,
+                          "bg-success": data.finished
+                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
