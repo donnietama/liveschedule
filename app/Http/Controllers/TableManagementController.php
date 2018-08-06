@@ -24,8 +24,7 @@ class TableManagementController extends Controller
         $from = date('m');
         $to = date('m', strtotime('+2 months'));
         
-        $data = Content::where('finished', '=', false)
-                        ->whereBetween('month', [$from, $to])
+        $data = Content::whereBetween('month', [$from, $to])
                         ->get();
     
         return $data;
