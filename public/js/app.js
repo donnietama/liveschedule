@@ -66031,7 +66031,7 @@ Vue.filter('toDateDisplay', function (value) {
                 var vals;
                 if (Date.parse(u.h_44) >= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(6, 'days').format('YYYY-M-D')) && u.h_44_finished == 0) {
                     vals = 'bg-white'; // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
-                } else if (Date.parse(u.h_44) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(5, 'days').format('YYYY-M-D')) && u.h_44_finished == 0) {
+                } else if (Date.parse(u.h_44) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(5, 'days').format('YYYY-M-D')) && Date.parse(u.h_44) > Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().format('YYYY-M-D')) && u.h_44_finished == 0) {
                     vals = 'bg-warning'; // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
                 } else if (Date.parse(u.h_44) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().format('YYYY-M-D')) && u.h_44_finished == 0) {
                     vals = 'bg-danger'; // Jika jarak tanggal dengan hari H sudah melewati dan status belum selesai, print warna merah.
@@ -66048,7 +66048,7 @@ Vue.filter('toDateDisplay', function (value) {
                 var vals;
                 if (Date.parse(u.h_32) >= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(6, 'days').format('YYYY-M-D')) && u.h_32_finished == 0) {
                     vals = 'bg-white'; // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
-                } else if (Date.parse(u.h_32) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(5, 'days').format('YYYY-M-D')) && u.h_32_finished == 0) {
+                } else if (Date.parse(u.h_32) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(5, 'days').format('YYYY-M-D')) && Date.parse(u.h_32) > Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().format('YYYY-M-D')) && u.h_32_finished == 0) {
                     vals = 'bg-warning'; // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
                 } else if (Date.parse(u.h_32) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().format('YYYY-M-D')) && u.h_32_finished == 0) {
                     vals = 'bg-danger'; // Jika jarak tanggal dengan hari H sudah melewati dan status belum selesai, print warna merah.
@@ -66065,7 +66065,7 @@ Vue.filter('toDateDisplay', function (value) {
                 var vals;
                 if (Date.parse(u.h_22) >= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(6, 'days').format('YYYY-M-D')) && u.h_22_finished == 0) {
                     vals = 'bg-white'; // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
-                } else if (Date.parse(u.h_22) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(5, 'days').format('YYYY-M-D')) && u.h_22_finished == 0) {
+                } else if (Date.parse(u.h_22) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(5, 'days').format('YYYY-M-D')) && Date.parse(u.h_22) > Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().format('YYYY-M-D')) && u.h_22_finished == 0) {
                     vals = 'bg-warning'; // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
                 } else if (Date.parse(u.h_22) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().format('YYYY-M-D')) && u.h_22_finished == 0) {
                     vals = 'bg-danger'; // Jika jarak tanggal dengan hari H sudah melewati dan status belum selesai, print warna merah.
@@ -66082,7 +66082,7 @@ Vue.filter('toDateDisplay', function (value) {
                 var vals;
                 if (Date.parse(u.h_21) >= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(6, 'days').format('YYYY-M-D')) && u.h_21_finished == 0) {
                     vals = 'bg-white'; // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
-                } else if (Date.parse(u.h_21) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(5, 'days').format('YYYY-M-D')) && u.h_21_finished == 0) {
+                } else if (Date.parse(u.h_21) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(5, 'days').format('YYYY-M-D')) && Date.parse(u.h_21) > Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().format('YYYY-M-D')) && u.h_21_finished == 0) {
                     vals = 'bg-warning'; // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
                 } else if (Date.parse(u.h_21) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().format('YYYY-M-D')) && u.h_21_finished == 0) {
                     vals = 'bg-danger'; // Jika jarak tanggal dengan hari H sudah melewati dan status belum selesai, print warna merah.
@@ -66099,7 +66099,7 @@ Vue.filter('toDateDisplay', function (value) {
                 var vals;
                 if (Date.parse(u.h_8) >= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(6, 'days').format('YYYY-M-D')) && u.h_8_finished == 0) {
                     vals = 'bg-white'; // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
-                } else if (Date.parse(u.h_8) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(5, 'days').format('YYYY-M-D')) && u.h_8_finished == 0) {
+                } else if (Date.parse(u.h_8) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(5, 'days').format('YYYY-M-D')) && Date.parse(u.h_8) > Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().format('YYYY-M-D')) && u.h_8_finished == 0) {
                     vals = 'bg-warning'; // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
                 } else if (Date.parse(u.h_8) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().format('YYYY-M-D')) && u.h_8_finished == 0) {
                     vals = 'bg-danger'; // Jika jarak tanggal dengan hari H sudah melewati dan status belum selesai, print warna merah.
@@ -66116,7 +66116,7 @@ Vue.filter('toDateDisplay', function (value) {
                 var vals;
                 if (Date.parse(u.h_3) >= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(6, 'days').format('YYYY-M-D')) && u.h_3_finished == 0) {
                     vals = 'bg-white'; // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
-                } else if (Date.parse(u.h_3) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(5, 'days').format('YYYY-M-D')) && u.h_3_finished == 0) {
+                } else if (Date.parse(u.h_3) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(5, 'days').format('YYYY-M-D')) && Date.parse(u.h_3) > Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().format('YYYY-M-D')) && u.h_3_finished == 0) {
                     vals = 'bg-warning'; // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
                 } else if (Date.parse(u.h_3) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().format('YYYY-M-D')) && u.h_3_finished == 0) {
                     vals = 'bg-danger'; // Jika jarak tanggal dengan hari H sudah melewati dan status belum selesai, print warna merah.
@@ -66133,7 +66133,7 @@ Vue.filter('toDateDisplay', function (value) {
                 var vals;
                 if (Date.parse(u.h_2) >= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(6, 'days').format('YYYY-M-D')) && u.h_2_finished == 0) {
                     vals = 'bg-white'; // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
-                } else if (Date.parse(u.h_2) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(5, 'days').format('YYYY-M-D')) && u.h_2_finished == 0) {
+                } else if (Date.parse(u.h_2) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(5, 'days').format('YYYY-M-D')) && Date.parse(u.h_2) > Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().format('YYYY-M-D')) && u.h_2_finished == 0) {
                     vals = 'bg-warning'; // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
                 } else if (Date.parse(u.h_2) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().format('YYYY-M-D')) && u.h_2_finished == 0) {
                     vals = 'bg-danger'; // Jika jarak tanggal dengan hari H sudah melewati dan status belum selesai, print warna merah.
@@ -66150,7 +66150,7 @@ Vue.filter('toDateDisplay', function (value) {
                 var vals;
                 if (Date.parse(u.h) >= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(6, 'days').format('YYYY-M-D')) && u.h_finished == 0) {
                     vals = 'bg-white'; // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
-                } else if (Date.parse(u.h) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(5, 'days').format('YYYY-M-D')) && u.h_finished == 0) {
+                } else if (Date.parse(u.h) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(5, 'days').format('YYYY-M-D')) && Date.parse(u.h) > Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().format('YYYY-M-D')) && u.h_finished == 0) {
                     vals = 'bg-warning'; // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
                 } else if (Date.parse(u.h) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().format('YYYY-M-D')) && u.h_finished == 0) {
                     vals = 'bg-danger'; // Jika jarak tanggal dengan hari H sudah melewati dan status belum selesai, print warna merah.

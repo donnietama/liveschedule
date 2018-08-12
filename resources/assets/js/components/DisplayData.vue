@@ -773,7 +773,7 @@ export default {
                 if (Date.parse(u.h_44) >= Date.parse(moment().add(6, 'days').format('YYYY-M-D')) && u.h_44_finished == 0) {
                     vals = 'bg-white' // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
                 }
-                else if (Date.parse(u.h_44) <= Date.parse(moment().add(5, 'days').format('YYYY-M-D')) && u.h_44_finished == 0) {
+                else if (Date.parse(u.h_44) <= Date.parse(moment().add(5, 'days').format('YYYY-M-D')) && Date.parse(u.h_44) > Date.parse(moment().format('YYYY-M-D')) && u.h_44_finished == 0) {
                     vals = 'bg-warning' // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
                 }
                 else if (Date.parse(u.h_44) <= Date.parse(moment().format('YYYY-M-D')) && u.h_44_finished == 0) {
@@ -793,7 +793,7 @@ export default {
                 if (Date.parse(u.h_32) >= Date.parse(moment().add(6, 'days').format('YYYY-M-D')) && u.h_32_finished == 0) {
                     vals = 'bg-white' // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
                 }
-                else if (Date.parse(u.h_32) <= Date.parse(moment().add(5, 'days').format('YYYY-M-D')) && u.h_32_finished == 0) {
+                else if (Date.parse(u.h_32) <= Date.parse(moment().add(5, 'days').format('YYYY-M-D')) && Date.parse(u.h_32) > Date.parse(moment().format('YYYY-M-D')) && u.h_32_finished == 0) {
                     vals = 'bg-warning' // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
                 }
                 else if (Date.parse(u.h_32) <= Date.parse(moment().format('YYYY-M-D')) && u.h_32_finished == 0) {
@@ -813,7 +813,7 @@ export default {
                 if (Date.parse(u.h_22) >= Date.parse(moment().add(6, 'days').format('YYYY-M-D')) && u.h_22_finished == 0) {
                     vals = 'bg-white' // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
                 }
-                else if (Date.parse(u.h_22) <= Date.parse(moment().add(5, 'days').format('YYYY-M-D')) && u.h_22_finished == 0) {
+                else if (Date.parse(u.h_22) <= Date.parse(moment().add(5, 'days').format('YYYY-M-D')) && Date.parse(u.h_22) > Date.parse(moment().format('YYYY-M-D')) && u.h_22_finished == 0) {
                     vals = 'bg-warning' // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
                 }
                 else if (Date.parse(u.h_22) <= Date.parse(moment().format('YYYY-M-D')) && u.h_22_finished == 0) {
@@ -833,7 +833,7 @@ export default {
                 if (Date.parse(u.h_21) >= Date.parse(moment().add(6, 'days').format('YYYY-M-D')) && u.h_21_finished == 0) {
                     vals = 'bg-white' // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
                 }
-                else if (Date.parse(u.h_21) <= Date.parse(moment().add(5, 'days').format('YYYY-M-D')) && u.h_21_finished == 0) {
+                else if (Date.parse(u.h_21) <= Date.parse(moment().add(5, 'days').format('YYYY-M-D')) && Date.parse(u.h_21) > Date.parse(moment().format('YYYY-M-D')) && u.h_21_finished == 0) {
                     vals = 'bg-warning' // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
                 }
                 else if (Date.parse(u.h_21) <= Date.parse(moment().format('YYYY-M-D')) && u.h_21_finished == 0) {
@@ -853,7 +853,7 @@ export default {
                 if (Date.parse(u.h_8) >= Date.parse(moment().add(6, 'days').format('YYYY-M-D')) && u.h_8_finished == 0) {
                     vals = 'bg-white' // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
                 }
-                else if (Date.parse(u.h_8) <= Date.parse(moment().add(5, 'days').format('YYYY-M-D')) && u.h_8_finished == 0) {
+                else if (Date.parse(u.h_8) <= Date.parse(moment().add(5, 'days').format('YYYY-M-D')) && Date.parse(u.h_8) > Date.parse(moment().format('YYYY-M-D')) && u.h_8_finished == 0) {
                     vals = 'bg-warning' // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
                 }
                 else if (Date.parse(u.h_8) <= Date.parse(moment().format('YYYY-M-D')) && u.h_8_finished == 0) {
@@ -873,7 +873,7 @@ export default {
                 if (Date.parse(u.h_3) >= Date.parse(moment().add(6, 'days').format('YYYY-M-D')) && u.h_3_finished == 0) {
                     vals = 'bg-white' // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
                 }
-                else if (Date.parse(u.h_3) <= Date.parse(moment().add(5, 'days').format('YYYY-M-D')) && u.h_3_finished == 0) {
+                else if (Date.parse(u.h_3) <= Date.parse(moment().add(5, 'days').format('YYYY-M-D')) && Date.parse(u.h_3) > Date.parse(moment().format('YYYY-M-D')) && u.h_3_finished == 0) {
                     vals = 'bg-warning' // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
                 }
                 else if (Date.parse(u.h_3) <= Date.parse(moment().format('YYYY-M-D')) && u.h_3_finished == 0) {
@@ -893,7 +893,7 @@ export default {
                 if (Date.parse(u.h_2) >= Date.parse(moment().add(6, 'days').format('YYYY-M-D')) && u.h_2_finished == 0) {
                     vals = 'bg-white' // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
                 }
-                else if (Date.parse(u.h_2) <= Date.parse(moment().add(5, 'days').format('YYYY-M-D')) && u.h_2_finished == 0) {
+                else if (Date.parse(u.h_2) <= Date.parse(moment().add(5, 'days').format('YYYY-M-D')) && Date.parse(u.h_2) > Date.parse(moment().format('YYYY-M-D')) && u.h_2_finished == 0) {
                     vals = 'bg-warning' // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
                 }
                 else if (Date.parse(u.h_2) <= Date.parse(moment().format('YYYY-M-D')) && u.h_2_finished == 0) {
@@ -913,7 +913,7 @@ export default {
                 if (Date.parse(u.h) >= Date.parse(moment().add(6, 'days').format('YYYY-M-D')) && u.h_finished == 0) {
                     vals = 'bg-white' // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
                 }
-                else if (Date.parse(u.h) <= Date.parse(moment().add(5, 'days').format('YYYY-M-D')) && u.h_finished == 0) {
+                else if (Date.parse(u.h) <= Date.parse(moment().add(5, 'days').format('YYYY-M-D')) && Date.parse(u.h) > Date.parse(moment().format('YYYY-M-D')) && u.h_finished == 0) {
                     vals = 'bg-warning' // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
                 }
                 else if (Date.parse(u.h) <= Date.parse(moment().format('YYYY-M-D')) && u.h_finished == 0) {
