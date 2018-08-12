@@ -45,7 +45,7 @@
                             <div class="form-group row">
                                 <div class="col-md-6">
                                     <label for="h_44">H-44</label>
-                                    <input type="text" name="h_44" id="h_32" class="form-control" value="{{ $data->h_44 }}">
+                                    <input type="date" name="h_44" id="h_32" class="form-control" value="{{ $data->h_44 }}">
                                 </div>
                                 <div class="col-md-6 pt-3">
                                     <div class="form-check pt-4">
@@ -57,7 +57,7 @@
                             <div class="form-group row">
                                 <div class="col-md-6">
                                     <label for="h_32">H-32</label>
-                                    <input type="text" name="h_32" id="h_32" class="form-control" value="{{ $data->h_32 }}">
+                                    <input type="date" name="h_32" id="h_32" class="form-control" value="{{ $data->h_32 }}">
                                 </div>
                                 <div class="col-md-6 pt-3">
                                     <div class="form-check pt-4">
@@ -69,7 +69,7 @@
                             <div class="form-group row">
                                 <div class="col-md-6">
                                     <label for="h_22">H-22</label>
-                                    <input type="text" name="h_22" id="h_22" class="form-control" value="{{ $data->h_22 }}">
+                                    <input type="date" name="h_22" id="h_22" class="form-control" value="{{ $data->h_22 }}">
                                 </div>
                                 <div class="col-md-6 pt-3">
                                     <div class="form-check pt-4">
@@ -81,7 +81,7 @@
                             <div class="form-group row">
                                 <div class="col-md-6">
                                     <label for="h_21">H-21</label>
-                                    <input type="text" name="h_21" id="h_21" class="form-control" value="{{ $data->h_21 }}">
+                                    <input type="date" name="h_21" id="h_21" class="form-control" value="{{ $data->h_21 }}">
                                 </div>
                                 <div class="col-md-6 pt-3">
                                     <div class="form-check pt-4">
@@ -93,7 +93,7 @@
                             <div class="form-group row">
                                 <div class="col-md-6">
                                     <label for="h_8">H-8</label>
-                                    <input type="text" name="h_8" id="h_8" class="form-control" value="{{ $data->h_8 }}">
+                                    <input type="date" name="h_8" id="h_8" class="form-control" value="{{ $data->h_8 }}">
                                 </div>
                                 <div class="col-md-6 pt-3">
                                     <div class="form-check pt-4">
@@ -105,7 +105,7 @@
                             <div class="form-group row">
                                 <div class="col-md-6">
                                     <label for="h_3">H-3</label>
-                                    <input type="text" name="h_3" id="h_3" class="form-control" value="{{ $data->h_3 }}">
+                                    <input type="date" name="h_3" id="h_3" class="form-control" value="{{ $data->h_3 }}">
                                 </div>
                                 <div class="col-md-6 pt-3">
                                     <div class="form-check pt-4">
@@ -117,7 +117,7 @@
                             <div class="form-group row">
                                 <div class="col-md-6">
                                     <label for="h_2">H-2</label>
-                                    <input type="text" name="h_2" id="h_2" class="form-control" value="{{ $data->h_2 }}">
+                                    <input type="date" name="h_2" id="h_2" class="form-control" value="{{ $data->h_2 }}">
                                 </div>
                                 <div class="col-md-6 pt-3">
                                     <div class="form-check pt-4">
@@ -129,7 +129,7 @@
                             <div class="form-group row">
                                 <div class="col-md-6">
                                     <label for="h">H</label>
-                                    <input type="text" name="h" id="h" class="form-control" value="{{ $data->h }}">
+                                    <input type="date" name="h" id="h" class="form-control" value="{{ $data->h }}">
                                 </div>
                                 <div class="col-md-6 pt-3">
                                     <div class="form-check pt-4">
