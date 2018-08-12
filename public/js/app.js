@@ -65934,6 +65934,12 @@ Vue.filter('formatDate', function (value) {
     }
 });
 
+Vue.filter('toDateDisplay', function (value) {
+    if (value) {
+        return __WEBPACK_IMPORTED_MODULE_1_moment___default()(String(value)).locale('id').format('DD-MMM');
+    }
+});
+
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
@@ -66018,6 +66024,142 @@ Vue.filter('formatDate', function (value) {
             return this.api.filter(function (u) {
                 return u.month === 12;
             });
+        },
+        h_44_status: function h_44_status() {
+            var valsArr = [];
+            this.api.forEach(function (u) {
+                var vals;
+                if (Date.parse(u.h_44) >= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(6, 'days').format('YYYY-M-D')) && u.h_44_finished == 0) {
+                    vals = 'bg-white'; // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
+                } else if (Date.parse(u.h_44) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(5, 'days').format('YYYY-M-D')) && u.h_44_finished == 0) {
+                    vals = 'bg-warning'; // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
+                } else if (Date.parse(u.h_44) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().format('YYYY-M-D')) && u.h_44_finished == 0) {
+                    vals = 'bg-danger'; // Jika jarak tanggal dengan hari H sudah melewati dan status belum selesai, print warna merah.
+                } else if (u.h_44_finished == 1) {
+                    vals = 'bg-success'; // Jika data telah ditandai selesai oleh admin, jadikan semuanya hijau.
+                }
+                valsArr.push(vals);
+            });
+            return valsArr;
+        },
+        h_32_status: function h_32_status() {
+            var valsArr = [];
+            this.api.forEach(function (u) {
+                var vals;
+                if (Date.parse(u.h_32) >= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(6, 'days').format('YYYY-M-D')) && u.h_32_finished == 0) {
+                    vals = 'bg-white'; // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
+                } else if (Date.parse(u.h_32) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(5, 'days').format('YYYY-M-D')) && u.h_32_finished == 0) {
+                    vals = 'bg-warning'; // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
+                } else if (Date.parse(u.h_32) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().format('YYYY-M-D')) && u.h_32_finished == 0) {
+                    vals = 'bg-danger'; // Jika jarak tanggal dengan hari H sudah melewati dan status belum selesai, print warna merah.
+                } else if (u.h_32_finished == 1) {
+                    vals = 'bg-success'; // Jika data telah ditandai selesai oleh admin, jadikan semuanya hijau.
+                }
+                valsArr.push(vals);
+            });
+            return valsArr;
+        },
+        h_22_status: function h_22_status() {
+            var valsArr = [];
+            this.api.forEach(function (u) {
+                var vals;
+                if (Date.parse(u.h_22) >= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(6, 'days').format('YYYY-M-D')) && u.h_22_finished == 0) {
+                    vals = 'bg-white'; // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
+                } else if (Date.parse(u.h_22) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(5, 'days').format('YYYY-M-D')) && u.h_22_finished == 0) {
+                    vals = 'bg-warning'; // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
+                } else if (Date.parse(u.h_22) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().format('YYYY-M-D')) && u.h_22_finished == 0) {
+                    vals = 'bg-danger'; // Jika jarak tanggal dengan hari H sudah melewati dan status belum selesai, print warna merah.
+                } else if (u.h_22_finished == 1) {
+                    vals = 'bg-success'; // Jika data telah ditandai selesai oleh admin, jadikan semuanya hijau.
+                }
+                valsArr.push(vals);
+            });
+            return valsArr;
+        },
+        h_21_status: function h_21_status() {
+            var valsArr = [];
+            this.api.forEach(function (u) {
+                var vals;
+                if (Date.parse(u.h_21) >= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(6, 'days').format('YYYY-M-D')) && u.h_21_finished == 0) {
+                    vals = 'bg-white'; // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
+                } else if (Date.parse(u.h_21) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(5, 'days').format('YYYY-M-D')) && u.h_21_finished == 0) {
+                    vals = 'bg-warning'; // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
+                } else if (Date.parse(u.h_21) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().format('YYYY-M-D')) && u.h_21_finished == 0) {
+                    vals = 'bg-danger'; // Jika jarak tanggal dengan hari H sudah melewati dan status belum selesai, print warna merah.
+                } else if (u.h_21_finished == 1) {
+                    vals = 'bg-success'; // Jika data telah ditandai selesai oleh admin, jadikan semuanya hijau.
+                }
+                valsArr.push(vals);
+            });
+            return valsArr;
+        },
+        h_8_status: function h_8_status() {
+            var valsArr = [];
+            this.api.forEach(function (u) {
+                var vals;
+                if (Date.parse(u.h_8) >= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(6, 'days').format('YYYY-M-D')) && u.h_8_finished == 0) {
+                    vals = 'bg-white'; // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
+                } else if (Date.parse(u.h_8) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(5, 'days').format('YYYY-M-D')) && u.h_8_finished == 0) {
+                    vals = 'bg-warning'; // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
+                } else if (Date.parse(u.h_8) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().format('YYYY-M-D')) && u.h_8_finished == 0) {
+                    vals = 'bg-danger'; // Jika jarak tanggal dengan hari H sudah melewati dan status belum selesai, print warna merah.
+                } else if (u.h_8_finished == 1) {
+                    vals = 'bg-success'; // Jika data telah ditandai selesai oleh admin, jadikan semuanya hijau.
+                }
+                valsArr.push(vals);
+            });
+            return valsArr;
+        },
+        h_3_status: function h_3_status() {
+            var valsArr = [];
+            this.api.forEach(function (u) {
+                var vals;
+                if (Date.parse(u.h_3) >= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(6, 'days').format('YYYY-M-D')) && u.h_3_finished == 0) {
+                    vals = 'bg-white'; // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
+                } else if (Date.parse(u.h_3) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(5, 'days').format('YYYY-M-D')) && u.h_3_finished == 0) {
+                    vals = 'bg-warning'; // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
+                } else if (Date.parse(u.h_3) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().format('YYYY-M-D')) && u.h_3_finished == 0) {
+                    vals = 'bg-danger'; // Jika jarak tanggal dengan hari H sudah melewati dan status belum selesai, print warna merah.
+                } else if (u.h_3_finished == 1) {
+                    vals = 'bg-success'; // Jika data telah ditandai selesai oleh admin, jadikan semuanya hijau.
+                }
+                valsArr.push(vals);
+            });
+            return valsArr;
+        },
+        h_2_status: function h_2_status() {
+            var valsArr = [];
+            this.api.forEach(function (u) {
+                var vals;
+                if (Date.parse(u.h_2) >= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(6, 'days').format('YYYY-M-D')) && u.h_2_finished == 0) {
+                    vals = 'bg-white'; // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
+                } else if (Date.parse(u.h_2) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(5, 'days').format('YYYY-M-D')) && u.h_2_finished == 0) {
+                    vals = 'bg-warning'; // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
+                } else if (Date.parse(u.h_2) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().format('YYYY-M-D')) && u.h_2_finished == 0) {
+                    vals = 'bg-danger'; // Jika jarak tanggal dengan hari H sudah melewati dan status belum selesai, print warna merah.
+                } else if (u.h_2_finished == 1) {
+                    vals = 'bg-success'; // Jika data telah ditandai selesai oleh admin, jadikan semuanya hijau.
+                }
+                valsArr.push(vals);
+            });
+            return valsArr;
+        },
+        h_status: function h_status() {
+            var valsArr = [];
+            this.api.forEach(function (u) {
+                var vals;
+                if (Date.parse(u.h) >= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(6, 'days').format('YYYY-M-D')) && u.h_finished == 0) {
+                    vals = 'bg-white'; // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
+                } else if (Date.parse(u.h) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().add(5, 'days').format('YYYY-M-D')) && u.h_finished == 0) {
+                    vals = 'bg-warning'; // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
+                } else if (Date.parse(u.h) <= Date.parse(__WEBPACK_IMPORTED_MODULE_1_moment___default()().format('YYYY-M-D')) && u.h_finished == 0) {
+                    vals = 'bg-danger'; // Jika jarak tanggal dengan hari H sudah melewati dan status belum selesai, print warna merah.
+                } else if (u.h_finished == 1) {
+                    vals = 'bg-success'; // Jika data telah ditandai selesai oleh admin, jadikan semuanya hijau.
+                }
+                valsArr.push(vals);
+            });
+            return valsArr;
         }
     }
 });
@@ -66419,19 +66561,11 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "tr",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
+                      { staticStyle: { "white-space": "nowrap", width: "1%" } },
                       [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "3" }
-                          },
-                          [_vm._v("DARI PROJECT")]
-                        ),
+                        _c("th", { attrs: { colspan: "3" } }, [
+                          _vm._v("DARI PROJECT")
+                        ]),
                         _vm._v(" "),
                         _c("th", [_vm._v("H-44")]),
                         _vm._v(" "),
@@ -66462,10 +66596,6 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: {
-                          "bg-warning": !data.finished,
-                          "bg-success": data.finished
-                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -66483,37 +66613,53 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(data.store_owner))]),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_44))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_44_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_44)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_32))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_32_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_32)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_22))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_22_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_22)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_21))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_21_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_21)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_8))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_8_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_8)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_3))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_3_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_3)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_2))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_2_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_2)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h)))]
+                        ),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(data.additional_info))])
                       ]
@@ -66633,19 +66779,11 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "tr",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
+                      { staticStyle: { "white-space": "nowrap", width: "1%" } },
                       [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "3" }
-                          },
-                          [_vm._v("DARI PROJECT")]
-                        ),
+                        _c("th", { attrs: { colspan: "3" } }, [
+                          _vm._v("DARI PROJECT")
+                        ]),
                         _vm._v(" "),
                         _c("th", [_vm._v("H-44")]),
                         _vm._v(" "),
@@ -66676,10 +66814,6 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: {
-                          "bg-warning": !data.finished,
-                          "bg-success": data.finished
-                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -66697,37 +66831,53 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(data.store_owner))]),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_44))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_44_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_44)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_32))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_32_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_32)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_22))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_22_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_22)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_21))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_21_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_21)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_8))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_8_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_8)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_3))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_3_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_3)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_2))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_2_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_2)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h)))]
+                        ),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(data.additional_info))])
                       ]
@@ -66847,19 +66997,11 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "tr",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
+                      { staticStyle: { "white-space": "nowrap", width: "1%" } },
                       [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "3" }
-                          },
-                          [_vm._v("DARI PROJECT")]
-                        ),
+                        _c("th", { attrs: { colspan: "3" } }, [
+                          _vm._v("DARI PROJECT")
+                        ]),
                         _vm._v(" "),
                         _c("th", [_vm._v("H-44")]),
                         _vm._v(" "),
@@ -66890,10 +67032,6 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: {
-                          "bg-warning": !data.finished,
-                          "bg-success": data.finished
-                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -66911,37 +67049,53 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(data.store_owner))]),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_44))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_44_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_44)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_32))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_32_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_32)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_22))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_22_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_22)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_21))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_21_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_21)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_8))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_8_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_8)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_3))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_3_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_3)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_2))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_2_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_2)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h)))]
+                        ),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(data.additional_info))])
                       ]
@@ -67061,19 +67215,11 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "tr",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
+                      { staticStyle: { "white-space": "nowrap", width: "1%" } },
                       [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "3" }
-                          },
-                          [_vm._v("DARI PROJECT")]
-                        ),
+                        _c("th", { attrs: { colspan: "3" } }, [
+                          _vm._v("DARI PROJECT")
+                        ]),
                         _vm._v(" "),
                         _c("th", [_vm._v("H-44")]),
                         _vm._v(" "),
@@ -67104,10 +67250,6 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: {
-                          "bg-warning": !data.finished,
-                          "bg-success": data.finished
-                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -67125,37 +67267,53 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(data.store_owner))]),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_44))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_44_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_44)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_32))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_32_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_32)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_22))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_22_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_22)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_21))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_21_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_21)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_8))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_8_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_8)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_3))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_3_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_3)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_2))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_2_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_2)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h)))]
+                        ),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(data.additional_info))])
                       ]
@@ -67275,19 +67433,11 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "tr",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
+                      { staticStyle: { "white-space": "nowrap", width: "1%" } },
                       [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "3" }
-                          },
-                          [_vm._v("DARI PROJECT")]
-                        ),
+                        _c("th", { attrs: { colspan: "3" } }, [
+                          _vm._v("DARI PROJECT")
+                        ]),
                         _vm._v(" "),
                         _c("th", [_vm._v("H-44")]),
                         _vm._v(" "),
@@ -67318,10 +67468,6 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: {
-                          "bg-warning": !data.finished,
-                          "bg-success": data.finished
-                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -67339,37 +67485,53 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(data.store_owner))]),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_44))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_44_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_44)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_32))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_32_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_32)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_22))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_22_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_22)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_21))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_21_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_21)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_8))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_8_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_8)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_3))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_3_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_3)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_2))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_2_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_2)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h)))]
+                        ),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(data.additional_info))])
                       ]
@@ -67489,19 +67651,11 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "tr",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
+                      { staticStyle: { "white-space": "nowrap", width: "1%" } },
                       [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "3" }
-                          },
-                          [_vm._v("DARI PROJECT")]
-                        ),
+                        _c("th", { attrs: { colspan: "3" } }, [
+                          _vm._v("DARI PROJECT")
+                        ]),
                         _vm._v(" "),
                         _c("th", [_vm._v("H-44")]),
                         _vm._v(" "),
@@ -67532,10 +67686,6 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: {
-                          "bg-warning": !data.finished,
-                          "bg-success": data.finished
-                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -67553,37 +67703,53 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(data.store_owner))]),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_44))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_44_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_44)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_32))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_32_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_32)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_22))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_22_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_22)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_21))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_21_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_21)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_8))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_8_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_8)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_3))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_3_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_3)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_2))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_2_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_2)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h)))]
+                        ),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(data.additional_info))])
                       ]
@@ -67703,19 +67869,11 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "tr",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
+                      { staticStyle: { "white-space": "nowrap", width: "1%" } },
                       [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "3" }
-                          },
-                          [_vm._v("DARI PROJECT")]
-                        ),
+                        _c("th", { attrs: { colspan: "3" } }, [
+                          _vm._v("DARI PROJECT")
+                        ]),
                         _vm._v(" "),
                         _c("th", [_vm._v("H-44")]),
                         _vm._v(" "),
@@ -67746,10 +67904,6 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: {
-                          "bg-warning": !data.finished,
-                          "bg-success": data.finished
-                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -67767,37 +67921,53 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(data.store_owner))]),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_44))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_44_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_44)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_32))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_32_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_32)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_22))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_22_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_22)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_21))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_21_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_21)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_8))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_8_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_8)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_3))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_3_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_3)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_2))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_2_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_2)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h)))]
+                        ),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(data.additional_info))])
                       ]
@@ -67917,19 +68087,11 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "tr",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
+                      { staticStyle: { "white-space": "nowrap", width: "1%" } },
                       [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "3" }
-                          },
-                          [_vm._v("DARI PROJECT")]
-                        ),
+                        _c("th", { attrs: { colspan: "3" } }, [
+                          _vm._v("DARI PROJECT")
+                        ]),
                         _vm._v(" "),
                         _c("th", [_vm._v("H-44")]),
                         _vm._v(" "),
@@ -67960,10 +68122,6 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: {
-                          "bg-warning": !data.finished,
-                          "bg-success": data.finished
-                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -67981,37 +68139,53 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(data.store_owner))]),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_44))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_44_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_44)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_32))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_32_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_32)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_22))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_22_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_22)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_21))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_21_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_21)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_8))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_8_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_8)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_3))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_3_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_3)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_2))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_2_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_2)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h)))]
+                        ),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(data.additional_info))])
                       ]
@@ -68131,19 +68305,11 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "tr",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
+                      { staticStyle: { "white-space": "nowrap", width: "1%" } },
                       [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "3" }
-                          },
-                          [_vm._v("DARI PROJECT")]
-                        ),
+                        _c("th", { attrs: { colspan: "3" } }, [
+                          _vm._v("DARI PROJECT")
+                        ]),
                         _vm._v(" "),
                         _c("th", [_vm._v("H-44")]),
                         _vm._v(" "),
@@ -68174,10 +68340,6 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: {
-                          "bg-warning": !data.finished,
-                          "bg-success": data.finished
-                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -68195,37 +68357,53 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(data.store_owner))]),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_44))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_44_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_44)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_32))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_32_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_32)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_22))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_22_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_22)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_21))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_21_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_21)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_8))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_8_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_8)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_3))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_3_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_3)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_2))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_2_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_2)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h)))]
+                        ),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(data.additional_info))])
                       ]
@@ -68345,19 +68523,11 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "tr",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
+                      { staticStyle: { "white-space": "nowrap", width: "1%" } },
                       [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "3" }
-                          },
-                          [_vm._v("DARI PROJECT")]
-                        ),
+                        _c("th", { attrs: { colspan: "3" } }, [
+                          _vm._v("DARI PROJECT")
+                        ]),
                         _vm._v(" "),
                         _c("th", [_vm._v("H-44")]),
                         _vm._v(" "),
@@ -68388,10 +68558,6 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: {
-                          "bg-warning": !data.finished,
-                          "bg-success": data.finished
-                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -68409,37 +68575,53 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(data.store_owner))]),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_44))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_44_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_44)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_32))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_32_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_32)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_22))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_22_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_22)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_21))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_21_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_21)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_8))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_8_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_8)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_3))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_3_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_3)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_2))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_2_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_2)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h)))]
+                        ),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(data.additional_info))])
                       ]
@@ -68559,19 +68741,11 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "tr",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
+                      { staticStyle: { "white-space": "nowrap", width: "1%" } },
                       [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "3" }
-                          },
-                          [_vm._v("DARI PROJECT")]
-                        ),
+                        _c("th", { attrs: { colspan: "3" } }, [
+                          _vm._v("DARI PROJECT")
+                        ]),
                         _vm._v(" "),
                         _c("th", [_vm._v("H-44")]),
                         _vm._v(" "),
@@ -68602,10 +68776,6 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: {
-                          "bg-warning": !data.finished,
-                          "bg-success": data.finished
-                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -68623,37 +68793,53 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(data.store_owner))]),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_44))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_44_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_44)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_32))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_32_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_32)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_22))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_22_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_22)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_21))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_21_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_21)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_8))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_8_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_8)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_3))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_3_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_3)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_2))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_2_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_2)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h)))]
+                        ),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(data.additional_info))])
                       ]
@@ -68773,19 +68959,11 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "tr",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
+                      { staticStyle: { "white-space": "nowrap", width: "1%" } },
                       [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "3" }
-                          },
-                          [_vm._v("DARI PROJECT")]
-                        ),
+                        _c("th", { attrs: { colspan: "3" } }, [
+                          _vm._v("DARI PROJECT")
+                        ]),
                         _vm._v(" "),
                         _c("th", [_vm._v("H-44")]),
                         _vm._v(" "),
@@ -68816,10 +68994,6 @@ var render = function() {
                       "tr",
                       {
                         key: data.index,
-                        class: {
-                          "bg-warning": !data.finished,
-                          "bg-success": data.finished
-                        },
                         staticStyle: { "white-space": "nowrap", width: "1%" }
                       },
                       [
@@ -68837,37 +69011,53 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(data.store_owner))]),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_44))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_44_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_44)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_32))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_32_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_32)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_22))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_22_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_22)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_21))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_21_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_21)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_8))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_8_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_8)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_3))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_3_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_3)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_2))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_2_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h_2)))]
+                        ),
                         _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h))
-                        ]),
+                        _c(
+                          "td",
+                          { class: "text-center " + _vm.h_status[index] },
+                          [_vm._v(_vm._s(_vm._f("toDateDisplay")(data.h)))]
+                        ),
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(data.additional_info))])
                       ]
@@ -73092,8 +73282,62 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_moment__);
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -73204,15 +73448,28 @@ Vue.filter('formatDate', function (value) {
 
     methods: {
         addRow: function addRow() {
-            var _inputs$push;
-
-            this.inputs.push((_inputs$push = {
+            this.inputs.push({
                 month: '',
                 opening_estimation: '',
                 store_location: '',
                 store_owner: '',
-                h_44: ''
-            }, _defineProperty(_inputs$push, 'h_44', ''), _defineProperty(_inputs$push, 'h_32', ''), _defineProperty(_inputs$push, 'h_22', ''), _defineProperty(_inputs$push, 'h_21', ''), _defineProperty(_inputs$push, 'h_8', ''), _defineProperty(_inputs$push, 'h_3', ''), _defineProperty(_inputs$push, 'h_2', ''), _defineProperty(_inputs$push, 'h', ''), _defineProperty(_inputs$push, 'finished', ''), _inputs$push));
+                h_44: '',
+                h_44_finished: 'false',
+                h_32: '',
+                h_32_finished: 'false',
+                h_22: '',
+                h_22_finished: 'false',
+                h_21: '',
+                h_21_finished: 'false',
+                h_8: '',
+                h_8_finished: 'false',
+                h_3: '',
+                h_3_finished: 'false',
+                h_2: '',
+                h_2_finished: 'false',
+                h: '',
+                h_finished: 'false'
+            });
         },
         deleteRow: function deleteRow(index) {
             this.inputs.splice(index, 1);
@@ -73356,7 +73613,7 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { type: "text" },
+                      attrs: { type: "date" },
                       domProps: { value: content.opening_estimation },
                       on: {
                         input: function($event) {
@@ -73430,293 +73687,678 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "row py-4" }, [
-                  _c(
-                    "div",
-                    { staticClass: "form-group col-md-1 text-center offset-2" },
-                    [
-                      _c("label", [_vm._v("H-44")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: content.h_44,
-                            expression: "content.h_44"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text" },
-                        domProps: { value: content.h_44 },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(content, "h_44", $event.target.value)
-                          }
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "form-group col-md-1 text-center" },
-                    [
-                      _c("label", [_vm._v("H-32")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: content.h_32,
-                            expression: "content.h_32"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text" },
-                        domProps: { value: content.h_32 },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(content, "h_32", $event.target.value)
-                          }
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "form-group col-md-1 text-center" },
-                    [
-                      _c("label", [_vm._v("H-22")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: content.h_22,
-                            expression: "content.h_22"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text" },
-                        domProps: { value: content.h_22 },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(content, "h_22", $event.target.value)
-                          }
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "form-group col-md-1 text-center" },
-                    [
-                      _c("label", [_vm._v("H-21")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: content.h_21,
-                            expression: "content.h_21"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text" },
-                        domProps: { value: content.h_21 },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(content, "h_21", $event.target.value)
-                          }
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "form-group col-md-1 text-center" },
-                    [
-                      _c("label", [_vm._v("H-8")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: content.h_8,
-                            expression: "content.h_8"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text" },
-                        domProps: { value: content.h_8 },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(content, "h_8", $event.target.value)
-                          }
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "form-group col-md-1 text-center" },
-                    [
-                      _c("label", [_vm._v("H-3")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: content.h_3,
-                            expression: "content.h_3"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text" },
-                        domProps: { value: content.h_3 },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(content, "h_3", $event.target.value)
-                          }
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "form-group col-md-1 text-center" },
-                    [
-                      _c("label", [_vm._v("H-2")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: content.h_2,
-                            expression: "content.h_2"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text" },
-                        domProps: { value: content.h_2 },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(content, "h_2", $event.target.value)
-                          }
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "form-group col-md-1 text-center" },
-                    [
-                      _c("label", [_vm._v("H")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: content.h,
-                            expression: "content.h"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: { type: "text" },
-                        domProps: { value: content.h },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(content, "h", $event.target.value)
-                          }
-                        }
-                      })
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-md-6 offset-3" }, [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c(
-                        "select",
-                        {
+                _c("div", { staticClass: "row pb-4" }, [
+                  _c("div", { staticClass: "col-md-12" }, [
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c("label", [_vm._v("H-44")]),
+                        _vm._v(" "),
+                        _c("input", {
                           directives: [
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: content.finished,
-                              expression: "content.finished"
+                              value: content.h_44,
+                              expression: "content.h_44"
                             }
                           ],
                           staticClass: "form-control",
+                          attrs: { type: "date" },
+                          domProps: { value: content.h_44 },
                           on: {
-                            change: function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.$set(
-                                content,
-                                "finished",
-                                $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
-                              )
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(content, "h_44", $event.target.value)
                             }
                           }
-                        },
-                        [
-                          _c("option", { attrs: { value: "0" } }, [
-                            _vm._v("Belum Selesai")
-                          ]),
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-6 pt-3" }, [
+                        _c("div", { staticClass: "form-check pt-4" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: content.h_44_finished,
+                                expression: "content.h_44_finished"
+                              }
+                            ],
+                            staticClass: "form-check-input",
+                            attrs: { type: "checkbox" },
+                            domProps: {
+                              checked: Array.isArray(content.h_44_finished)
+                                ? _vm._i(content.h_44_finished, null) > -1
+                                : content.h_44_finished
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$a = content.h_44_finished,
+                                  $$el = $event.target,
+                                  $$c = $$el.checked ? true : false
+                                if (Array.isArray($$a)) {
+                                  var $$v = null,
+                                    $$i = _vm._i($$a, $$v)
+                                  if ($$el.checked) {
+                                    $$i < 0 &&
+                                      _vm.$set(
+                                        content,
+                                        "h_44_finished",
+                                        $$a.concat([$$v])
+                                      )
+                                  } else {
+                                    $$i > -1 &&
+                                      _vm.$set(
+                                        content,
+                                        "h_44_finished",
+                                        $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1))
+                                      )
+                                  }
+                                } else {
+                                  _vm.$set(content, "h_44_finished", $$c)
+                                }
+                              }
+                            }
+                          }),
                           _vm._v(" "),
-                          _c("option", { attrs: { value: "1" } }, [
-                            _vm._v("Selesai")
+                          _c("label", { staticClass: "form-check-label" }, [
+                            _vm._v("Sudah selesai dilakukan")
                           ])
-                        ]
-                      )
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c("label", [_vm._v("H-32")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: content.h_32,
+                              expression: "content.h_32"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "date" },
+                          domProps: { value: content.h_32 },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(content, "h_32", $event.target.value)
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-6 pt-3" }, [
+                        _c("div", { staticClass: "form-check pt-4" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: content.h_32_finished,
+                                expression: "content.h_32_finished"
+                              }
+                            ],
+                            staticClass: "form-check-input",
+                            attrs: { type: "checkbox" },
+                            domProps: {
+                              checked: Array.isArray(content.h_32_finished)
+                                ? _vm._i(content.h_32_finished, null) > -1
+                                : content.h_32_finished
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$a = content.h_32_finished,
+                                  $$el = $event.target,
+                                  $$c = $$el.checked ? true : false
+                                if (Array.isArray($$a)) {
+                                  var $$v = null,
+                                    $$i = _vm._i($$a, $$v)
+                                  if ($$el.checked) {
+                                    $$i < 0 &&
+                                      _vm.$set(
+                                        content,
+                                        "h_32_finished",
+                                        $$a.concat([$$v])
+                                      )
+                                  } else {
+                                    $$i > -1 &&
+                                      _vm.$set(
+                                        content,
+                                        "h_32_finished",
+                                        $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1))
+                                      )
+                                  }
+                                } else {
+                                  _vm.$set(content, "h_32_finished", $$c)
+                                }
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("label", { staticClass: "form-check-label" }, [
+                            _vm._v("Sudah selesai dilakukan")
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c("label", [_vm._v("H-22")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: content.h_22,
+                              expression: "content.h_22"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "date" },
+                          domProps: { value: content.h_22 },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(content, "h_22", $event.target.value)
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-6 pt-3" }, [
+                        _c("div", { staticClass: "form-check pt-4" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: content.h_22_finished,
+                                expression: "content.h_22_finished"
+                              }
+                            ],
+                            staticClass: "form-check-input",
+                            attrs: { type: "checkbox" },
+                            domProps: {
+                              checked: Array.isArray(content.h_22_finished)
+                                ? _vm._i(content.h_22_finished, null) > -1
+                                : content.h_22_finished
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$a = content.h_22_finished,
+                                  $$el = $event.target,
+                                  $$c = $$el.checked ? true : false
+                                if (Array.isArray($$a)) {
+                                  var $$v = null,
+                                    $$i = _vm._i($$a, $$v)
+                                  if ($$el.checked) {
+                                    $$i < 0 &&
+                                      _vm.$set(
+                                        content,
+                                        "h_22_finished",
+                                        $$a.concat([$$v])
+                                      )
+                                  } else {
+                                    $$i > -1 &&
+                                      _vm.$set(
+                                        content,
+                                        "h_22_finished",
+                                        $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1))
+                                      )
+                                  }
+                                } else {
+                                  _vm.$set(content, "h_22_finished", $$c)
+                                }
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("label", { staticClass: "form-check-label" }, [
+                            _vm._v("Sudah selesai dilakukan")
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c("label", [_vm._v("H-21")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: content.h_21,
+                              expression: "content.h_21"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "date" },
+                          domProps: { value: content.h_21 },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(content, "h_21", $event.target.value)
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-6 pt-3" }, [
+                        _c("div", { staticClass: "form-check pt-4" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: content.h_21_finished,
+                                expression: "content.h_21_finished"
+                              }
+                            ],
+                            staticClass: "form-check-input",
+                            attrs: { type: "checkbox" },
+                            domProps: {
+                              checked: Array.isArray(content.h_21_finished)
+                                ? _vm._i(content.h_21_finished, null) > -1
+                                : content.h_21_finished
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$a = content.h_21_finished,
+                                  $$el = $event.target,
+                                  $$c = $$el.checked ? true : false
+                                if (Array.isArray($$a)) {
+                                  var $$v = null,
+                                    $$i = _vm._i($$a, $$v)
+                                  if ($$el.checked) {
+                                    $$i < 0 &&
+                                      _vm.$set(
+                                        content,
+                                        "h_21_finished",
+                                        $$a.concat([$$v])
+                                      )
+                                  } else {
+                                    $$i > -1 &&
+                                      _vm.$set(
+                                        content,
+                                        "h_21_finished",
+                                        $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1))
+                                      )
+                                  }
+                                } else {
+                                  _vm.$set(content, "h_21_finished", $$c)
+                                }
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("label", { staticClass: "form-check-label" }, [
+                            _vm._v("Sudah selesai dilakukan")
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c("label", [_vm._v("H-8")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: content.h_8,
+                              expression: "content.h_8"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "date" },
+                          domProps: { value: content.h_8 },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(content, "h_8", $event.target.value)
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-6 pt-3" }, [
+                        _c("div", { staticClass: "form-check pt-4" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: content.h_8_finished,
+                                expression: "content.h_8_finished"
+                              }
+                            ],
+                            staticClass: "form-check-input",
+                            attrs: { type: "checkbox" },
+                            domProps: {
+                              checked: Array.isArray(content.h_8_finished)
+                                ? _vm._i(content.h_8_finished, null) > -1
+                                : content.h_8_finished
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$a = content.h_8_finished,
+                                  $$el = $event.target,
+                                  $$c = $$el.checked ? true : false
+                                if (Array.isArray($$a)) {
+                                  var $$v = null,
+                                    $$i = _vm._i($$a, $$v)
+                                  if ($$el.checked) {
+                                    $$i < 0 &&
+                                      _vm.$set(
+                                        content,
+                                        "h_8_finished",
+                                        $$a.concat([$$v])
+                                      )
+                                  } else {
+                                    $$i > -1 &&
+                                      _vm.$set(
+                                        content,
+                                        "h_8_finished",
+                                        $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1))
+                                      )
+                                  }
+                                } else {
+                                  _vm.$set(content, "h_8_finished", $$c)
+                                }
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("label", { staticClass: "form-check-label" }, [
+                            _vm._v("Sudah selesai dilakukan")
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c("label", [_vm._v("H-3")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: content.h_3,
+                              expression: "content.h_3"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "date" },
+                          domProps: { value: content.h_3 },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(content, "h_3", $event.target.value)
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-6 pt-3" }, [
+                        _c("div", { staticClass: "form-check pt-4" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: content.h_3_finished,
+                                expression: "content.h_3_finished"
+                              }
+                            ],
+                            staticClass: "form-check-input",
+                            attrs: { type: "checkbox" },
+                            domProps: {
+                              checked: Array.isArray(content.h_3_finished)
+                                ? _vm._i(content.h_3_finished, null) > -1
+                                : content.h_3_finished
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$a = content.h_3_finished,
+                                  $$el = $event.target,
+                                  $$c = $$el.checked ? true : false
+                                if (Array.isArray($$a)) {
+                                  var $$v = null,
+                                    $$i = _vm._i($$a, $$v)
+                                  if ($$el.checked) {
+                                    $$i < 0 &&
+                                      _vm.$set(
+                                        content,
+                                        "h_3_finished",
+                                        $$a.concat([$$v])
+                                      )
+                                  } else {
+                                    $$i > -1 &&
+                                      _vm.$set(
+                                        content,
+                                        "h_3_finished",
+                                        $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1))
+                                      )
+                                  }
+                                } else {
+                                  _vm.$set(content, "h_3_finished", $$c)
+                                }
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("label", { staticClass: "form-check-label" }, [
+                            _vm._v("Sudah selesai dilakukan")
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c("label", [_vm._v("H-2")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: content.h_2,
+                              expression: "content.h_2"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "date" },
+                          domProps: { value: content.h_2 },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(content, "h_2", $event.target.value)
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-6 pt-3" }, [
+                        _c("div", { staticClass: "form-check pt-4" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: content.h_2_finished,
+                                expression: "content.h_2_finished"
+                              }
+                            ],
+                            staticClass: "form-check-input",
+                            attrs: { type: "checkbox" },
+                            domProps: {
+                              checked: Array.isArray(content.h_2_finished)
+                                ? _vm._i(content.h_2_finished, null) > -1
+                                : content.h_2_finished
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$a = content.h_2_finished,
+                                  $$el = $event.target,
+                                  $$c = $$el.checked ? true : false
+                                if (Array.isArray($$a)) {
+                                  var $$v = null,
+                                    $$i = _vm._i($$a, $$v)
+                                  if ($$el.checked) {
+                                    $$i < 0 &&
+                                      _vm.$set(
+                                        content,
+                                        "h_2_finished",
+                                        $$a.concat([$$v])
+                                      )
+                                  } else {
+                                    $$i > -1 &&
+                                      _vm.$set(
+                                        content,
+                                        "h_2_finished",
+                                        $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1))
+                                      )
+                                  }
+                                } else {
+                                  _vm.$set(content, "h_2_finished", $$c)
+                                }
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("label", { staticClass: "form-check-label" }, [
+                            _vm._v("Sudah selesai dilakukan")
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c("div", { staticClass: "col-md-6" }, [
+                        _c("label", [_vm._v("H")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: content.h,
+                              expression: "content.h"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { type: "date" },
+                          domProps: { value: content.h },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(content, "h", $event.target.value)
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-6 pt-3" }, [
+                        _c("div", { staticClass: "form-check pt-4" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: content.h_finished,
+                                expression: "content.h_finished"
+                              }
+                            ],
+                            staticClass: "form-check-input",
+                            attrs: { type: "checkbox" },
+                            domProps: {
+                              checked: Array.isArray(content.h_finished)
+                                ? _vm._i(content.h_finished, null) > -1
+                                : content.h_finished
+                            },
+                            on: {
+                              change: function($event) {
+                                var $$a = content.h_finished,
+                                  $$el = $event.target,
+                                  $$c = $$el.checked ? true : false
+                                if (Array.isArray($$a)) {
+                                  var $$v = null,
+                                    $$i = _vm._i($$a, $$v)
+                                  if ($$el.checked) {
+                                    $$i < 0 &&
+                                      _vm.$set(
+                                        content,
+                                        "h_finished",
+                                        $$a.concat([$$v])
+                                      )
+                                  } else {
+                                    $$i > -1 &&
+                                      _vm.$set(
+                                        content,
+                                        "h_finished",
+                                        $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1))
+                                      )
+                                  }
+                                } else {
+                                  _vm.$set(content, "h_finished", $$c)
+                                }
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("label", { staticClass: "form-check-label" }, [
+                            _vm._v("Sudah selesai dilakukan")
+                          ])
+                        ])
+                      ])
                     ])
                   ])
                 ]),
@@ -73791,7 +74433,7 @@ if (false) {
 /* 180 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed: ModuleBuildError: Module build failed: Error: Missing binding D:\\portofolio\\laravel\\liveschedule\\node_modules\\node-sass\\vendor\\win32-x64-57\\binding.node\nNode Sass could not find a binding for your current environment: Windows 64-bit with Node.js 8.x\n\nFound bindings for the following environments:\n  - Windows 64-bit with Node.js 10.x\n\nThis usually happens because your environment has changed since running `npm install`.\nRun `npm rebuild node-sass --force` to build the binding for your current environment.\n    at module.exports (D:\\portofolio\\laravel\\liveschedule\\node_modules\\node-sass\\lib\\binding.js:15:13)\n    at Object.<anonymous> (D:\\portofolio\\laravel\\liveschedule\\node_modules\\node-sass\\lib\\index.js:14:35)\n    at Module._compile (module.js:652:30)\n    at Object.Module._extensions..js (module.js:663:10)\n    at Module.load (module.js:565:32)\n    at tryModuleLoad (module.js:505:12)\n    at Function.Module._load (module.js:497:3)\n    at Module.require (module.js:596:17)\n    at require (internal/module.js:11:18)\n    at Object.<anonymous> (D:\\portofolio\\laravel\\liveschedule\\node_modules\\sass-loader\\lib\\loader.js:3:14)\n    at Module._compile (module.js:652:30)\n    at Object.Module._extensions..js (module.js:663:10)\n    at Module.load (module.js:565:32)\n    at tryModuleLoad (module.js:505:12)\n    at Function.Module._load (module.js:497:3)\n    at Module.require (module.js:596:17)\n    at require (internal/module.js:11:18)\n    at loadLoader (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\loadLoader.js:13:17)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:165:10)\n    at D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:173:18\n    at loadLoader (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\loadLoader.js:36:3)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:165:10)\n    at D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:173:18\n    at loadLoader (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\loadLoader.js:36:3)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:165:10)\n    at D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:173:18\n    at loadLoader (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\loadLoader.js:36:3)\n    at runLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\webpack\\lib\\NormalModule.js:195:19)\n    at D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:364:11\n    at D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:170:18\n    at loadLoader (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\loadLoader.js:27:11)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:165:10)\n    at D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:173:18\n    at loadLoader (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\loadLoader.js:36:3)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:165:10)\n    at D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:173:18\n    at loadLoader (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\loadLoader.js:36:3)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:165:10)\n    at D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:173:18\n    at loadLoader (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\loadLoader.js:36:3)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at runLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:362:2)\n    at NormalModule.doBuild (D:\\portofolio\\laravel\\liveschedule\\node_modules\\webpack\\lib\\NormalModule.js:182:3)\n    at NormalModule.build (D:\\portofolio\\laravel\\liveschedule\\node_modules\\webpack\\lib\\NormalModule.js:275:15)\n    at Compilation.buildModule (D:\\portofolio\\laravel\\liveschedule\\node_modules\\webpack\\lib\\Compilation.js:157:10)\n    at moduleFactory.create (D:\\portofolio\\laravel\\liveschedule\\node_modules\\webpack\\lib\\Compilation.js:460:10)\n    at factory (D:\\portofolio\\laravel\\liveschedule\\node_modules\\webpack\\lib\\NormalModuleFactory.js:243:5)\n    at applyPluginsAsyncWaterfall (D:\\portofolio\\laravel\\liveschedule\\node_modules\\webpack\\lib\\NormalModuleFactory.js:94:13)\n    at D:\\portofolio\\laravel\\liveschedule\\node_modules\\tapable\\lib\\Tapable.js:268:11\n    at NormalModuleFactory.params.normalModuleFactory.plugin (D:\\portofolio\\laravel\\liveschedule\\node_modules\\webpack\\lib\\CompatibilityPlugin.js:52:5)\n    at NormalModuleFactory.applyPluginsAsyncWaterfall (D:\\portofolio\\laravel\\liveschedule\\node_modules\\tapable\\lib\\Tapable.js:272:13)\n    at resolver (D:\\portofolio\\laravel\\liveschedule\\node_modules\\webpack\\lib\\NormalModuleFactory.js:69:10)\n    at process.nextTick (D:\\portofolio\\laravel\\liveschedule\\node_modules\\webpack\\lib\\NormalModuleFactory.js:196:7)\n    at _combinedTickCallback (internal/process/next_tick.js:131:7)");
 
 /***/ })
 /******/ ]);

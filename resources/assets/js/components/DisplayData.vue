@@ -25,8 +25,8 @@
                             <th style="vertical-align: middle;">OPENING</th>
                             <th style="vertical-align: middle;">KETERANGAN (JIKA ADA PERUBAHAN)</th>
                         </tr>
-                        <tr class="text-center" style="white-space: nowrap; width:1%;">
-                            <th colspan="3" class="text-center">DARI PROJECT</th>
+                        <tr style="white-space: nowrap; width:1%;">
+                            <th colspan="3">DARI PROJECT</th>
                             <th>H-44</th>
                             <th>H-32</th>
                             <th>H-22</th>
@@ -40,20 +40,20 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in january"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': !data.finished, 'bg-success': data.finished }">
+                        :key="data.index" style="white-space: nowrap; width:1%;">
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month | formatDate }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
-                            <td class="text-center">{{ data.h_44 }}</td>
-                            <td class="text-center">{{ data.h_32 }}</td>
-                            <td class="text-center">{{ data.h_22 }}</td>
-                            <td class="text-center">{{ data.h_21 }}</td>
-                            <td class="text-center">{{ data.h_8 }}</td>
-                            <td class="text-center">{{ data.h_3 }}</td>
-                            <td class="text-center">{{ data.h_2 }}</td>
-                            <td class="text-center">{{ data.h }}</td>
+                            <td :class="'text-center ' + h_44_status[index]">{{ data.h_44 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_32_status[index]">{{ data.h_32 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_22_status[index]">{{ data.h_22 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_21_status[index]">{{ data.h_21 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_8_status[index]">{{ data.h_8 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_3_status[index]">{{ data.h_3 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_2_status[index]">{{ data.h_2 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_status[index]">{{ data.h | toDateDisplay }}</td>
                             <td>{{ data.additional_info }}</td>
                         </tr>
                     </tbody>
@@ -80,8 +80,8 @@
                             <th style="vertical-align: middle;">OPENING</th>
                             <th style="vertical-align: middle;">KETERANGAN (JIKA ADA PERUBAHAN)</th>
                         </tr>
-                        <tr class="text-center" style="white-space: nowrap; width:1%;">
-                            <th colspan="3" class="text-center">DARI PROJECT</th>
+                        <tr style="white-space: nowrap; width:1%;">
+                            <th colspan="3">DARI PROJECT</th>
                             <th>H-44</th>
                             <th>H-32</th>
                             <th>H-22</th>
@@ -95,20 +95,20 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in february"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': !data.finished, 'bg-success': data.finished }">
+                        :key="data.index" style="white-space: nowrap; width:1%;">
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month | formatDate }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
-                            <td class="text-center">{{ data.h_44 }}</td>
-                            <td class="text-center">{{ data.h_32 }}</td>
-                            <td class="text-center">{{ data.h_22 }}</td>
-                            <td class="text-center">{{ data.h_21 }}</td>
-                            <td class="text-center">{{ data.h_8 }}</td>
-                            <td class="text-center">{{ data.h_3 }}</td>
-                            <td class="text-center">{{ data.h_2 }}</td>
-                            <td class="text-center">{{ data.h }}</td>
+                            <td :class="'text-center ' + h_44_status[index]">{{ data.h_44 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_32_status[index]">{{ data.h_32 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_22_status[index]">{{ data.h_22 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_21_status[index]">{{ data.h_21 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_8_status[index]">{{ data.h_8 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_3_status[index]">{{ data.h_3 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_2_status[index]">{{ data.h_2 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_status[index]">{{ data.h | toDateDisplay }}</td>
                             <td>{{ data.additional_info }}</td>
                         </tr>
                     </tbody>
@@ -135,8 +135,8 @@
                             <th style="vertical-align: middle;">OPENING</th>
                             <th style="vertical-align: middle;">KETERANGAN (JIKA ADA PERUBAHAN)</th>
                         </tr>
-                        <tr class="text-center" style="white-space: nowrap; width:1%;">
-                            <th colspan="3" class="text-center">DARI PROJECT</th>
+                        <tr style="white-space: nowrap; width:1%;">
+                            <th colspan="3">DARI PROJECT</th>
                             <th>H-44</th>
                             <th>H-32</th>
                             <th>H-22</th>
@@ -150,20 +150,20 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in march"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': !data.finished, 'bg-success': data.finished }">
+                        :key="data.index" style="white-space: nowrap; width:1%;">
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month | formatDate }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
-                            <td class="text-center">{{ data.h_44 }}</td>
-                            <td class="text-center">{{ data.h_32 }}</td>
-                            <td class="text-center">{{ data.h_22 }}</td>
-                            <td class="text-center">{{ data.h_21 }}</td>
-                            <td class="text-center">{{ data.h_8 }}</td>
-                            <td class="text-center">{{ data.h_3 }}</td>
-                            <td class="text-center">{{ data.h_2 }}</td>
-                            <td class="text-center">{{ data.h }}</td>
+                            <td :class="'text-center ' + h_44_status[index]">{{ data.h_44 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_32_status[index]">{{ data.h_32 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_22_status[index]">{{ data.h_22 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_21_status[index]">{{ data.h_21 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_8_status[index]">{{ data.h_8 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_3_status[index]">{{ data.h_3 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_2_status[index]">{{ data.h_2 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_status[index]">{{ data.h | toDateDisplay }}</td>
                             <td>{{ data.additional_info }}</td>
                         </tr>
                     </tbody>
@@ -190,8 +190,8 @@
                             <th style="vertical-align: middle;">OPENING</th>
                             <th style="vertical-align: middle;">KETERANGAN (JIKA ADA PERUBAHAN)</th>
                         </tr>
-                        <tr class="text-center" style="white-space: nowrap; width:1%;">
-                            <th colspan="3" class="text-center">DARI PROJECT</th>
+                        <tr style="white-space: nowrap; width:1%;">
+                            <th colspan="3">DARI PROJECT</th>
                             <th>H-44</th>
                             <th>H-32</th>
                             <th>H-22</th>
@@ -205,20 +205,20 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in april"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': !data.finished, 'bg-success': data.finished }">
+                        :key="data.index" style="white-space: nowrap; width:1%;">
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month | formatDate }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
-                            <td class="text-center">{{ data.h_44 }}</td>
-                            <td class="text-center">{{ data.h_32 }}</td>
-                            <td class="text-center">{{ data.h_22 }}</td>
-                            <td class="text-center">{{ data.h_21 }}</td>
-                            <td class="text-center">{{ data.h_8 }}</td>
-                            <td class="text-center">{{ data.h_3 }}</td>
-                            <td class="text-center">{{ data.h_2 }}</td>
-                            <td class="text-center">{{ data.h }}</td>
+                            <td :class="'text-center ' + h_44_status[index]">{{ data.h_44 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_32_status[index]">{{ data.h_32 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_22_status[index]">{{ data.h_22 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_21_status[index]">{{ data.h_21 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_8_status[index]">{{ data.h_8 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_3_status[index]">{{ data.h_3 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_2_status[index]">{{ data.h_2 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_status[index]">{{ data.h | toDateDisplay }}</td>
                             <td>{{ data.additional_info }}</td>
                         </tr>
                     </tbody>
@@ -245,8 +245,8 @@
                             <th style="vertical-align: middle;">OPENING</th>
                             <th style="vertical-align: middle;">KETERANGAN (JIKA ADA PERUBAHAN)</th>
                         </tr>
-                        <tr class="text-center" style="white-space: nowrap; width:1%;">
-                            <th colspan="3" class="text-center">DARI PROJECT</th>
+                        <tr style="white-space: nowrap; width:1%;">
+                            <th colspan="3">DARI PROJECT</th>
                             <th>H-44</th>
                             <th>H-32</th>
                             <th>H-22</th>
@@ -260,20 +260,20 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in may"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': !data.finished, 'bg-success': data.finished }">
+                        :key="data.index" style="white-space: nowrap; width:1%;">
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month | formatDate }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
-                            <td class="text-center">{{ data.h_44 }}</td>
-                            <td class="text-center">{{ data.h_32 }}</td>
-                            <td class="text-center">{{ data.h_22 }}</td>
-                            <td class="text-center">{{ data.h_21 }}</td>
-                            <td class="text-center">{{ data.h_8 }}</td>
-                            <td class="text-center">{{ data.h_3 }}</td>
-                            <td class="text-center">{{ data.h_2 }}</td>
-                            <td class="text-center">{{ data.h }}</td>
+                            <td :class="'text-center ' + h_44_status[index]">{{ data.h_44 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_32_status[index]">{{ data.h_32 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_22_status[index]">{{ data.h_22 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_21_status[index]">{{ data.h_21 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_8_status[index]">{{ data.h_8 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_3_status[index]">{{ data.h_3 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_2_status[index]">{{ data.h_2 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_status[index]">{{ data.h | toDateDisplay }}</td>
                             <td>{{ data.additional_info }}</td>
                         </tr>
                     </tbody>
@@ -300,8 +300,8 @@
                             <th style="vertical-align: middle;">OPENING</th>
                             <th style="vertical-align: middle;">KETERANGAN (JIKA ADA PERUBAHAN)</th>
                         </tr>
-                        <tr class="text-center" style="white-space: nowrap; width:1%;">
-                            <th colspan="3" class="text-center">DARI PROJECT</th>
+                        <tr style="white-space: nowrap; width:1%;">
+                            <th colspan="3">DARI PROJECT</th>
                             <th>H-44</th>
                             <th>H-32</th>
                             <th>H-22</th>
@@ -315,20 +315,20 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in june"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': !data.finished, 'bg-success': data.finished }">
+                        :key="data.index" style="white-space: nowrap; width:1%;">
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month | formatDate }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
-                            <td class="text-center">{{ data.h_44 }}</td>
-                            <td class="text-center">{{ data.h_32 }}</td>
-                            <td class="text-center">{{ data.h_22 }}</td>
-                            <td class="text-center">{{ data.h_21 }}</td>
-                            <td class="text-center">{{ data.h_8 }}</td>
-                            <td class="text-center">{{ data.h_3 }}</td>
-                            <td class="text-center">{{ data.h_2 }}</td>
-                            <td class="text-center">{{ data.h }}</td>
+                            <td :class="'text-center ' + h_44_status[index]">{{ data.h_44 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_32_status[index]">{{ data.h_32 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_22_status[index]">{{ data.h_22 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_21_status[index]">{{ data.h_21 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_8_status[index]">{{ data.h_8 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_3_status[index]">{{ data.h_3 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_2_status[index]">{{ data.h_2 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_status[index]">{{ data.h | toDateDisplay }}</td>
                             <td>{{ data.additional_info }}</td>
                         </tr>
                     </tbody>
@@ -355,8 +355,8 @@
                             <th style="vertical-align: middle;">OPENING</th>
                             <th style="vertical-align: middle;">KETERANGAN (JIKA ADA PERUBAHAN)</th>
                         </tr>
-                        <tr class="text-center" style="white-space: nowrap; width:1%;">
-                            <th colspan="3" class="text-center">DARI PROJECT</th>
+                        <tr style="white-space: nowrap; width:1%;">
+                            <th colspan="3">DARI PROJECT</th>
                             <th>H-44</th>
                             <th>H-32</th>
                             <th>H-22</th>
@@ -370,20 +370,20 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in july"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': !data.finished, 'bg-success': data.finished }">
+                        :key="data.index" style="white-space: nowrap; width:1%;">
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month | formatDate }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
-                            <td class="text-center">{{ data.h_44 }}</td>
-                            <td class="text-center">{{ data.h_32 }}</td>
-                            <td class="text-center">{{ data.h_22 }}</td>
-                            <td class="text-center">{{ data.h_21 }}</td>
-                            <td class="text-center">{{ data.h_8 }}</td>
-                            <td class="text-center">{{ data.h_3 }}</td>
-                            <td class="text-center">{{ data.h_2 }}</td>
-                            <td class="text-center">{{ data.h }}</td>
+                            <td :class="'text-center ' + h_44_status[index]">{{ data.h_44 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_32_status[index]">{{ data.h_32 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_22_status[index]">{{ data.h_22 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_21_status[index]">{{ data.h_21 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_8_status[index]">{{ data.h_8 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_3_status[index]">{{ data.h_3 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_2_status[index]">{{ data.h_2 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_status[index]">{{ data.h | toDateDisplay }}</td>
                             <td>{{ data.additional_info }}</td>
                         </tr>
                     </tbody>
@@ -410,8 +410,8 @@
                             <th style="vertical-align: middle;">OPENING</th>
                             <th style="vertical-align: middle;">KETERANGAN (JIKA ADA PERUBAHAN)</th>
                         </tr>
-                        <tr class="text-center" style="white-space: nowrap; width:1%;">
-                            <th colspan="3" class="text-center">DARI PROJECT</th>
+                        <tr style="white-space: nowrap; width:1%;">
+                            <th colspan="3">DARI PROJECT</th>
                             <th>H-44</th>
                             <th>H-32</th>
                             <th>H-22</th>
@@ -425,20 +425,20 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in august"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': !data.finished, 'bg-success': data.finished }">
+                        :key="data.index" style="white-space: nowrap; width:1%;">
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month | formatDate }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
-                            <td class="text-center">{{ data.h_44 }}</td>
-                            <td class="text-center">{{ data.h_32 }}</td>
-                            <td class="text-center">{{ data.h_22 }}</td>
-                            <td class="text-center">{{ data.h_21 }}</td>
-                            <td class="text-center">{{ data.h_8 }}</td>
-                            <td class="text-center">{{ data.h_3 }}</td>
-                            <td class="text-center">{{ data.h_2 }}</td>
-                            <td class="text-center">{{ data.h }}</td>
+                            <td :class="'text-center ' + h_44_status[index]">{{ data.h_44 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_32_status[index]">{{ data.h_32 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_22_status[index]">{{ data.h_22 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_21_status[index]">{{ data.h_21 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_8_status[index]">{{ data.h_8 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_3_status[index]">{{ data.h_3 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_2_status[index]">{{ data.h_2 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_status[index]">{{ data.h | toDateDisplay }}</td>
                             <td>{{ data.additional_info }}</td>
                         </tr>
                     </tbody>
@@ -465,8 +465,8 @@
                             <th style="vertical-align: middle;">OPENING</th>
                             <th style="vertical-align: middle;">KETERANGAN (JIKA ADA PERUBAHAN)</th>
                         </tr>
-                        <tr class="text-center" style="white-space: nowrap; width:1%;">
-                            <th colspan="3" class="text-center">DARI PROJECT</th>
+                        <tr style="white-space: nowrap; width:1%;">
+                            <th colspan="3">DARI PROJECT</th>
                             <th>H-44</th>
                             <th>H-32</th>
                             <th>H-22</th>
@@ -480,20 +480,20 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in september"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': !data.finished, 'bg-success': data.finished }">
+                        :key="data.index" style="white-space: nowrap; width:1%;">
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month | formatDate }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
-                            <td class="text-center">{{ data.h_44 }}</td>
-                            <td class="text-center">{{ data.h_32 }}</td>
-                            <td class="text-center">{{ data.h_22 }}</td>
-                            <td class="text-center">{{ data.h_21 }}</td>
-                            <td class="text-center">{{ data.h_8 }}</td>
-                            <td class="text-center">{{ data.h_3 }}</td>
-                            <td class="text-center">{{ data.h_2 }}</td>
-                            <td class="text-center">{{ data.h }}</td>
+                            <td :class="'text-center ' + h_44_status[index]">{{ data.h_44 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_32_status[index]">{{ data.h_32 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_22_status[index]">{{ data.h_22 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_21_status[index]">{{ data.h_21 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_8_status[index]">{{ data.h_8 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_3_status[index]">{{ data.h_3 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_2_status[index]">{{ data.h_2 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_status[index]">{{ data.h | toDateDisplay }}</td>
                             <td>{{ data.additional_info }}</td>
                         </tr>
                     </tbody>
@@ -520,8 +520,8 @@
                             <th style="vertical-align: middle;">OPENING</th>
                             <th style="vertical-align: middle;">KETERANGAN (JIKA ADA PERUBAHAN)</th>
                         </tr>
-                        <tr class="text-center" style="white-space: nowrap; width:1%;">
-                            <th colspan="3" class="text-center">DARI PROJECT</th>
+                        <tr style="white-space: nowrap; width:1%;">
+                            <th colspan="3">DARI PROJECT</th>
                             <th>H-44</th>
                             <th>H-32</th>
                             <th>H-22</th>
@@ -535,20 +535,20 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in october"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': !data.finished, 'bg-success': data.finished }">
+                        :key="data.index" style="white-space: nowrap; width:1%;">
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month | formatDate }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
-                            <td class="text-center">{{ data.h_44 }}</td>
-                            <td class="text-center">{{ data.h_32 }}</td>
-                            <td class="text-center">{{ data.h_22 }}</td>
-                            <td class="text-center">{{ data.h_21 }}</td>
-                            <td class="text-center">{{ data.h_8 }}</td>
-                            <td class="text-center">{{ data.h_3 }}</td>
-                            <td class="text-center">{{ data.h_2 }}</td>
-                            <td class="text-center">{{ data.h }}</td>
+                            <td :class="'text-center ' + h_44_status[index]">{{ data.h_44 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_32_status[index]">{{ data.h_32 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_22_status[index]">{{ data.h_22 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_21_status[index]">{{ data.h_21 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_8_status[index]">{{ data.h_8 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_3_status[index]">{{ data.h_3 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_2_status[index]">{{ data.h_2 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_status[index]">{{ data.h | toDateDisplay }}</td>
                             <td>{{ data.additional_info }}</td>
                         </tr>
                     </tbody>
@@ -575,8 +575,8 @@
                             <th style="vertical-align: middle;">OPENING</th>
                             <th style="vertical-align: middle;">KETERANGAN (JIKA ADA PERUBAHAN)</th>
                         </tr>
-                        <tr class="text-center" style="white-space: nowrap; width:1%;">
-                            <th colspan="3" class="text-center">DARI PROJECT</th>
+                        <tr style="white-space: nowrap; width:1%;">
+                            <th colspan="3">DARI PROJECT</th>
                             <th>H-44</th>
                             <th>H-32</th>
                             <th>H-22</th>
@@ -590,20 +590,20 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in november"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': !data.finished, 'bg-success': data.finished }">
+                        :key="data.index" style="white-space: nowrap; width:1%;">
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month | formatDate }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
-                            <td class="text-center">{{ data.h_44 }}</td>
-                            <td class="text-center">{{ data.h_32 }}</td>
-                            <td class="text-center">{{ data.h_22 }}</td>
-                            <td class="text-center">{{ data.h_21 }}</td>
-                            <td class="text-center">{{ data.h_8 }}</td>
-                            <td class="text-center">{{ data.h_3 }}</td>
-                            <td class="text-center">{{ data.h_2 }}</td>
-                            <td class="text-center">{{ data.h }}</td>
+                            <td :class="'text-center ' + h_44_status[index]">{{ data.h_44 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_32_status[index]">{{ data.h_32 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_22_status[index]">{{ data.h_22 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_21_status[index]">{{ data.h_21 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_8_status[index]">{{ data.h_8 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_3_status[index]">{{ data.h_3 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_2_status[index]">{{ data.h_2 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_status[index]">{{ data.h | toDateDisplay }}</td>
                             <td>{{ data.additional_info }}</td>
                         </tr>
                     </tbody>
@@ -630,8 +630,8 @@
                             <th style="vertical-align: middle;">OPENING</th>
                             <th style="vertical-align: middle;">KETERANGAN (JIKA ADA PERUBAHAN)</th>
                         </tr>
-                        <tr class="text-center" style="white-space: nowrap; width:1%;">
-                            <th colspan="3" class="text-center">DARI PROJECT</th>
+                        <tr style="white-space: nowrap; width:1%;">
+                            <th colspan="3">DARI PROJECT</th>
                             <th>H-44</th>
                             <th>H-32</th>
                             <th>H-22</th>
@@ -645,20 +645,20 @@
                     </thead>
                     <tbody>
                         <tr v-for="(data, index) in desember"
-                        :key="data.index" style="white-space: nowrap; width:1%;" :class="{ 'bg-warning': !data.finished, 'bg-success': data.finished }">
+                        :key="data.index" style="white-space: nowrap; width:1%;">
                             <td class="text-center">{{ index + 1 }}</td>
                             <td>{{ data.month | formatDate }}</td>
                             <td>{{ data.opening_estimation }}</td>
                             <td>{{ data.store_location }}</td>
                             <td>{{ data.store_owner }}</td>
-                            <td class="text-center">{{ data.h_44 }}</td>
-                            <td class="text-center">{{ data.h_32 }}</td>
-                            <td class="text-center">{{ data.h_22 }}</td>
-                            <td class="text-center">{{ data.h_21 }}</td>
-                            <td class="text-center">{{ data.h_8 }}</td>
-                            <td class="text-center">{{ data.h_3 }}</td>
-                            <td class="text-center">{{ data.h_2 }}</td>
-                            <td class="text-center">{{ data.h }}</td>
+                            <td :class="'text-center ' + h_44_status[index]">{{ data.h_44 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_32_status[index]">{{ data.h_32 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_22_status[index]">{{ data.h_22 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_21_status[index]">{{ data.h_21 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_8_status[index]">{{ data.h_8 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_3_status[index]">{{ data.h_3 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_2_status[index]">{{ data.h_2 | toDateDisplay }}</td>
+                            <td :class="'text-center ' + h_status[index]">{{ data.h | toDateDisplay }}</td>
                             <td>{{ data.additional_info }}</td>
                         </tr>
                     </tbody>
@@ -675,6 +675,12 @@ import moment from 'moment'
 Vue.filter('formatDate', function(value) {
     if (value) {
         return moment(String(value)).locale('id').format('MMMM');
+    }
+})
+
+Vue.filter('toDateDisplay', function(value) {
+    if (value) {
+        return moment(String(value)).locale('id').format('DD-MMM')
     }
 })
 
@@ -759,6 +765,166 @@ export default {
             return this.api.filter(u => {
                 return u.month === 12
             })
+        },
+        h_44_status: function () {
+            var valsArr = []
+            this.api.forEach(u => {
+                var vals
+                if (Date.parse(u.h_44) >= Date.parse(moment().add(6, 'days').format('YYYY-M-D')) && u.h_44_finished == 0) {
+                    vals = 'bg-white' // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
+                }
+                else if (Date.parse(u.h_44) <= Date.parse(moment().add(5, 'days').format('YYYY-M-D')) && u.h_44_finished == 0) {
+                    vals = 'bg-warning' // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
+                }
+                else if (Date.parse(u.h_44) <= Date.parse(moment().format('YYYY-M-D')) && u.h_44_finished == 0) {
+                    vals = 'bg-danger' // Jika jarak tanggal dengan hari H sudah melewati dan status belum selesai, print warna merah.
+                }
+                else if (u.h_44_finished == 1){
+                    vals = 'bg-success' // Jika data telah ditandai selesai oleh admin, jadikan semuanya hijau.
+                }
+                valsArr.push(vals)
+            });
+            return valsArr
+        },
+        h_32_status: function () {
+            var valsArr = []
+            this.api.forEach(u => {
+                var vals
+                if (Date.parse(u.h_32) >= Date.parse(moment().add(6, 'days').format('YYYY-M-D')) && u.h_32_finished == 0) {
+                    vals = 'bg-white' // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
+                }
+                else if (Date.parse(u.h_32) <= Date.parse(moment().add(5, 'days').format('YYYY-M-D')) && u.h_32_finished == 0) {
+                    vals = 'bg-warning' // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
+                }
+                else if (Date.parse(u.h_32) <= Date.parse(moment().format('YYYY-M-D')) && u.h_32_finished == 0) {
+                    vals = 'bg-danger' // Jika jarak tanggal dengan hari H sudah melewati dan status belum selesai, print warna merah.
+                }
+                else if (u.h_32_finished == 1){
+                    vals = 'bg-success' // Jika data telah ditandai selesai oleh admin, jadikan semuanya hijau.
+                }
+                valsArr.push(vals)
+            });
+            return valsArr
+        },
+        h_22_status: function () {
+            var valsArr = []
+            this.api.forEach(u => {
+                var vals
+                if (Date.parse(u.h_22) >= Date.parse(moment().add(6, 'days').format('YYYY-M-D')) && u.h_22_finished == 0) {
+                    vals = 'bg-white' // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
+                }
+                else if (Date.parse(u.h_22) <= Date.parse(moment().add(5, 'days').format('YYYY-M-D')) && u.h_22_finished == 0) {
+                    vals = 'bg-warning' // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
+                }
+                else if (Date.parse(u.h_22) <= Date.parse(moment().format('YYYY-M-D')) && u.h_22_finished == 0) {
+                    vals = 'bg-danger' // Jika jarak tanggal dengan hari H sudah melewati dan status belum selesai, print warna merah.
+                }
+                else if (u.h_22_finished == 1){
+                    vals = 'bg-success' // Jika data telah ditandai selesai oleh admin, jadikan semuanya hijau.
+                }
+                valsArr.push(vals)
+            });
+            return valsArr
+        },
+        h_21_status: function () {
+            var valsArr = []
+            this.api.forEach(u => {
+                var vals
+                if (Date.parse(u.h_21) >= Date.parse(moment().add(6, 'days').format('YYYY-M-D')) && u.h_21_finished == 0) {
+                    vals = 'bg-white' // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
+                }
+                else if (Date.parse(u.h_21) <= Date.parse(moment().add(5, 'days').format('YYYY-M-D')) && u.h_21_finished == 0) {
+                    vals = 'bg-warning' // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
+                }
+                else if (Date.parse(u.h_21) <= Date.parse(moment().format('YYYY-M-D')) && u.h_21_finished == 0) {
+                    vals = 'bg-danger' // Jika jarak tanggal dengan hari H sudah melewati dan status belum selesai, print warna merah.
+                }
+                else if (u.h_21_finished == 1){
+                    vals = 'bg-success' // Jika data telah ditandai selesai oleh admin, jadikan semuanya hijau.
+                }
+                valsArr.push(vals)
+            });
+            return valsArr
+        },
+        h_8_status: function () {
+            var valsArr = []
+            this.api.forEach(u => {
+                var vals
+                if (Date.parse(u.h_8) >= Date.parse(moment().add(6, 'days').format('YYYY-M-D')) && u.h_8_finished == 0) {
+                    vals = 'bg-white' // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
+                }
+                else if (Date.parse(u.h_8) <= Date.parse(moment().add(5, 'days').format('YYYY-M-D')) && u.h_8_finished == 0) {
+                    vals = 'bg-warning' // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
+                }
+                else if (Date.parse(u.h_8) <= Date.parse(moment().format('YYYY-M-D')) && u.h_8_finished == 0) {
+                    vals = 'bg-danger' // Jika jarak tanggal dengan hari H sudah melewati dan status belum selesai, print warna merah.
+                }
+                else if (u.h_8_finished == 1){
+                    vals = 'bg-success' // Jika data telah ditandai selesai oleh admin, jadikan semuanya hijau.
+                }
+                valsArr.push(vals)
+            });
+            return valsArr
+        },
+        h_3_status: function () {
+            var valsArr = []
+            this.api.forEach(u => {
+                var vals
+                if (Date.parse(u.h_3) >= Date.parse(moment().add(6, 'days').format('YYYY-M-D')) && u.h_3_finished == 0) {
+                    vals = 'bg-white' // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
+                }
+                else if (Date.parse(u.h_3) <= Date.parse(moment().add(5, 'days').format('YYYY-M-D')) && u.h_3_finished == 0) {
+                    vals = 'bg-warning' // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
+                }
+                else if (Date.parse(u.h_3) <= Date.parse(moment().format('YYYY-M-D')) && u.h_3_finished == 0) {
+                    vals = 'bg-danger' // Jika jarak tanggal dengan hari H sudah melewati dan status belum selesai, print warna merah.
+                }
+                else if (u.h_3_finished == 1){
+                    vals = 'bg-success' // Jika data telah ditandai selesai oleh admin, jadikan semuanya hijau.
+                }
+                valsArr.push(vals)
+            });
+            return valsArr
+        },
+        h_2_status: function () {
+            var valsArr = []
+            this.api.forEach(u => {
+                var vals
+                if (Date.parse(u.h_2) >= Date.parse(moment().add(6, 'days').format('YYYY-M-D')) && u.h_2_finished == 0) {
+                    vals = 'bg-white' // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
+                }
+                else if (Date.parse(u.h_2) <= Date.parse(moment().add(5, 'days').format('YYYY-M-D')) && u.h_2_finished == 0) {
+                    vals = 'bg-warning' // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
+                }
+                else if (Date.parse(u.h_2) <= Date.parse(moment().format('YYYY-M-D')) && u.h_2_finished == 0) {
+                    vals = 'bg-danger' // Jika jarak tanggal dengan hari H sudah melewati dan status belum selesai, print warna merah.
+                }
+                else if (u.h_2_finished == 1){
+                    vals = 'bg-success' // Jika data telah ditandai selesai oleh admin, jadikan semuanya hijau.
+                }
+                valsArr.push(vals)
+            });
+            return valsArr
+        },
+        h_status: function () {
+            var valsArr = []
+            this.api.forEach(u => {
+                var vals
+                if (Date.parse(u.h) >= Date.parse(moment().add(6, 'days').format('YYYY-M-D')) && u.h_finished == 0) {
+                    vals = 'bg-white' // Jika jarak tanggal dengan hari H > 6 dan status belum selesai, print warna putih.
+                }
+                else if (Date.parse(u.h) <= Date.parse(moment().add(5, 'days').format('YYYY-M-D')) && u.h_finished == 0) {
+                    vals = 'bg-warning' // Jika jarak tanggal dengan hari H < 5 dan status belum selesai, print warna kuning.
+                }
+                else if (Date.parse(u.h) <= Date.parse(moment().format('YYYY-M-D')) && u.h_finished == 0) {
+                    vals = 'bg-danger' // Jika jarak tanggal dengan hari H sudah melewati dan status belum selesai, print warna merah.
+                }
+                else if (u.h_finished == 1){
+                    vals = 'bg-success' // Jika data telah ditandai selesai oleh admin, jadikan semuanya hijau.
+                }
+                valsArr.push(vals)
+            });
+            return valsArr
         },
     }
 }

@@ -27,7 +27,10 @@
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                         <span class="text-white mt-2">Status:</span>
                         <li class="nav-item ml-2">
-                            <div class="nav-link bg-warning text-dark text-capitalize">belum selesai</div>
+                            <div class="nav-link bg-danger text-white text-capitalize">sudah melewati hari h & belum selesai</div>
+                        </li>
+                        <li class="nav-item ml-2">
+                            <div class="nav-link bg-warning text-dark text-capitalize">5 hari menjelang hari h & belum selesai</div>
                         </li>
                         <li class="nav-item ml-2">
                             <div class="nav-link bg-success text-white text-capitalize">selesai</div>

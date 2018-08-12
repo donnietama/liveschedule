@@ -15,7 +15,7 @@
                     </div>
                     <div class="form-group col-md-3">
                         <label>Estimasi opening</label>
-                        <input type="text" v-model="content.opening_estimation" class="form-control">
+                        <input type="date" v-model="content.opening_estimation" class="form-control">
                     </div>
                     <div class="form-group col-md-3">
                         <label>Lokasi store</label>
@@ -26,47 +26,103 @@
                         <input type="text" v-model="content.store_owner" class="form-control">
                     </div>
                 </div>
-                <div class="row py-4">
-                    <div class="form-group col-md-1 text-center offset-2">
-                        <label>H-44</label>
-                        <input type="text" v-model="content.h_44" class="form-control">
-                    </div>
-                    <div class="form-group col-md-1 text-center">
-                        <label>H-32</label>
-                        <input type="text" v-model="content.h_32" class="form-control">
-                    </div>
-                    <div class="form-group col-md-1 text-center">
-                        <label>H-22</label>
-                        <input type="text" v-model="content.h_22" class="form-control">
-                    </div>
-                    <div class="form-group col-md-1 text-center">
-                        <label>H-21</label>
-                        <input type="text" v-model="content.h_21" class="form-control">
-                    </div>
-                    <div class="form-group col-md-1 text-center">
-                        <label>H-8</label>
-                        <input type="text" v-model="content.h_8" class="form-control">
-                    </div>
-                    <div class="form-group col-md-1 text-center">
-                        <label>H-3</label>
-                        <input type="text" v-model="content.h_3" class="form-control">
-                    </div>
-                    <div class="form-group col-md-1 text-center">
-                        <label>H-2</label>
-                        <input type="text" v-model="content.h_2" class="form-control">
-                    </div>
-                    <div class="form-group col-md-1 text-center">
-                        <label>H</label>
-                        <input type="text" v-model="content.h" class="form-control">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 offset-3">
-                        <div class="form-group">
-                            <select v-model="content.finished" class="form-control">
-                                <option value="0">Belum Selesai</option>
-                                <option value="1">Selesai</option>
-                            </select>
+                <div class="row pb-4">
+                    <div class="col-md-12">
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <label>H-44</label>
+                                <input type="date" v-model="content.h_44" class="form-control">
+                            </div>
+                            <div class="col-md-6 pt-3">
+                                <div class="form-check pt-4">
+                                    <input type="checkbox" class="form-check-input" v-model="content.h_44_finished">
+                                    <label class="form-check-label">Sudah selesai dilakukan</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <label>H-32</label>
+                                <input type="date" v-model="content.h_32" class="form-control">
+                            </div>
+                            <div class="col-md-6 pt-3">
+                                <div class="form-check pt-4">
+                                    <input type="checkbox" class="form-check-input" v-model="content.h_32_finished">
+                                    <label class="form-check-label">Sudah selesai dilakukan</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <label>H-22</label>
+                                <input type="date" v-model="content.h_22" class="form-control">
+                            </div>
+                            <div class="col-md-6 pt-3">
+                                <div class="form-check pt-4">
+                                    <input type="checkbox" class="form-check-input" v-model="content.h_22_finished">
+                                    <label class="form-check-label">Sudah selesai dilakukan</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <label>H-21</label>
+                                <input type="date" v-model="content.h_21" class="form-control">
+                            </div>
+                            <div class="col-md-6 pt-3">
+                                <div class="form-check pt-4">
+                                    <input type="checkbox" class="form-check-input" v-model="content.h_21_finished">
+                                    <label class="form-check-label">Sudah selesai dilakukan</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <label>H-8</label>
+                                <input type="date" v-model="content.h_8" class="form-control">
+                            </div>
+                            <div class="col-md-6 pt-3">
+                                <div class="form-check pt-4">
+                                    <input type="checkbox" class="form-check-input" v-model="content.h_8_finished">
+                                    <label class="form-check-label">Sudah selesai dilakukan</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <label>H-3</label>
+                                <input type="date" v-model="content.h_3" class="form-control">
+                            </div>
+                            <div class="col-md-6 pt-3">
+                                <div class="form-check pt-4">
+                                    <input type="checkbox" class="form-check-input" v-model="content.h_3_finished">
+                                    <label class="form-check-label">Sudah selesai dilakukan</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <label>H-2</label>
+                                <input type="date" v-model="content.h_2" class="form-control">
+                            </div>
+                            <div class="col-md-6 pt-3">
+                                <div class="form-check pt-4">
+                                    <input type="checkbox" class="form-check-input" v-model="content.h_2_finished">
+                                    <label class="form-check-label">Sudah selesai dilakukan</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <label>H</label>
+                                <input type="date" v-model="content.h" class="form-control">
+                            </div>
+                            <div class="col-md-6 pt-3">
+                                <div class="form-check pt-4">
+                                    <input type="checkbox" class="form-check-input" v-model="content.h_finished">
+                                    <label class="form-check-label">Sudah selesai dilakukan</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -113,15 +169,21 @@ export default {
                 store_location: '',
                 store_owner: '',
                 h_44: '',
-                h_44: '',
+                h_44_finished: 'false',
                 h_32: '',
+                h_32_finished: 'false',
                 h_22: '',
+                h_22_finished: 'false',
                 h_21: '',
+                h_21_finished: 'false',
                 h_8: '',
+                h_8_finished: 'false',
                 h_3: '',
+                h_3_finished: 'false',
                 h_2: '',
+                h_2_finished: 'false',
                 h: '',
-                finished: ''
+                h_finished: 'false',
             })
         },
 
