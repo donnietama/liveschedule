@@ -41,50 +41,103 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-md-1 offset-2">
-                            <label for="h_44">H-44</label>
-                            <input type="text" name="h_44" id="h_32" class="form-control" value="{{ $data->h_44 }}">
-                        </div>
-                        <div class="form-group col-md-1">
-                            <label for="h_32">H-32</label>
-                            <input type="text" name="h_32" id="h_32" class="form-control" value="{{ $data->h_32 }}">
-                        </div>
-                        <div class="form-group col-md-1">
-                            <label for="h_22">H-22</label>
-                            <input type="text" name="h_22" id="h_22" class="form-control" value="{{ $data->h_22 }}">
-                        </div>
-                        <div class="form-group col-md-1">
-                            <label for="h_21">H-21</label>
-                            <input type="text" name="h_21" id="h_21" class="form-control" value="{{ $data->h_21 }}">
-                        </div>
-                        <div class="form-group col-md-1">
-                            <label for="h_8">H-8</label>
-                            <input type="text" name="h_8" id="h_8" class="form-control" value="{{ $data->h_8 }}">
-                        </div>
-                        <div class="form-group col-md-1">
-                            <label for="h_3">H-3</label>
-                            <input type="text" name="h_3" id="h_3" class="form-control" value="{{ $data->h_3 }}">
-                        </div>
-                        <div class="form-group col-md-1">
-                            <label for="h_2">H-2</label>
-                            <input type="text" name="h_2" id="h_2" class="form-control" value="{{ $data->h_2 }}">
-                        </div>
-                        <div class="form-group col-md-1">
-                            <label for="h">H</label>
-                            <input type="text" name="h" id="h" class="form-control" value="{{ $data->h }}">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 offset-3">
-                            <select name="finished" class="form-control">
-                                @if ($data->finished === true)
-                                    <option value="{{ $data->finished }}" selected hidden>Selesai</option>
-                                @else
-                                    <option value="{{ $data->finished }}" selected hidden>Belum Selesai</option>
-                                @endif
-                                <option value="0">Belum selesai</option>
-                                <option value="1">Selesai</option>
-                            </select>
+                        <div class="col-md-12">
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label for="h_44">H-44</label>
+                                    <input type="text" name="h_44" id="h_32" class="form-control" value="{{ $data->h_44 }}">
+                                </div>
+                                <div class="col-md-6 pt-3">
+                                    <div class="form-check pt-4">
+                                        <input type="checkbox" class="form-check-input" name="h_44_finished" value="1" {{ !empty($data->h_44_finished) ? 'checked' : null }}>
+                                        <label class="form-check-label">Sudah selesai dilakukan</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label for="h_32">H-32</label>
+                                    <input type="text" name="h_32" id="h_32" class="form-control" value="{{ $data->h_32 }}">
+                                </div>
+                                <div class="col-md-6 pt-3">
+                                    <div class="form-check pt-4">
+                                        <input type="checkbox" class="form-check-input" name="h_32_finished" value="1" {{ !empty($data->h_32_finished) ? 'checked' : null }}>
+                                        <label class="form-check-label">Sudah selesai dilakukan</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label for="h_22">H-22</label>
+                                    <input type="text" name="h_22" id="h_22" class="form-control" value="{{ $data->h_22 }}">
+                                </div>
+                                <div class="col-md-6 pt-3">
+                                    <div class="form-check pt-4">
+                                        <input type="checkbox" class="form-check-input" name="h_22_finished" value="1" {{ !empty($data->h_22_finished) ? 'checked' : null }}>
+                                        <label class="form-check-label">Sudah selesai dilakukan</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label for="h_21">H-21</label>
+                                    <input type="text" name="h_21" id="h_21" class="form-control" value="{{ $data->h_21 }}">
+                                </div>
+                                <div class="col-md-6 pt-3">
+                                    <div class="form-check pt-4">
+                                        <input type="checkbox" class="form-check-input" name="h_21_finished" value="1" {{ !empty($data->h_21_finished) ? 'checked' : null }}>
+                                        <label class="form-check-label">Sudah selesai dilakukan</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label for="h_8">H-8</label>
+                                    <input type="text" name="h_8" id="h_8" class="form-control" value="{{ $data->h_8 }}">
+                                </div>
+                                <div class="col-md-6 pt-3">
+                                    <div class="form-check pt-4">
+                                        <input type="checkbox" class="form-check-input" name="h_8_finished" value="1" {{ !empty($data->h_8_finished) ? 'checked' : null }}>
+                                        <label class="form-check-label">Sudah selesai dilakukan</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label for="h_3">H-3</label>
+                                    <input type="text" name="h_3" id="h_3" class="form-control" value="{{ $data->h_3 }}">
+                                </div>
+                                <div class="col-md-6 pt-3">
+                                    <div class="form-check pt-4">
+                                        <input type="checkbox" class="form-check-input" name="h_3_finished" value="1" {{ !empty($data->h_3_finished) ? 'checked' : null }}>
+                                        <label class="form-check-label">Sudah selesai dilakukan</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label for="h_2">H-2</label>
+                                    <input type="text" name="h_2" id="h_2" class="form-control" value="{{ $data->h_2 }}">
+                                </div>
+                                <div class="col-md-6 pt-3">
+                                    <div class="form-check pt-4">
+                                        <input type="checkbox" class="form-check-input" name="h_2_finished" value="1" {{ !empty($data->h_2_finished) ? 'checked' : null }}>
+                                        <label class="form-check-label">Sudah selesai dilakukan</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label for="h">H</label>
+                                    <input type="text" name="h" id="h" class="form-control" value="{{ $data->h }}">
+                                </div>
+                                <div class="col-md-6 pt-3">
+                                    <div class="form-check pt-4">
+                                        <input type="checkbox" class="form-check-input" name="h_finished" value="1" {{ !empty($data->h_finished) ? 'checked' : null }}>
+                                        <label class="form-check-label">Sudah selesai dilakukan</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">

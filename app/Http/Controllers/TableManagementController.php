@@ -127,18 +127,6 @@ class TableManagementController extends Controller
     public function showEditForm($id)
     {
         $data = Content::findOrFail($id);
-        
-        if ($data->updating === false)
-        {
-            $data->updating = true;
-            $data->save();
-        }
-        else
-        {
-            $data->updating = false;
-            $data->save();
-        }
-        
         return view('management.update', compact('data'));
     }
 
@@ -151,15 +139,22 @@ class TableManagementController extends Controller
         $resource->store_location = $request->store_location;
         $resource->store_owner = $request->store_owner;
         $resource->h_44 = $request->h_44;
+        $resource->h_44_finished = !empty($request->h_44_finished) ? $request->h_44_finished : 0;
         $resource->h_32 = $request->h_32;
+        $resource->h_32_finished = !empty($request->h_32_finished) ? $request->h_32_finished : 0;
         $resource->h_22 = $request->h_22;
+        $resource->h_22_finished = !empty($request->h_22_finished) ? $request->h_22_finished : 0;
         $resource->h_21 = $request->h_21;
+        $resource->h_21_finished = !empty($request->h_21_finished) ? $request->h_21_finished : 0;
         $resource->h_8 = $request->h_8;
+        $resource->h_8_finished = !empty($request->h_8_finished) ? $request->h_8_finished : 0;
         $resource->h_3 = $request->h_3;
+        $resource->h_3_finished = !empty($request->h_3_finished) ? $request->h_3_finished : 0;
         $resource->h_2 = $request->h_2;
+        $resource->h_2_finished = !empty($request->h_2_finished) ? $request->h_2_finished : 0;
         $resource->h = $request->h;
+        $resource->h_finished = !empty($request->h_finished) ? $request->h_finished : 0;
         $resource->additional_info = $request->additional_info;
-        $resource->finished = $request->finished ?: false;
         $resource->updating = false;
         if ($resource->save()) {
             return redirect('/home');
