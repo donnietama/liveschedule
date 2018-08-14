@@ -69220,6 +69220,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -69234,6 +69244,7 @@ Vue.filter('formatDate', function (value) {
     data: function data() {
         return {
             search: '',
+            totalRow: 30,
             api: []
         };
     },
@@ -69249,15 +69260,17 @@ Vue.filter('formatDate', function (value) {
         filteredData: function filteredData() {
             var _this2 = this;
 
-            return this.api.filter(function (u) {
+            return this.api.slice(0, parseInt(this.totalRow)).filter(function (u) {
                 return __WEBPACK_IMPORTED_MODULE_1_moment___default()(u.month, 'MM').locale('id').format('MMMM').toLowerCase().includes(_this2.search.toLowerCase());
             });
+        },
+        maxRow: function maxRow() {
+            return this.api.length;
         }
     },
     methods: {
         showDeleteConfirmation: function showDeleteConfirmation(data) {
             axios.delete('/delete/' + data.id).then(function (res, data) {
-                console.log(data);
                 __WEBPACK_IMPORTED_MODULE_0_sweetalert___default()({
                     icon: 'success',
                     title: 'Berhasil!',
@@ -69320,6 +69333,63 @@ var render = function() {
             }
           })
         ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-3 ml-auto" }, [
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.totalRow,
+                expression: "totalRow"
+              }
+            ],
+            staticClass: "form-control",
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.totalRow = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
+            }
+          },
+          [
+            _c("option", { attrs: { value: "30" } }, [
+              _vm._v("Tampilkan 30 Baris Data")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "31" } }, [
+              _vm._v("Tampilkan 31 Baris Data")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "100" } }, [
+              _vm._v("Tampilkan 100 Baris Data")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "250" } }, [
+              _vm._v("Tampilkan 250 Baris Data")
+            ]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "500" } }, [
+              _vm._v("Tampilkan 500 Baris Data")
+            ]),
+            _vm._v(" "),
+            _c("option", { domProps: { value: _vm.maxRow } }, [
+              _vm._v("Tampilkan Keseluruhan Baris Data")
+            ])
+          ]
+        )
       ])
     ]),
     _vm._v(" "),

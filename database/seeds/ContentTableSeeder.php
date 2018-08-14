@@ -11,7 +11,7 @@ class ContentTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Content::class, 300)->create()->each(function ($content){
+        factory(App\Content::class, 2000)->create()->each(function ($content){
             $content->save();
         });
         $this->command->info('Content table seeded!');

@@ -17,7 +17,6 @@ $factory->define(App\Content::class, function (Faker $faker) {
         'h_2' => $faker->date($format = 'd-M'),
         'h' => $faker->date($format = 'd-M'),
         'additional_info' => $faker->sentence,
-        'finished' => $faker->boolean,
         'updating' => '0',
         'accountability' => $faker->name
     ];

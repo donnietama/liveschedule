@@ -11,6 +11,16 @@
                     <input type="text" class="form-control" placeholder="Ketik nama bulan yang ingin dirubah..." v-model="search">
                 </div>
             </div>
+            <div class="col-md-3 ml-auto">
+                <select class="form-control" v-model="totalRow">
+                    <option value="30">Tampilkan 30 Baris Data</option>
+                    <option value="31">Tampilkan 31 Baris Data</option>
+                    <option value="100">Tampilkan 100 Baris Data</option>
+                    <option value="250">Tampilkan 250 Baris Data</option>
+                    <option value="500">Tampilkan 500 Baris Data</option>
+                    <option :value="maxRow">Tampilkan Keseluruhan Baris Data</option>
+                </select>
+            </div>
         </div>
         <div class="table-responsive">
             <table class="table table-light table-sm">
@@ -93,6 +103,7 @@ export default {
     data() {
         return {
             search: '',
+            totalRow: 30,
             api: [],
         }
     },
@@ -104,16 +115,18 @@ export default {
     },
     computed: {
         filteredData() {
-            return this.api.filter(u => {
+            return this.api.slice(0, parseInt(this.totalRow)).filter(u => {
                 return moment(u.month, 'MM').locale('id').format('MMMM').toLowerCase().includes(this.search.toLowerCase())
             })
-        }
+        },
+        maxRow() {
+            return this.api.length
+        },
     },
     methods: {
         showDeleteConfirmation(data) {
             axios.delete('/delete/' + data.id)
             .then((res, data) => {
-                console.log(data)
                 swal({
                     icon: 'success',
                     title: 'Berhasil!',
