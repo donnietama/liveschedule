@@ -8,6 +8,10 @@
 // Font Awesome Icons
 $fa-font-path:"~font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome";
+.icon-search {
+  @extend .fa;
+  @extend .fa-search;
+}
 .icon-sign-in {
   @extend .fa;
   @extend .fa-sign-in;

@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 140);
+/******/ 	return __webpack_require__(__webpack_require__.s = 139);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -4584,7 +4584,7 @@
 
 
 var bind = __webpack_require__(9);
-var isBuffer = __webpack_require__(147);
+var isBuffer = __webpack_require__(146);
 
 /*global toString:true*/
 
@@ -5030,7 +5030,7 @@ module.exports = function normalizeComponent (
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(1);
-var normalizeHeaderName = __webpack_require__(149);
+var normalizeHeaderName = __webpack_require__(148);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -5183,7 +5183,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(164);
+__webpack_require__(163);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -18340,12 +18340,12 @@ process.umask = function() { return 0; };
 
 
 var utils = __webpack_require__(1);
-var settle = __webpack_require__(150);
-var buildURL = __webpack_require__(152);
-var parseHeaders = __webpack_require__(153);
-var isURLSameOrigin = __webpack_require__(154);
+var settle = __webpack_require__(149);
+var buildURL = __webpack_require__(151);
+var parseHeaders = __webpack_require__(152);
+var isURLSameOrigin = __webpack_require__(153);
 var createError = __webpack_require__(12);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(155);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(154);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -18442,7 +18442,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(156);
+      var cookies = __webpack_require__(155);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -18526,7 +18526,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(151);
+var enhanceError = __webpack_require__(150);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -29552,17 +29552,6 @@ module.exports = Vue;
 /* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/*!
- * vue-carousel v0.9.0
- * (c) 2018 todd.beauchamp@ssense.com
- * https://github.com/ssense/vue-carousel#readme
- */
-!function(t,e){ true?module.exports=e():"function"==typeof define&&define.amd?define([],e):"object"==typeof exports?exports.VueCarousel=e():t.VueCarousel=e()}(this,function(){return function(t){function e(i){if(n[i])return n[i].exports;var r=n[i]={exports:{},id:i,loaded:!1};return t[i].call(r.exports,r,r.exports,e),r.loaded=!0,r.exports}var n={};return e.m=t,e.c=n,e.p="",e(0)}([function(t,e,n){"use strict";function i(t){return t&&t.__esModule?t:{default:t}}Object.defineProperty(e,"__esModule",{value:!0}),e.Slide=e.Carousel=void 0;var r=n(1),a=i(r),o=n(41),s=i(o),u=function(t){t.component("carousel",a.default),t.component("slide",s.default)};e.default={install:u},e.Carousel=a.default,e.Slide=s.default},function(t,e,n){function i(t){n(2)}var r=n(7)(n(8),n(68),i,null,null);t.exports=r.exports},function(t,e,n){var i=n(3);"string"==typeof i&&(i=[[t.id,i,""]]),i.locals&&(t.exports=i.locals);n(5)("80564c20",i,!0,{})},function(t,e,n){e=t.exports=n(4)(),e.push([t.id,".VueCarousel{position:relative}.VueCarousel-wrapper{width:100%;position:relative;overflow:hidden}.VueCarousel-inner{display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-webkit-backface-visibility:hidden;backface-visibility:hidden}",""])},function(t,e){t.exports=function(){var t=[];return t.toString=function(){for(var t=[],e=0;e<this.length;e++){var n=this[e];n[2]?t.push("@media "+n[2]+"{"+n[1]+"}"):t.push(n[1])}return t.join("")},t.i=function(e,n){"string"==typeof e&&(e=[[null,e,""]]);for(var i={},r=0;r<this.length;r++){var a=this[r][0];"number"==typeof a&&(i[a]=!0)}for(r=0;r<e.length;r++){var o=e[r];"number"==typeof o[0]&&i[o[0]]||(n&&!o[2]?o[2]=n:n&&(o[2]="("+o[2]+") and ("+n+")"),t.push(o))}},t}},function(t,e,n){function i(t){for(var e=0;e<t.length;e++){var n=t[e],i=l[n.id];if(i){i.refs++;for(var r=0;r<i.parts.length;r++)i.parts[r](n.parts[r]);for(;r<n.parts.length;r++)i.parts.push(a(n.parts[r]));i.parts.length>n.parts.length&&(i.parts.length=n.parts.length)}else{for(var o=[],r=0;r<n.parts.length;r++)o.push(a(n.parts[r]));l[n.id]={id:n.id,refs:1,parts:o}}}}function r(){var t=document.createElement("style");return t.type="text/css",d.appendChild(t),t}function a(t){var e,n,i=document.querySelector("style["+m+'~="'+t.id+'"]');if(i){if(p)return g;i.parentNode.removeChild(i)}if(b){var a=h++;i=f||(f=r()),e=o.bind(null,i,a,!1),n=o.bind(null,i,a,!0)}else i=r(),e=s.bind(null,i),n=function(){i.parentNode.removeChild(i)};return e(t),function(i){if(i){if(i.css===t.css&&i.media===t.media&&i.sourceMap===t.sourceMap)return;e(t=i)}else n()}}function o(t,e,n,i){var r=n?"":i.css;if(t.styleSheet)t.styleSheet.cssText=y(e,r);else{var a=document.createTextNode(r),o=t.childNodes;o[e]&&t.removeChild(o[e]),o.length?t.insertBefore(a,o[e]):t.appendChild(a)}}function s(t,e){var n=e.css,i=e.media,r=e.sourceMap;if(i&&t.setAttribute("media",i),v.ssrId&&t.setAttribute(m,e.id),r&&(n+="\n/*# sourceURL="+r.sources[0]+" */",n+="\n/*# sourceMappingURL=data:application/json;base64,"+btoa(unescape(encodeURIComponent(JSON.stringify(r))))+" */"),t.styleSheet)t.styleSheet.cssText=n;else{for(;t.firstChild;)t.removeChild(t.firstChild);t.appendChild(document.createTextNode(n))}}var u="undefined"!=typeof document,c=n(6),l={},d=u&&(document.head||document.getElementsByTagName("head")[0]),f=null,h=0,p=!1,g=function(){},v=null,m="data-vue-ssr-id",b="undefined"!=typeof navigator&&/msie [6-9]\b/.test(navigator.userAgent.toLowerCase());t.exports=function(t,e,n,r){p=n,v=r||{};var a=c(t,e);return i(a),function(e){for(var n=[],r=0;r<a.length;r++){var o=a[r],s=l[o.id];s.refs--,n.push(s)}e?(a=c(t,e),i(a)):a=[];for(var r=0;r<n.length;r++){var s=n[r];if(0===s.refs){for(var u=0;u<s.parts.length;u++)s.parts[u]();delete l[s.id]}}}};var y=function(){var t=[];return function(e,n){return t[e]=n,t.filter(Boolean).join("\n")}}()},function(t,e){t.exports=function(t,e){for(var n=[],i={},r=0;r<e.length;r++){var a=e[r],o=a[0],s=a[1],u=a[2],c=a[3],l={id:t+":"+r,css:s,media:u,sourceMap:c};i[o]?i[o].parts.push(l):n.push(i[o]={id:o,parts:[l]})}return n}},function(t,e){t.exports=function(t,e,n,i,r){var a,o=t=t||{},s=typeof t.default;"object"!==s&&"function"!==s||(a=t,o=t.default);var u="function"==typeof o?o.options:o;e&&(u.render=e.render,u.staticRenderFns=e.staticRenderFns),i&&(u._scopeId=i);var c;if(r?(c=function(t){t=t||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext,t||"undefined"==typeof __VUE_SSR_CONTEXT__||(t=__VUE_SSR_CONTEXT__),n&&n.call(this,t),t&&t._registeredComponents&&t._registeredComponents.add(r)},u._ssrRegister=c):n&&(c=n),c){var l=u.functional,d=l?u.render:u.beforeCreate;l?u.render=function(t,e){return c.call(e),d(t,e)}:u.beforeCreate=d?[].concat(d,c):[c]}return{esModule:a,exports:o,options:u}}},function(t,e,n){"use strict";function i(t){return t&&t.__esModule?t:{default:t}}Object.defineProperty(e,"__esModule",{value:!0});var r=n(9),a=i(r),o=n(29),s=i(o),u=n(30),c=i(u),l=n(31),d=i(l),f=n(36),h=i(f),p=n(41),g=i(p),v={onwebkittransitionend:"webkitTransitionEnd",onmoztransitionend:"transitionend",onotransitionend:"oTransitionEnd otransitionend",ontransitionend:"transitionend"},m=function(){for(var t in v)if(t in window)return v[t]};e.default={name:"carousel",beforeUpdate:function(){this.computeCarouselWidth()},components:{Navigation:d.default,Pagination:h.default,Slide:g.default},data:function(){return{browserWidth:null,carouselWidth:0,currentPage:0,dragging:!1,dragMomentum:0,dragOffset:0,dragStartY:0,dragStartX:0,isTouch:"undefined"!=typeof window&&"ontouchstart"in window,offset:0,refreshRate:16,slideCount:0,transitionstart:"transitionstart",transitionend:"transitionend"}},mixins:[s.default],provide:function(){return{carousel:this}},props:{easing:{type:String,default:"ease"},minSwipeDistance:{type:Number,default:8},navigationClickTargetSize:{type:Number,default:8},mouseDrag:{type:Boolean,default:!0},navigationEnabled:{type:Boolean,default:!1},navigationNextLabel:{type:String,default:"&#9654"},navigationPrevLabel:{type:String,default:"&#9664"},paginationActiveColor:{type:String,default:"#000000"},paginationColor:{type:String,default:"#efefef"},paginationEnabled:{type:Boolean,default:!0},paginationPadding:{type:Number,default:10},paginationSize:{type:Number,default:10},perPage:{type:Number,default:2},perPageCustom:{type:Array},resistanceCoef:{type:Number,default:20},scrollPerPage:{type:Boolean,default:!0},speed:{type:Number,default:500},loop:{type:Boolean,default:!1},navigateTo:{type:Number,default:0},spacePadding:{type:Number,default:0}},watch:{navigateTo:{immediate:!0,handler:function(t){var e=this;t!==this.currentPage&&this.$nextTick(function(){e.goToPage(t)})}},currentPage:function(t){this.$emit("pageChange",t)}},computed:{breakpointSlidesPerPage:function(){if(!this.perPageCustom)return this.perPage;var t=this.perPageCustom,e=this.browserWidth,n=t.sort(function(t,e){return t[0]>e[0]?-1:1}),i=n.filter(function(t){return e>=t[0]}),r=i[0]&&i[0][1];return r||this.perPage},canAdvanceForward:function(){return this.loop||this.offset<this.maxOffset},canAdvanceBackward:function(){return this.loop||this.currentPage>0},currentPerPage:function(){return!this.perPageCustom||this.$isServer?this.perPage:this.breakpointSlidesPerPage},currentOffset:function(){return(this.offset+this.dragOffset)*-1},isHidden:function(){return this.carouselWidth<=0},maxOffset:function(){return this.slideWidth*(this.slideCount-1)-2*this.spacePadding},pageCount:function(){return this.scrollPerPage?Math.ceil(this.slideCount/this.currentPerPage):this.slideCount-2},slideWidth:function(){var t=this.carouselWidth-2*this.spacePadding,e=Math.min(this.currentPerPage,this.slideCount);return t/e},transitionStyle:function(){return this.speed/1e3+"s "+this.easing+" transform"},padding:function t(){var t=this.spacePadding;return t>0&&t}},methods:{getNextPage:function(){return this.currentPage<this.pageCount-1?this.currentPage+1:this.loop?0:this.currentPage},getPreviousPage:function(){return this.currentPage>0?this.currentPage-1:this.loop?this.pageCount-1:this.currentPage},advancePage:function(t){t&&"backward"===t&&this.canAdvanceBackward?this.goToPage(this.getPreviousPage(),"navigation"):(!t||t&&"backward"!==t)&&this.canAdvanceForward&&this.goToPage(this.getNextPage(),"navigation")},attachMutationObserver:function(){var t=this,e=window.MutationObserver||window.WebKitMutationObserver||window.MozMutationObserver;if(e){var n={attributes:!0,data:!0};if(this.mutationObserver=new e(function(){t.$nextTick(function(){t.computeCarouselWidth()})}),this.$parent.$el)for(var i=this.$el.getElementsByClassName("VueCarousel-inner"),r=0;r<i.length;r++)this.mutationObserver.observe(i[r],n)}},handleNavigation:function(t){this.advancePage(t)},detachMutationObserver:function(){this.mutationObserver&&this.mutationObserver.disconnect()},getBrowserWidth:function(){return this.browserWidth=window.innerWidth,this.browserWidth},getCarouselWidth:function(){for(var t=this.$el.getElementsByClassName("VueCarousel-inner"),e=0;e<t.length;e++)t[e].clientWidth>0&&(this.carouselWidth=t[e].clientWidth||0);return this.carouselWidth},getSlideCount:function(){this.slideCount=this.$slots&&this.$slots.default&&this.$slots.default.filter(function(t){return t.tag&&t.tag.indexOf("slide")>-1}).length||0},goToPage:function(t){t>=0&&t<=this.pageCount&&(this.offset=this.scrollPerPage?Math.min(this.slideWidth*this.currentPerPage*t,this.maxOffset):Math.min(this.slideWidth*t,this.maxOffset),this.autoplay&&!this.autoplayHoverPause&&this.restartAutoplay(),this.currentPage=t)},onStart:function(t){document.addEventListener(this.isTouch?"touchend":"mouseup",this.onEnd,!0),document.addEventListener(this.isTouch?"touchmove":"mousemove",this.onDrag,!0),this.startTime=t.timeStamp,this.dragging=!0,this.dragStartX=this.isTouch?t.touches[0].clientX:t.clientX,this.dragStartY=this.isTouch?t.touches[0].clientY:t.clientY},onEnd:function(t){var e=this.isTouch?t.changedTouches[0].clientX:t.clientX,n=this.dragStartX-e;if(this.dragMomentum=n/(t.timeStamp-this.startTime),0!==this.minSwipeDistance&&Math.abs(n)>=this.minSwipeDistance){var i=this.scrollPerPage?this.slideWidth*this.currentPerPage:this.slideWidth;this.dragOffset=this.dragOffset+(0,a.default)(n)*(i/2)}this.offset+=this.dragOffset,this.dragOffset=0,this.dragging=!1,this.render(),document.removeEventListener(this.isTouch?"touchend":"mouseup",this.onEnd,!0),document.removeEventListener(this.isTouch?"touchmove":"mousemove",this.onDrag,!0)},onDrag:function(t){var e=this.isTouch?t.touches[0].clientX:t.clientX,n=this.isTouch?t.touches[0].clientY:t.clientY,i=this.dragStartX-e,r=this.dragStartY-n;if(!(this.isTouch&&Math.abs(i)<Math.abs(r))){t.stopImmediatePropagation(),this.dragOffset=i;var a=this.offset+this.dragOffset;a<0?this.dragOffset=-Math.sqrt(-this.resistanceCoef*this.dragOffset):a>this.maxOffset&&(this.dragOffset=Math.sqrt(this.resistanceCoef*this.dragOffset))}},onResize:function(){var t=this;this.computeCarouselWidth(),this.dragging=!0,this.render(),setTimeout(function(){t.dragging=!1},this.refreshRate)},render:function(){this.offset+=Math.max(-this.currentPerPage+1,Math.min(Math.round(this.dragMomentum),this.currentPerPage-1))*this.slideWidth;var t=this.scrollPerPage?this.slideWidth*this.currentPerPage:this.slideWidth;this.offset=t*Math.round(this.offset/t),this.offset=Math.max(0,Math.min(this.offset,this.maxOffset)),this.currentPage=this.scrollPerPage?Math.round(this.offset/this.slideWidth/this.currentPerPage):Math.round(this.offset/this.slideWidth)},computeCarouselWidth:function(){this.getSlideCount(),this.getBrowserWidth(),this.getCarouselWidth(),this.setCurrentPageInBounds()},setCurrentPageInBounds:function(){if(!this.canAdvanceForward&&this.scrollPerPage){var t=this.pageCount-1;this.currentPage=t>=0?t:0,this.offset=Math.max(0,Math.min(this.offset,this.maxOffset))}},handleTransitionStart:function(){this.$emit("transitionStart")},handleTransitionEnd:function(){this.$emit("transitionEnd")}},mounted:function(){window.addEventListener("resize",(0,c.default)(this.onResize,this.refreshRate)),(this.isTouch||this.mouseDrag)&&this.$refs["VueCarousel-wrapper"].addEventListener(this.isTouch?"touchstart":"mousedown",this.onStart),this.attachMutationObserver(),this.computeCarouselWidth(),this.transitionstart=m(),this.$refs["VueCarousel-inner"].addEventListener(this.transitionstart,this.handleTransitionStart),this.transitionend=m(),this.$refs["VueCarousel-inner"].addEventListener(this.transitionend,this.handleTransitionEnd)},beforeDestroy:function(){this.detachMutationObserver(),window.removeEventListener("resize",this.getBrowserWidth),this.$refs["VueCarousel-inner"].removeEventListener(this.transitionstart,this.handleTransitionStart),this.$refs["VueCarousel-inner"].removeEventListener(this.transitionend,this.handleTransitionEnd),this.$refs["VueCarousel-wrapper"].removeEventListener(this.isTouch?"touchstart":"mousedown",this.onStart)}}},function(t,e,n){t.exports={default:n(10),__esModule:!0}},function(t,e,n){n(11),t.exports=n(14).Math.sign},function(t,e,n){var i=n(12);i(i.S,"Math",{sign:n(28)})},function(t,e,n){var i=n(13),r=n(14),a=n(15),o=n(17),s=n(27),u="prototype",c=function(t,e,n){var l,d,f,h=t&c.F,p=t&c.G,g=t&c.S,v=t&c.P,m=t&c.B,b=t&c.W,y=p?r:r[e]||(r[e]={}),x=y[u],C=p?i:g?i[e]:(i[e]||{})[u];p&&(n=e);for(l in n)d=!h&&C&&void 0!==C[l],d&&s(y,l)||(f=d?C[l]:n[l],y[l]=p&&"function"!=typeof C[l]?n[l]:m&&d?a(f,i):b&&C[l]==f?function(t){var e=function(e,n,i){if(this instanceof t){switch(arguments.length){case 0:return new t;case 1:return new t(e);case 2:return new t(e,n)}return new t(e,n,i)}return t.apply(this,arguments)};return e[u]=t[u],e}(f):v&&"function"==typeof f?a(Function.call,f):f,v&&((y.virtual||(y.virtual={}))[l]=f,t&c.R&&x&&!x[l]&&o(x,l,f)))};c.F=1,c.G=2,c.S=4,c.P=8,c.B=16,c.W=32,c.U=64,c.R=128,t.exports=c},function(t,e){var n=t.exports="undefined"!=typeof window&&window.Math==Math?window:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")();"number"==typeof __g&&(__g=n)},function(t,e){var n=t.exports={version:"2.5.7"};"number"==typeof __e&&(__e=n)},function(t,e,n){var i=n(16);t.exports=function(t,e,n){if(i(t),void 0===e)return t;switch(n){case 1:return function(n){return t.call(e,n)};case 2:return function(n,i){return t.call(e,n,i)};case 3:return function(n,i,r){return t.call(e,n,i,r)}}return function(){return t.apply(e,arguments)}}},function(t,e){t.exports=function(t){if("function"!=typeof t)throw TypeError(t+" is not a function!");return t}},function(t,e,n){var i=n(18),r=n(26);t.exports=n(22)?function(t,e,n){return i.f(t,e,r(1,n))}:function(t,e,n){return t[e]=n,t}},function(t,e,n){var i=n(19),r=n(21),a=n(25),o=Object.defineProperty;e.f=n(22)?Object.defineProperty:function(t,e,n){if(i(t),e=a(e,!0),i(n),r)try{return o(t,e,n)}catch(t){}if("get"in n||"set"in n)throw TypeError("Accessors not supported!");return"value"in n&&(t[e]=n.value),t}},function(t,e,n){var i=n(20);t.exports=function(t){if(!i(t))throw TypeError(t+" is not an object!");return t}},function(t,e){t.exports=function(t){return"object"==typeof t?null!==t:"function"==typeof t}},function(t,e,n){t.exports=!n(22)&&!n(23)(function(){return 7!=Object.defineProperty(n(24)("div"),"a",{get:function(){return 7}}).a})},function(t,e,n){t.exports=!n(23)(function(){return 7!=Object.defineProperty({},"a",{get:function(){return 7}}).a})},function(t,e){t.exports=function(t){try{return!!t()}catch(t){return!0}}},function(t,e,n){var i=n(20),r=n(13).document,a=i(r)&&i(r.createElement);t.exports=function(t){return a?r.createElement(t):{}}},function(t,e,n){var i=n(20);t.exports=function(t,e){if(!i(t))return t;var n,r;if(e&&"function"==typeof(n=t.toString)&&!i(r=n.call(t)))return r;if("function"==typeof(n=t.valueOf)&&!i(r=n.call(t)))return r;if(!e&&"function"==typeof(n=t.toString)&&!i(r=n.call(t)))return r;throw TypeError("Can't convert object to primitive value")}},function(t,e){t.exports=function(t,e){return{enumerable:!(1&t),configurable:!(2&t),writable:!(4&t),value:e}}},function(t,e){var n={}.hasOwnProperty;t.exports=function(t,e){return n.call(t,e)}},function(t,e){t.exports=Math.sign||function(t){return 0==(t=+t)||t!=t?t:t<0?-1:1}},function(t,e){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var n={props:{autoplay:{type:Boolean,default:!1},autoplayTimeout:{type:Number,default:2e3},autoplayHoverPause:{type:Boolean,default:!0}},data:function(){return{autoplayInterval:null}},destroyed:function(){this.$isServer||(this.$el.removeEventListener("mouseenter",this.pauseAutoplay),this.$el.removeEventListener("mouseleave",this.startAutoplay))},methods:{pauseAutoplay:function(){this.autoplayInterval&&(this.autoplayInterval=clearInterval(this.autoplayInterval))},startAutoplay:function(){this.autoplay&&(this.autoplayInterval=setInterval(this.advancePage,this.autoplayTimeout))},restartAutoplay:function(){this.pauseAutoplay(),this.startAutoplay()}},mounted:function(){!this.$isServer&&this.autoplayHoverPause&&(this.$el.addEventListener("mouseenter",this.pauseAutoplay),this.$el.addEventListener("mouseleave",this.startAutoplay)),this.startAutoplay()}};e.default=n},function(t,e){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var n=function(t,e,n){var i=void 0;return function(){var r=void 0,a=function(){i=null,n||t.apply(r)},o=n&&!i;clearTimeout(i),i=setTimeout(a,e),o&&t.apply(r)}};e.default=n},function(t,e,n){function i(t){n(32)}var r=n(7)(n(34),n(35),i,"data-v-7fed18e9",null);t.exports=r.exports},function(t,e,n){var i=n(33);"string"==typeof i&&(i=[[t.id,i,""]]),i.locals&&(t.exports=i.locals);n(5)("a1957e6c",i,!0,{})},function(t,e,n){e=t.exports=n(4)(),e.push([t.id,'.VueCarousel-navigation-button[data-v-7fed18e9]{position:absolute;top:50%;box-sizing:border-box;color:#000;text-decoration:none;-webkit-appearance:none;-moz-appearance:none;appearance:none;border:none;background-color:transparent;padding:0;cursor:pointer;outline:none}.VueCarousel-navigation-next[data-v-7fed18e9]{right:0;transform:translateY(-50%) translateX(100%);font-family:system}.VueCarousel-navigation-prev[data-v-7fed18e9]{left:0;transform:translateY(-50%) translateX(-100%);font-family:system}.VueCarousel-navigation--disabled[data-v-7fed18e9]{opacity:.5;cursor:default}@font-face{font-family:system;font-style:normal;font-weight:300;src:local(".SFNSText-Light"),local(".HelveticaNeueDeskInterface-Light"),local(".LucidaGrandeUI"),local("Ubuntu Light"),local("Segoe UI Symbol"),local("Roboto-Light"),local("DroidSans"),local("Tahoma")}',""])},function(t,e){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default={name:"navigation",inject:["carousel"],props:{clickTargetSize:{type:Number,default:8},nextLabel:{type:String,default:"&#9654"},prevLabel:{type:String,default:"&#9664"}},computed:{canAdvanceForward:function(){return this.carousel.canAdvanceForward||!1},canAdvanceBackward:function(){return this.carousel.canAdvanceBackward||!1}},methods:{triggerPageAdvance:function(t){this.$emit("navigationclick",t)}}}},function(t,e){t.exports={render:function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("div",{staticClass:"VueCarousel-navigation"},[n("button",{staticClass:"VueCarousel-navigation-button VueCarousel-navigation-prev",class:{"VueCarousel-navigation--disabled":!t.canAdvanceBackward},style:"padding: "+t.clickTargetSize+"px; margin-right: -"+t.clickTargetSize+"px;",attrs:{type:"button","aria-label":"Previous page",role:"button"},domProps:{innerHTML:t._s(t.prevLabel)},on:{click:function(e){e.preventDefault(),t.triggerPageAdvance("backward")}}}),t._v(" "),n("button",{staticClass:"VueCarousel-navigation-button VueCarousel-navigation-next",class:{"VueCarousel-navigation--disabled":!t.canAdvanceForward},style:"padding: "+t.clickTargetSize+"px; margin-left: -"+t.clickTargetSize+"px;",attrs:{type:"button","aria-label":"Next page",role:"button"},domProps:{innerHTML:t._s(t.nextLabel)},on:{click:function(e){e.preventDefault(),t.triggerPageAdvance()}}})])},staticRenderFns:[]}},function(t,e,n){function i(t){n(37)}var r=n(7)(n(39),n(40),i,"data-v-7e42136f",null);t.exports=r.exports},function(t,e,n){var i=n(38);"string"==typeof i&&(i=[[t.id,i,""]]),i.locals&&(t.exports=i.locals);n(5)("3ea8dd5f",i,!0,{})},function(t,e,n){e=t.exports=n(4)(),e.push([t.id,".VueCarousel-pagination[data-v-7e42136f]{width:100%;text-align:center}.VueCarousel-dot-container[data-v-7e42136f]{display:inline-block;margin:0 auto;padding:0}.VueCarousel-dot[data-v-7e42136f]{display:inline-block;cursor:pointer}.VueCarousel-dot-button[data-v-7e42136f]{-webkit-appearance:none;-moz-appearance:none;appearance:none;border:none;background-color:transparent;padding:0;border-radius:100%;outline:none;cursor:pointer}.VueCarousel-dot-button[data-v-7e42136f]:focus{outline:1px solid #add8e6}",""])},function(t,e){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default={name:"pagination",inject:["carousel"],computed:{pagniationCount:function(){return this.carousel.scrollPerPage?this.carousel.pageCount:this.carousel.slideCount-2}},methods:{goToPage:function(t){this.$emit("paginationclick",t)},isCurrentDot:function(t){return t===this.carousel.currentPage}}}},function(t,e){t.exports={render:function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("div",{directives:[{name:"show",rawName:"v-show",value:t.carousel.pageCount>1,expression:"carousel.pageCount > 1"}],staticClass:"VueCarousel-pagination"},[n("ul",{staticClass:"VueCarousel-dot-container",attrs:{role:"tablist"}},t._l(t.pagniationCount,function(e,i){return n("li",{key:e+"_"+i,staticClass:"VueCarousel-dot",class:{"VueCarousel-dot--active":t.isCurrentDot(i)},style:"\n        margin-top: "+2*t.carousel.paginationPadding+"px;\n        padding: "+t.carousel.paginationPadding+"px;\n      ",attrs:{"aria-hidden":"false",role:"presentation","aria-selected":t.isCurrentDot(i)?"true":"false"},on:{click:function(e){t.goToPage(i)}}},[n("button",{staticClass:"VueCarousel-dot-button",style:"\n          width: "+t.carousel.paginationSize+"px;\n          height: "+t.carousel.paginationSize+"px;\n          background: "+(t.isCurrentDot(i)?t.carousel.paginationActiveColor:t.carousel.paginationColor)+";\n        ",attrs:{type:"button",role:"button",tabindex:i}})])}))])},staticRenderFns:[]}},function(t,e,n){function i(t){n(42)}var r=n(7)(n(44),n(67),i,null,null);t.exports=r.exports},function(t,e,n){var i=n(43);"string"==typeof i&&(i=[[t.id,i,""]]),i.locals&&(t.exports=i.locals);n(5)("e8ab14d8",i,!0,{})},function(t,e,n){e=t.exports=n(4)(),e.push([t.id,".VueCarousel-slide{-ms-flex-preferred-size:inherit;flex-basis:inherit;-ms-flex-positive:0;flex-grow:0;-ms-flex-negative:0;flex-shrink:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-backface-visibility:hidden;backface-visibility:hidden;-webkit-touch-callout:none;outline:none}",""])},function(t,e,n){"use strict";function i(t){return t&&t.__esModule?t:{default:t}}Object.defineProperty(e,"__esModule",{value:!0});var r=n(45),a=i(r);e.default={name:"slide",data:function(){return{width:null}},inject:["carousel"],mounted:function(){this.$isServer||this.$el.addEventListener("dragstart",function(t){return t.preventDefault()}),this.$el.addEventListener(this.carousel.isTouch?"touchend":"mouseup",this.onTouchEnd)},computed:{activeSlides:function t(){for(var e=this.carousel,n=e.currentPage,i=e.perPage,r=e.$children,t=(e.slideCount,[]),a=r.filter(function(t){return t.$el&&t.$el.className.indexOf("VueCarousel-slide")>=0}).map(function(t){return t._uid}),o=0;o<i;){var s=a[n*i+o];t.push(s),o++}return t},isActive:function(){return this.activeSlides.indexOf(this._uid)>=0},isCenter:function(){var t=this.carousel.perPage;return!(t%2===0||!this.isActive)&&this.activeSlides.indexOf(this._uid)===Math.floor(t/2)}},methods:{onTouchEnd:function(t){var e=this.carousel.isTouch&&t.changedTouches&&t.changedTouches.length>0?t.changedTouches[0].clientX:t.clientX,n=this.carousel.dragStartX-e;(0===this.carousel.minSwipeDistance||Math.abs(n)<this.carousel.minSwipeDistance)&&this.$emit("slideClick",(0,a.default)({},t.currentTarget.dataset))}}}},function(t,e,n){t.exports={default:n(46),__esModule:!0}},function(t,e,n){n(47),t.exports=n(14).Object.assign},function(t,e,n){var i=n(12);i(i.S+i.F,"Object",{assign:n(48)})},function(t,e,n){"use strict";var i=n(49),r=n(64),a=n(65),o=n(66),s=n(52),u=Object.assign;t.exports=!u||n(23)(function(){var t={},e={},n=Symbol(),i="abcdefghijklmnopqrst";return t[n]=7,i.split("").forEach(function(t){e[t]=t}),7!=u({},t)[n]||Object.keys(u({},e)).join("")!=i})?function(t,e){for(var n=o(t),u=arguments.length,c=1,l=r.f,d=a.f;u>c;)for(var f,h=s(arguments[c++]),p=l?i(h).concat(l(h)):i(h),g=p.length,v=0;g>v;)d.call(h,f=p[v++])&&(n[f]=h[f]);return n}:u},function(t,e,n){var i=n(50),r=n(63);t.exports=Object.keys||function(t){return i(t,r)}},function(t,e,n){var i=n(27),r=n(51),a=n(55)(!1),o=n(59)("IE_PROTO");t.exports=function(t,e){var n,s=r(t),u=0,c=[];for(n in s)n!=o&&i(s,n)&&c.push(n);for(;e.length>u;)i(s,n=e[u++])&&(~a(c,n)||c.push(n));return c}},function(t,e,n){var i=n(52),r=n(54);t.exports=function(t){return i(r(t))}},function(t,e,n){var i=n(53);t.exports=Object("z").propertyIsEnumerable(0)?Object:function(t){return"String"==i(t)?t.split(""):Object(t)}},function(t,e){var n={}.toString;t.exports=function(t){return n.call(t).slice(8,-1)}},function(t,e){t.exports=function(t){if(void 0==t)throw TypeError("Can't call method on  "+t);return t}},function(t,e,n){var i=n(51),r=n(56),a=n(58);t.exports=function(t){return function(e,n,o){var s,u=i(e),c=r(u.length),l=a(o,c);if(t&&n!=n){for(;c>l;)if(s=u[l++],s!=s)return!0}else for(;c>l;l++)if((t||l in u)&&u[l]===n)return t||l||0;return!t&&-1}}},function(t,e,n){var i=n(57),r=Math.min;t.exports=function(t){return t>0?r(i(t),9007199254740991):0}},function(t,e){var n=Math.ceil,i=Math.floor;t.exports=function(t){return isNaN(t=+t)?0:(t>0?i:n)(t)}},function(t,e,n){var i=n(57),r=Math.max,a=Math.min;t.exports=function(t,e){return t=i(t),t<0?r(t+e,0):a(t,e)}},function(t,e,n){var i=n(60)("keys"),r=n(62);t.exports=function(t){return i[t]||(i[t]=r(t))}},function(t,e,n){var i=n(14),r=n(13),a="__core-js_shared__",o=r[a]||(r[a]={});(t.exports=function(t,e){return o[t]||(o[t]=void 0!==e?e:{})})("versions",[]).push({version:i.version,mode:n(61)?"pure":"global",copyright:"© 2018 Denis Pushkarev (zloirock.ru)"})},function(t,e){t.exports=!0},function(t,e){var n=0,i=Math.random();t.exports=function(t){return"Symbol(".concat(void 0===t?"":t,")_",(++n+i).toString(36))}},function(t,e){t.exports="constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf".split(",")},function(t,e){e.f=Object.getOwnPropertySymbols},function(t,e){e.f={}.propertyIsEnumerable},function(t,e,n){var i=n(54);t.exports=function(t){return Object(i(t))}},function(t,e){t.exports={render:function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("div",{staticClass:"VueCarousel-slide",class:{"VueCarousel-slide-active":t.isActive,"VueCarousel-slide-center":t.isCenter},attrs:{tabindex:"-1"}},[t._t("default")],2)},staticRenderFns:[]}},function(t,e){t.exports={render:function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("section",{staticClass:"VueCarousel"},[n("div",{ref:"VueCarousel-wrapper",staticClass:"VueCarousel-wrapper"},[n("div",{ref:"VueCarousel-inner",staticClass:"VueCarousel-inner",style:{transform:"translate("+t.currentOffset+"px, 0)",transition:t.dragging?"none":t.transitionStyle,"ms-flex-preferred-size":t.slideWidth+"px","webkit-flex-basis":t.slideWidth+"px","flex-basis":t.slideWidth+"px",visibility:t.slideWidth?"visible":"hidden","padding-left":t.padding+"px","padding-right":t.padding+"px"},attrs:{role:"listbox"}},[t._t("default")],2)]),t._v(" "),t.paginationEnabled&&t.pageCount>0?n("pagination",{on:{paginationclick:function(e){t.goToPage(e,"pagination")}}}):t._e(),t._v(" "),t.navigationEnabled?n("navigation",{attrs:{clickTargetSize:t.navigationClickTargetSize,nextLabel:t.navigationNextLabel,prevLabel:t.navigationPrevLabel},on:{navigationclick:t.handleNavigation}}):t._e()],1)},staticRenderFns:[]}}])});
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
 //! moment.js locale configuration
 
 ;(function (global, factory) {
@@ -29637,7 +29626,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29776,7 +29765,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29839,7 +29828,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29902,7 +29891,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 21 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30028,7 +30017,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 22 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30091,7 +30080,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30199,7 +30188,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30262,7 +30251,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30371,7 +30360,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30507,7 +30496,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30601,7 +30590,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30663,7 +30652,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 29 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30786,7 +30775,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30909,7 +30898,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31021,7 +31010,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31176,7 +31165,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31268,7 +31257,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 34 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31451,7 +31440,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31518,7 +31507,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31602,7 +31591,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31666,7 +31655,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31746,7 +31735,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 39 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31826,7 +31815,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 40 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31906,7 +31895,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 41 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32009,7 +31998,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 42 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32113,7 +32102,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 43 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32184,7 +32173,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 44 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32251,7 +32240,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 45 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32322,7 +32311,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 46 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32393,7 +32382,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 47 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32459,7 +32448,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 48 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32530,7 +32519,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 49 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32605,7 +32594,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32701,7 +32690,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32797,7 +32786,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 52 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32884,7 +32873,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 53 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32968,7 +32957,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 54 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33038,7 +33027,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 55 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33148,7 +33137,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33261,7 +33250,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 57 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33325,7 +33314,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33412,7 +33401,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 59 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33490,7 +33479,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 60 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33572,7 +33561,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 61 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33651,7 +33640,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 62 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33731,7 +33720,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 63 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33812,7 +33801,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 64 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33939,7 +33928,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 65 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34067,7 +34056,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 66 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34168,7 +34157,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 67 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34296,7 +34285,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 68 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34454,7 +34443,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 69 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34568,7 +34557,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 70 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34667,7 +34656,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 71 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34753,7 +34742,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 72 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34889,7 +34878,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 73 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34962,7 +34951,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 74 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35058,7 +35047,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 75 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35144,7 +35133,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 76 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35237,7 +35226,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 77 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35328,7 +35317,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 78 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35442,7 +35431,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 79 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35572,7 +35561,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 80 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35657,7 +35646,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 81 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35748,7 +35737,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 82 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35888,7 +35877,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 83 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35962,7 +35951,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 84 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36084,7 +36073,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 85 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36185,7 +36174,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 86 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36301,7 +36290,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 87 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36369,7 +36358,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 88 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36463,7 +36452,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 89 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36548,7 +36537,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 90 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36656,7 +36645,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 91 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36820,7 +36809,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 92 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36906,7 +36895,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 93 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36992,7 +36981,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 94 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -37056,7 +37045,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 95 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -37153,7 +37142,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 96 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -37219,7 +37208,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 97 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -37346,7 +37335,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 98 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -37437,7 +37426,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 99 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -37528,7 +37517,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 100 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -37592,7 +37581,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 101 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -37720,7 +37709,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 102 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -37850,7 +37839,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 103 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -37919,7 +37908,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 104 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -37984,7 +37973,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 105 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -38063,7 +38052,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 106 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -38249,7 +38238,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 107 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -38351,7 +38340,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 108 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -38415,7 +38404,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 109 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -38490,7 +38479,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 110 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -38650,7 +38639,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 111 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -38827,7 +38816,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 112 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -38899,7 +38888,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 113 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -39014,7 +39003,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 114 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -39129,7 +39118,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 115 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -39221,7 +39210,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 116 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -39294,7 +39283,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 117 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -39357,7 +39346,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 118 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -39490,7 +39479,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 119 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -39583,7 +39572,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 120 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -39654,7 +39643,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 121 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -39774,7 +39763,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 122 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -39845,7 +39834,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 123 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -39911,7 +39900,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 124 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -40037,7 +40026,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 125 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -40135,7 +40124,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 126 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -40230,7 +40219,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 127 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -40292,7 +40281,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 128 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -40354,7 +40343,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 129 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js language configuration
@@ -40477,7 +40466,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 130 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -40632,7 +40621,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 131 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -40734,7 +40723,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 132 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -40796,7 +40785,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 133 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -40858,7 +40847,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 134 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -40941,7 +40930,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 135 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41013,7 +41002,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 136 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41077,7 +41066,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 137 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41191,7 +41180,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 138 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41298,7 +41287,7 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 139 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -41405,20 +41394,20 @@ module.exports = Vue;
 
 
 /***/ }),
-/* 140 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(141);
+__webpack_require__(140);
 module.exports = __webpack_require__(180);
 
 
 /***/ }),
-/* 141 */
+/* 140 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_snotify__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_snotify__ = __webpack_require__(164);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -41426,7 +41415,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(142);
+__webpack_require__(141);
 
 window.Vue = __webpack_require__(15);
 
@@ -41446,8 +41435,8 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_snotify__["b" /* default */], options);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(166));
-Vue.component('display-data', __webpack_require__(169));
+Vue.component('example-component', __webpack_require__(165));
+Vue.component('display-data', __webpack_require__(168));
 Vue.component('display-for-admin', __webpack_require__(173));
 Vue.component('content-form', __webpack_require__(177));
 
@@ -41456,11 +41445,11 @@ var app = new Vue({
 });
 
 /***/ }),
-/* 142 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-window._ = __webpack_require__(143);
+window._ = __webpack_require__(142);
 window.Popper = __webpack_require__(7).default;
 
 /**
@@ -41472,7 +41461,7 @@ window.Popper = __webpack_require__(7).default;
 try {
   window.$ = window.jQuery = __webpack_require__(8);
 
-  __webpack_require__(144);
+  __webpack_require__(143);
 } catch (e) {}
 
 /**
@@ -41481,7 +41470,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(145);
+window.axios = __webpack_require__(144);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -41517,7 +41506,7 @@ if (token) {
 // });
 
 /***/ }),
-/* 143 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -58630,7 +58619,7 @@ if (token) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(6)(module)))
 
 /***/ }),
-/* 144 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -62563,13 +62552,13 @@ if (token) {
 
 
 /***/ }),
-/* 145 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(146);
+module.exports = __webpack_require__(145);
 
 /***/ }),
-/* 146 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62577,7 +62566,7 @@ module.exports = __webpack_require__(146);
 
 var utils = __webpack_require__(1);
 var bind = __webpack_require__(9);
-var Axios = __webpack_require__(148);
+var Axios = __webpack_require__(147);
 var defaults = __webpack_require__(4);
 
 /**
@@ -62612,14 +62601,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(14);
-axios.CancelToken = __webpack_require__(162);
+axios.CancelToken = __webpack_require__(161);
 axios.isCancel = __webpack_require__(13);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(163);
+axios.spread = __webpack_require__(162);
 
 module.exports = axios;
 
@@ -62628,7 +62617,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 147 */
+/* 146 */
 /***/ (function(module, exports) {
 
 /*!
@@ -62655,7 +62644,7 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 148 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62663,8 +62652,8 @@ function isSlowBuffer (obj) {
 
 var defaults = __webpack_require__(4);
 var utils = __webpack_require__(1);
-var InterceptorManager = __webpack_require__(157);
-var dispatchRequest = __webpack_require__(158);
+var InterceptorManager = __webpack_require__(156);
+var dispatchRequest = __webpack_require__(157);
 
 /**
  * Create a new instance of Axios
@@ -62741,7 +62730,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 149 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62760,7 +62749,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 150 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62793,7 +62782,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 151 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62821,7 +62810,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 152 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62894,7 +62883,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 153 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62954,7 +62943,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 154 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63029,7 +63018,7 @@ module.exports = (
 
 
 /***/ }),
-/* 155 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63072,7 +63061,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 156 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63132,7 +63121,7 @@ module.exports = (
 
 
 /***/ }),
-/* 157 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63191,18 +63180,18 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 158 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(1);
-var transformData = __webpack_require__(159);
+var transformData = __webpack_require__(158);
 var isCancel = __webpack_require__(13);
 var defaults = __webpack_require__(4);
-var isAbsoluteURL = __webpack_require__(160);
-var combineURLs = __webpack_require__(161);
+var isAbsoluteURL = __webpack_require__(159);
+var combineURLs = __webpack_require__(160);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -63284,7 +63273,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 159 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63311,7 +63300,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 160 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63332,7 +63321,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 161 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63353,7 +63342,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 162 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63417,7 +63406,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 163 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -63451,7 +63440,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 164 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -63644,7 +63633,7 @@ module.exports = function spread(callback) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(10)))
 
 /***/ }),
-/* 165 */
+/* 164 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -65079,15 +65068,15 @@ if (typeof window !== 'undefined' && window.hasOwnProperty('Vue')) {
 
 
 /***/ }),
-/* 166 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(167)
+var __vue_script__ = __webpack_require__(166)
 /* template */
-var __vue_template__ = __webpack_require__(168)
+var __vue_template__ = __webpack_require__(167)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -65126,7 +65115,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 167 */
+/* 166 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -65155,7 +65144,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 168 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -65198,13 +65187,13 @@ if (false) {
 }
 
 /***/ }),
-/* 169 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(170)
+var __vue_script__ = __webpack_require__(169)
 /* template */
 var __vue_template__ = __webpack_require__(172)
 /* template functional */
@@ -65245,12 +65234,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 170 */
+/* 169 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_carousel__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_carousel__ = __webpack_require__(170);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_carousel__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment__);
@@ -66165,256 +66154,267 @@ Vue.filter('toDateDisplay', function (value) {
 });
 
 /***/ }),
+/* 170 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*!
+ * vue-carousel v0.9.0
+ * (c) 2018 todd.beauchamp@ssense.com
+ * https://github.com/ssense/vue-carousel#readme
+ */
+!function(t,e){ true?module.exports=e():"function"==typeof define&&define.amd?define([],e):"object"==typeof exports?exports.VueCarousel=e():t.VueCarousel=e()}(this,function(){return function(t){function e(i){if(n[i])return n[i].exports;var r=n[i]={exports:{},id:i,loaded:!1};return t[i].call(r.exports,r,r.exports,e),r.loaded=!0,r.exports}var n={};return e.m=t,e.c=n,e.p="",e(0)}([function(t,e,n){"use strict";function i(t){return t&&t.__esModule?t:{default:t}}Object.defineProperty(e,"__esModule",{value:!0}),e.Slide=e.Carousel=void 0;var r=n(1),a=i(r),o=n(41),s=i(o),u=function(t){t.component("carousel",a.default),t.component("slide",s.default)};e.default={install:u},e.Carousel=a.default,e.Slide=s.default},function(t,e,n){function i(t){n(2)}var r=n(7)(n(8),n(68),i,null,null);t.exports=r.exports},function(t,e,n){var i=n(3);"string"==typeof i&&(i=[[t.id,i,""]]),i.locals&&(t.exports=i.locals);n(5)("80564c20",i,!0,{})},function(t,e,n){e=t.exports=n(4)(),e.push([t.id,".VueCarousel{position:relative}.VueCarousel-wrapper{width:100%;position:relative;overflow:hidden}.VueCarousel-inner{display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-webkit-backface-visibility:hidden;backface-visibility:hidden}",""])},function(t,e){t.exports=function(){var t=[];return t.toString=function(){for(var t=[],e=0;e<this.length;e++){var n=this[e];n[2]?t.push("@media "+n[2]+"{"+n[1]+"}"):t.push(n[1])}return t.join("")},t.i=function(e,n){"string"==typeof e&&(e=[[null,e,""]]);for(var i={},r=0;r<this.length;r++){var a=this[r][0];"number"==typeof a&&(i[a]=!0)}for(r=0;r<e.length;r++){var o=e[r];"number"==typeof o[0]&&i[o[0]]||(n&&!o[2]?o[2]=n:n&&(o[2]="("+o[2]+") and ("+n+")"),t.push(o))}},t}},function(t,e,n){function i(t){for(var e=0;e<t.length;e++){var n=t[e],i=l[n.id];if(i){i.refs++;for(var r=0;r<i.parts.length;r++)i.parts[r](n.parts[r]);for(;r<n.parts.length;r++)i.parts.push(a(n.parts[r]));i.parts.length>n.parts.length&&(i.parts.length=n.parts.length)}else{for(var o=[],r=0;r<n.parts.length;r++)o.push(a(n.parts[r]));l[n.id]={id:n.id,refs:1,parts:o}}}}function r(){var t=document.createElement("style");return t.type="text/css",d.appendChild(t),t}function a(t){var e,n,i=document.querySelector("style["+m+'~="'+t.id+'"]');if(i){if(p)return g;i.parentNode.removeChild(i)}if(b){var a=h++;i=f||(f=r()),e=o.bind(null,i,a,!1),n=o.bind(null,i,a,!0)}else i=r(),e=s.bind(null,i),n=function(){i.parentNode.removeChild(i)};return e(t),function(i){if(i){if(i.css===t.css&&i.media===t.media&&i.sourceMap===t.sourceMap)return;e(t=i)}else n()}}function o(t,e,n,i){var r=n?"":i.css;if(t.styleSheet)t.styleSheet.cssText=y(e,r);else{var a=document.createTextNode(r),o=t.childNodes;o[e]&&t.removeChild(o[e]),o.length?t.insertBefore(a,o[e]):t.appendChild(a)}}function s(t,e){var n=e.css,i=e.media,r=e.sourceMap;if(i&&t.setAttribute("media",i),v.ssrId&&t.setAttribute(m,e.id),r&&(n+="\n/*# sourceURL="+r.sources[0]+" */",n+="\n/*# sourceMappingURL=data:application/json;base64,"+btoa(unescape(encodeURIComponent(JSON.stringify(r))))+" */"),t.styleSheet)t.styleSheet.cssText=n;else{for(;t.firstChild;)t.removeChild(t.firstChild);t.appendChild(document.createTextNode(n))}}var u="undefined"!=typeof document,c=n(6),l={},d=u&&(document.head||document.getElementsByTagName("head")[0]),f=null,h=0,p=!1,g=function(){},v=null,m="data-vue-ssr-id",b="undefined"!=typeof navigator&&/msie [6-9]\b/.test(navigator.userAgent.toLowerCase());t.exports=function(t,e,n,r){p=n,v=r||{};var a=c(t,e);return i(a),function(e){for(var n=[],r=0;r<a.length;r++){var o=a[r],s=l[o.id];s.refs--,n.push(s)}e?(a=c(t,e),i(a)):a=[];for(var r=0;r<n.length;r++){var s=n[r];if(0===s.refs){for(var u=0;u<s.parts.length;u++)s.parts[u]();delete l[s.id]}}}};var y=function(){var t=[];return function(e,n){return t[e]=n,t.filter(Boolean).join("\n")}}()},function(t,e){t.exports=function(t,e){for(var n=[],i={},r=0;r<e.length;r++){var a=e[r],o=a[0],s=a[1],u=a[2],c=a[3],l={id:t+":"+r,css:s,media:u,sourceMap:c};i[o]?i[o].parts.push(l):n.push(i[o]={id:o,parts:[l]})}return n}},function(t,e){t.exports=function(t,e,n,i,r){var a,o=t=t||{},s=typeof t.default;"object"!==s&&"function"!==s||(a=t,o=t.default);var u="function"==typeof o?o.options:o;e&&(u.render=e.render,u.staticRenderFns=e.staticRenderFns),i&&(u._scopeId=i);var c;if(r?(c=function(t){t=t||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext,t||"undefined"==typeof __VUE_SSR_CONTEXT__||(t=__VUE_SSR_CONTEXT__),n&&n.call(this,t),t&&t._registeredComponents&&t._registeredComponents.add(r)},u._ssrRegister=c):n&&(c=n),c){var l=u.functional,d=l?u.render:u.beforeCreate;l?u.render=function(t,e){return c.call(e),d(t,e)}:u.beforeCreate=d?[].concat(d,c):[c]}return{esModule:a,exports:o,options:u}}},function(t,e,n){"use strict";function i(t){return t&&t.__esModule?t:{default:t}}Object.defineProperty(e,"__esModule",{value:!0});var r=n(9),a=i(r),o=n(29),s=i(o),u=n(30),c=i(u),l=n(31),d=i(l),f=n(36),h=i(f),p=n(41),g=i(p),v={onwebkittransitionend:"webkitTransitionEnd",onmoztransitionend:"transitionend",onotransitionend:"oTransitionEnd otransitionend",ontransitionend:"transitionend"},m=function(){for(var t in v)if(t in window)return v[t]};e.default={name:"carousel",beforeUpdate:function(){this.computeCarouselWidth()},components:{Navigation:d.default,Pagination:h.default,Slide:g.default},data:function(){return{browserWidth:null,carouselWidth:0,currentPage:0,dragging:!1,dragMomentum:0,dragOffset:0,dragStartY:0,dragStartX:0,isTouch:"undefined"!=typeof window&&"ontouchstart"in window,offset:0,refreshRate:16,slideCount:0,transitionstart:"transitionstart",transitionend:"transitionend"}},mixins:[s.default],provide:function(){return{carousel:this}},props:{easing:{type:String,default:"ease"},minSwipeDistance:{type:Number,default:8},navigationClickTargetSize:{type:Number,default:8},mouseDrag:{type:Boolean,default:!0},navigationEnabled:{type:Boolean,default:!1},navigationNextLabel:{type:String,default:"&#9654"},navigationPrevLabel:{type:String,default:"&#9664"},paginationActiveColor:{type:String,default:"#000000"},paginationColor:{type:String,default:"#efefef"},paginationEnabled:{type:Boolean,default:!0},paginationPadding:{type:Number,default:10},paginationSize:{type:Number,default:10},perPage:{type:Number,default:2},perPageCustom:{type:Array},resistanceCoef:{type:Number,default:20},scrollPerPage:{type:Boolean,default:!0},speed:{type:Number,default:500},loop:{type:Boolean,default:!1},navigateTo:{type:Number,default:0},spacePadding:{type:Number,default:0}},watch:{navigateTo:{immediate:!0,handler:function(t){var e=this;t!==this.currentPage&&this.$nextTick(function(){e.goToPage(t)})}},currentPage:function(t){this.$emit("pageChange",t)}},computed:{breakpointSlidesPerPage:function(){if(!this.perPageCustom)return this.perPage;var t=this.perPageCustom,e=this.browserWidth,n=t.sort(function(t,e){return t[0]>e[0]?-1:1}),i=n.filter(function(t){return e>=t[0]}),r=i[0]&&i[0][1];return r||this.perPage},canAdvanceForward:function(){return this.loop||this.offset<this.maxOffset},canAdvanceBackward:function(){return this.loop||this.currentPage>0},currentPerPage:function(){return!this.perPageCustom||this.$isServer?this.perPage:this.breakpointSlidesPerPage},currentOffset:function(){return(this.offset+this.dragOffset)*-1},isHidden:function(){return this.carouselWidth<=0},maxOffset:function(){return this.slideWidth*(this.slideCount-1)-2*this.spacePadding},pageCount:function(){return this.scrollPerPage?Math.ceil(this.slideCount/this.currentPerPage):this.slideCount-2},slideWidth:function(){var t=this.carouselWidth-2*this.spacePadding,e=Math.min(this.currentPerPage,this.slideCount);return t/e},transitionStyle:function(){return this.speed/1e3+"s "+this.easing+" transform"},padding:function t(){var t=this.spacePadding;return t>0&&t}},methods:{getNextPage:function(){return this.currentPage<this.pageCount-1?this.currentPage+1:this.loop?0:this.currentPage},getPreviousPage:function(){return this.currentPage>0?this.currentPage-1:this.loop?this.pageCount-1:this.currentPage},advancePage:function(t){t&&"backward"===t&&this.canAdvanceBackward?this.goToPage(this.getPreviousPage(),"navigation"):(!t||t&&"backward"!==t)&&this.canAdvanceForward&&this.goToPage(this.getNextPage(),"navigation")},attachMutationObserver:function(){var t=this,e=window.MutationObserver||window.WebKitMutationObserver||window.MozMutationObserver;if(e){var n={attributes:!0,data:!0};if(this.mutationObserver=new e(function(){t.$nextTick(function(){t.computeCarouselWidth()})}),this.$parent.$el)for(var i=this.$el.getElementsByClassName("VueCarousel-inner"),r=0;r<i.length;r++)this.mutationObserver.observe(i[r],n)}},handleNavigation:function(t){this.advancePage(t)},detachMutationObserver:function(){this.mutationObserver&&this.mutationObserver.disconnect()},getBrowserWidth:function(){return this.browserWidth=window.innerWidth,this.browserWidth},getCarouselWidth:function(){for(var t=this.$el.getElementsByClassName("VueCarousel-inner"),e=0;e<t.length;e++)t[e].clientWidth>0&&(this.carouselWidth=t[e].clientWidth||0);return this.carouselWidth},getSlideCount:function(){this.slideCount=this.$slots&&this.$slots.default&&this.$slots.default.filter(function(t){return t.tag&&t.tag.indexOf("slide")>-1}).length||0},goToPage:function(t){t>=0&&t<=this.pageCount&&(this.offset=this.scrollPerPage?Math.min(this.slideWidth*this.currentPerPage*t,this.maxOffset):Math.min(this.slideWidth*t,this.maxOffset),this.autoplay&&!this.autoplayHoverPause&&this.restartAutoplay(),this.currentPage=t)},onStart:function(t){document.addEventListener(this.isTouch?"touchend":"mouseup",this.onEnd,!0),document.addEventListener(this.isTouch?"touchmove":"mousemove",this.onDrag,!0),this.startTime=t.timeStamp,this.dragging=!0,this.dragStartX=this.isTouch?t.touches[0].clientX:t.clientX,this.dragStartY=this.isTouch?t.touches[0].clientY:t.clientY},onEnd:function(t){var e=this.isTouch?t.changedTouches[0].clientX:t.clientX,n=this.dragStartX-e;if(this.dragMomentum=n/(t.timeStamp-this.startTime),0!==this.minSwipeDistance&&Math.abs(n)>=this.minSwipeDistance){var i=this.scrollPerPage?this.slideWidth*this.currentPerPage:this.slideWidth;this.dragOffset=this.dragOffset+(0,a.default)(n)*(i/2)}this.offset+=this.dragOffset,this.dragOffset=0,this.dragging=!1,this.render(),document.removeEventListener(this.isTouch?"touchend":"mouseup",this.onEnd,!0),document.removeEventListener(this.isTouch?"touchmove":"mousemove",this.onDrag,!0)},onDrag:function(t){var e=this.isTouch?t.touches[0].clientX:t.clientX,n=this.isTouch?t.touches[0].clientY:t.clientY,i=this.dragStartX-e,r=this.dragStartY-n;if(!(this.isTouch&&Math.abs(i)<Math.abs(r))){t.stopImmediatePropagation(),this.dragOffset=i;var a=this.offset+this.dragOffset;a<0?this.dragOffset=-Math.sqrt(-this.resistanceCoef*this.dragOffset):a>this.maxOffset&&(this.dragOffset=Math.sqrt(this.resistanceCoef*this.dragOffset))}},onResize:function(){var t=this;this.computeCarouselWidth(),this.dragging=!0,this.render(),setTimeout(function(){t.dragging=!1},this.refreshRate)},render:function(){this.offset+=Math.max(-this.currentPerPage+1,Math.min(Math.round(this.dragMomentum),this.currentPerPage-1))*this.slideWidth;var t=this.scrollPerPage?this.slideWidth*this.currentPerPage:this.slideWidth;this.offset=t*Math.round(this.offset/t),this.offset=Math.max(0,Math.min(this.offset,this.maxOffset)),this.currentPage=this.scrollPerPage?Math.round(this.offset/this.slideWidth/this.currentPerPage):Math.round(this.offset/this.slideWidth)},computeCarouselWidth:function(){this.getSlideCount(),this.getBrowserWidth(),this.getCarouselWidth(),this.setCurrentPageInBounds()},setCurrentPageInBounds:function(){if(!this.canAdvanceForward&&this.scrollPerPage){var t=this.pageCount-1;this.currentPage=t>=0?t:0,this.offset=Math.max(0,Math.min(this.offset,this.maxOffset))}},handleTransitionStart:function(){this.$emit("transitionStart")},handleTransitionEnd:function(){this.$emit("transitionEnd")}},mounted:function(){window.addEventListener("resize",(0,c.default)(this.onResize,this.refreshRate)),(this.isTouch||this.mouseDrag)&&this.$refs["VueCarousel-wrapper"].addEventListener(this.isTouch?"touchstart":"mousedown",this.onStart),this.attachMutationObserver(),this.computeCarouselWidth(),this.transitionstart=m(),this.$refs["VueCarousel-inner"].addEventListener(this.transitionstart,this.handleTransitionStart),this.transitionend=m(),this.$refs["VueCarousel-inner"].addEventListener(this.transitionend,this.handleTransitionEnd)},beforeDestroy:function(){this.detachMutationObserver(),window.removeEventListener("resize",this.getBrowserWidth),this.$refs["VueCarousel-inner"].removeEventListener(this.transitionstart,this.handleTransitionStart),this.$refs["VueCarousel-inner"].removeEventListener(this.transitionend,this.handleTransitionEnd),this.$refs["VueCarousel-wrapper"].removeEventListener(this.isTouch?"touchstart":"mousedown",this.onStart)}}},function(t,e,n){t.exports={default:n(10),__esModule:!0}},function(t,e,n){n(11),t.exports=n(14).Math.sign},function(t,e,n){var i=n(12);i(i.S,"Math",{sign:n(28)})},function(t,e,n){var i=n(13),r=n(14),a=n(15),o=n(17),s=n(27),u="prototype",c=function(t,e,n){var l,d,f,h=t&c.F,p=t&c.G,g=t&c.S,v=t&c.P,m=t&c.B,b=t&c.W,y=p?r:r[e]||(r[e]={}),x=y[u],C=p?i:g?i[e]:(i[e]||{})[u];p&&(n=e);for(l in n)d=!h&&C&&void 0!==C[l],d&&s(y,l)||(f=d?C[l]:n[l],y[l]=p&&"function"!=typeof C[l]?n[l]:m&&d?a(f,i):b&&C[l]==f?function(t){var e=function(e,n,i){if(this instanceof t){switch(arguments.length){case 0:return new t;case 1:return new t(e);case 2:return new t(e,n)}return new t(e,n,i)}return t.apply(this,arguments)};return e[u]=t[u],e}(f):v&&"function"==typeof f?a(Function.call,f):f,v&&((y.virtual||(y.virtual={}))[l]=f,t&c.R&&x&&!x[l]&&o(x,l,f)))};c.F=1,c.G=2,c.S=4,c.P=8,c.B=16,c.W=32,c.U=64,c.R=128,t.exports=c},function(t,e){var n=t.exports="undefined"!=typeof window&&window.Math==Math?window:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")();"number"==typeof __g&&(__g=n)},function(t,e){var n=t.exports={version:"2.5.7"};"number"==typeof __e&&(__e=n)},function(t,e,n){var i=n(16);t.exports=function(t,e,n){if(i(t),void 0===e)return t;switch(n){case 1:return function(n){return t.call(e,n)};case 2:return function(n,i){return t.call(e,n,i)};case 3:return function(n,i,r){return t.call(e,n,i,r)}}return function(){return t.apply(e,arguments)}}},function(t,e){t.exports=function(t){if("function"!=typeof t)throw TypeError(t+" is not a function!");return t}},function(t,e,n){var i=n(18),r=n(26);t.exports=n(22)?function(t,e,n){return i.f(t,e,r(1,n))}:function(t,e,n){return t[e]=n,t}},function(t,e,n){var i=n(19),r=n(21),a=n(25),o=Object.defineProperty;e.f=n(22)?Object.defineProperty:function(t,e,n){if(i(t),e=a(e,!0),i(n),r)try{return o(t,e,n)}catch(t){}if("get"in n||"set"in n)throw TypeError("Accessors not supported!");return"value"in n&&(t[e]=n.value),t}},function(t,e,n){var i=n(20);t.exports=function(t){if(!i(t))throw TypeError(t+" is not an object!");return t}},function(t,e){t.exports=function(t){return"object"==typeof t?null!==t:"function"==typeof t}},function(t,e,n){t.exports=!n(22)&&!n(23)(function(){return 7!=Object.defineProperty(n(24)("div"),"a",{get:function(){return 7}}).a})},function(t,e,n){t.exports=!n(23)(function(){return 7!=Object.defineProperty({},"a",{get:function(){return 7}}).a})},function(t,e){t.exports=function(t){try{return!!t()}catch(t){return!0}}},function(t,e,n){var i=n(20),r=n(13).document,a=i(r)&&i(r.createElement);t.exports=function(t){return a?r.createElement(t):{}}},function(t,e,n){var i=n(20);t.exports=function(t,e){if(!i(t))return t;var n,r;if(e&&"function"==typeof(n=t.toString)&&!i(r=n.call(t)))return r;if("function"==typeof(n=t.valueOf)&&!i(r=n.call(t)))return r;if(!e&&"function"==typeof(n=t.toString)&&!i(r=n.call(t)))return r;throw TypeError("Can't convert object to primitive value")}},function(t,e){t.exports=function(t,e){return{enumerable:!(1&t),configurable:!(2&t),writable:!(4&t),value:e}}},function(t,e){var n={}.hasOwnProperty;t.exports=function(t,e){return n.call(t,e)}},function(t,e){t.exports=Math.sign||function(t){return 0==(t=+t)||t!=t?t:t<0?-1:1}},function(t,e){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var n={props:{autoplay:{type:Boolean,default:!1},autoplayTimeout:{type:Number,default:2e3},autoplayHoverPause:{type:Boolean,default:!0}},data:function(){return{autoplayInterval:null}},destroyed:function(){this.$isServer||(this.$el.removeEventListener("mouseenter",this.pauseAutoplay),this.$el.removeEventListener("mouseleave",this.startAutoplay))},methods:{pauseAutoplay:function(){this.autoplayInterval&&(this.autoplayInterval=clearInterval(this.autoplayInterval))},startAutoplay:function(){this.autoplay&&(this.autoplayInterval=setInterval(this.advancePage,this.autoplayTimeout))},restartAutoplay:function(){this.pauseAutoplay(),this.startAutoplay()}},mounted:function(){!this.$isServer&&this.autoplayHoverPause&&(this.$el.addEventListener("mouseenter",this.pauseAutoplay),this.$el.addEventListener("mouseleave",this.startAutoplay)),this.startAutoplay()}};e.default=n},function(t,e){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var n=function(t,e,n){var i=void 0;return function(){var r=void 0,a=function(){i=null,n||t.apply(r)},o=n&&!i;clearTimeout(i),i=setTimeout(a,e),o&&t.apply(r)}};e.default=n},function(t,e,n){function i(t){n(32)}var r=n(7)(n(34),n(35),i,"data-v-7fed18e9",null);t.exports=r.exports},function(t,e,n){var i=n(33);"string"==typeof i&&(i=[[t.id,i,""]]),i.locals&&(t.exports=i.locals);n(5)("a1957e6c",i,!0,{})},function(t,e,n){e=t.exports=n(4)(),e.push([t.id,'.VueCarousel-navigation-button[data-v-7fed18e9]{position:absolute;top:50%;box-sizing:border-box;color:#000;text-decoration:none;-webkit-appearance:none;-moz-appearance:none;appearance:none;border:none;background-color:transparent;padding:0;cursor:pointer;outline:none}.VueCarousel-navigation-next[data-v-7fed18e9]{right:0;transform:translateY(-50%) translateX(100%);font-family:system}.VueCarousel-navigation-prev[data-v-7fed18e9]{left:0;transform:translateY(-50%) translateX(-100%);font-family:system}.VueCarousel-navigation--disabled[data-v-7fed18e9]{opacity:.5;cursor:default}@font-face{font-family:system;font-style:normal;font-weight:300;src:local(".SFNSText-Light"),local(".HelveticaNeueDeskInterface-Light"),local(".LucidaGrandeUI"),local("Ubuntu Light"),local("Segoe UI Symbol"),local("Roboto-Light"),local("DroidSans"),local("Tahoma")}',""])},function(t,e){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default={name:"navigation",inject:["carousel"],props:{clickTargetSize:{type:Number,default:8},nextLabel:{type:String,default:"&#9654"},prevLabel:{type:String,default:"&#9664"}},computed:{canAdvanceForward:function(){return this.carousel.canAdvanceForward||!1},canAdvanceBackward:function(){return this.carousel.canAdvanceBackward||!1}},methods:{triggerPageAdvance:function(t){this.$emit("navigationclick",t)}}}},function(t,e){t.exports={render:function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("div",{staticClass:"VueCarousel-navigation"},[n("button",{staticClass:"VueCarousel-navigation-button VueCarousel-navigation-prev",class:{"VueCarousel-navigation--disabled":!t.canAdvanceBackward},style:"padding: "+t.clickTargetSize+"px; margin-right: -"+t.clickTargetSize+"px;",attrs:{type:"button","aria-label":"Previous page",role:"button"},domProps:{innerHTML:t._s(t.prevLabel)},on:{click:function(e){e.preventDefault(),t.triggerPageAdvance("backward")}}}),t._v(" "),n("button",{staticClass:"VueCarousel-navigation-button VueCarousel-navigation-next",class:{"VueCarousel-navigation--disabled":!t.canAdvanceForward},style:"padding: "+t.clickTargetSize+"px; margin-left: -"+t.clickTargetSize+"px;",attrs:{type:"button","aria-label":"Next page",role:"button"},domProps:{innerHTML:t._s(t.nextLabel)},on:{click:function(e){e.preventDefault(),t.triggerPageAdvance()}}})])},staticRenderFns:[]}},function(t,e,n){function i(t){n(37)}var r=n(7)(n(39),n(40),i,"data-v-7e42136f",null);t.exports=r.exports},function(t,e,n){var i=n(38);"string"==typeof i&&(i=[[t.id,i,""]]),i.locals&&(t.exports=i.locals);n(5)("3ea8dd5f",i,!0,{})},function(t,e,n){e=t.exports=n(4)(),e.push([t.id,".VueCarousel-pagination[data-v-7e42136f]{width:100%;text-align:center}.VueCarousel-dot-container[data-v-7e42136f]{display:inline-block;margin:0 auto;padding:0}.VueCarousel-dot[data-v-7e42136f]{display:inline-block;cursor:pointer}.VueCarousel-dot-button[data-v-7e42136f]{-webkit-appearance:none;-moz-appearance:none;appearance:none;border:none;background-color:transparent;padding:0;border-radius:100%;outline:none;cursor:pointer}.VueCarousel-dot-button[data-v-7e42136f]:focus{outline:1px solid #add8e6}",""])},function(t,e){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default={name:"pagination",inject:["carousel"],computed:{pagniationCount:function(){return this.carousel.scrollPerPage?this.carousel.pageCount:this.carousel.slideCount-2}},methods:{goToPage:function(t){this.$emit("paginationclick",t)},isCurrentDot:function(t){return t===this.carousel.currentPage}}}},function(t,e){t.exports={render:function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("div",{directives:[{name:"show",rawName:"v-show",value:t.carousel.pageCount>1,expression:"carousel.pageCount > 1"}],staticClass:"VueCarousel-pagination"},[n("ul",{staticClass:"VueCarousel-dot-container",attrs:{role:"tablist"}},t._l(t.pagniationCount,function(e,i){return n("li",{key:e+"_"+i,staticClass:"VueCarousel-dot",class:{"VueCarousel-dot--active":t.isCurrentDot(i)},style:"\n        margin-top: "+2*t.carousel.paginationPadding+"px;\n        padding: "+t.carousel.paginationPadding+"px;\n      ",attrs:{"aria-hidden":"false",role:"presentation","aria-selected":t.isCurrentDot(i)?"true":"false"},on:{click:function(e){t.goToPage(i)}}},[n("button",{staticClass:"VueCarousel-dot-button",style:"\n          width: "+t.carousel.paginationSize+"px;\n          height: "+t.carousel.paginationSize+"px;\n          background: "+(t.isCurrentDot(i)?t.carousel.paginationActiveColor:t.carousel.paginationColor)+";\n        ",attrs:{type:"button",role:"button",tabindex:i}})])}))])},staticRenderFns:[]}},function(t,e,n){function i(t){n(42)}var r=n(7)(n(44),n(67),i,null,null);t.exports=r.exports},function(t,e,n){var i=n(43);"string"==typeof i&&(i=[[t.id,i,""]]),i.locals&&(t.exports=i.locals);n(5)("e8ab14d8",i,!0,{})},function(t,e,n){e=t.exports=n(4)(),e.push([t.id,".VueCarousel-slide{-ms-flex-preferred-size:inherit;flex-basis:inherit;-ms-flex-positive:0;flex-grow:0;-ms-flex-negative:0;flex-shrink:0;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-backface-visibility:hidden;backface-visibility:hidden;-webkit-touch-callout:none;outline:none}",""])},function(t,e,n){"use strict";function i(t){return t&&t.__esModule?t:{default:t}}Object.defineProperty(e,"__esModule",{value:!0});var r=n(45),a=i(r);e.default={name:"slide",data:function(){return{width:null}},inject:["carousel"],mounted:function(){this.$isServer||this.$el.addEventListener("dragstart",function(t){return t.preventDefault()}),this.$el.addEventListener(this.carousel.isTouch?"touchend":"mouseup",this.onTouchEnd)},computed:{activeSlides:function t(){for(var e=this.carousel,n=e.currentPage,i=e.perPage,r=e.$children,t=(e.slideCount,[]),a=r.filter(function(t){return t.$el&&t.$el.className.indexOf("VueCarousel-slide")>=0}).map(function(t){return t._uid}),o=0;o<i;){var s=a[n*i+o];t.push(s),o++}return t},isActive:function(){return this.activeSlides.indexOf(this._uid)>=0},isCenter:function(){var t=this.carousel.perPage;return!(t%2===0||!this.isActive)&&this.activeSlides.indexOf(this._uid)===Math.floor(t/2)}},methods:{onTouchEnd:function(t){var e=this.carousel.isTouch&&t.changedTouches&&t.changedTouches.length>0?t.changedTouches[0].clientX:t.clientX,n=this.carousel.dragStartX-e;(0===this.carousel.minSwipeDistance||Math.abs(n)<this.carousel.minSwipeDistance)&&this.$emit("slideClick",(0,a.default)({},t.currentTarget.dataset))}}}},function(t,e,n){t.exports={default:n(46),__esModule:!0}},function(t,e,n){n(47),t.exports=n(14).Object.assign},function(t,e,n){var i=n(12);i(i.S+i.F,"Object",{assign:n(48)})},function(t,e,n){"use strict";var i=n(49),r=n(64),a=n(65),o=n(66),s=n(52),u=Object.assign;t.exports=!u||n(23)(function(){var t={},e={},n=Symbol(),i="abcdefghijklmnopqrst";return t[n]=7,i.split("").forEach(function(t){e[t]=t}),7!=u({},t)[n]||Object.keys(u({},e)).join("")!=i})?function(t,e){for(var n=o(t),u=arguments.length,c=1,l=r.f,d=a.f;u>c;)for(var f,h=s(arguments[c++]),p=l?i(h).concat(l(h)):i(h),g=p.length,v=0;g>v;)d.call(h,f=p[v++])&&(n[f]=h[f]);return n}:u},function(t,e,n){var i=n(50),r=n(63);t.exports=Object.keys||function(t){return i(t,r)}},function(t,e,n){var i=n(27),r=n(51),a=n(55)(!1),o=n(59)("IE_PROTO");t.exports=function(t,e){var n,s=r(t),u=0,c=[];for(n in s)n!=o&&i(s,n)&&c.push(n);for(;e.length>u;)i(s,n=e[u++])&&(~a(c,n)||c.push(n));return c}},function(t,e,n){var i=n(52),r=n(54);t.exports=function(t){return i(r(t))}},function(t,e,n){var i=n(53);t.exports=Object("z").propertyIsEnumerable(0)?Object:function(t){return"String"==i(t)?t.split(""):Object(t)}},function(t,e){var n={}.toString;t.exports=function(t){return n.call(t).slice(8,-1)}},function(t,e){t.exports=function(t){if(void 0==t)throw TypeError("Can't call method on  "+t);return t}},function(t,e,n){var i=n(51),r=n(56),a=n(58);t.exports=function(t){return function(e,n,o){var s,u=i(e),c=r(u.length),l=a(o,c);if(t&&n!=n){for(;c>l;)if(s=u[l++],s!=s)return!0}else for(;c>l;l++)if((t||l in u)&&u[l]===n)return t||l||0;return!t&&-1}}},function(t,e,n){var i=n(57),r=Math.min;t.exports=function(t){return t>0?r(i(t),9007199254740991):0}},function(t,e){var n=Math.ceil,i=Math.floor;t.exports=function(t){return isNaN(t=+t)?0:(t>0?i:n)(t)}},function(t,e,n){var i=n(57),r=Math.max,a=Math.min;t.exports=function(t,e){return t=i(t),t<0?r(t+e,0):a(t,e)}},function(t,e,n){var i=n(60)("keys"),r=n(62);t.exports=function(t){return i[t]||(i[t]=r(t))}},function(t,e,n){var i=n(14),r=n(13),a="__core-js_shared__",o=r[a]||(r[a]={});(t.exports=function(t,e){return o[t]||(o[t]=void 0!==e?e:{})})("versions",[]).push({version:i.version,mode:n(61)?"pure":"global",copyright:"© 2018 Denis Pushkarev (zloirock.ru)"})},function(t,e){t.exports=!0},function(t,e){var n=0,i=Math.random();t.exports=function(t){return"Symbol(".concat(void 0===t?"":t,")_",(++n+i).toString(36))}},function(t,e){t.exports="constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf".split(",")},function(t,e){e.f=Object.getOwnPropertySymbols},function(t,e){e.f={}.propertyIsEnumerable},function(t,e,n){var i=n(54);t.exports=function(t){return Object(i(t))}},function(t,e){t.exports={render:function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("div",{staticClass:"VueCarousel-slide",class:{"VueCarousel-slide-active":t.isActive,"VueCarousel-slide-center":t.isCenter},attrs:{tabindex:"-1"}},[t._t("default")],2)},staticRenderFns:[]}},function(t,e){t.exports={render:function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("section",{staticClass:"VueCarousel"},[n("div",{ref:"VueCarousel-wrapper",staticClass:"VueCarousel-wrapper"},[n("div",{ref:"VueCarousel-inner",staticClass:"VueCarousel-inner",style:{transform:"translate("+t.currentOffset+"px, 0)",transition:t.dragging?"none":t.transitionStyle,"ms-flex-preferred-size":t.slideWidth+"px","webkit-flex-basis":t.slideWidth+"px","flex-basis":t.slideWidth+"px",visibility:t.slideWidth?"visible":"hidden","padding-left":t.padding+"px","padding-right":t.padding+"px"},attrs:{role:"listbox"}},[t._t("default")],2)]),t._v(" "),t.paginationEnabled&&t.pageCount>0?n("pagination",{on:{paginationclick:function(e){t.goToPage(e,"pagination")}}}):t._e(),t._v(" "),t.navigationEnabled?n("navigation",{attrs:{clickTargetSize:t.navigationClickTargetSize,nextLabel:t.navigationNextLabel,prevLabel:t.navigationPrevLabel},on:{navigationclick:t.handleNavigation}}):t._e()],1)},staticRenderFns:[]}}])});
+
+/***/ }),
 /* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 17,
-	"./af.js": 17,
-	"./ar": 18,
-	"./ar-dz": 19,
-	"./ar-dz.js": 19,
-	"./ar-kw": 20,
-	"./ar-kw.js": 20,
-	"./ar-ly": 21,
-	"./ar-ly.js": 21,
-	"./ar-ma": 22,
-	"./ar-ma.js": 22,
-	"./ar-sa": 23,
-	"./ar-sa.js": 23,
-	"./ar-tn": 24,
-	"./ar-tn.js": 24,
-	"./ar.js": 18,
-	"./az": 25,
-	"./az.js": 25,
-	"./be": 26,
-	"./be.js": 26,
-	"./bg": 27,
-	"./bg.js": 27,
-	"./bm": 28,
-	"./bm.js": 28,
-	"./bn": 29,
-	"./bn.js": 29,
-	"./bo": 30,
-	"./bo.js": 30,
-	"./br": 31,
-	"./br.js": 31,
-	"./bs": 32,
-	"./bs.js": 32,
-	"./ca": 33,
-	"./ca.js": 33,
-	"./cs": 34,
-	"./cs.js": 34,
-	"./cv": 35,
-	"./cv.js": 35,
-	"./cy": 36,
-	"./cy.js": 36,
-	"./da": 37,
-	"./da.js": 37,
-	"./de": 38,
-	"./de-at": 39,
-	"./de-at.js": 39,
-	"./de-ch": 40,
-	"./de-ch.js": 40,
-	"./de.js": 38,
-	"./dv": 41,
-	"./dv.js": 41,
-	"./el": 42,
-	"./el.js": 42,
-	"./en-au": 43,
-	"./en-au.js": 43,
-	"./en-ca": 44,
-	"./en-ca.js": 44,
-	"./en-gb": 45,
-	"./en-gb.js": 45,
-	"./en-ie": 46,
-	"./en-ie.js": 46,
-	"./en-il": 47,
-	"./en-il.js": 47,
-	"./en-nz": 48,
-	"./en-nz.js": 48,
-	"./eo": 49,
-	"./eo.js": 49,
-	"./es": 50,
-	"./es-do": 51,
-	"./es-do.js": 51,
-	"./es-us": 52,
-	"./es-us.js": 52,
-	"./es.js": 50,
-	"./et": 53,
-	"./et.js": 53,
-	"./eu": 54,
-	"./eu.js": 54,
-	"./fa": 55,
-	"./fa.js": 55,
-	"./fi": 56,
-	"./fi.js": 56,
-	"./fo": 57,
-	"./fo.js": 57,
-	"./fr": 58,
-	"./fr-ca": 59,
-	"./fr-ca.js": 59,
-	"./fr-ch": 60,
-	"./fr-ch.js": 60,
-	"./fr.js": 58,
-	"./fy": 61,
-	"./fy.js": 61,
-	"./gd": 62,
-	"./gd.js": 62,
-	"./gl": 63,
-	"./gl.js": 63,
-	"./gom-latn": 64,
-	"./gom-latn.js": 64,
-	"./gu": 65,
-	"./gu.js": 65,
-	"./he": 66,
-	"./he.js": 66,
-	"./hi": 67,
-	"./hi.js": 67,
-	"./hr": 68,
-	"./hr.js": 68,
-	"./hu": 69,
-	"./hu.js": 69,
-	"./hy-am": 70,
-	"./hy-am.js": 70,
-	"./id": 71,
-	"./id.js": 71,
-	"./is": 72,
-	"./is.js": 72,
-	"./it": 73,
-	"./it.js": 73,
-	"./ja": 74,
-	"./ja.js": 74,
-	"./jv": 75,
-	"./jv.js": 75,
-	"./ka": 76,
-	"./ka.js": 76,
-	"./kk": 77,
-	"./kk.js": 77,
-	"./km": 78,
-	"./km.js": 78,
-	"./kn": 79,
-	"./kn.js": 79,
-	"./ko": 80,
-	"./ko.js": 80,
-	"./ky": 81,
-	"./ky.js": 81,
-	"./lb": 82,
-	"./lb.js": 82,
-	"./lo": 83,
-	"./lo.js": 83,
-	"./lt": 84,
-	"./lt.js": 84,
-	"./lv": 85,
-	"./lv.js": 85,
-	"./me": 86,
-	"./me.js": 86,
-	"./mi": 87,
-	"./mi.js": 87,
-	"./mk": 88,
-	"./mk.js": 88,
-	"./ml": 89,
-	"./ml.js": 89,
-	"./mn": 90,
-	"./mn.js": 90,
-	"./mr": 91,
-	"./mr.js": 91,
-	"./ms": 92,
-	"./ms-my": 93,
-	"./ms-my.js": 93,
-	"./ms.js": 92,
-	"./mt": 94,
-	"./mt.js": 94,
-	"./my": 95,
-	"./my.js": 95,
-	"./nb": 96,
-	"./nb.js": 96,
-	"./ne": 97,
-	"./ne.js": 97,
-	"./nl": 98,
-	"./nl-be": 99,
-	"./nl-be.js": 99,
-	"./nl.js": 98,
-	"./nn": 100,
-	"./nn.js": 100,
-	"./pa-in": 101,
-	"./pa-in.js": 101,
-	"./pl": 102,
-	"./pl.js": 102,
-	"./pt": 103,
-	"./pt-br": 104,
-	"./pt-br.js": 104,
-	"./pt.js": 103,
-	"./ro": 105,
-	"./ro.js": 105,
-	"./ru": 106,
-	"./ru.js": 106,
-	"./sd": 107,
-	"./sd.js": 107,
-	"./se": 108,
-	"./se.js": 108,
-	"./si": 109,
-	"./si.js": 109,
-	"./sk": 110,
-	"./sk.js": 110,
-	"./sl": 111,
-	"./sl.js": 111,
-	"./sq": 112,
-	"./sq.js": 112,
-	"./sr": 113,
-	"./sr-cyrl": 114,
-	"./sr-cyrl.js": 114,
-	"./sr.js": 113,
-	"./ss": 115,
-	"./ss.js": 115,
-	"./sv": 116,
-	"./sv.js": 116,
-	"./sw": 117,
-	"./sw.js": 117,
-	"./ta": 118,
-	"./ta.js": 118,
-	"./te": 119,
-	"./te.js": 119,
-	"./tet": 120,
-	"./tet.js": 120,
-	"./tg": 121,
-	"./tg.js": 121,
-	"./th": 122,
-	"./th.js": 122,
-	"./tl-ph": 123,
-	"./tl-ph.js": 123,
-	"./tlh": 124,
-	"./tlh.js": 124,
-	"./tr": 125,
-	"./tr.js": 125,
-	"./tzl": 126,
-	"./tzl.js": 126,
-	"./tzm": 127,
-	"./tzm-latn": 128,
-	"./tzm-latn.js": 128,
-	"./tzm.js": 127,
-	"./ug-cn": 129,
-	"./ug-cn.js": 129,
-	"./uk": 130,
-	"./uk.js": 130,
-	"./ur": 131,
-	"./ur.js": 131,
-	"./uz": 132,
-	"./uz-latn": 133,
-	"./uz-latn.js": 133,
-	"./uz.js": 132,
-	"./vi": 134,
-	"./vi.js": 134,
-	"./x-pseudo": 135,
-	"./x-pseudo.js": 135,
-	"./yo": 136,
-	"./yo.js": 136,
-	"./zh-cn": 137,
-	"./zh-cn.js": 137,
-	"./zh-hk": 138,
-	"./zh-hk.js": 138,
-	"./zh-tw": 139,
-	"./zh-tw.js": 139
+	"./af": 16,
+	"./af.js": 16,
+	"./ar": 17,
+	"./ar-dz": 18,
+	"./ar-dz.js": 18,
+	"./ar-kw": 19,
+	"./ar-kw.js": 19,
+	"./ar-ly": 20,
+	"./ar-ly.js": 20,
+	"./ar-ma": 21,
+	"./ar-ma.js": 21,
+	"./ar-sa": 22,
+	"./ar-sa.js": 22,
+	"./ar-tn": 23,
+	"./ar-tn.js": 23,
+	"./ar.js": 17,
+	"./az": 24,
+	"./az.js": 24,
+	"./be": 25,
+	"./be.js": 25,
+	"./bg": 26,
+	"./bg.js": 26,
+	"./bm": 27,
+	"./bm.js": 27,
+	"./bn": 28,
+	"./bn.js": 28,
+	"./bo": 29,
+	"./bo.js": 29,
+	"./br": 30,
+	"./br.js": 30,
+	"./bs": 31,
+	"./bs.js": 31,
+	"./ca": 32,
+	"./ca.js": 32,
+	"./cs": 33,
+	"./cs.js": 33,
+	"./cv": 34,
+	"./cv.js": 34,
+	"./cy": 35,
+	"./cy.js": 35,
+	"./da": 36,
+	"./da.js": 36,
+	"./de": 37,
+	"./de-at": 38,
+	"./de-at.js": 38,
+	"./de-ch": 39,
+	"./de-ch.js": 39,
+	"./de.js": 37,
+	"./dv": 40,
+	"./dv.js": 40,
+	"./el": 41,
+	"./el.js": 41,
+	"./en-au": 42,
+	"./en-au.js": 42,
+	"./en-ca": 43,
+	"./en-ca.js": 43,
+	"./en-gb": 44,
+	"./en-gb.js": 44,
+	"./en-ie": 45,
+	"./en-ie.js": 45,
+	"./en-il": 46,
+	"./en-il.js": 46,
+	"./en-nz": 47,
+	"./en-nz.js": 47,
+	"./eo": 48,
+	"./eo.js": 48,
+	"./es": 49,
+	"./es-do": 50,
+	"./es-do.js": 50,
+	"./es-us": 51,
+	"./es-us.js": 51,
+	"./es.js": 49,
+	"./et": 52,
+	"./et.js": 52,
+	"./eu": 53,
+	"./eu.js": 53,
+	"./fa": 54,
+	"./fa.js": 54,
+	"./fi": 55,
+	"./fi.js": 55,
+	"./fo": 56,
+	"./fo.js": 56,
+	"./fr": 57,
+	"./fr-ca": 58,
+	"./fr-ca.js": 58,
+	"./fr-ch": 59,
+	"./fr-ch.js": 59,
+	"./fr.js": 57,
+	"./fy": 60,
+	"./fy.js": 60,
+	"./gd": 61,
+	"./gd.js": 61,
+	"./gl": 62,
+	"./gl.js": 62,
+	"./gom-latn": 63,
+	"./gom-latn.js": 63,
+	"./gu": 64,
+	"./gu.js": 64,
+	"./he": 65,
+	"./he.js": 65,
+	"./hi": 66,
+	"./hi.js": 66,
+	"./hr": 67,
+	"./hr.js": 67,
+	"./hu": 68,
+	"./hu.js": 68,
+	"./hy-am": 69,
+	"./hy-am.js": 69,
+	"./id": 70,
+	"./id.js": 70,
+	"./is": 71,
+	"./is.js": 71,
+	"./it": 72,
+	"./it.js": 72,
+	"./ja": 73,
+	"./ja.js": 73,
+	"./jv": 74,
+	"./jv.js": 74,
+	"./ka": 75,
+	"./ka.js": 75,
+	"./kk": 76,
+	"./kk.js": 76,
+	"./km": 77,
+	"./km.js": 77,
+	"./kn": 78,
+	"./kn.js": 78,
+	"./ko": 79,
+	"./ko.js": 79,
+	"./ky": 80,
+	"./ky.js": 80,
+	"./lb": 81,
+	"./lb.js": 81,
+	"./lo": 82,
+	"./lo.js": 82,
+	"./lt": 83,
+	"./lt.js": 83,
+	"./lv": 84,
+	"./lv.js": 84,
+	"./me": 85,
+	"./me.js": 85,
+	"./mi": 86,
+	"./mi.js": 86,
+	"./mk": 87,
+	"./mk.js": 87,
+	"./ml": 88,
+	"./ml.js": 88,
+	"./mn": 89,
+	"./mn.js": 89,
+	"./mr": 90,
+	"./mr.js": 90,
+	"./ms": 91,
+	"./ms-my": 92,
+	"./ms-my.js": 92,
+	"./ms.js": 91,
+	"./mt": 93,
+	"./mt.js": 93,
+	"./my": 94,
+	"./my.js": 94,
+	"./nb": 95,
+	"./nb.js": 95,
+	"./ne": 96,
+	"./ne.js": 96,
+	"./nl": 97,
+	"./nl-be": 98,
+	"./nl-be.js": 98,
+	"./nl.js": 97,
+	"./nn": 99,
+	"./nn.js": 99,
+	"./pa-in": 100,
+	"./pa-in.js": 100,
+	"./pl": 101,
+	"./pl.js": 101,
+	"./pt": 102,
+	"./pt-br": 103,
+	"./pt-br.js": 103,
+	"./pt.js": 102,
+	"./ro": 104,
+	"./ro.js": 104,
+	"./ru": 105,
+	"./ru.js": 105,
+	"./sd": 106,
+	"./sd.js": 106,
+	"./se": 107,
+	"./se.js": 107,
+	"./si": 108,
+	"./si.js": 108,
+	"./sk": 109,
+	"./sk.js": 109,
+	"./sl": 110,
+	"./sl.js": 110,
+	"./sq": 111,
+	"./sq.js": 111,
+	"./sr": 112,
+	"./sr-cyrl": 113,
+	"./sr-cyrl.js": 113,
+	"./sr.js": 112,
+	"./ss": 114,
+	"./ss.js": 114,
+	"./sv": 115,
+	"./sv.js": 115,
+	"./sw": 116,
+	"./sw.js": 116,
+	"./ta": 117,
+	"./ta.js": 117,
+	"./te": 118,
+	"./te.js": 118,
+	"./tet": 119,
+	"./tet.js": 119,
+	"./tg": 120,
+	"./tg.js": 120,
+	"./th": 121,
+	"./th.js": 121,
+	"./tl-ph": 122,
+	"./tl-ph.js": 122,
+	"./tlh": 123,
+	"./tlh.js": 123,
+	"./tr": 124,
+	"./tr.js": 124,
+	"./tzl": 125,
+	"./tzl.js": 125,
+	"./tzm": 126,
+	"./tzm-latn": 127,
+	"./tzm-latn.js": 127,
+	"./tzm.js": 126,
+	"./ug-cn": 128,
+	"./ug-cn.js": 128,
+	"./uk": 129,
+	"./uk.js": 129,
+	"./ur": 130,
+	"./ur.js": 130,
+	"./uz": 131,
+	"./uz-latn": 132,
+	"./uz-latn.js": 132,
+	"./uz.js": 131,
+	"./vi": 133,
+	"./vi.js": 133,
+	"./x-pseudo": 134,
+	"./x-pseudo.js": 134,
+	"./yo": 135,
+	"./yo.js": 135,
+	"./zh-cn": 136,
+	"./zh-cn.js": 136,
+	"./zh-hk": 137,
+	"./zh-hk.js": 137,
+	"./zh-tw": 138,
+	"./zh-tw.js": 138
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -69135,12 +69135,10 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_carousel__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_carousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_carousel__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_sweetalert__ = __webpack_require__(175);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_sweetalert___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_sweetalert__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_sweetalert__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_sweetalert___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_sweetalert__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment__);
 //
 //
 //
@@ -69222,816 +69220,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 
 
 
 
 Vue.filter('formatDate', function (value) {
     if (value) {
-        return __WEBPACK_IMPORTED_MODULE_2_moment___default()(String(value)).locale('id').format('MMMM');
+        return __WEBPACK_IMPORTED_MODULE_1_moment___default()(String(value)).locale('id').format('MMMM');
     }
 });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
+            search: '',
             api: []
         };
     },
-
-
-    components: {
-        Carousel: __WEBPACK_IMPORTED_MODULE_0_vue_carousel__["Carousel"],
-        Slide: __WEBPACK_IMPORTED_MODULE_0_vue_carousel__["Slide"]
-    },
-
     mounted: function mounted() {
         var _this = this;
 
-        setInterval(function () {
-            axios.get('/api/content/all').then(function (response) {
-                _this.api = response.data;
-            });
-        }, 1000);
+        axios.get('/api/content/all').then(function (response) {
+            _this.api = response.data;
+        });
     },
 
-
     computed: {
-        january: function january() {
+        filteredData: function filteredData() {
+            var _this2 = this;
+
             return this.api.filter(function (u) {
-                return u.month === 1;
-            });
-        },
-        february: function february() {
-            return this.api.filter(function (u) {
-                return u.month === 2;
-            });
-        },
-        march: function march() {
-            return this.api.filter(function (u) {
-                return u.month === 3;
-            });
-        },
-        april: function april() {
-            return this.api.filter(function (u) {
-                return u.month === 4;
-            });
-        },
-        may: function may() {
-            return this.api.filter(function (u) {
-                return u.month === 5;
-            });
-        },
-        june: function june() {
-            return this.api.filter(function (u) {
-                return u.month === 6;
-            });
-        },
-        july: function july() {
-            return this.api.filter(function (u) {
-                return u.month === 7;
-            });
-        },
-        august: function august() {
-            return this.api.filter(function (u) {
-                return u.month === 8;
-            });
-        },
-        september: function september() {
-            return this.api.filter(function (u) {
-                return u.month === 9;
-            });
-        },
-        october: function october() {
-            return this.api.filter(function (u) {
-                return u.month === 10;
-            });
-        },
-        november: function november() {
-            return this.api.filter(function (u) {
-                return u.month === 11;
-            });
-        },
-        desember: function desember() {
-            return this.api.filter(function (u) {
-                return u.month === 12;
+                return __WEBPACK_IMPORTED_MODULE_1_moment___default()(u.month, 'MM').locale('id').format('MMMM').toLowerCase().includes(_this2.search.toLowerCase());
             });
         }
     },
@@ -70039,13 +69258,13 @@ Vue.filter('formatDate', function (value) {
         showDeleteConfirmation: function showDeleteConfirmation(data) {
             axios.delete('/delete/' + data.id).then(function (res, data) {
                 console.log(data);
-                __WEBPACK_IMPORTED_MODULE_1_sweetalert___default()({
+                __WEBPACK_IMPORTED_MODULE_0_sweetalert___default()({
                     icon: 'success',
                     title: 'Berhasil!',
                     text: 'Data berhasil dihapus!'
                 });
             }).catch(function (err) {
-                __WEBPACK_IMPORTED_MODULE_1_sweetalert___default()({
+                __WEBPACK_IMPORTED_MODULE_0_sweetalert___default()({
                     icon: 'error',
                     title: 'Oops...',
                     text: 'Ada yang salah dengan data ini, mohon pastikan sekali lagi.'
@@ -70070,3154 +69289,275 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "carousel",
-    {
-      attrs: {
-        autoplay: true,
-        perPage: 1,
-        autoplayTimeout: 10000,
-        paginationEnabled: false,
-        loop: true
-      }
-    },
-    [
-      _vm.january.length != 0
-        ? _c("slide", [
-            _c("div", { staticClass: "table-responsive" }, [
-              _c("table", { staticClass: "table table-light table-sm" }, [
-                _c(
-                  "thead",
-                  {
-                    staticClass: "bg-dark text-light table-bordered text-center"
-                  },
-                  [
-                    _c("tr", [
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("EDIT / HAPUS")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("NO")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("BULAN")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("ESTIMASI TANGGAL OPENING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("NAMA / LOKASI STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("PEMILIK STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [
-                          _vm._v(
-                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("FIT OUT")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("TRAINING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("PREPARE BARANG")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("OPENING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+  return _c("div", { staticClass: "data-wrapper" }, [
+    _c("div", { staticClass: "row mb-4" }, [
+      _c("div", { staticClass: "col-md-4" }, [
+        _c("div", { staticClass: "input-group" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.search,
+                expression: "search"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: {
+              type: "text",
+              placeholder: "Ketik nama bulan yang ingin dirubah..."
+            },
+            domProps: { value: _vm.search },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.search = $event.target.value
+              }
+            }
+          })
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "table-responsive" }, [
+      _c("table", { staticClass: "table table-light table-sm" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.filteredData, function(data, index) {
+            return _c(
+              "tr",
+              {
+                key: data.index,
+                class: {
+                  "bg-warning": data.updating,
+                  "bg-success": data.finished
+                },
+                staticStyle: { "white-space": "nowrap", width: "1%" }
+              },
+              [
+                _c("td", { staticClass: "text-center text-capitalize" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-sm btn-primary",
+                      attrs: { href: "edit/" + data.id }
+                    },
+                    [
+                      _c("span", { staticClass: "icon-edit" }),
+                      _vm._v(
+                        "\n                            edit\n                        "
                       )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "tr",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
-                      [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "3" }
-                          },
-                          [_vm._v("DARI PROJECT")]
-                        ),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-44")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-32")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-22")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-21")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-8")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-3")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-2")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H")]),
-                        _vm._v(" "),
-                        _c("th")
-                      ]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.january, function(data, index) {
-                    return _c(
-                      "tr",
-                      {
-                        key: data.index,
-                        class: {
-                          "bg-warning": data.updating,
-                          "bg-success": data.finished
-                        },
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
-                      [
-                        _c(
-                          "td",
-                          { staticClass: "text-center text-capitalize" },
-                          [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn btn-sm btn-primary",
-                                attrs: { href: "edit/" + data.id }
-                              },
-                              [
-                                _c("span", { staticClass: "icon-edit" }),
-                                _vm._v(
-                                  "\n                                edit\n                            "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-sm btn-danger",
-                                on: {
-                                  click: function($event) {
-                                    _vm.showDeleteConfirmation(data)
-                                  }
-                                }
-                              },
-                              [
-                                _c("span", { staticClass: "icon-delete" }),
-                                _vm._v(
-                                  "\n                                hapus\n                            "
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(index + 1))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(_vm._s(_vm._f("formatDate")(data.month)))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.store_location))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_44))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_32))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_22))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_21))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_8))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_3))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_2))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.additional_info))])
-                      ]
-                    )
-                  })
-                )
-              ])
-            ])
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.february.length != 0
-        ? _c("slide", [
-            _c("div", { staticClass: "table-responsive" }, [
-              _c("table", { staticClass: "table table-light table-sm" }, [
-                _c(
-                  "thead",
-                  {
-                    staticClass: "bg-dark text-light table-bordered text-center"
-                  },
-                  [
-                    _c("tr", [
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("EDIT / HAPUS")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("NO")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("BULAN")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("ESTIMASI TANGGAL OPENING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("NAMA / LOKASI STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("PEMILIK STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [
-                          _vm._v(
-                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("FIT OUT")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("TRAINING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("PREPARE BARANG")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("OPENING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-sm btn-danger",
+                      on: {
+                        click: function($event) {
+                          _vm.showDeleteConfirmation(data)
+                        }
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon-delete" }),
+                      _vm._v(
+                        "\n                            hapus\n                        "
                       )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "tr",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
-                      [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "3" }
-                          },
-                          [_vm._v("DARI PROJECT")]
-                        ),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-44")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-32")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-22")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-21")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-8")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-3")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-2")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H")]),
-                        _vm._v(" "),
-                        _c("th")
-                      ]
-                    )
-                  ]
-                ),
+                    ]
+                  )
+                ]),
                 _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.february, function(data, index) {
-                    return _c(
-                      "tr",
-                      {
-                        key: data.index,
-                        class: {
-                          "bg-warning": data.updating,
-                          "bg-success": data.finished
-                        },
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
-                      [
-                        _c(
-                          "td",
-                          { staticClass: "text-center text-capitalize" },
-                          [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn btn-sm btn-primary",
-                                attrs: { href: "edit/" + data.id }
-                              },
-                              [
-                                _c("span", { staticClass: "icon-edit" }),
-                                _vm._v(
-                                  "\n                                edit\n                            "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-sm btn-danger",
-                                on: {
-                                  click: function($event) {
-                                    _vm.showDeleteConfirmation(data)
-                                  }
-                                }
-                              },
-                              [
-                                _c("span", { staticClass: "icon-delete" }),
-                                _vm._v(
-                                  "\n                                hapus\n                            "
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(index + 1))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(_vm._s(_vm._f("formatDate")(data.month)))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.store_location))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_44))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_32))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_22))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_21))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_8))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_3))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_2))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.additional_info))])
-                      ]
-                    )
-                  })
-                )
-              ])
-            ])
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.march.length != 0
-        ? _c("slide", [
-            _c("div", { staticClass: "table-responsive" }, [
-              _c("table", { staticClass: "table table-light table-sm" }, [
-                _c(
-                  "thead",
-                  {
-                    staticClass: "bg-dark text-light table-bordered text-center"
-                  },
-                  [
-                    _c("tr", [
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("EDIT / HAPUS")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("NO")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("BULAN")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("ESTIMASI TANGGAL OPENING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("NAMA / LOKASI STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("PEMILIK STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [
-                          _vm._v(
-                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("FIT OUT")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("TRAINING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("PREPARE BARANG")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("OPENING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "tr",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
-                      [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "3" }
-                          },
-                          [_vm._v("DARI PROJECT")]
-                        ),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-44")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-32")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-22")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-21")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-8")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-3")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-2")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H")]),
-                        _vm._v(" "),
-                        _c("th")
-                      ]
-                    )
-                  ]
-                ),
+                _c("td", { staticClass: "text-center" }, [
+                  _vm._v(_vm._s(index + 1))
+                ]),
                 _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.march, function(data, index) {
-                    return _c(
-                      "tr",
-                      {
-                        key: data.index,
-                        class: {
-                          "bg-warning": data.updating,
-                          "bg-success": data.finished
-                        },
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
-                      [
-                        _c(
-                          "td",
-                          { staticClass: "text-center text-capitalize" },
-                          [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn btn-sm btn-primary",
-                                attrs: { href: "edit/" + data.id }
-                              },
-                              [
-                                _c("span", { staticClass: "icon-edit" }),
-                                _vm._v(
-                                  "\n                                edit\n                            "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-sm btn-danger",
-                                on: {
-                                  click: function($event) {
-                                    _vm.showDeleteConfirmation(data)
-                                  }
-                                }
-                              },
-                              [
-                                _c("span", { staticClass: "icon-delete" }),
-                                _vm._v(
-                                  "\n                                hapus\n                            "
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(index + 1))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(_vm._s(_vm._f("formatDate")(data.month)))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.store_location))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_44))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_32))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_22))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_21))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_8))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_3))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_2))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.additional_info))])
-                      ]
-                    )
-                  })
-                )
-              ])
-            ])
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.april.length != 0
-        ? _c("slide", [
-            _c("div", { staticClass: "table-responsive" }, [
-              _c("table", { staticClass: "table table-light table-sm" }, [
-                _c(
-                  "thead",
-                  {
-                    staticClass: "bg-dark text-light table-bordered text-center"
-                  },
-                  [
-                    _c("tr", [
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("EDIT / HAPUS")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("NO")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("BULAN")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("ESTIMASI TANGGAL OPENING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("NAMA / LOKASI STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("PEMILIK STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [
-                          _vm._v(
-                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("FIT OUT")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("TRAINING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("PREPARE BARANG")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("OPENING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "tr",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
-                      [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "3" }
-                          },
-                          [_vm._v("DARI PROJECT")]
-                        ),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-44")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-32")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-22")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-21")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-8")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-3")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-2")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H")]),
-                        _vm._v(" "),
-                        _c("th")
-                      ]
-                    )
-                  ]
-                ),
+                _c("td", [_vm._v(_vm._s(_vm._f("formatDate")(data.month)))]),
                 _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.april, function(data, index) {
-                    return _c(
-                      "tr",
-                      {
-                        key: data.index,
-                        class: {
-                          "bg-warning": data.updating,
-                          "bg-success": data.finished
-                        },
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
-                      [
-                        _c(
-                          "td",
-                          { staticClass: "text-center text-capitalize" },
-                          [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn btn-sm btn-primary",
-                                attrs: { href: "edit/" + data.id }
-                              },
-                              [
-                                _c("span", { staticClass: "icon-edit" }),
-                                _vm._v(
-                                  "\n                                edit\n                            "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-sm btn-danger",
-                                on: {
-                                  click: function($event) {
-                                    _vm.showDeleteConfirmation(data)
-                                  }
-                                }
-                              },
-                              [
-                                _c("span", { staticClass: "icon-delete" }),
-                                _vm._v(
-                                  "\n                                hapus\n                            "
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(index + 1))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(_vm._s(_vm._f("formatDate")(data.month)))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.store_location))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_44))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_32))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_22))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_21))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_8))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_3))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_2))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.additional_info))])
-                      ]
-                    )
-                  })
-                )
-              ])
-            ])
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.may.length != 0
-        ? _c("slide", [
-            _c("div", { staticClass: "table-responsive" }, [
-              _c("table", { staticClass: "table table-light table-sm" }, [
-                _c(
-                  "thead",
-                  {
-                    staticClass: "bg-dark text-light table-bordered text-center"
-                  },
-                  [
-                    _c("tr", [
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("EDIT / HAPUS")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("NO")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("BULAN")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("ESTIMASI TANGGAL OPENING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("NAMA / LOKASI STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("PEMILIK STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [
-                          _vm._v(
-                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("FIT OUT")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("TRAINING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("PREPARE BARANG")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("OPENING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "tr",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
-                      [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "3" }
-                          },
-                          [_vm._v("DARI PROJECT")]
-                        ),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-44")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-32")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-22")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-21")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-8")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-3")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-2")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H")]),
-                        _vm._v(" "),
-                        _c("th")
-                      ]
-                    )
-                  ]
-                ),
+                _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
                 _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.may, function(data, index) {
-                    return _c(
-                      "tr",
-                      {
-                        key: data.index,
-                        class: {
-                          "bg-warning": data.updating,
-                          "bg-success": data.finished
-                        },
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
-                      [
-                        _c(
-                          "td",
-                          { staticClass: "text-center text-capitalize" },
-                          [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn btn-sm btn-primary",
-                                attrs: { href: "edit/" + data.id }
-                              },
-                              [
-                                _c("span", { staticClass: "icon-edit" }),
-                                _vm._v(
-                                  "\n                                edit\n                            "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-sm btn-danger",
-                                on: {
-                                  click: function($event) {
-                                    _vm.showDeleteConfirmation(data)
-                                  }
-                                }
-                              },
-                              [
-                                _c("span", { staticClass: "icon-delete" }),
-                                _vm._v(
-                                  "\n                                hapus\n                            "
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(index + 1))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(_vm._s(_vm._f("formatDate")(data.month)))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.store_location))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_44))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_32))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_22))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_21))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_8))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_3))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_2))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.additional_info))])
-                      ]
-                    )
-                  })
-                )
-              ])
-            ])
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.june.length != 0
-        ? _c("slide", [
-            _c("div", { staticClass: "table-responsive" }, [
-              _c("table", { staticClass: "table table-light table-sm" }, [
-                _c(
-                  "thead",
-                  {
-                    staticClass: "bg-dark text-light table-bordered text-center"
-                  },
-                  [
-                    _c("tr", [
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("EDIT / HAPUS")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("NO")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("BULAN")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("ESTIMASI TANGGAL OPENING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("NAMA / LOKASI STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("PEMILIK STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [
-                          _vm._v(
-                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("FIT OUT")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("TRAINING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("PREPARE BARANG")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("OPENING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "tr",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
-                      [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "3" }
-                          },
-                          [_vm._v("DARI PROJECT")]
-                        ),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-44")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-32")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-22")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-21")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-8")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-3")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-2")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H")]),
-                        _vm._v(" "),
-                        _c("th")
-                      ]
-                    )
-                  ]
-                ),
+                _c("td", [_vm._v(_vm._s(data.store_location))]),
                 _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.june, function(data, index) {
-                    return _c(
-                      "tr",
-                      {
-                        key: data.index,
-                        class: {
-                          "bg-warning": data.updating,
-                          "bg-success": data.finished
-                        },
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
-                      [
-                        _c(
-                          "td",
-                          { staticClass: "text-center text-capitalize" },
-                          [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn btn-sm btn-primary",
-                                attrs: { href: "edit/" + data.id }
-                              },
-                              [
-                                _c("span", { staticClass: "icon-edit" }),
-                                _vm._v(
-                                  "\n                                edit\n                            "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-sm btn-danger",
-                                on: {
-                                  click: function($event) {
-                                    _vm.showDeleteConfirmation(data)
-                                  }
-                                }
-                              },
-                              [
-                                _c("span", { staticClass: "icon-delete" }),
-                                _vm._v(
-                                  "\n                                hapus\n                            "
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(index + 1))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(_vm._s(_vm._f("formatDate")(data.month)))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.store_location))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_44))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_32))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_22))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_21))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_8))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_3))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_2))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.additional_info))])
-                      ]
-                    )
-                  })
-                )
-              ])
-            ])
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.july.length != 0
-        ? _c("slide", [
-            _c("div", { staticClass: "table-responsive" }, [
-              _c("table", { staticClass: "table table-light table-sm" }, [
-                _c(
-                  "thead",
-                  {
-                    staticClass: "bg-dark text-light table-bordered text-center"
-                  },
-                  [
-                    _c("tr", [
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("EDIT / HAPUS")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("NO")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("BULAN")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("ESTIMASI TANGGAL OPENING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("NAMA / LOKASI STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("PEMILIK STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [
-                          _vm._v(
-                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("FIT OUT")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("TRAINING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("PREPARE BARANG")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("OPENING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "tr",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
-                      [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "3" }
-                          },
-                          [_vm._v("DARI PROJECT")]
-                        ),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-44")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-32")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-22")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-21")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-8")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-3")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-2")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H")]),
-                        _vm._v(" "),
-                        _c("th")
-                      ]
-                    )
-                  ]
-                ),
+                _c("td", [_vm._v(_vm._s(data.store_owner))]),
                 _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.july, function(data, index) {
-                    return _c(
-                      "tr",
-                      {
-                        key: data.index,
-                        class: {
-                          "bg-warning": data.updating,
-                          "bg-success": data.finished
-                        },
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
-                      [
-                        _c(
-                          "td",
-                          { staticClass: "text-center text-capitalize" },
-                          [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn btn-sm btn-primary",
-                                attrs: { href: "edit/" + data.id }
-                              },
-                              [
-                                _c("span", { staticClass: "icon-edit" }),
-                                _vm._v(
-                                  "\n                                edit\n                            "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-sm btn-danger",
-                                on: {
-                                  click: function($event) {
-                                    _vm.showDeleteConfirmation(data)
-                                  }
-                                }
-                              },
-                              [
-                                _c("span", { staticClass: "icon-delete" }),
-                                _vm._v(
-                                  "\n                                hapus\n                            "
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(index + 1))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(_vm._s(_vm._f("formatDate")(data.month)))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.store_location))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_44))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_32))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_22))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_21))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_8))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_3))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_2))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.additional_info))])
-                      ]
-                    )
-                  })
-                )
-              ])
-            ])
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.august.length != 0
-        ? _c("slide", [
-            _c("div", { staticClass: "table-responsive" }, [
-              _c("table", { staticClass: "table table-light table-sm" }, [
-                _c(
-                  "thead",
-                  {
-                    staticClass: "bg-dark text-light table-bordered text-center"
-                  },
-                  [
-                    _c("tr", [
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("EDIT / HAPUS")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("NO")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("BULAN")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("ESTIMASI TANGGAL OPENING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("NAMA / LOKASI STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("PEMILIK STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [
-                          _vm._v(
-                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("FIT OUT")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("TRAINING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("PREPARE BARANG")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("OPENING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "tr",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
-                      [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "3" }
-                          },
-                          [_vm._v("DARI PROJECT")]
-                        ),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-44")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-32")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-22")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-21")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-8")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-3")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-2")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H")]),
-                        _vm._v(" "),
-                        _c("th")
-                      ]
-                    )
-                  ]
-                ),
+                _c("td", { staticClass: "text-center" }, [
+                  _vm._v(_vm._s(data.h_44))
+                ]),
                 _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.august, function(data, index) {
-                    return _c(
-                      "tr",
-                      {
-                        key: data.index,
-                        class: {
-                          "bg-warning": data.updating,
-                          "bg-success": data.finished
-                        },
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
-                      [
-                        _c(
-                          "td",
-                          { staticClass: "text-center text-capitalize" },
-                          [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn btn-sm btn-primary",
-                                attrs: { href: "edit/" + data.id }
-                              },
-                              [
-                                _c("span", { staticClass: "icon-edit" }),
-                                _vm._v(
-                                  "\n                                edit\n                            "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-sm btn-danger",
-                                on: {
-                                  click: function($event) {
-                                    _vm.showDeleteConfirmation(data)
-                                  }
-                                }
-                              },
-                              [
-                                _c("span", { staticClass: "icon-delete" }),
-                                _vm._v(
-                                  "\n                                hapus\n                            "
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(index + 1))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(_vm._s(_vm._f("formatDate")(data.month)))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.store_location))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_44))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_32))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_22))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_21))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_8))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_3))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_2))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.additional_info))])
-                      ]
-                    )
-                  })
-                )
-              ])
-            ])
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.september.length != 0
-        ? _c("slide", [
-            _c("div", { staticClass: "table-responsive" }, [
-              _c("table", { staticClass: "table table-light table-sm" }, [
-                _c(
-                  "thead",
-                  {
-                    staticClass: "bg-dark text-light table-bordered text-center"
-                  },
-                  [
-                    _c("tr", [
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("EDIT / HAPUS")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("NO")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("BULAN")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("ESTIMASI TANGGAL OPENING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("NAMA / LOKASI STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("PEMILIK STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [
-                          _vm._v(
-                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("FIT OUT")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("TRAINING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("PREPARE BARANG")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("OPENING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "tr",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
-                      [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "3" }
-                          },
-                          [_vm._v("DARI PROJECT")]
-                        ),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-44")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-32")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-22")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-21")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-8")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-3")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-2")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H")]),
-                        _vm._v(" "),
-                        _c("th")
-                      ]
-                    )
-                  ]
-                ),
+                _c("td", { staticClass: "text-center" }, [
+                  _vm._v(_vm._s(data.h_32))
+                ]),
                 _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.september, function(data, index) {
-                    return _c(
-                      "tr",
-                      {
-                        key: data.index,
-                        class: {
-                          "bg-warning": data.updating,
-                          "bg-success": data.finished
-                        },
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
-                      [
-                        _c(
-                          "td",
-                          { staticClass: "text-center text-capitalize" },
-                          [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn btn-sm btn-primary",
-                                attrs: { href: "edit/" + data.id }
-                              },
-                              [
-                                _c("span", { staticClass: "icon-edit" }),
-                                _vm._v(
-                                  "\n                                edit\n                            "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-sm btn-danger",
-                                on: {
-                                  click: function($event) {
-                                    _vm.showDeleteConfirmation(data)
-                                  }
-                                }
-                              },
-                              [
-                                _c("span", { staticClass: "icon-delete" }),
-                                _vm._v(
-                                  "\n                                hapus\n                            "
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(index + 1))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(_vm._s(_vm._f("formatDate")(data.month)))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.store_location))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_44))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_32))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_22))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_21))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_8))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_3))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_2))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.additional_info))])
-                      ]
-                    )
-                  })
-                )
-              ])
-            ])
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.october.length != 0
-        ? _c("slide", [
-            _c("div", { staticClass: "table-responsive" }, [
-              _c("table", { staticClass: "table table-light table-sm" }, [
-                _c(
-                  "thead",
-                  {
-                    staticClass: "bg-dark text-light table-bordered text-center"
-                  },
-                  [
-                    _c("tr", [
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("EDIT / HAPUS")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("NO")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("BULAN")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("ESTIMASI TANGGAL OPENING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("NAMA / LOKASI STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("PEMILIK STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [
-                          _vm._v(
-                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("FIT OUT")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("TRAINING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("PREPARE BARANG")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("OPENING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "tr",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
-                      [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "3" }
-                          },
-                          [_vm._v("DARI PROJECT")]
-                        ),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-44")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-32")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-22")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-21")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-8")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-3")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-2")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H")]),
-                        _vm._v(" "),
-                        _c("th")
-                      ]
-                    )
-                  ]
-                ),
+                _c("td", { staticClass: "text-center" }, [
+                  _vm._v(_vm._s(data.h_22))
+                ]),
                 _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.october, function(data, index) {
-                    return _c(
-                      "tr",
-                      {
-                        key: data.index,
-                        class: {
-                          "bg-warning": data.updating,
-                          "bg-success": data.finished
-                        },
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
-                      [
-                        _c(
-                          "td",
-                          { staticClass: "text-center text-capitalize" },
-                          [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn btn-sm btn-primary",
-                                attrs: { href: "edit/" + data.id }
-                              },
-                              [
-                                _c("span", { staticClass: "icon-edit" }),
-                                _vm._v(
-                                  "\n                                edit\n                            "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-sm btn-danger",
-                                on: {
-                                  click: function($event) {
-                                    _vm.showDeleteConfirmation(data)
-                                  }
-                                }
-                              },
-                              [
-                                _c("span", { staticClass: "icon-delete" }),
-                                _vm._v(
-                                  "\n                                hapus\n                            "
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(index + 1))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(_vm._s(_vm._f("formatDate")(data.month)))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.store_location))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_44))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_32))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_22))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_21))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_8))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_3))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_2))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.additional_info))])
-                      ]
-                    )
-                  })
-                )
-              ])
-            ])
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.november.length != 0
-        ? _c("slide", [
-            _c("div", { staticClass: "table-responsive" }, [
-              _c("table", { staticClass: "table table-light table-sm" }, [
-                _c(
-                  "thead",
-                  {
-                    staticClass: "bg-dark text-light table-bordered text-center"
-                  },
-                  [
-                    _c("tr", [
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("EDIT / HAPUS")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("NO")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("BULAN")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("ESTIMASI TANGGAL OPENING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("NAMA / LOKASI STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("PEMILIK STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [
-                          _vm._v(
-                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("FIT OUT")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("TRAINING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("PREPARE BARANG")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("OPENING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "tr",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
-                      [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "3" }
-                          },
-                          [_vm._v("DARI PROJECT")]
-                        ),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-44")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-32")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-22")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-21")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-8")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-3")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-2")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H")]),
-                        _vm._v(" "),
-                        _c("th")
-                      ]
-                    )
-                  ]
-                ),
+                _c("td", { staticClass: "text-center" }, [
+                  _vm._v(_vm._s(data.h_21))
+                ]),
                 _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.november, function(data, index) {
-                    return _c(
-                      "tr",
-                      {
-                        key: data.index,
-                        class: {
-                          "bg-warning": data.updating,
-                          "bg-success": data.finished
-                        },
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
-                      [
-                        _c(
-                          "td",
-                          { staticClass: "text-center text-capitalize" },
-                          [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn btn-sm btn-primary",
-                                attrs: { href: "edit/" + data.id }
-                              },
-                              [
-                                _c("span", { staticClass: "icon-edit" }),
-                                _vm._v(
-                                  "\n                                edit\n                            "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-sm btn-danger",
-                                on: {
-                                  click: function($event) {
-                                    _vm.showDeleteConfirmation(data)
-                                  }
-                                }
-                              },
-                              [
-                                _c("span", { staticClass: "icon-delete" }),
-                                _vm._v(
-                                  "\n                                hapus\n                            "
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(index + 1))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(_vm._s(_vm._f("formatDate")(data.month)))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.store_location))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_44))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_32))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_22))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_21))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_8))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_3))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_2))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.additional_info))])
-                      ]
-                    )
-                  })
-                )
-              ])
-            ])
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.desember.length != 0
-        ? _c("slide", [
-            _c("div", { staticClass: "table-responsive" }, [
-              _c("table", { staticClass: "table table-light table-sm" }, [
-                _c(
-                  "thead",
-                  {
-                    staticClass: "bg-dark text-light table-bordered text-center"
-                  },
-                  [
-                    _c("tr", [
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("EDIT / HAPUS")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("NO")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        {
-                          staticStyle: { "vertical-align": "middle" },
-                          attrs: { rowspan: "2" }
-                        },
-                        [_vm._v("BULAN")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("ESTIMASI TANGGAL OPENING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("NAMA / LOKASI STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("PEMILIK STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [
-                          _vm._v(
-                            "LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI"
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("FIT OUT")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("TRAINING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("PREPARE BARANG")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("OPENING")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "th",
-                        { staticStyle: { "vertical-align": "middle" } },
-                        [_vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "tr",
-                      {
-                        staticClass: "text-center",
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
-                      [
-                        _c(
-                          "th",
-                          {
-                            staticClass: "text-center",
-                            attrs: { colspan: "3" }
-                          },
-                          [_vm._v("DARI PROJECT")]
-                        ),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-44")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-32")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-22")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-21")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-8")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-3")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H-2")]),
-                        _vm._v(" "),
-                        _c("th", [_vm._v("H")]),
-                        _vm._v(" "),
-                        _c("th")
-                      ]
-                    )
-                  ]
-                ),
+                _c("td", { staticClass: "text-center" }, [
+                  _vm._v(_vm._s(data.h_8))
+                ]),
                 _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.desember, function(data, index) {
-                    return _c(
-                      "tr",
-                      {
-                        key: data.index,
-                        class: {
-                          "bg-warning": data.updating,
-                          "bg-success": data.finished
-                        },
-                        staticStyle: { "white-space": "nowrap", width: "1%" }
-                      },
-                      [
-                        _c(
-                          "td",
-                          { staticClass: "text-center text-capitalize" },
-                          [
-                            _c(
-                              "a",
-                              {
-                                staticClass: "btn btn-sm btn-primary",
-                                attrs: { href: "edit/" + data.id }
-                              },
-                              [
-                                _c("span", { staticClass: "icon-edit" }),
-                                _vm._v(
-                                  "\n                                edit\n                            "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-sm btn-danger",
-                                on: {
-                                  click: function($event) {
-                                    _vm.showDeleteConfirmation(data)
-                                  }
-                                }
-                              },
-                              [
-                                _c("span", { staticClass: "icon-delete" }),
-                                _vm._v(
-                                  "\n                                hapus\n                            "
-                                )
-                              ]
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(index + 1))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _vm._v(_vm._s(_vm._f("formatDate")(data.month)))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.opening_estimation))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.store_location))]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.store_owner))]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_44))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_32))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_22))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_21))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_8))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_3))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h_2))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", { staticClass: "text-center" }, [
-                          _vm._v(_vm._s(data.h))
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [_vm._v(_vm._s(data.additional_info))])
-                      ]
-                    )
-                  })
-                )
-              ])
-            ])
-          ])
-        : _vm._e()
-    ],
-    1
-  )
+                _c("td", { staticClass: "text-center" }, [
+                  _vm._v(_vm._s(data.h_3))
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "text-center" }, [
+                  _vm._v(_vm._s(data.h_2))
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "text-center" }, [
+                  _vm._v(_vm._s(data.h))
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(data.additional_info))])
+              ]
+            )
+          })
+        )
+      ])
+    ])
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-group-prepend" }, [
+      _c("div", { staticClass: "input-group-text" }, [
+        _c("i", { staticClass: "icon-search" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "thead",
+      { staticClass: "bg-dark text-light table-bordered text-center" },
+      [
+        _c("tr", [
+          _c(
+            "th",
+            {
+              staticStyle: { "vertical-align": "middle" },
+              attrs: { rowspan: "2" }
+            },
+            [_vm._v("EDIT / HAPUS")]
+          ),
+          _vm._v(" "),
+          _c(
+            "th",
+            {
+              staticStyle: { "vertical-align": "middle" },
+              attrs: { rowspan: "2" }
+            },
+            [_vm._v("NO")]
+          ),
+          _vm._v(" "),
+          _c(
+            "th",
+            {
+              staticStyle: { "vertical-align": "middle" },
+              attrs: { rowspan: "2" }
+            },
+            [_vm._v("BULAN")]
+          ),
+          _vm._v(" "),
+          _c("th", { staticStyle: { "vertical-align": "middle" } }, [
+            _vm._v("ESTIMASI TANGGAL OPENING")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticStyle: { "vertical-align": "middle" } }, [
+            _vm._v("NAMA / LOKASI STORE")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticStyle: { "vertical-align": "middle" } }, [
+            _vm._v("PEMILIK STORE")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticStyle: { "vertical-align": "middle" } }, [
+            _vm._v("INVOICE TOTAL INVESTASI SUDAH DILUNASI")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticStyle: { "vertical-align": "middle" } }, [
+            _vm._v("LICENSE AGREEMENT SUDAH DITANDATANGANI OLEH LISENSI")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticStyle: { "vertical-align": "middle" } }, [
+            _vm._v("FIT OUT")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticStyle: { "vertical-align": "middle" } }, [
+            _vm._v("TRAINING")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticStyle: { "vertical-align": "middle" } }, [
+            _vm._v("PREPARE BARANG")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticStyle: { "vertical-align": "middle" } }, [
+            _vm._v("EQUIPMENT DARI SUPPLIER DATANG KE STORE")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticStyle: { "vertical-align": "middle" } }, [
+            _vm._v("GUDANG / LISENSI KIRIM BARANG KE STORE")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticStyle: { "vertical-align": "middle" } }, [
+            _vm._v("OPENING")
+          ]),
+          _vm._v(" "),
+          _c("th", { staticStyle: { "vertical-align": "middle" } }, [
+            _vm._v("KETERANGAN (JIKA ADA PERUBAHAN)")
+          ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "tr",
+          {
+            staticClass: "text-center",
+            staticStyle: { "white-space": "nowrap", width: "1%" }
+          },
+          [
+            _c("th", { staticClass: "text-center", attrs: { colspan: "3" } }, [
+              _vm._v("DARI PROJECT")
+            ]),
+            _vm._v(" "),
+            _c("th", [_vm._v("H-44")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("H-32")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("H-22")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("H-21")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("H-8")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("H-3")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("H-2")]),
+            _vm._v(" "),
+            _c("th", [_vm._v("H")]),
+            _vm._v(" "),
+            _c("th")
+          ]
+        )
+      ]
+    )
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -74433,7 +70773,7 @@ if (false) {
 /* 180 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: ModuleBuildError: Module build failed: Error: Missing binding D:\\portofolio\\laravel\\liveschedule\\node_modules\\node-sass\\vendor\\win32-x64-57\\binding.node\nNode Sass could not find a binding for your current environment: Windows 64-bit with Node.js 8.x\n\nFound bindings for the following environments:\n  - Windows 64-bit with Node.js 10.x\n\nThis usually happens because your environment has changed since running `npm install`.\nRun `npm rebuild node-sass --force` to build the binding for your current environment.\n    at module.exports (D:\\portofolio\\laravel\\liveschedule\\node_modules\\node-sass\\lib\\binding.js:15:13)\n    at Object.<anonymous> (D:\\portofolio\\laravel\\liveschedule\\node_modules\\node-sass\\lib\\index.js:14:35)\n    at Module._compile (module.js:652:30)\n    at Object.Module._extensions..js (module.js:663:10)\n    at Module.load (module.js:565:32)\n    at tryModuleLoad (module.js:505:12)\n    at Function.Module._load (module.js:497:3)\n    at Module.require (module.js:596:17)\n    at require (internal/module.js:11:18)\n    at Object.<anonymous> (D:\\portofolio\\laravel\\liveschedule\\node_modules\\sass-loader\\lib\\loader.js:3:14)\n    at Module._compile (module.js:652:30)\n    at Object.Module._extensions..js (module.js:663:10)\n    at Module.load (module.js:565:32)\n    at tryModuleLoad (module.js:505:12)\n    at Function.Module._load (module.js:497:3)\n    at Module.require (module.js:596:17)\n    at require (internal/module.js:11:18)\n    at loadLoader (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\loadLoader.js:13:17)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:165:10)\n    at D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:173:18\n    at loadLoader (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\loadLoader.js:36:3)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:165:10)\n    at D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:173:18\n    at loadLoader (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\loadLoader.js:36:3)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:165:10)\n    at D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:173:18\n    at loadLoader (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\loadLoader.js:36:3)\n    at runLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\webpack\\lib\\NormalModule.js:195:19)\n    at D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:364:11\n    at D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:170:18\n    at loadLoader (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\loadLoader.js:27:11)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:165:10)\n    at D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:173:18\n    at loadLoader (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\loadLoader.js:36:3)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:165:10)\n    at D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:173:18\n    at loadLoader (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\loadLoader.js:36:3)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:165:10)\n    at D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:173:18\n    at loadLoader (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\loadLoader.js:36:3)\n    at iteratePitchingLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:169:2)\n    at runLoaders (D:\\portofolio\\laravel\\liveschedule\\node_modules\\loader-runner\\lib\\LoaderRunner.js:362:2)\n    at NormalModule.doBuild (D:\\portofolio\\laravel\\liveschedule\\node_modules\\webpack\\lib\\NormalModule.js:182:3)\n    at NormalModule.build (D:\\portofolio\\laravel\\liveschedule\\node_modules\\webpack\\lib\\NormalModule.js:275:15)\n    at Compilation.buildModule (D:\\portofolio\\laravel\\liveschedule\\node_modules\\webpack\\lib\\Compilation.js:157:10)\n    at moduleFactory.create (D:\\portofolio\\laravel\\liveschedule\\node_modules\\webpack\\lib\\Compilation.js:460:10)\n    at factory (D:\\portofolio\\laravel\\liveschedule\\node_modules\\webpack\\lib\\NormalModuleFactory.js:243:5)\n    at applyPluginsAsyncWaterfall (D:\\portofolio\\laravel\\liveschedule\\node_modules\\webpack\\lib\\NormalModuleFactory.js:94:13)\n    at D:\\portofolio\\laravel\\liveschedule\\node_modules\\tapable\\lib\\Tapable.js:268:11\n    at NormalModuleFactory.params.normalModuleFactory.plugin (D:\\portofolio\\laravel\\liveschedule\\node_modules\\webpack\\lib\\CompatibilityPlugin.js:52:5)\n    at NormalModuleFactory.applyPluginsAsyncWaterfall (D:\\portofolio\\laravel\\liveschedule\\node_modules\\tapable\\lib\\Tapable.js:272:13)\n    at resolver (D:\\portofolio\\laravel\\liveschedule\\node_modules\\webpack\\lib\\NormalModuleFactory.js:69:10)\n    at process.nextTick (D:\\portofolio\\laravel\\liveschedule\\node_modules\\webpack\\lib\\NormalModuleFactory.js:196:7)\n    at _combinedTickCallback (internal/process/next_tick.js:131:7)");
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

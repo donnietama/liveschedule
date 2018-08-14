@@ -977,6 +977,7 @@
 }
 
 .fa,
+.icon-search,
 .icon-sign-in,
 .icon-register,
 .icon-add-data,
@@ -1057,6 +1058,7 @@
 }
 
 .fa.fa-pull-left,
+.fa-pull-left.icon-search,
 .fa-pull-left.icon-sign-in,
 .fa-pull-left.icon-register,
 .fa-pull-left.icon-add-data,
@@ -1067,6 +1069,7 @@
 }
 
 .fa.fa-pull-right,
+.fa-pull-right.icon-search,
 .fa-pull-right.icon-sign-in,
 .fa-pull-right.icon-register,
 .fa-pull-right.icon-add-data,
@@ -1087,6 +1090,7 @@
 }
 
 .fa.pull-left,
+.pull-left.icon-search,
 .pull-left.icon-sign-in,
 .pull-left.icon-register,
 .pull-left.icon-add-data,
@@ -1097,6 +1101,7 @@
 }
 
 .fa.pull-right,
+.pull-right.icon-search,
 .pull-right.icon-sign-in,
 .pull-right.icon-register,
 .pull-right.icon-add-data,
@@ -1219,7 +1224,8 @@
   content: "\F001";
 }
 
-.fa-search:before {
+.fa-search:before,
+.icon-search:before {
   content: "\F002";
 }
 
