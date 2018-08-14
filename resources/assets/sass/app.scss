@@ -28,7 +28,7 @@ $fa-font-path:"~font-awesome/fonts";
 }
 .icon-back-button {
   @extend .fa;
-  @extend .fa-angle-left;
+  @extend .fa-arrow-left;
   @extend .mr-2;
 }
 .icon-edit {

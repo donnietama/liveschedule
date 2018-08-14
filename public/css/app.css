@@ -1586,7 +1586,8 @@
   content: "\F05E";
 }
 
-.fa-arrow-left:before {
+.fa-arrow-left:before,
+.icon-back-button:before {
   content: "\F060";
 }
 
@@ -2177,8 +2178,7 @@
   content: "\F103";
 }
 
-.fa-angle-left:before,
-.icon-back-button:before {
+.fa-angle-left:before {
   content: "\F104";
 }
 
