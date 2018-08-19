@@ -130,7 +130,7 @@ export default {
                 swal({
                     icon: 'success',
                     title: 'Berhasil!',
-                    text: 'Data berhasil dihapus!',
+                    text: 'Data berhasil dihapus! silahkan refresh halaman',
                 })
             })
             .catch(err => {

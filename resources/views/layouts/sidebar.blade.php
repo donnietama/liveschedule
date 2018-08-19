@@ -5,7 +5,7 @@
                 <span class="icon-back-button fa-2x"></span>
             </li>
         </a>
-        <a href="/create">
+        <a href="{{ url('/create') }}">
             <li class="bg-warning text-white py-4 px-4">
                 <span class="icon-add-data fa-2x"></span>
             </li>

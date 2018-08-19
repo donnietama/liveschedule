@@ -69274,7 +69274,7 @@ Vue.filter('formatDate', function (value) {
                 __WEBPACK_IMPORTED_MODULE_0_sweetalert___default()({
                     icon: 'success',
                     title: 'Berhasil!',
-                    text: 'Data berhasil dihapus!'
+                    text: 'Data berhasil dihapus! silahkan refresh halaman'
                 });
             }).catch(function (err) {
                 __WEBPACK_IMPORTED_MODULE_0_sweetalert___default()({

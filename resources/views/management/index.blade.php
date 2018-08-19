@@ -30,7 +30,7 @@
                             <div class="nav-link bg-danger text-white text-capitalize">sudah melewati hari h & belum selesai</div>
                         </li>
                         <li class="nav-item ml-2">
-                            <div class="nav-link bg-warning text-dark text-capitalize">5 hari menjelang hari h & belum selesai</div>
+                            <div class="nav-link bg-warning text-dark text-capitalize">menjelang hari h & belum selesai</div>
                         </li>
                         <li class="nav-item ml-2">
                             <div class="nav-link bg-success text-white text-capitalize">selesai</div>
